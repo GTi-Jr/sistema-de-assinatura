@@ -11,7 +11,7 @@
     </div>
     <% if !user_signed_in? %>
       <%= link_to '#', class: 'btn btn-primary btn-login', 'data-toggle' => 'modal', 'data-target' => '#loginModal' do %>
-        <i class="icon-user"></i>Login
+        <i class="icon-user"></i>Entrar
       <% end %>
     <% end %>
     <nav class="main-navi">
@@ -33,6 +33,17 @@
         </ul>
         </li>
         <li><a href="cs-page.html">Components &amp; Styles</a></li>
+        <% if user_signed_in? %>
+          <li class="has-dropdown">
+            <%= link_to '#' do %>
+              Oi, Caio!
+              <i class="fa fa-caret-down"></i>
+            <% end %>
+            <ul class="dropdown">
+              <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </nav>
   </div>
