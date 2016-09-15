@@ -2,25 +2,59 @@
 <div class="light-skin modal fade" id="loginModal" tabindex="-1" role="form" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" style="margin-bottom: -10%; border-bottom: 0">
+        <!--Tabs-->
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs central">
+              <li class="active"><a href="#login-tab" data-toggle="tab">Login</a></li>
+              <li><a href="#register-tab" data-toggle="tab">Cadastro</a></li>
+            </ul>
+          </div>
+        </div>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Login</h4>
       </div>
       <div class="modal-body">
-        <%= form_for(:user, url: session_path(:user), class: 'login-form') do |f| %>
-          <div class="form-group">
-            <%= f.text_field :email, id: 'email', class: 'form-control', placeholder: 'Email' %>
+        <!-- Tab panes -->
+          <div class="row tab-content central">
+
+            <div class="tab-pane fade in active col-lg-12" id="login-tab">
+              <%= form_for(:user, url: session_path(:user), class: 'login-form') do |f| %>
+                <div class="form-group">
+                  <%= f.text_field :email, id: 'email', class: 'form-control', placeholder: 'Email' %>
+                </div>
+                <div class="form-group">
+                  <%= f.password_field :password, class: 'form-control', placeholder: 'Senha' %>
+                </div>
+                <div class="form-group">
+                  <%= f.submit 'Entrar', class: 'btn btn-primary' %><%= link_to 'Esqueceu sua senha?', new_password_path(:user) %>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="tab-pane fade in col-lg-12" id="register-tab">
+              <div class="row">
+                <%= form_for(:user, url: registration_path(:user), class: 'login-form') do |f| %>
+                  <div class="form-group">
+                    <%= f.text_field :name, id: 'name', class: 'form-control', placeholder: 'Nome' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.text_field :email, id: 'email', class: 'form-control', placeholder: 'Email' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.password_field :password, class: 'form-control', placeholder: 'Senha' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirmação senha' %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.submit 'Cadastrar', class: 'btn btn-primary' %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <%= f.password_field :password, class: 'form-control', placeholder: 'Senha' %>
-          </div>
-          <div class="form-group">
-            <%= f.check_box :remember_me %><%= f.label :remember_me, 'Lembrar-me' %>
-          </div>
-          <div class="form-group">
-            <%= f.submit 'Entrar', class: 'btn btn-primary' %><%= link_to 'Esqueceu sua senha?', new_password_path(:user) %>
-          </div>
-        <% end %>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
