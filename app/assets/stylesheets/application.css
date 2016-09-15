@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require ultima/bootstrap.min.css
+ *= require ultima/animate.css
+ *= require ultima/demo-styles.css
+ *= require ultima/font-awesome.min.css
+ *= require ultima/icon-moon.css
+ *= require ultima/theme-styles.css
+ *= require ultima/colors/color-default.css
  */

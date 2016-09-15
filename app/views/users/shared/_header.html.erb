@@ -1,0 +1,39 @@
+<!--Header-->
+<header class="stiky-header">
+  <div class="container group">
+    <a class="logo" href="index.html"><img src="img/logo-dark.png" alt="Ultima"/></a>
+    <a class="logo-mobile" href="index.html"><img src="img/logo-mobile.png" alt="Ultima"/></a>
+    <div class="navi-toggle group">
+      <span class="dot"></span><span class="line"></span>
+      <span class="dot"></span><span class="line"></span>
+      <span class="dot"></span><span class="line"></span>
+      <span class="dot"></span><span class="line"></span>
+    </div>
+    <% if !user_signed_in? %>
+      <%= link_to '#', class: 'btn btn-primary btn-login', 'data-toggle' => 'modal', 'data-target' => '#loginModal' do %>
+        <i class="icon-user"></i>Login
+      <% end %>
+    <% end %>
+    <nav class="main-navi">
+      <ul>
+        <li class="active"><a class="scroll-up" href="#">Home</a></li>
+        <li class="has-dropdown"><a class="scroll" href="#features">Features<i class="fa fa-caret-down"></i></a>
+        <ul class="dropdown">
+          <li><a href="#">Submenu Item</a></li>
+          <li><a href="#">Submenu Item</a></li>
+          <li><a href="#">Submenu Item</a></li>
+          <li><a href="#">Submenu Item</a></li>
+        </ul>
+        </li>
+        <li class="has-dropdown"><a href="coming-soon.html">Coming soon<i class="fa fa-caret-down"></i></a>
+        <ul class="dropdown">
+          <li><a href="#">Submenu Item</a></li>
+          <li><a href="#">Submenu Item</a></li>
+          <li><a href="#">Submenu Item</a></li>
+        </ul>
+        </li>
+        <li><a href="cs-page.html">Components &amp; Styles</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
