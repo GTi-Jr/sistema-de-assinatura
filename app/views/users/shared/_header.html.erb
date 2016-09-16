@@ -1,7 +1,7 @@
 <!--Header-->
 <header class="stiky-header">
   <div class="container group">
-    <a class="logo" href="index.html"><img src="img/logo-dark.png" alt="Ultima"/></a>
+    <a class="logo" href="index.html"><%= image_tag 'img/logo-dark.png', alt: 'Ultima' %></a>
     <a class="logo-mobile" href="index.html"><img src="img/logo-mobile.png" alt="Ultima"/></a>
     <div class="navi-toggle group">
       <span class="dot"></span><span class="line"></span>
@@ -10,7 +10,7 @@
       <span class="dot"></span><span class="line"></span>
     </div>
     <% if !user_signed_in? %>
-      <%= link_to '#', class: 'btn btn-primary btn-login', 'data-toggle' => 'modal', 'data-target' => '#loginModal' do %>
+      <%= link_to new_user_session_path, class: 'btn btn-primary btn-login' do %>
         <i class="icon-user"></i>Entrar
       <% end %>
     <% end %>
