@@ -1,0 +1,5 @@
+/*Usado em adição ao bootstrap para centralizar*/
+.col-centered {
+  float: none !important;
+  margin: 0 auto;
+}
