@@ -32,5 +32,6 @@
 //= require ultima/landing2
 //= require toastr.min.js
 //
+//= require jquery.mask
 //= require_tree .
 //
