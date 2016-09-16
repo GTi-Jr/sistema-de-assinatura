@@ -30,23 +30,7 @@
 //= require ultima/plugins/waypoints.min
 //= require ultima/plugins/smoothscroll
 //= require ultima/landing2
+//= require toastr.min.js
 //
 //= require_tree .
 //
-//<!--Javascript (jQuery) Libraries and Plugins-->
-//<script src="js/libs/jquery-1.11.2.min.js"></script>
-//<script src="js/libs/jquery.easing.1.3.js"></script>
-//<script src="js/plugins/bootstrap.min.js"></script>
-//<script src="js/plugins/jquery.touchSwipe.min.js"></script>
-//<script src="js/plugins/jquery.placeholder.js"></script>
-//<script src="js/plugins/icheck.min.js"></script>
-//<script src="js/plugins/jquery.validate.min.js"></script>
-//<script src="js/plugins/gallery.js"></script>
-//<script src="js/plugins/jquery.fitvids.js"></script>
-//<script src="js/plugins/jquery.bxslider.min.js"></script>
-//<script src="js/plugins/chart.js"></script>
-//<script src="js/plugins/waypoints.min.js"></script>
-//<script src="js/plugins/smoothscroll.js"></script>
-//<script src="js/plugins/color-switcher.js"></script>
-//<script src="mailer/mailer.js"></script>
-//<script src="js/landing2.js"></script>

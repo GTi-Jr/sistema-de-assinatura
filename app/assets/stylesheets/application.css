@@ -18,6 +18,8 @@
  *= require ultima/icon-moon.css
  *= require ultima/theme-styles.css
  *= require ultima/colors/color-default.css
+ *= require toastr.min.css
+
  *= require_tree .
  */
 
