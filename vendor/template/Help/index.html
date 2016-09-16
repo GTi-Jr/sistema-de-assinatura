@@ -1,0 +1,434 @@
+<!DOCTYPE html>         
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ultima v2.2 User Guide</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
+  </head>
+
+	<!--Body-->
+  <body>
+  	
+    <!--Wrapper for Pushing Footer-->
+    <div class="wrapper">
+    
+      <!--Header-->
+      <div class="header">
+        <div class="container">
+        	<a class="logo" href="http://8guild.com" target="_blank"><img src="img/logo.png" alt="8 Guild"/></a>
+          <div class="heading">
+            <h1 class="normal">Ultima Responsive HTML5 Landing Page V2.3.1</h1>
+            <h3>An Ultimate Landing Page for Presenting Your Products and Services</h3>
+            <h5> Created for You by <a href="http://8guild.com" target="_blank">8Guild</a></h5>
+          </div>
+        </div>
+      </div><!--Close Header-->
+      
+      <div class="container content">
+      
+        <div class="tabs">
+          <ul class="tabs-links">
+            <li><a href="#Introduction">Introduction</a></li>
+            <li><a href="#FoldersFiles">Folders and Files</a></li>
+            <li><a href="#EditHTML">Customizing Template<br/>(Editing HTML Files)</a></li>
+            <li><a href="#EditCSS">Changing Look and Feel<br/>(Editing CSS Files)</a></li>
+            <li><a href="#setupForm">Setting Up Ajax Contact Form</a></li>
+            <li><a href="#Plugins">jQuery Plugins<br/>(Editing JS Files)</a></li>
+            <li><a href="#Photoshop">Photoshop Files</a></li>
+            <li><a href="#Changelog">Changelog</a></li>
+            <li><a href="#Credits">Sources and Credits</a></li>
+          </ul>
+          <div class="tabs-panes">
+          
+            <!--Tabs Pane-->
+            <div id="Introduction" class="tabs-pane">
+              <h2>Introduction</h2>
+              <div class="group">
+                <img src="img/screenshots/introduction.png" alt="Introduction"/>
+                <p class="justify"><strong>Ultima</strong> is highly customizable and extendible HTML5 landing page. Whether you need to present your product, service, Web App or Mobile App, Ultima has you cover.</p>
+                <p>This feature-rich template build with <strong>Bootstrap 3</strong> and has almost all its important components restyled. In addition to this we added some new components and transitions. As the result you have everything you need to build professional looking landing page that will surely impress your visitors.</p>
+                <p><strong>Ultima</strong> comes with separate <strong>Coming Soon page</strong>. While your landing page is under construction show your visitors beautiful coming soon page with the coundown and subscription form. So they always stay connected.</p>
+              </div>
+            </div><!--/Tabs Pane-->
+          
+            <!--Tabs Pane-->
+            <div id="FoldersFiles" class="tabs-pane">
+              <h2>Folders and Files</h2>
+              <table width="100%" border="1">
+                <tr>
+                  <th scope="col">File Path</th>
+                  <th scope="col">Description</th>
+                </tr>
+                <tr>
+                  <td>Main</td>
+                  <td>Root folder</td>
+                </tr>
+                <tr>
+                  <td>Main/PSD</td>
+                  <td>
+                  	PSD Folder includes all .psd files, <span class="underline">which are:</span><br/>
+                    Landing Page.psd - Layered psd file of Landing page;<br/>
+                    Components &amp; Styles.psd - Layered psd file of Components &amp; Styles page;<br/>
+                    Coming Soon.psd - Layered psd file of Coming Soon page.<br/>
+                    Update v2.0.psd - Layered psd file with new elements and added navigation.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima</td>
+                  <td>This folder includes all HTML, CSS, Javascript, Fonts and Image files of the template.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/index.html</td>
+                  <td>This is Demo (options) Page.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/landing1.html</td>
+                  <td>This is Landing Page Template with Side Scroller.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/landing2.html</td>
+                  <td>This is Landing Page Template with Pinned to Top Navigation.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/cs-page.html</td>
+                  <td>This is Components &amp; Styles Page Template.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/coming-soon.html</td>
+                  <td>This is Coming Soon Page Template.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/css</td>
+                  <td>This folder includes all .css files. To change the appearance of the template you need to modify file: theme-styles.css.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/css/colors</td>
+                  <td>This folder holds all .css files with different color schemes. Each file has a color hex number in it's name.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/js</td>
+                  <td>This folder includes all .js files. To edit Javascript functionality of the template you need to modify files: landing.js for Landing page, coming-soon.js for Coming Soon page and components-styles.js for Components &amp; Styles page respectively. It also includes 2 subfolders: libs and plugins</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/js/libs</td>
+                  <td>This folder includes all JavaScript Libraries files like jQuery.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/js/plugins</td>
+                  <td>This folder includes all jQuery Plugins used in this template.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/img</td>
+                  <td>This folder includes all graphic assets of the template. When you need to change images, slides, backgrounds, etc..this is the place to go.</td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/fonts</td>
+                  <td>This folder includes IcoMoon and Font Awsome generated Fonts. They are  iconic fonts, that gives you customizable vector icons (more than 800 icons). For more information on how it works, please visit: <a href="http://icomoon.io/">IcoMoon Official Website</a> and <a href="http://fontawesome.io/">Font Awsome Official Website</a></td>
+                </tr>
+                <tr>
+                  <td>Main/Ultima/cheatsheets</td>
+                  <td>This folder holds cheatsheet .pdf files of Iconic fonts for you to use as a guide.</td>
+                </tr>
+              </table>
+            </div><!--Close Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="EditHTML" class="tabs-pane">
+              <h2>Customizing Template (Editing HTML Files)</h2>
+              <h3>HTML Structure (Landing Page)</h3>
+              <p>HTML Code devided into sections that are represented by <strong>&lt;section&gt;</strong> tag. Each section is a block of content. Thus, if you want to change content of Features block you do it in section with <strong>id=&#34;features&#34;</strong>. Document is properly commented so you won't get lost. Please note the <strong>id</strong> tags of each section correlate with <strong>anchors</strong> in the side menu to allow scrolling navigation.</p>
+              <pre><code>
+                <span class="html-comment">&lt;!--Preloader--&gt;</span>
+                &lt;div id=&#34;preloader&#34;&gt;
+                  <span class="html-comment">&lt;!--Preloader Code Goes Here--&gt;</span>
+                &lt;/div&gt;
+                
+                <span class="html-comment">&lt;!--Navigation--&gt;</span>
+                &lt;nav class=&#34;side-navi&#34;&gt;
+                  <span class="html-comment">&lt;!--Side Navigation Code Goes Here--&gt;</span>
+                &lt;/nav&gt;
+                 
+                <span class="html-comment">&lt;!--Header (Hero Unit with Slider)--&gt;</span>
+                &lt;header class=&#34;hero&#34;&gt;
+                  <span class="html-comment">&lt;!--Header/Top Menu/Hero Slider Content Goes Here--&gt;</span>
+                &lt;/header&gt;
+                 
+                <span class="html-comment">&lt;!--Features--&gt;</span>
+                &lt;section class=&#34;page-block&#34; id=&#34;features&#34;&gt;
+                  <span class="html-comment">&lt;!--Content Goes Here--&gt;</span>
+                &lt;/section&gt;
+                 
+                <span class="html-comment">&lt;!--Gallery--&gt;</span>
+                &lt;section class=&#34;page-block&#34; id=&#34;gallery&#34;&gt;
+                  <span class="html-comment">&lt;!--Content Goes Here--&gt;</span>
+                &lt;/section&gt;
+                 
+                <span class="html-comment">&lt;!--Pricing Plans--&gt;</span>
+                &lt;section class=&#34;page-block&#34; id=&#34;pricing&#34;&gt;
+                  <span class="html-comment">&lt;!--Content Goes Here--&gt;</span>
+                &lt;/section&gt;
+                
+                <span class="html-comment">&lt;!--FAQ--&gt;</span>
+                &lt;section class=&#34;page-block faq&#34; id=&#34;faq&#34;&gt;
+                  <span class="html-comment">&lt;!--Content Goes Here--&gt;</span>
+                &lt;/section&gt;
+                
+                <span class="html-comment">&lt;!--Testimonials--&gt;</span>
+                &lt;section class=&#34;page-block color&#34; id=&#34;testimonials&#34;&gt;<span class="html-comment">&lt;!--Color class means color background--&gt;</span>
+                  <span class="html-comment">&lt;!--Content Goes Here--&gt;</span>
+                &lt;/section&gt;
+                
+                <span class="html-comment">&lt;!--Mobile Apps--&gt;</span>
+                &lt;section class=&#34;page-block mobile-apps&#34; id=&#34;apps&#34;&gt;
+                  <span class="html-comment">&lt;!--Content Goes Here--&gt;</span>
+                &lt;/section&gt;
+                
+                <span class="html-comment">&lt;!--Team--&gt;</span>
+                &lt;section class=&#34;page-block team&#34; id=&#34;team&#34;&gt;
+                  <span class="html-comment">&lt;!--Content Goes Here--&gt;</span>
+                &lt;/section&gt;
+                
+                <span class="html-comment">&lt;!--Contacts--&gt;</span>
+                &lt;section class=&#34;page-block contacts&#34; id=&#34;contacts&#34;&gt;
+                  <span class="html-comment">&lt;!--Content Goes Here--&gt;</span>
+                &lt;/section&gt;
+                
+                <span class="html-comment">&lt;!--Social Networks--&gt;</span>
+                &lt;section class=&#34;page-block&#34; id=&#34;social&#34;&gt;
+                  <span class="html-comment">&lt;!--Content Goes Here--&gt;</span>
+                &lt;/section&gt;
+                
+                <span class="html-comment">&lt;!--Footer--&gt;</span>
+                &lt;footer class=&#34;footer&#34;&gt;
+                  <span class="html-comment">&lt;!--Footer Content and Subscription Form Goes Here--&gt;</span>
+                &lt;/footer&gt;
+                 
+              </code></pre>
+              
+              <h3>Editing Side Navigation</h3>
+              <p>To edit Side Navigation you need to find code block called <strong>"Navigation"</strong> in the file <strong>index.html</strong>(line#38).</p>
+              <p>Note 2 important classes <strong>"tooltipped"</strong> and <strong>"scroll" / scroll-up</strong>. The first class activates tooltipes with the text from "title" attribute. <strong>"scroll-up"</strong> class applied only to home link because it scrolls page to the top; <strong>"scroll"</strong> class applied to any link that scrolls page to the content block with the <strong>"id"</strong> achor point to.</p>
+              <pre><code>
+                <span class="html-comment">&lt;!--Navigation--&gt;</span>
+                  &lt;nav class=&#34;side-navi animated&#34;&gt;
+                     &lt;ul&gt;
+                        &lt;li class=&#34;current&#34;&gt;&lt;a class=&#34;tooltipped scroll-up&#34; href=&#34;#&#34; data-toggle="tooltip" data-placement="left" title="Home"&gt;&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a class=&#34;tooltipped scroll&#34; href=&#34;#features&#34; data-toggle="tooltip" data-placement="left" title="Features"&gt;&lt;/a&gt;&lt;/li&gt;
+                        .............................................                        
+                     &lt;/ul&gt;
+                  &lt;/navn&gt;
+              </code></pre>
+              
+              <h3>Replacing Images and Slides (Hero Slider)</h3>
+              <p>To change images in the Hero Slider you need to go to <strong>Ultima / img / hero-slider</strong></p>
+              <p>To add/remove/edit content of the slides you need to edit HTML code below. Each slide represented by <strong>&lt;div class="slide"&gt; tag</strong>.</p>
+              <pre><code>
+                <span class="html-comment">&lt;!--Hero Slider--&gt;</span>
+                  &lt;div class=&#34;hero-slider&#34;&gt;
+                     &lt;div class=&#34;slide first-slide&#34;&gt;
+                     <span class="html-comment">&lt;!--Slide Content Goes here--&gt;</span>
+                     &lt;/div&gt;
+                     &lt;div class=&#34;slide&#34;&gt;
+                     <span class="html-comment">&lt;!--Slide Content Goes here--&gt;</span>
+                     &lt;/div&gt;
+                     ...................................
+                  &lt;/div&gt;
+              </code></pre>
+              <h3>Editing Content in Other Blocks</h3>
+              <p>To change images, texts and other content in chosen content block you need to find section with appropriate <strong>"id" tag</strong>. 
+              <p>For example, to edit content of the <strong>"Features" block</strong> go to section with <strong>id="features"</strong>. If you need simply replace the images but retain content structure as it is you can do that in folder: <strong>Ultima / img / features</strong>.</p>
+              <h3>Changing Social Icons</h3>
+              <p>In this template we used 2 Icon fonts: <strong>IcoMoon and FontAwsome</strong>. They are Font icons which means you can easily change them by replacing <strong>icon-iconName class.</strong> in case of IcoMoon (used by default) or <strong>fa-iconName class.</strong> if you used FontAwsome icons.</p>
+              <p>For the full list of possible icon classes please visit:<br/><a href="http://icomoon.io/" target="_blank">http://icomoon.io/</a> - IcoMoon icons<br/><a href="http://fontawesome.io/icons/" target="_blank">http://fontawesome.io/icons/</a> - FontAwsome icons</p>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="EditCSS" class="tabs-pane">
+              <h2>Changing Look and Feel (Editing CSS Files)</h2>
+              <p>There are two main CSS files that affect this template: <strong>bootstrap.min.css; theme-styles.css</strong>.</p>
+              <p><strong>bootstrap.min.css</strong> - is Bootstrap 3.0 .css file which enables responsiveness and othe features. Ultima template totally based on Bootstrap 3.0. To learn more about Bootstrap 3.0 please visit <a href="http://getbootstrap.com/" target="_blank">http://getbootstrap.com/</a></p>
+              <p><strong>theme-styles.css</strong> - is the stylesheet with all styles relating to this template. So whatever you need to change, change it there.</p>
+              <h3>Changing Color Scheme</h3>
+              <p>In you want to change main color (shade of red by default) you can easily do this in 2 simple steps:</p>
+              <p>1. Find .css file with appropriate color in <strong>Ultima / css / colors</strong> folder. All files' names end with number that corresponds with hex number of the color. In total we prepared 8 predefined colors. If you want to use your own color just edit .css rules that you find in this files.</p>
+              <p>2. Add .css file with chosen color right after <strong>&lt;link href="css/theme-styles.css" rel="stylesheet" media="screen"&gt;</strong> in the <strong>head</strong> of html file. See the code below (line in bold):</p>
+              <pre><code>
+              	&lt;head&gt;
+                ............................
+                  <span class="html-comment">&lt;!--Theme Styles--&gt;</span>
+                  &lt;link href="css/theme-styles.css" rel="stylesheet" media="screen"&gt;
+                 <span class="html-comment">&lt;!--Color Scheme--&gt;</span>
+                 <strong>&lt;link href="css/colors/color-4dbc84.css" rel="stylesheet" media="screen"&gt;</strong>
+                 <span class="html-comment">&lt;!--4dbc84 means the hex color number--&gt;</span>
+                ...................................
+              	&lt;/head&gt;
+              </code></pre>
+              <h3>Changing Typography</h3>
+              <p>In the <strong>"Body"</strong> section of the theme-styles.css file (line #25) you can globally change <strong>font-family and font-color</strong> of the template.</p>
+              <pre><code>
+                <span class="html-comment">/*Body*/</span>
+                body {
+                  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+                  <strong>background-color: #ffffff;</strong>
+                  font-weight: normal;
+                  <strong>color: #313447;</strong>
+                  -webkit-font-smoothing: antialiased;
+                }
+              </code></pre>
+              <p>To change typography styles you need to go to <strong>"Typography"</strong> section of the theme-styles.css file. It's line #96. Here you can globally change <strong>font color, font size, headings, paragraphs, list styles, etc..</strong></p>
+              <pre><code>
+                <span class="html-comment">/*Body*/</span>
+                h1 {
+                  font-size: 3.4em;
+                  font-weight: 100;
+                  margin-bottom: 20px;
+                }
+                h2 {
+                  font-size: 2.65em;
+                  font-weight: 100;
+                  margin-bottom: 20px;
+                }
+                .............................
+                p {
+                  font-size: 1em;
+                  margin-bottom: 20px;
+                  line-height: 1.7;
+                }
+                ul, ol,
+                ul.list-unstyled {
+                  padding-left: 25px;
+                  font-size: 1em;
+                  line-height: 1.8;
+                  margin-bottom: 25px;
+                }
+              </code></pre>
+              <h3>Changing Other Styles</h3>
+              <p>CSS files segmented and commented the same way as HTML files. So, for example, if you want to change Forms styles you need to go to the relevant section in the CSS file.</p>
+            </div><!--/Tabs Pane-->
+
+            <!--Tabs Pane-->
+            <div id="setupForm" class="tabs-pane">
+              <h2>Setting Up Ajax Contact Form</h2>
+              <p>The new version of Ultima features Ajax Contact Form that will send emails to specified by you email address. The only thing you have to do is to go to <strong>Ultima/mailer</strong> folder find file called <strong>config.ini</strong>, open it in text editor change email addres to your own and default subject (optionally). That&#39;s it!</p>
+              <p><strong>Please note the form will not work in local environment you have to upload your site to server.</strong></p>
+            </div><!--/Tabs Pane-->
+
+            <!--Tabs Pane-->
+            <div id="Plugins" class="tabs-pane">
+              <h2>jQuery Plugins (Editing JS Files)</h2>
+              <h3>Plugins Used</h3>
+              <p>While creating this template we used some Javascript (jQuery) plugins to extend its functionality:<strong>*</strong></p>
+              <p><strong><a href="http://jquery.com/" target="_blank">jQuery v1.10.2</a></strong> - most popular feature-rich JavaScript library.</p>
+              <p><strong><a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">jQuery Easing v1.3</a></strong> - add-on for jQuery to create nice easing effects.</p>
+              <p><strong><a href="http://modernizr.com/" target="_blank">Modernizr</a></strong> - JavaScript library that detects HTML5 and CSS3 features in the user’s browser.</p>
+              <p><strong><a href="https://github.com/scottjehl/Respond" target="_blank">Respong.js</a></strong> - script enables responsive web designs in browsers that don't support CSS3 Media Queries - in particular, Internet Explorer 8 and under.</p>
+              <p><strong><a href="http://labs.rampinteractive.co.uk/touchSwipe/demos/" target="_blank">TouchSwipe</a></strong> - Plugin that enables touch/swipe functionality on mobile devices.</p>
+              <p><strong><a href="http://bxslider.com/" target="_blank">bxSlider</a></strong> - The Responsive jQuery Content Slider.</p>
+              <p><strong><a href="http://fronteed.com/iCheck/" target="_blank">iCheck</a></strong> - Customized Checkboxes and Radio Buttons for jQuery.</p>
+              <p><strong><a href="http://hilios.github.io/jQuery.countdown/" target="_blank">The Final Countdown</a></strong> - A simple and html agnostic date countdown plugin for jQuery.</p>
+              <p><strong><a href="http://jqueryvalidation.org/" target="_blank">jQuery Validate</a></strong> -  Clientside Form Validation Plugin.</p>
+              <p><strong><a href="http://www.chartjs.org/" target="_blank">Charts.js</a></strong> -  Easy, object oriented client side graphs.</p>
+              <p><strong>*</strong>To get more detailed information about how to use / customize these plugins please visit their official websites.</p>
+              <p><strong>Please be informed that we DO NOT provide support to any third party plugin's. We can only answer simple usage questions or issues related to incompatibility with the template.</strong></p>
+              <h3>Customizing Charts</h3>
+              <p>In order to customize Charts you need to go to respective .js file. For example if you choose <strong>Landing Page with side scroller</strong> you need to edit <strong>landing1.js</strong>. It this file find the section called "CHARTS". For more information and online documentation, please visit plugin official website <a href="http://www.chartjs.org/" target="_blank">www.chartjs.org/</a></p>
+              <h3>Setting Time/Time Format for Countdown (Coming Soon Page)</h3>
+              <p>If you want to set time Countdown clock in your coming soon page you need to go to <strong>main / Ultima / js / coming-soon.js</strong> to section called "Countdown" (line#21) and edit lines in bold.</p>
+              <pre><code>
+                <span class="html-comment">/*Countdown*/</span>
+              	$('.countdown').countdown(<strong>'2014/05/02'</strong>, function(event) {
+                  $(this).html(event.strftime(<strong>'%D:%H:%M:%S'</strong>));
+                  <span class="html-comment">/*Time Format String where: %D - days; %H - hours; %M - minutes; %S - seconds.*/</span>
+                });
+              </code></pre>
+              <h3>Editing Other JS Files</h3>
+              <p>Like with HTML and CSS files to customize the JavaScript functionality of the template you need to edit <strong>landing.js file for Landing page</strong>, <strong>coming-soon.js file for Coming Soon page</strong>, <strong>components-styles.js file for Components &amp; Styles page</strong>.</p>
+              <p>These files holding all custom JavaScript code for the template. They are properly commented so you easily find nesessary code snippet to modify.</p>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="Photoshop" class="tabs-pane">
+              <h2>Photoshop Files</h2>
+              <p>All Photoshop files related to this template you will find in the <strong>PSD folder</strong>.</p>
+              <p class="underline">There are 3 .psd files:</p>
+              <p><strong>Landing Page.psd</strong> - Layered psd file of Landing page;</p>
+              <p><strong>Components &amp; Styles.psd</strong> - Layered psd file of Components &amp; Styles page;</p>
+              <p><strong>Coming Soon.psd</strong> - Layered psd file of Coming Soon page.</p>
+              <p><strong>Update v2.0.psd</strong> - Layered psd file with new elements and added navigation.</p>
+              <p>*Please note these files are production versions and could vary from final template. But still you will find there all necessary graphics and mockups to customize your site.</p>
+              <h3>Photoshop Layers</h3>
+              <p>All layers are grouped and named according to content blocks of the template. So it will be easy to spot the piece of content you want to modify.</p>
+              <img src="img/screenshots/photoshop_layers.jpg" alt="Photoshop Layers"/>
+              <p>To learn more about how to use Photoshop to edit images and graphics we recommend <a href="http://tv.adobe.com/videos/photoshop/" target="_blank"><strong>Photoshop on Adobe TV</strong></a></p>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="Changelog" class="tabs-pane">
+              <h2>Changelog</h2>
+              <p><strong>Update v2.0 (06/04/2014)</strong>.</p>
+              <p>- Added new pinned to top navigation</p>
+              <p>- Added Animated Charts: Bar Chart, Line Chart, Pie Chart and Doughnut Chart</p>
+              <p>- Added Multilevel Application Wizard</p>
+              <p><strong>Version 1.0 (02/03/2014)</strong>.</p>
+              <p>- Initial Release</p>
+            </div><!--/Tabs Pane-->
+            
+            <!--Tabs Pane-->
+            <div id="Credits" class="tabs-pane">
+              <h2>Sources and Credits</h2>
+              <p>While making this theme we used third party plugins, images, icons, fonts, etc... and want to thank their creators:</p>
+              <ul>
+              	<li>Pictures, icons, mockups:<br/>
+                	<a href="http://graphicburger.com/flat-apple-devices-mockup/" target="_blank">http://graphicburger.com/flat-apple-devices-mockup/</a><br/>
+                  <a href="http://dribbble.com/shots/1380706-Free-Flat-Icons-2?list=users/" target="_blank">http://dribbble.com/shots/1380706-Free-Flat-Icons-2?list=users/</a><br/>
+                	<a href="http://dribbble.com/shots/1201666-Free-Flat-Icons?list=show" target="_blank">http://dribbble.com/shots/1201666-Free-Flat-Icons?list=show</a><br/>
+                	<a href="http://thedesigninspiration.com/flatastic-mobile-ui-kit/" target="_blank">http://thedesigninspiration.com/flatastic-mobile-ui-kit/</a><br/>
+                	<a href="http://unsplash.com" target="_blank">http://unsplash.com</a><br/>
+                </li>
+              	<li>IcoMoon icons <a href="http://icomoon.io/" target="_blank">http://icomoon.io/</a></li>
+              	<li>FontAwsome icons <a href="http://fontawesome.io/" target="_blank">http://fontawesome.io</a></li>
+                <li>Animate.css <a href="http://daneden.github.io/animate.css/" target="_blank">http://daneden.github.io/animate.css/</a></li>
+              	<li>Bootstrap 3.0 <a href="http://getbootstrap.com/" target="_blank">http://getbootstrap.com/</a></li>
+              	<li>jQuery Library <a href="http://jquery.com/" target="_blank">http://jquery.com</a></li>
+              	<li>jQuery Easing Plugin <a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">http://gsgd.co.uk/sandbox/jquery/easing</a></li>
+              	<li>Modernizr <a href="http://modernizr.com/" target="_blank">http://modernizr.com</a></li>
+              	<li>Respong.js <a href="https://github.com/scottjehl/Respond" target="_blank">https://github.com/scottjehl/Respond</a></li>
+              	<li>jQuery touchSwipe <a href="http://labs.rampinteractive.co.uk/touchSwipe/demos/" target="_blank">http://labs.rampinteractive.co.uk/touchSwipe/demos/</a></li>
+              	<li>jQuery Validation <a href="http://jqueryvalidation.org/" target="_blank">http://jqueryvalidation.org/</a></li>
+                <li>bxSlider <a href="http://bxslider.com/" target="_blank">http://bxslider.com/</a></li>
+                <li>iCheck <a href="http://fronteed.com/iCheck/" target="_blank">http://fronteed.com/iCheck/</a></li>
+                <li>jQuery Placeholder <a href="https://github.com/mathiasbynens/jquery-placeholder" target="_blank">https://github.com/mathiasbynens/jquery-placeholder</a></li>
+                <li>jQuery Countdown <a href="http://hilios.github.io/jQuery.countdown/" target="_blank">http://hilios.github.io/jQuery.countdown/</a></li>
+                <li>Chart.js <a href="http://www.chartjs.org/" target="_blank">http://www.chartjs.org/</a></li>
+                <li>Gallery <a href="http://tympanus.net/codrops/2013/03/19/thumbnail-grid-with-expanding-preview/" target="_blank">http://tympanus.net/codrops/2013/03/19/thumbnail-grid-with-expanding-preview/</a></li>
+                <li>Smooth Scroll <a href="https://github.com/galambalazs/smoothscroll" target="_blank">https://github.com/galambalazs/smoothscroll</a></li>
+              </ul>
+              <p><strong>All the third-party assets used in this template are free for personal and commercial use.</strong></p>
+            </div><!--/Tabs Pane-->
+            
+          </div><!-- Close all Panes -->
+        </div>
+      </div><!-- Close Container -->
+    
+    </div><!--Close Wrapper-->
+    
+    <!--Footer-->
+    <div class="footer">
+      <div class="container">
+        <div class="support-message">
+          <p>Dear User, thank you for purchasing our template!  If you have any questions that are beyond the scope of this help file, please feel free to email us using the link below.</p>
+          <a class="normal" href="mailto:support@8guild.com">support@8guild.com</a>
+        </div>
+          <div class="copyright">&copy; 2014 8 Guild. All Rights Reserved.</div>
+      </div>
+    </div><!--Close Footer-->
+  
+  </body><!--Close Body-->
+  
+  <!--Javascript-->
+	<script src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
+  
+</html>

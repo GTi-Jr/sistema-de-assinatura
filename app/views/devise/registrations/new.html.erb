@@ -3,6 +3,15 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+<<<<<<< HEAD
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+=======
 
  <div class="field">
     <%= f.label :name,'Nome' %><br>
@@ -61,6 +70,7 @@
 
   <div class="field">
     <%= f.label :password,'Senha' %>
+>>>>>>> fbb68511cba0a935b86fbfd9181d3a854c9d225e
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -68,7 +78,11 @@
   </div>
 
   <div class="field">
+<<<<<<< HEAD
+    <%= f.label :password_confirmation %><br />
+=======
     <%= f.label :password_confirmation,'Confirmação de Senha' %><br />
+>>>>>>> fbb68511cba0a935b86fbfd9181d3a854c9d225e
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -78,5 +92,8 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> fbb68511cba0a935b86fbfd9181d3a854c9d225e
