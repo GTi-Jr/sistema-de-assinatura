@@ -1,8 +1,14 @@
 <!--Header-->
 <header class="stiky-header">
   <div class="container group">
-    <a class="logo" href="index.html"><%= image_tag 'img/logo-dark.png', alt: 'Ultima' %></a>
-    <a class="logo-mobile" href="index.html"><img src="img/logo-mobile.png" alt="Ultima"/></a>
+    <%= link_to root_path, class: 'logo' do %>
+      <%= image_tag 'logos/logo-01.png', alt: 'logo cegonha preta' %>
+    <% end %>
+
+    <%= link_to root_path, class: 'logo-mobile' do %>
+      <%= image_tag 'logos/logo-01.png', alt: 'logo cegonha preta' %>
+    <% end %>
+
     <div class="navi-toggle group">
       <span class="dot"></span><span class="line"></span>
       <span class="dot"></span><span class="line"></span>

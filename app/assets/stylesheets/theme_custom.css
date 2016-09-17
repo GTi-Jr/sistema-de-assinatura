@@ -17,3 +17,7 @@
   color: #313447;
   background-color: #FFF9B0;
 }
+
+.stiky-header .logo img {
+  max-height: 100px;
+}
