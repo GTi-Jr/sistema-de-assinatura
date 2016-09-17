@@ -70,6 +70,6 @@ class BabiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def baby_params
-      params.require(:baby).permit(:name, :born, :months, :birthdate)
+      params.require(:baby).permit(:name, :born, :months, :birthdate,:user_id)
     end
 end

@@ -1,6 +1,20 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
+#
+#
+
+  def new
+    @user= User.new
+    @user.babies.build
+  end
+
+
+private
+  def sign_up_params
+  #  allow= user: {:email,:name,:sex,:birthdate,:cpf,:rg,:street,:number,:password, :password_confirmation, baby: {:name,:born}}
+    params.require(:user).permit!
+  end
 
   # GET /resource/sign_up
   # def new
