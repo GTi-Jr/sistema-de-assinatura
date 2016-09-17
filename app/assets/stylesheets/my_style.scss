@@ -1,7 +1,17 @@
 /*Arquivo para criação de estilos*/
 
+@import "variables.scss";
+
 /*Usado em adição ao bootstrap para centralizar*/
 .col-centered {
   float: none !important;
   margin: 0 auto;
+}
+
+.content {
+  margin-top: 5%;
+}
+
+.primary-bg-color {
+  background-color: $primary-color;
 }

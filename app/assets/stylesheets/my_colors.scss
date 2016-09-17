@@ -1,0 +1,73 @@
+@import "variables.scss";
+// Override theme colors
+
+.side-navi ul li.current a {
+  -webkit-box-shadow: 0 0 0 2px $primary-color;
+  -moz-box-shadow: 0 0 0 2px $primary-color;
+  box-shadow: 0 0 0 2px $primary-color;
+}
+
+.jumbotron {
+  background-color: $primary-color;
+}
+
+.gallery li.gall-expanded > a::after {
+  border-bottom-color: $primary-color;
+}
+
+.gall-expander {
+  background: $primary-color;
+}
+
+.pricing-plan.highlited .body, .hero, .page-block.color {
+  background-color: $primary-color;
+}
+
+.social-networks a:hover {
+  color: $primary-color;
+}
+
+.footer {
+  background-color: $primary-color;
+}
+
+.cs-page {
+  header, .footer {
+    background-color: $primary-color;
+  }
+}
+
+.coming-soon header, .middle-block {
+  background-color: $primary-color;
+}
+
+.stiky-header {
+  border-bottom-color: $primary-color;
+}
+
+.main-navi ul li {
+  &:hover a {
+    color: $primary-color;
+  }
+  &.active a {
+    color: $primary-color;
+    border-top-color: $primary-color;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .main-navi {
+    &.open {
+      border-bottom-color: $primary-color;
+    }
+    ul li {
+      a:hover {
+        color: $primary-color;
+      }
+      &.active a {
+        color: $primary-color;
+        border-left-color: $primary-color;
+      }
+    }
+  }
+}
