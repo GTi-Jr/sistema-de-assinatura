@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'welcome#home'
 
   devise_for :users, controllers: {
@@ -9,6 +10,10 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
     unlocks: 'users/unlocks'
   }
+
+  resources :users do
+    resources :babies
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
