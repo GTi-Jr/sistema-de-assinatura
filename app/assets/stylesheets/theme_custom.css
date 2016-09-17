@@ -1,3 +1,19 @@
+/*Arquivo para override do template*/
+
 .form-control {
-  background-color: rgba(49, 52, 71, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.jumbotron {
+  background-color: #5ebfe7;
+}
+
+.btn-primary {
+  color: #313447;
+  background-color: #F0E881;
+}
+
+.btn-primary:hover {
+  color: #313447;
+  background-color: #FFF9B0;
 }
