@@ -1,26 +1,30 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-xs-12 col-sm-8 ">
+      <h1 class="">Entrar</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group col-sm-6 col-sx-12">
+          <%= f.label :email %>
+          <%= f.text_field :email, id: 'email', class: 'form-control' %>
+        </div>
+        <div class="form-group col-sm-6 col-sx-12">
+          <%= f.label :password, 'Senha' %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+        <div class="form-group col-sm-6 col-sx-12 text-center">
+          <%= f.submit 'Entrar', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+      <div class="text-center">
+        <%= link_to "Esqueceu sua senha?", new_password_path(resource_name), class: 'btn btn-primary btn-sm' %><br />
+      </div>
+    </div>  
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="col-xs-12 col-sm-4">
+      <h2>Não possui cadastro?</h2>
+      <p>Seja um assinante e receba nossos kits!</p>
+      <p><%= link_to 'Junte-se a nós!', new_user_registration_path, class: 'btn btn-primary' %></p>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

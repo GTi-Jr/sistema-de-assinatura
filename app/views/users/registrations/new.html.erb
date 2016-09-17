@@ -1,29 +1,69 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-xs-12 ">
+      <h1 class="">Criando sua conta</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+        <div class="form-group col-xs-12">
+          <%= f.label :email %>
+          <%= f.email_field :email, id: 'email', class: 'form-control' %>
+        </div>
+
+        <div class="form-group col-xs-12">
+          <%= f.label :name, 'Nome' %>
+          <%= f.text_field :name, id: 'name', class: 'form-control' %>
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label :sex, 'Sexo' %>
+          <%= f.select :sex, { 'Prefiro não declarar': 'U', 'Masculino': 'M', 'Feminino': 'F' }, {},{ class: 'form-control' } %>
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label :birthdate, 'Data de nascimento' %>
+          <%#TODO colocar mascaras%>
+          <%= f.text_field :birthdate, class: 'form-control' %>
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label :cpf, 'CPF' %>
+          <%= f.text_field :cpf, class: 'form-control' %>
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-6">
+          <%= f.label :rg, 'RG' %>
+          <%= f.text_field :rg, class: 'form-control' %>
+        </div>
+
+        <div class="form-group col-xs-9 col-sm-10">
+          <%= f.label :street, 'Rua' %>
+          <%= f.text_field :street, class: 'form-control' %>
+        </div>
+
+        <div class="form-group col-xs-3 col-sm-2">
+          <%= f.label :number, 'Nº' %>
+          <%= f.text_field :number, class: 'form-control' %>
+        </div>
+
+        <div class="form-group col-sm-6 col-xs-12">
+          <%= f.label :password, 'Senha' %>
+          <% if @minimum_password_length %>
+            <%= f.password_field :password, class: 'form-control', placeholder: "Pelo menos #{@minimum_password_length} caracteres" %>
+          <% else %>
+            <%= f.password_field :password, class: 'form-control' %>
+          <% end %>
+        </div>
+
+        <div class="form-group col-sm-6 col-xs-12">
+          <%= f.label :password_confirmation, 'Confirmação da Senha' %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+        <div class="form-group col-sm-6 col-xs-12 text-center">
+          <%= f.submit 'Cadastrar', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>  
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
