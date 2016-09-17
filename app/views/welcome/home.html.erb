@@ -1,75 +1,26 @@
-<!--Hero Unit with Slider-->
-<section class="hero">
-  <div class="container">
-
-    <!--Hero Slider-->
-    <div class="row">
-      <div class="hero-slider">
-        <div class="slide first-slide">
-          <div class="col-lg-5 col-md-5 col-sm-5 animated">
-            <h2 style="margin-top:50px;" class="text-light text-left">Components &amp; Styles</h2>
-            <p>Check Ultima Components &amp; Styles page for more features and components.</p>
-            <p>Wish to extend your landing page? We offer you simple copy and paste solution with new Components &amp; Styles page.</p>
-            <a class="btn btn-primary" href="cs-page.html">Go to Components &amp; Styles</a>
-          </div>
-          <div class="col-lg-7 col-md-7 col-sm-7 animated">
-            <img class="pull-right" src="img/hero-slider/imac.png" width="689" height="659" alt="Components and Styles"/>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="col-lg-5 col-md-5 col-sm-5 animated fadeInUp">
-            <h2 style="margin-top:50px;" class="text-light text-left">Coming Soon Page</h2>
-            <p>Have a look at Ultima Coming soon page!</p>
-            <p>While your landing page is under construction show your visitors beautiful coming soon page with the coundown and subscription form.</p>
-            <p>And they always stay connected.</p>
-            <a class="btn btn-primary" href="coming-soon.html">Go to Coming soon page</a>
-          </div>
-          <div class="col-lg-7 col-md-7 col-sm-7 animated fadeInRight">
-            <img class="iphone" src="img/hero-slider/iphone.png" width="649" height="400" alt="Coming Soon Page"/>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="col-lg-4 col-md-4 col-sm-4 animated fadeInDown">
-            <h2 style="margin-top:70px;" class="text-light text-left">Some Heading</h2>
-            <p>You shall not pass this theme!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-            <a class="btn btn-primary" href="#">Push it!</a>
-          </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 animated fadeInRight">
-            <div class="video">
-              <img src="img/hero-slider/macbook.png" width="782" height="422" alt=""/>
-              <div class="vide-holder">
-                <iframe src="//player.vimeo.com/video/79036490?byline=0&amp;portrait=0&amp;color=ffeeac" width="720" height="405"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><!--Close Hero Slider-->
-  </div>    	
-</section><!--Close Hero-->
-
 <!--Features-->
 <section class="page-block" id="features">
   <div class="container">
     <div class="row page-header">
-      <h2>Features</h2>
-      <span>Subtext for header</span>
+      <%= image_tag 'logos/logotipo-primaria-01.png', class: 'logo col-centered' %>
+      <span>Lorem ipsum dolor amet</span>
     </div>
     <div class="row features">
       <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img"><img src="img/features/feature1.png" width="124" height="120" alt="Editable colors"/></div>
-        <h3>Editable colors</h3>
+        <div class="feature-img"><%= image_tag 'assinatura.png', alt: 'Assinatura' %></div>
+        <h3>Assine!</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img"><img src="img/features/feature2.png" width="131" height="131" alt="All you need for start"/></div>
-        <h3>All you need for start</h3>
+        <div class="feature-img"><%= image_tag 'entrega-da-caixa2.png', alt: 'Entrega da Caixa' %></div>
+        <h3>Entrega!</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img"><img src="img/features/feature3.png" width="72" height="72" alt="Clean code"/></div>
-        <h3>Clean code</h3>
+        <div class="feature-img">
+          <%= image_tag 'caixa-da-cegonha.png', alt: 'Caixa da cegonha' %>
+        </div>
+        <h3>Receba!</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
       </div>
     </div>
