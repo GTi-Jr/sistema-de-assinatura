@@ -3,15 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-<<<<<<< HEAD
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %>
-=======
 
  <div class="field">
     <%= f.label :name,'Nome' %><br>
@@ -35,8 +27,9 @@
 
   <div class="field">
     <%= f.label :cpf, 'CPF' %><br />
-    <%= f.text_field :cpf %>
+    <%= f.email_field :cpf %>
   </div>
+
 
   <div class="field">
     <%= f.label :rg,'RG' %><br />
@@ -45,7 +38,7 @@
 
   <div class="field">
     <%= f.label :street,'Endereço' %><br />
-    <%= f.text_field :street %>
+    <%= f.email_field :street %>
   </div>
 
   <div class="field">
@@ -60,17 +53,16 @@
 
   <div class="field">
     <%= f.label :city, 'Cidade' %><br />
-    <%= f.text_field :city %>
+    <%= f.email_field :city %>
   </div>
 
   <div class="field">
     <%= f.label :state,'Estado' %><br />
-    <%= f.text_field :state %>
+    <%= f.email_field :state %>
   </div>
 
   <div class="field">
     <%= f.label :password,'Senha' %>
->>>>>>> fbb68511cba0a935b86fbfd9181d3a854c9d225e
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -78,11 +70,7 @@
   </div>
 
   <div class="field">
-<<<<<<< HEAD
-    <%= f.label :password_confirmation %><br />
-=======
     <%= f.label :password_confirmation,'Confirmação de Senha' %><br />
->>>>>>> fbb68511cba0a935b86fbfd9181d3a854c9d225e
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
@@ -92,8 +80,3 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> fbb68511cba0a935b86fbfd9181d3a854c9d225e

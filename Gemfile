@@ -15,6 +15,9 @@ gem 'puma'
 # Autenticação
 gem 'devise'
 
+
+
+
 group :development, :test do
   gem 'byebug'
 end
