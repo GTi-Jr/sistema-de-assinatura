@@ -6,8 +6,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     @user= User.new
+
     @user.babies.build
   end
+
+  #def create
+   # build_resource(sign_up_params)
+    #resource= User.new
+    #resource.save
+
+    #redirect_to :root
+  #end
 
 
 private

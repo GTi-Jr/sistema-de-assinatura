@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
     private
       def user_params
-        params.require(:user).permit(:email,:name,:sex,:birthdate,:cpf,:rg,:street,:number,:password, :password_confirmation,baby: [:name, :born,:user_id])
-
+        params.require(:user).permit(:email,:name,:sex,:birthdate,:cpf,:rg,:street,:number,:password, :password_confirmation,baby_attributes: %i(id name born user_id))
       end
 end
