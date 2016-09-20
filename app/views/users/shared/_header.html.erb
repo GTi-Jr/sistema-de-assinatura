@@ -19,10 +19,6 @@
       <%= link_to login_path, class: 'btn btn-primary btn-login' do %>
         <i class="icon-user"></i>Entrar
       <% end %>
-    <% else %>
-      <%= link_to logout_path, method: :delete, class: 'btn btn-danger btn-login' do %>
-        <i class="icon-user"></i>Encerrar sessão
-      <% end %>
     <% end %>
     <nav class="main-navi">
       <ul>
@@ -38,6 +34,7 @@
               Oi, Caio! 
             <% end %>
           </li>
+          <li><%= link_to 'Encerrar sessão', logout_path, method: :delete %></li>
         <% end %>
       </ul>
     </nav>
