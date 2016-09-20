@@ -5,5 +5,10 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :babies
+  has_many :addresses
+
   accepts_nested_attributes_for :babies
+  accepts_nested_attributes_for :addresses
+
+  usar_como_cpf :cpf
 end
