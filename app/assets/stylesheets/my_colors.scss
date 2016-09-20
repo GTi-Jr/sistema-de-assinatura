@@ -1,6 +1,5 @@
 @import "variables.scss";
 // Override theme colors
-
 .side-navi ul li.current a {
   -webkit-box-shadow: 0 0 0 2px $primary-color;
   -moz-box-shadow: 0 0 0 2px $primary-color;
@@ -71,3 +70,5 @@
     }
   }
 }
+//End of override
+
