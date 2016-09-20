@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks'
   }
 
+  get 'completar-cadastro' => 'users/registrations#after_registration'
+  post 'completar-cadastro' => 'users/registrations#complete_registration'
+
   resources :users do
     resources :babies
   end

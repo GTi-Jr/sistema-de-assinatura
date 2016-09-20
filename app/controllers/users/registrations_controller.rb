@@ -3,11 +3,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
 #
 #
-
   def new
     @user= User.new
 
     @user.babies.build
+  end
+
+  def after_registration
+  end
+
+  def complete_registration
   end
 
   def create
