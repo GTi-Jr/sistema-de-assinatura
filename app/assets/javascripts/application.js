@@ -36,5 +36,9 @@
 
 //= require jquery.mask
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3cc3cf28aeb83176412e2d6762211b644979e11b
 //= require_tree .
 //

@@ -1,0 +1,33 @@
+/*Arquivo para override do template*/
+
+/*Variáveis*/
+@import "variables.scss";
+
+.form-control {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.jumbotron {
+  background-color: $primary-color;
+}
+
+.btn-primary {
+  color: #313447;
+  background-color: $secondary-color;
+}
+
+.btn-primary:hover {
+  color: #313447;
+  background-color: #FFF9B0;
+}
+
+.stiky-header .logo img {
+  max-height: 100px;
+}
+
+.features {
+  .feature-img {
+    width: 100px;
+    height: 100px;
+  }
+}

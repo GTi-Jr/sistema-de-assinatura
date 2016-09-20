@@ -14,6 +14,8 @@ gem 'pg', '~> 0.15'
 gem 'puma'
 # Autenticação
 gem 'devise'
+# Coleção de gems para desenvolvedores brasileiros - cnpf, cpf, cep, traduções, numeros por extenso etc
+gem 'brazilian-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   root 'welcome#home'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -9,6 +11,9 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks'
   }
 
+  resources :users do
+    resources :babies
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -64,4 +69,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end

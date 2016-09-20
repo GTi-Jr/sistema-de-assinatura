@@ -4,6 +4,7 @@
   <%= devise_error_messages! %>
 
 
+
  <div class="field">
     <%= f.label :name,'Nome' %><br>
     <%= f.text_field :name, autofocus: true %>
@@ -26,8 +27,9 @@
 
   <div class="field">
     <%= f.label :cpf, 'CPF' %><br />
-    <%= f.text_field :cpf %>
+    <%= f.email_field :cpf %>
   </div>
+
 
   <div class="field">
     <%= f.label :rg,'RG' %><br />
@@ -36,7 +38,7 @@
 
   <div class="field">
     <%= f.label :street,'Endereço' %><br />
-    <%= f.text_field :street %>
+    <%= f.email_field :street %>
   </div>
 
   <div class="field">
@@ -51,12 +53,12 @@
 
   <div class="field">
     <%= f.label :city, 'Cidade' %><br />
-    <%= f.text_field :city %>
+    <%= f.email_field :city %>
   </div>
 
   <div class="field">
     <%= f.label :state,'Estado' %><br />
-    <%= f.text_field :state %>
+    <%= f.email_field :state %>
   </div>
 
   <div class="field">

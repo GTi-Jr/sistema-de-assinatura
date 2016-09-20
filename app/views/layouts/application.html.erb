@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Cegonha</title>
+    <title>Caixa da Cegonha</title>
     <meta name="description" content="Ultimate Responsive HTML5 Landing Page" />
     <meta name="keywords" content="responsive html5 template, landing page, bootstrap 3.0, css, jquery" />
     <meta name="author" content="8Guild" />
@@ -14,10 +14,15 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <!--Google Fonts-->
     <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' %>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'landing2' 'data-turbolinks-track' => true %>
+
     <%= csrf_meta_tags %>
+
+    <%= yield :head %>
   </head>
 
   <body class="space-top">
@@ -29,17 +34,19 @@
     <%= yield %>
 
   </body>
+
+  <%= yield :js %>
+
   <script>
+    <% flash.each do |key, value| %>
+      toastr.options.closeButton = true;
+      toastr.options.newestOnTop = false;
 
-  <% flash.each do |key, value| %>
-    toastr.options.closeButton = true;
-    toastr.options.newestOnTop = false;
-
-    <% if key == 'notice' %>
-      toastr.info('<%= value %>');
-    <% elsif key == 'alert' %>
-      toastr.warning('<%= value %>');
+      <% if key == 'notice' %>
+        toastr.info('<%= value %>');
+      <% elsif key == 'alert' %>
+        toastr.warning('<%= value %>');
+      <% end %>
     <% end %>
-  <% end %>
   </script>
 </html>
