@@ -2,17 +2,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 #
-#
   def new
-    @user= User.new
+    super
+  end
+
+  def after_registration
+    @user = current_user
 
     @user.babies.build
   end
 
-  def after_registration
-  end
-
   def complete_registration
+    if current_user.update(after_registration_params)
+      redirect_to root_path, notice: 'Informações salvas.'
+    else
+      render :after_registration
+    end
   end
 
   def create
@@ -51,7 +56,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 private
   def sign_up_params
   #  allow= user: {:email,:name,:sex,:birthdate,:cpf,:rg,:street,:number,:password, :password_confirmation, baby: {:name,:born}}
-    params.require(:user).permit(:email,:name,:sex,:birthdate,:phone,:zipcode,:city,:state,:cpf,:rg,:street,:number,:password, :password_confirmation,babies_attributes: [:id,:user_id,:name,:born,:birthdate,:months])
+    params.require(:user).permit(:email,:name,:zipcode,:city,:state,:street,:number,:password, :password_confirmation)
+  end
+
+  def after_registration_params
+    params.require(:user).permit(:sex, :birthdate, :phone, :cpf, :rg, babies_attributes: [:id,:user_id,:name,:born,:birthdate,:months])
   end
 
   # GET /resource/sign_up
@@ -101,9 +110,9 @@ private
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+   def after_sign_up_path_for(resource)
+    after_registration_path
+   end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
