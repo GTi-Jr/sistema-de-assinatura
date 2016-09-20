@@ -62,16 +62,16 @@ $(document).ready(function(e) {
 	
 	//SCROLL-SPY
 	// Cache selectors
-	var lastId,
-		topMenu = $(".main-navi"),
-		topMenuHeight = topMenu.outerHeight(),
-		// All list items
-		menuItems = topMenu.find("a"),
-		// Anchors corresponding to menu items
-		scrollItems = menuItems.map(function(){
-		  var item = $($(this).attr("href"));
-		  if (item.length) { return item; }
-		});
+    var lastId,
+        topMenu = $(".main-navi"),
+        topMenuHeight = topMenu.outerHeight(),
+        // All list items
+        menuItems = topMenu.find("a"),
+        // Anchors corresponding to menu items
+        scrollItems = menuItems.map(function(){
+          var item = $($(this).attr("href"));
+          if (item.length) { return item; }
+        });
 	
 	// Bind to scroll
 	$(window).scroll(function(){
