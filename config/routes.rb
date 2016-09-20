@@ -11,13 +11,20 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks'
   }
 
-  get 'completar-cadastro' => 'users/registrations#after_registration'
-  post 'completar-cadastro' => 'users/registrations#complete_registration'
+  #Rotas do Devise
+  devise_scope :user do
+    get '/completar-cadastro' => 'users/registrations#after_registration', as: :after_registration
+    patch '/completar-cadastro' => 'users/registrations#complete_registration', as: :complete_registration
+
+    get '/entrar' => 'users/sessions#new', as: :login
+    delete '/logout' => 'users/sessions#destroy', as: :logout
+
+    get '/cadastro' => 'users/registrations#new'
+  end
 
   resources :users do
     resources :babies
   end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

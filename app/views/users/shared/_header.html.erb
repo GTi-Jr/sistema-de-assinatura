@@ -16,8 +16,12 @@
       <span class="dot"></span><span class="line"></span>
     </div>
     <% if !user_signed_in? %>
-      <%= link_to new_user_session_path, class: 'btn btn-primary btn-login' do %>
+      <%= link_to login_path, class: 'btn btn-primary btn-login' do %>
         <i class="icon-user"></i>Entrar
+      <% end %>
+    <% else %>
+      <%= link_to logout_path, method: :delete, class: 'btn btn-danger btn-login' do %>
+        <i class="icon-user"></i>Encerrar sessão
       <% end %>
     <% end %>
     <nav class="main-navi">
@@ -26,28 +30,13 @@
         <li class="has-dropdown"><a class="scroll" href="#features">Features<i class="fa fa-caret-down"></i></a>
         <ul class="dropdown">
           <li><a href="#">Submenu Item</a></li>
-          <li><a href="#">Submenu Item</a></li>
-          <li><a href="#">Submenu Item</a></li>
-          <li><a href="#">Submenu Item</a></li>
         </ul>
         </li>
-        <li class="has-dropdown"><a href="coming-soon.html">Coming soon<i class="fa fa-caret-down"></i></a>
-        <ul class="dropdown">
-          <li><a href="#">Submenu Item</a></li>
-          <li><a href="#">Submenu Item</a></li>
-          <li><a href="#">Submenu Item</a></li>
-        </ul>
-        </li>
-        <li><a href="cs-page.html">Components &amp; Styles</a></li>
         <% if user_signed_in? %>
-          <li class="has-dropdown">
-            <%= link_to '#' do %>
+          <li class="">
+            <%= link_to root_path do %>
               Oi, Caio! 
-              <i class="fa fa-caret-down"></i>
             <% end %>
-            <ul class="dropdown">
-              <li><%= link_to 'Sair', destroy_user_session_path, method: :delete %></li>
-            </ul>
           </li>
         <% end %>
       </ul>

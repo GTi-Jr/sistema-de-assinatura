@@ -17,6 +17,7 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
+
   protected
 
   # TODO mudar a rota para o perfil da pessoa ou algo do tipo
