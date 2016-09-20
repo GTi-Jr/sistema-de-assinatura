@@ -1,6 +1,22 @@
----
-pt-BR:
+pt:
   activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        email: 'Email'
+        name: 'Nome'
+        sex: 'Sexo'
+        birthdate: 'Data de nascimento'
+        cpf: 'CPF'
+        rg: 'RG'
+        street: 'Rua'
+        phone: 'Telefone'
+        zipcode: 'CEP'
+        city: 'Cidade'
+        state: 'Estado'
+        number: 'Número do logradouro'
+        
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
