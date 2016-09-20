@@ -1,15 +1,12 @@
-
 <div class="container">
   <div class="row jumbotron">
     <div class="col-xs-12 ">
       <h1 class="">Criando sua conta</h1>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-
         <div class="form-group col-xs-12">
           <%= f.label :email %>
-          <%= f.email_field :email, id: 'email', class: 'form-control' %>
+          <%= f.email_field :email, id: 'email', class: 'form-control', require: true %>
         </div>
 
         <div class="form-group col-xs-12">
@@ -24,18 +21,17 @@
 
         <div class="form-group col-xs-12 col-sm-6">
           <%= f.label :birthdate, 'Data de nascimento' %>
-          <%#TODO colocar mascaras%>
-          <%= f.text_field :birthdate, class: 'form-control' %>
+          <%= f.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
         </div>
 
         <div class="form-group col-xs-12 col-sm-6">
           <%= f.label :cpf, 'CPF' %>
-          <%= f.text_field :cpf, class: 'form-control' %>
+          <%= f.telephone_field :cpf, class: 'form-control cpf-field' %>
         </div>
 
         <div class="form-group col-xs-12 col-sm-6">
           <%= f.label :rg, 'RG' %>
-          <%= f.text_field :rg, class: 'form-control' %>
+          <%= f.telephone_field :rg, class: 'form-control rg-field' %>
         </div>
 
         <div class="form-group col-xs-9 col-sm-10">
@@ -48,18 +44,48 @@
           <%= f.text_field :number, class: 'form-control' %>
         </div>
 
+        <div class="form-group col-xs-12 col-sm-3">
+          <%= f.label :phone, 'Telefone' %>
+          <%= f.telephone_field :phone, class: 'form-control phone-field' %>
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-3">
+          <%= f.label :zipcode, 'CEP' %>
+          <%= f.telephone_field :zipcode, class: 'form-control zipcode-field' %>
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-3">
+          <%= f.label :city, 'Cidade' %>
+          <%= f.text_field :city, class: 'form-control' %>
+        </div>
+
+        <div class="gorm-group col-xs-12 col-sm-3">
+          <%= f.label :state, 'Estado' %>
+          <%= f.select :state, option_estados_for_select, {}, { class: 'form-control' } %>
+        </div>
+        
         <%= f.fields_for :babies do |baby| %>
+          <div class="baby">
+            <div class="form-group col-xs-12 col-sm-6">
+              <%= baby.label :name, 'Nome do Bebê' %>
+              <%= baby.text_field :name, class: 'form-control' %>
+            </div>
 
-          <div class="form-group col-xs-9 col-sm-10">
-            <%= baby.label :name, 'Nome do Bebê' %>
-            <%= baby.text_field :name, class: 'form-control' %>
+            <div class="form-group col-xs-5 col-sm-2">
+              <%= baby.label :born, 'Nascido?' %>
+              <%= baby.select :born, {'Não' => '0', 'Sim' => '1'}, {}, {class: 'form-control', onchange: 'babyBornChanged()'} %>
+            </div>
+
+            <div class="form-group col-xs-7 col-sm-4" id="baby-birthdate">
+              <%= baby.label :birthdate, 'Nascimento' %>
+              <%= baby.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
+            </div>
+
+            <div class="form-group col-xs-7 col-sm-4" id="baby-months">
+              <%= baby.label :months, 'Meses de gestação' %>
+              <%= baby.select :months, (1..12), {}, { class: 'form-control' } %>
+            </div>
           </div>
-
-          <div class="form-group col-xs-3 col-sm-2">
-            <%= baby.label :born, 'Nascido?' %>
-            <%= baby.check_box :born, class: 'form-control' %>
-          </div>
-
         <% end %>
 
 
@@ -83,3 +109,23 @@
     </div>
   </div>
 </div>
+
+<%= content_for :head do %>
+  <%= javascript_include_tag 'masks' %>
+  <%= javascript_include_tag 'users/registration' %>
+<% end %>
+
+<%= content_for :js do %>
+  <script>
+    $(document).ready(function() {
+      toastr.options.closeButton = true;
+      toastr.options.newestOnTop = false;
+
+      <% resource.errors.full_messages.each_with_index do |msg, index| %>
+        setTimeout(function() {
+          toastr.warning('<%= msg %>')
+        }, <%= index * 800 %>);
+      <% end %>
+    });
+  </script>
+<% end %>
