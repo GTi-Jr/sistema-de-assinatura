@@ -22,17 +22,11 @@
     <% end %>
     <nav class="main-navi">
       <ul>
-        <li class=""><a class="scroll-up" href="#">Home</a></li>
-        <li class="has-dropdown"><a class="scroll" href="#features">Features<i class="fa fa-caret-down"></i></a>
-        <ul class="dropdown">
-          <li><a href="#">Submenu Item</a></li>
-        </ul>
+        <li class=""><%= link_to 'Início', "#{root_path}#", class: 'scroll-up' %></li>
         </li>
         <% if user_signed_in? %>
           <li class="">
-            <%= link_to root_path do %>
-              Oi, Caio! 
-            <% end %>
+            <%= link_to 'Perfil', root_path %>
           </li>
           <li><%= link_to 'Encerrar sessão', logout_path, method: :delete %></li>
         <% end %>
