@@ -56,11 +56,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 private
   def sign_up_params
   #  allow= user: {:email,:name,:sex,:birthdate,:cpf,:rg,:street,:number,:password, :password_confirmation, baby: {:name,:born}}
-    params.require(:user).permit(:email,:name,:zipcode,:city,:state,:street,:number,:password, :password_confirmation)
+    params.require(:user).permit(:email,:password, :password_confirmation)
   end
 
   def after_registration_params
-    params.require(:user).permit(:sex, :birthdate, :phone, :cpf, :rg, babies_attributes: [:id,:user_id,:name,:born,:birthdate,:months])
+    params.require(:user).permit(:name, :sex, :birthdate, :phone, :cpf, :rg, babies_attributes: [:id,:user_id,:name,:born,:birthdate,:weeks])
   end
 
   # GET /resource/sign_up

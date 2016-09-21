@@ -4,6 +4,11 @@
       <h1 class="">Completar cadastro</h1>
 
       <%= form_for(@user, url: complete_registration_path) do |f| %>
+        <div class="form-group col-xs-12">
+          <%= f.label :name, 'Nome' %>
+          <%= f.text_field :name, class: 'form-control'  %>
+        </div>
+
         <div class="form-group col-xs-12 col-sm-6">
           <%= f.label :sex, 'Sexo' %>
           <%= f.select :sex, { 'Prefiro não declarar': 'U', 'Masculino': 'M', 'Feminino': 'F' }, {},{ class: 'form-control' } %>
@@ -42,8 +47,8 @@
             </div>
 
             <div class="form-group col-xs-7 col-sm-4" id="baby-months">
-              <%= baby.label :months, 'Meses de gestação' %>
-              <%= baby.select :months, (1..9), {}, { class: 'form-control' } %>
+              <%= baby.label :weeks, 'Meses de gestação' %>
+              <%= baby.select :weeks, (1..45), {}, { class: 'form-control' } %>
             </div>
 
             <div class="form-group col-xs-12 text-center">
