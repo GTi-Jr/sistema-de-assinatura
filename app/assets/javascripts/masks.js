@@ -7,6 +7,6 @@ $(document).ready(function(){
     }});
     $('.rg-field').mask('0000000000000000000')
     $('.cpf-field').mask('000.000.000-00');
-    $('.phone-field').mask('(00) 00000-0000');
+    $('.phone-field').mask('(00) 000000000');
     $('.zipcode-field').mask('00000-000');
 });

@@ -9,14 +9,19 @@
           <%= f.text_field :name, class: 'form-control'  %>
         </div>
 
-        <div class="form-group col-xs-12 col-sm-6">
+        <div class="form-group col-xs-12 col-sm-4">
           <%= f.label :sex, 'Sexo' %>
           <%= f.select :sex, { 'Prefiro não declarar': 'U', 'Masculino': 'M', 'Feminino': 'F' }, {},{ class: 'form-control' } %>
         </div>
 
-        <div class="form-group col-xs-12 col-sm-6">
+        <div class="form-group col-xs-12 col-sm-4">
           <%= f.label :birthdate, 'Data de nascimento' %>
           <%= f.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
+        </div>
+
+        <div class="form-group col xs-12 col-sm-4">
+          <%= f.label :phone, 'Telefone de contato' %>
+          <%= f.telephone_field :phone, class: 'form-control phone-field' %>
         </div>
 
         <div class="form-group col-xs-12 col-sm-6">
@@ -47,15 +52,15 @@
             </div>
 
             <div class="form-group col-xs-7 col-sm-4" id="baby-months">
-              <%= baby.label :weeks, 'Meses de gestação' %>
+              <%= baby.label :weeks, 'Semanas de gestação' %>
               <%= baby.select :weeks, (1..45), {}, { class: 'form-control' } %>
             </div>
 
-            <div class="form-group col-xs-12 text-center">
-              <%= f.submit 'Salvar', class: 'btn btn-primary' %>
-            </div>
           </div>
         <% end %>
+        <div class="form-group col-xs-12 text-center">
+          <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+        </div>
       <% end %>
     </div>
   </div>
