@@ -19,6 +19,7 @@ pt:
         cpf: 'CPF'
         rg: 'RG'
         phone: 'Telefone'
+        complete: 'Cadastro completo'
         password: 'Senha'
         password_confirmation: 'Confirmação da senha'
       address:
@@ -30,7 +31,7 @@ pt:
       baby:
         name: 'Nome'
         born: 'Nascido'
-        months: 'Meses'
+        weeks: 'Semanas'
         birthdate: 'Data de nascimento'
         
     errors:
