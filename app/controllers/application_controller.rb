@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def check_user_completed
-    if current_user && !current_user.completed
+    if current_user && !current_user.complete
       redirect_to after_registration_path, notice: 'Conclua seu cadastro.' 
     end
   end
