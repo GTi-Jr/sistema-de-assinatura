@@ -1,3 +1,21 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: b2bae25ce2c6fbaed23229a7359c13150fc6ba82
+  specs:
+    rails_admin (1.0.0)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (>= 0.7)
+      rails (>= 4.0, < 6)
+      remotipart (~> 1.3)
+      sass-rails (>= 4.0, < 6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -72,6 +90,13 @@ GEM
       activesupport (>= 3.0.0)
     builder (3.2.2)
     byebug (9.0.5)
+    coffee-rails (4.2.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.2.x)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     daemons (1.2.4)
     debug_inspector (0.0.2)
@@ -84,8 +109,12 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.9.1)
     execjs (2.7.0)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    haml (4.0.7)
+      tilt
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -94,7 +123,12 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.5)
+      railties (>= 3.2.16)
     json (1.8.3)
+    kaminari (0.17.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -113,6 +147,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    nested_form (0.3.2)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -121,6 +156,9 @@ GEM
     pkg-config (1.1.7)
     puma (3.4.0)
     rack (1.6.4)
+    rack-pjax (1.0.0)
+      nokogiri (~> 1.5)
+      rack (>= 1.1)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -144,6 +182,8 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_admin_rollincode (1.1)
+      rails (>= 4.0, < 6)
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -152,6 +192,7 @@ GEM
     rake (11.2.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    remotipart (1.3.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
@@ -215,6 +256,8 @@ DEPENDENCIES
   pg (~> 0.15)
   puma
   rails (= 4.2.6)
+  rails_admin!
+  rails_admin_rollincode (~> 1.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

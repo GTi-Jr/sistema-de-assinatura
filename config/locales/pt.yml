@@ -1,7 +1,15 @@
 pt:
   activerecord:
     models:
-      user: User
+      user: 
+        one: 'Usuário'
+        other: 'Usuários'
+      address: 
+        one: 'Endereço'
+        other: 'Endereços'
+      baby:
+        one: 'Bebê'
+        other: 'Bebês'
     attributes:
       user:
         email: 'Email'
@@ -10,12 +18,21 @@ pt:
         birthdate: 'Data de nascimento'
         cpf: 'CPF'
         rg: 'RG'
-        street: 'Rua'
         phone: 'Telefone'
+        complete: 'Cadastro completo'
+        password: 'Senha'
+        password_confirmation: 'Confirmação da senha'
+      address:
+        street: 'Rua'
         zipcode: 'CEP'
         city: 'Cidade'
         state: 'Estado'
         number: 'Número do logradouro'
+      baby:
+        name: 'Nome'
+        born: 'Nascido'
+        weeks: 'Semanas'
+        birthdate: 'Data de nascimento'
         
     errors:
       messages:

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   root 'welcome#home'
 
   devise_for :users, controllers: {
@@ -10,6 +8,25 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
     unlocks: 'users/unlocks'
   }
+
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
+    registrations: 'admins/registrations',
+    confirmations: 'admins/confirmations',
+    unlocks: 'admins/unlocks'
+  }
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  #Rotas do Devise
+  devise_scope :user do
+    get '/completar-cadastro' => 'users/registrations#after_registration', as: :after_registration
+    patch '/completar-cadastro' => 'users/registrations#complete_registration', as: :complete_registration
+
+    get '/entrar' => 'users/sessions#new', as: :login
+    delete '/logout' => 'users/sessions#destroy', as: :logout
+
+    get '/cadastro' => 'users/registrations#new'
+  end
 
   resources :users do
     resources :babies

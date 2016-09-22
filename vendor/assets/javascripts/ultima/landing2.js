@@ -69,7 +69,7 @@ $(document).ready(function(e) {
 		menuItems = topMenu.find("a"),
 		// Anchors corresponding to menu items
 		scrollItems = menuItems.map(function(){
-		  var item = $($(this).attr("href"));
+		  var item = $($(this).attr("ancor"));
 		  if (item.length) { return item; }
 		});
 	

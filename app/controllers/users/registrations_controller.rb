@@ -1,17 +1,30 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
-#
-#
 
   def new
-    @user= User.new
+    super
+  end
 
-    @user.babies.build
+  def after_registration
+    @user = current_user
+    @user.babies.build unless @user.babies.count >= 1
+  end
+
+  def complete_registration
+    current_user.update_attribute(:complete, check_after_registration_params)
+
+    if !current_user.complete
+      redirect_to :back, notice: 'Complete o cadastro'
+    elsif current_user.update(after_registration_params)
+      redirect_to root_path, notice: 'Informações salvas'
+    else
+      render :after_registration
+    end
   end
 
   def create
-      build_resource(sign_up_params)
+    build_resource(sign_up_params)
 
     resource.save
     yield resource if block_given?
@@ -30,49 +43,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
       set_minimum_password_length
       respond_with resource
     end
-
-    #sign_up('user',@user)
-    #redirect_to :root
-
-
-   # build_resource(sign_up_params)
-    #resource= User.new
-    #resource.save
-
-    #redirect_to :root
   end
 
+  private
+    def sign_up_params
+      params.require(:user).permit(:email,:password, :password_confirmation)
+    end
 
-private
-  def sign_up_params
-  #  allow= user: {:email,:name,:sex,:birthdate,:cpf,:rg,:street,:number,:password, :password_confirmation, baby: {:name,:born}}
-    params.require(:user).permit(:email,:name,:sex,:birthdate,:phone,:zipcode,:city,:state,:cpf,:rg,:street,:number,:password, :password_confirmation,babies_attributes: [:id,:user_id,:name,:born,:birthdate,:months])
-  end
+    def after_registration_params
+      params.require(:user).permit(:name, :sex, :birthdate, :phone, :cpf, :rg, babies_attributes: [:id,:user_id,:name,:born,:birthdate,:weeks])
+    end
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+    def check_after_registration_params
+      # Rejeita o sexo pois ele ja vem setado
+      after_registration_params.except(:sex, :babies_attributes).each do |k, v|
+        return false if v.empty?
+      end
+      true
+    end
 
-  # POST /resource
-  # def create
-  #   super
-  # end
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -86,19 +75,14 @@ private
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
-
-  # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+   def after_sign_up_path_for(resource)
+    after_registration_path
+   end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

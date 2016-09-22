@@ -1,27 +1,27 @@
 <div class="container">
   <div class="row jumbotron">
     <div class="col-xs-12 ">
-      <h1 class="">Detalhes da conta</h1>
+      <h1 class="">Completar cadastro</h1>
 
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <div class="form-group col-xs-12">
-          <%= f.label :email %>
-          <%= f.email_field :email, id: 'email', class: 'form-control', required: true %>
-        </div>
-
+      <%= form_for(@user, url: complete_registration_path) do |f| %>
         <div class="form-group col-xs-12">
           <%= f.label :name, 'Nome' %>
-          <%= f.text_field :name, id: 'name', class: 'form-control' %>
+          <%= f.text_field :name, class: 'form-control'  %>
         </div>
 
-        <div class="form-group col-xs-12 col-sm-6">
+        <div class="form-group col-xs-12 col-sm-4">
           <%= f.label :sex, 'Sexo' %>
           <%= f.select :sex, { 'Prefiro não declarar': 'U', 'Masculino': 'M', 'Feminino': 'F' }, {},{ class: 'form-control' } %>
         </div>
 
-        <div class="form-group col-xs-12 col-sm-6">
+        <div class="form-group col-xs-12 col-sm-4">
           <%= f.label :birthdate, 'Data de nascimento' %>
           <%= f.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
+        </div>
+
+        <div class="form-group col xs-12 col-sm-4">
+          <%= f.label :phone, 'Telefone de contato' %>
+          <%= f.telephone_field :phone, class: 'form-control phone-field' %>
         </div>
 
         <div class="form-group col-xs-12 col-sm-6">
@@ -32,36 +32,6 @@
         <div class="form-group col-xs-12 col-sm-6">
           <%= f.label :rg, 'RG' %>
           <%= f.telephone_field :rg, class: 'form-control rg-field' %>
-        </div>
-
-        <div class="form-group col-xs-9 col-sm-10">
-          <%= f.label :street, 'Rua' %>
-          <%= f.text_field :street, class: 'form-control' %>
-        </div>
-
-        <div class="form-group col-xs-3 col-sm-2">
-          <%= f.label :number, 'Nº' %>
-          <%= f.text_field :number, class: 'form-control' %>
-        </div>
-
-        <div class="form-group col-xs-12 col-sm-3">
-          <%= f.label :phone, 'Telefone' %>
-          <%= f.telephone_field :phone, class: 'form-control phone-field' %>
-        </div>
-
-        <div class="form-group col-xs-12 col-sm-3">
-          <%= f.label :zipcode, 'CEP' %>
-          <%= f.telephone_field :zipcode, class: 'form-control zipcode-field' %>
-        </div>
-
-        <div class="form-group col-xs-12 col-sm-3">
-          <%= f.label :city, 'Cidade' %>
-          <%= f.text_field :city, class: 'form-control' %>
-        </div>
-
-        <div class="gorm-group col-xs-12 col-sm-3">
-          <%= f.label :state, 'Estado' %>
-          <%= f.select :state, option_estados_for_select, {}, { class: 'form-control' } %>
         </div>
 
         <%= f.fields_for :babies do |baby| %>
@@ -82,22 +52,16 @@
             </div>
 
             <div class="form-group col-xs-7 col-sm-4" id="baby-months">
-              <%= baby.label :months, 'Meses de gestação' %>
-              <%= baby.select :months, (1..12), {}, { class: 'form-control' } %>
+              <%= baby.label :weeks, 'Semanas de gestação' %>
+              <%= baby.select :weeks, (1..45), {}, { class: 'form-control' } %>
             </div>
+
           </div>
         <% end %>
-
         <div class="form-group col-xs-12 text-center">
           <%= f.submit 'Salvar', class: 'btn btn-primary' %>
         </div>
       <% end %>
-
-      <h3>Cancelar minha conta</h3>
-
-      <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-      <%= link_to "Back", :back %>
     </div>
   </div>
 </div>
