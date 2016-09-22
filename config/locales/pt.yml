@@ -8,7 +8,7 @@ pt:
         one: 'Endereço'
         other: 'Endereços'
       baby:
-        one: 'Bebês'
+        one: 'Bebê'
         other: 'Bebês'
     attributes:
       user:
