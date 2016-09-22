@@ -26,7 +26,7 @@
         </li>
         <% if user_signed_in? %>
           <li class="">
-            <%= link_to 'Perfil', root_path %>
+            <%= link_to 'Perfil', user_profile_path %>
           </li>
           <li><%= link_to 'Encerrar sessão', logout_path, method: :delete %></li>
         <% end %>

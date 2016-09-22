@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :check_user_completed
 
   def profile
+    @babies = current_user.babies # Carregar os bebês numa variável para nao acessar BD na view
+    current_user.babies.build # Para caso o usuário deseje adicionar um novo bebê
+
+    @addresses = current_user.addresses
+    current_user.addresses.build
   end
 
   private

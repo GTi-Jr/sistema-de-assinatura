@@ -1,0 +1,59 @@
+<%= form_for(user, url: complete_registration_path) do |f| %>
+  <div class="form-group col-xs-12">
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name, class: 'form-control'  %>
+  </div>
+
+  <div class="form-group col-xs-12 col-sm-4">
+    <%= f.label :sex, 'Sexo' %>
+    <%= f.select :sex, { 'Prefiro não declarar': 'U', 'Masculino': 'M', 'Feminino': 'F' }, {},{ class: 'form-control' } %>
+  </div>
+
+  <div class="form-group col-xs-12 col-sm-4">
+    <%= f.label :birthdate, 'Data de nascimento' %>
+    <%= f.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
+  </div>
+
+  <div class="form-group col xs-12 col-sm-4">
+    <%= f.label :phone, 'Telefone de contato' %>
+    <%= f.telephone_field :phone, class: 'form-control phone-field' %>
+  </div>
+
+  <div class="form-group col-xs-12 col-sm-6">
+    <%= f.label :cpf, 'CPF' %>
+    <%= f.telephone_field :cpf, class: 'form-control cpf-field' %>
+  </div>
+
+  <div class="form-group col-xs-12 col-sm-6">
+    <%= f.label :rg, 'RG' %>
+    <%= f.telephone_field :rg, class: 'form-control rg-field' %>
+  </div>
+
+  <%= f.fields_for :babies do |baby| %>
+    <div class="baby">
+      <div class="form-group col-xs-12 col-sm-6">
+        <%= baby.label :name, 'Nome do Bebê' %>
+        <%= baby.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group col-xs-5 col-sm-2">
+        <%= baby.label :born, 'Nascido?' %>
+        <%= baby.select :born, {'Não' => '0', 'Sim' => '1'}, {}, {class: 'form-control', onchange: 'babyBornChanged()'} %>
+      </div>
+
+      <div class="form-group col-xs-7 col-sm-4" id="baby-birthdate">
+        <%= baby.label :birthdate, 'Nascimento' %>
+        <%= baby.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
+      </div>
+
+      <div class="form-group col-xs-7 col-sm-4" id="baby-months">
+        <%= baby.label :weeks, 'Semanas de gestação' %>
+        <%= baby.select :weeks, (1..45), {}, { class: 'form-control' } %>
+      </div>
+
+    </div>
+  <% end %>
+  <div class="form-group col-xs-12 text-center">
+    <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+  </div>
+<% end %>

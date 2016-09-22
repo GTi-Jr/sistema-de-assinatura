@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     unlocks: 'admins/unlocks'
   }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+ 
   #Rotas do Devise
   devise_scope :user do
     get '/completar-cadastro' => 'users/registrations#after_registration', as: :after_registration
@@ -27,6 +28,8 @@ Rails.application.routes.draw do
 
     get '/cadastro' => 'users/registrations#new'
   end
+
+  get 'perfil' => 'users#profile', as: :user_profile
 
   resources :users do
     resources :babies

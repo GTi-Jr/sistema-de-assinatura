@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-xs-12 ">
+      <h1 class="">Meu endereço</h1>
+
+      <%= form_for(current_user, url: registration_path(resource_name)) do |f| %>
+        <div class="form-group col-xs-9 col-sm-10">
+          <%= f.label :street, 'Rua' %>
+          <%= f.text_field :street, class: 'form-control' %>
+        </div>
+
+        <div class="form-group col-xs-3 col-sm-2">
+          <%= f.label :number, 'Nº' %>
+          <%= f.text_field :number, class: 'form-control' %>
+        </div>
+        <div class="form-group col-xs-12 col-sm-3">
+          <%= f.label :zipcode, 'CEP' %>
+          <%= f.telephone_field :zipcode, class: 'form-control zipcode-field' %>
+        </div>
+
+        <div class="form-group col-xs-12 col-sm-3">
+          <%= f.label :city, 'Cidade' %>
+          <%= f.text_field :city, class: 'form-control' %>
+        </div>
+
+        <div class="gorm-group col-xs-12 col-sm-3">
+          <%= f.label :state, 'Estado' %>
+          <%= f.select :state, option_estados_for_select, {}, { class: 'form-control' } %>
+        </div>
+
+        <div class="form-group col-xs-12 text-center">
+          <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+
+      <h3>Cancelar minha conta</h3>
+
+      <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+      <%= link_to "Back", :back %>
+    </div>
+  </div>
+</div>
+
+<%= content_for :head do %>
+  <%= javascript_include_tag 'masks' %>
+  <%= javascript_include_tag 'users/registration' %>
+<% end %>
+
+<%= content_for :js do %>
+  <script>
+$(document).ready(function() {
+    toastr.options.closeButton = true;
+    toastr.options.newestOnTop = false;
+
+    <% resource.errors.full_messages.each_with_index do |msg, index| %>
+      setTimeout(function() {
+        toastr.warning('<%= msg %>')
+        }, <%= index * 800 %>);
+    <% end %>
+    });
+  </script>
+<% end %>
+
