@@ -1,9 +1,15 @@
 pt:
   activerecord:
     models:
-      user: User
-      address: Address
-      baby: Baby
+      user: 
+        one: 'Usuário'
+        other: 'Usuários'
+      address: 
+        one: 'Endereço'
+        other: 'Endereços'
+      baby:
+        one: 'Bebês'
+        other: 'Bebês'
     attributes:
       user:
         email: 'Email'

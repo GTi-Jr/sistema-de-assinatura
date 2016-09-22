@@ -3,10 +3,10 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   # == Devise ==
-   config.authenticate_with do
-     warden.authenticate! scope: :admin
-   end
-   config.current_user_method(&:current_admin)
+  config.authenticate_with do
+    warden.authenticate! scope: :admin
+  end
+  config.current_user_method(&:current_admin)
 
   ## == Cancan ==
   # config.authorize_with :cancan
@@ -37,5 +37,20 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+
+  # Usar nomes do I18N
+  config.models do
+    edit do
+      fields do
+        help do
+          model = self.abstract_model.model_name.underscore
+          field = self.name
+          model_lookup = "admin.help.#{model}.#{field}".to_sym
+          field_lookup = "admin.help.#{field}".to_sym
+          I18n.t model_lookup, :help => help, :default => [field_lookup, help]
+        end
+      end
+    end
   end
 end
