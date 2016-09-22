@@ -35,3 +35,7 @@
 .wizard .body {
   background-color: $primary-color;
 }
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+  background-color: transparent;
+}
