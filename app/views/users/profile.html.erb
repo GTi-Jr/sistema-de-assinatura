@@ -8,7 +8,7 @@
         <ul class="nav nav-tabs">
           <li class="active"><a href="#home" data-toggle="tab">Meu plano</a></li>
           <li><a href="#user_data" data-toggle="tab">Meus dados</a></li>
-          <li><a href="#settings" data-toggle="tab">Messages</a></li>
+          <li><a href="#user_addresses" data-toggle="tab">Meus endereços</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
@@ -18,8 +18,8 @@
           <div class="tab-pane fade" id="user_data">
             <%= render 'users/profile_contents/user_data', user: current_user %>
           </div>
-          <div class="tab-pane fade" id="settings">
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
+          <div class="tab-pane fade" id="user_addresses">
+            <%= render 'users/profile_contents/user_addresses', user: current_user %>
           </div>
         </div>
       </div>
