@@ -3,8 +3,11 @@ class UsersController < ApplicationController
   before_action :check_user_completed
 
   def profile
-    build_user_address
-    build_user_baby
+    @address ||= Address.new
+    @baby ||= Baby.new
+
+    @user_addresses = current_user.addresses.order('main DESC')
+    @user_main_address = current_user.main_address
   end
 
   def update
@@ -30,19 +33,23 @@ class UsersController < ApplicationController
     if current_user.update(user_addresses_params)
       redirect_to :back, notice: 'Endereços atualizados'
     else
+      profile
       render :profile
     end
   end
 
+  def update_main_address
+    address = Address.find(params[:address_id])
+
+    if address.user.id == current_user.id
+      address.become_main
+      redirect_to :back, notice: 'Endereço principal atualizado'
+    else
+      redirect_to :back, alert: 'Não foi possível alterar seu endereço principal'
+    end
+  end
+
   private
-    def build_user_address
-      @address = Address.new
-    end
-
-    def build_user_baby
-      @baby = Baby.new
-    end
-
     def user_params
       params.require(:user).permit(:email, :name, :sex, :birthdate, :cpf, :rg, :password, :password_confirmation)
     end

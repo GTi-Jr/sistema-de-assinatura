@@ -5,9 +5,12 @@
         <h2>Nenhum endereço cadastrado</h2>
       <% end %>
 
-      <%= form_for(user, url: update_user_addresses_path) do |f| %>
-        <%= f.fields_for :addresses do |address| %>
-          <div class="row addresses" id="address_<%= "#{address.object.id}_#{address.object.zipcode}" %>">
+      <%= form_for(user, url: update_user_addresses_path, html: { method: :patch }) do |f| %>
+        <%= f.fields_for :addresses, @user_addresses do |address| %>
+          <div class="row addresses <%= 'main-address' if address.object.main? %>" id="address_<%= "#{address.object.id}_#{address.object.zipcode}" %>">
+            <% if address.object.main? %>
+              <h3 class="text-left">Endereço principal</h3>
+            <% end %>
             <div class="form-group col-xs-9 col-sm-10">
               <%= address.label :street, 'Rua' %>
               <%= address.text_field :street, class: 'form-control' %>
@@ -32,6 +35,14 @@
               <%= address.select :state, option_estados_for_select, {}, { class: 'form-control' } %>
             </div>
           </div>
+          <div class="text-center">
+            <% if address.object.main? %>
+              <%= link_to 'Apagar', address_path(address.object), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Este é seu endereço principal. Deseja realmente apagá-lo?' } %>
+            <% else %>
+              <%= link_to 'Tornar endereço principal', update_main_address_path(address.object.id), method: :patch, class: 'btn btn-primary btn-sm' %>
+              <%= link_to 'Apagar', address_path(address.object), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Deseja realmente apagar este endereço?'} %>
+            <% end %>
+          </div>
           <span class="devider"></span>
         <% end %>
 
@@ -40,48 +51,52 @@
         </div>
       <% end %>
 
-      <div class="col-sm-12">
-        <div class="panel-group" id="accordion-demo">
-          <div class="panel">
-            <a class="panel-heading" id="new_address" data-toggle="collapse" data-parent="#accordion-demo" href="#collapse1">Adicionar endereço
-              <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
-            </a>
-            <div id="collapse1" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <%= form_for @address, url: create_user_address_path do |f| %>
-                  <div class="form-group col-xs-9">
-                    <%= f.label :street, 'Rua' %>
-                    <%= f.text_field :street, class: 'form-control' %>
-                  </div>
+      <% if user.addresses_full? %>
+        <h4 class="text-center">Você pode possuir até três endereços</h4>
+      <% else %>
+        <div class="col-sm-12">
+          <div class="panel-group" id="accordion-demo">
+            <div class="panel">
+              <a class="panel-heading" id="new_address" data-toggle="collapse" data-parent="#accordion-demo" href="#collapse1">Adicionar endereço
+                <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
+              </a>
+              <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <%= form_for(@address, url: create_user_address_path, html: { method: :post }) do |f| %>
+                    <div class="form-group col-xs-9">
+                      <%= f.label :street, 'Rua' %>
+                      <%= f.text_field :street, class: 'form-control' %>
+                    </div>
 
-                  <div class="form-group col-xs-3">
-                    <%= f.label :number, 'Nº' %>
-                    <%= f.text_field :number, class: 'form-control' %>
-                  </div>
-                  <div class="form-group col-xs-12 col-sm-3">
-                    <%= f.label :zipcode, 'CEP' %>
-                    <%= f.telephone_field :zipcode, class: 'form-control zipcode-field' %>
-                  </div>
+                    <div class="form-group col-xs-3">
+                      <%= f.label :number, 'Nº' %>
+                      <%= f.text_field :number, class: 'form-control' %>
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-4">
+                      <%= f.label :zipcode, 'CEP' %>
+                      <%= f.telephone_field :zipcode, class: 'form-control zipcode-field' %>
+                    </div>
 
-                  <div class="form-group col-xs-12 col-sm-3">
-                    <%= f.label :city, 'Cidade' %>
-                    <%= f.text_field :city, class: 'form-control' %>
-                  </div>
+                    <div class="form-group col-xs-12 col-sm-4">
+                      <%= f.label :city, 'Cidade' %>
+                      <%= f.text_field :city, class: 'form-control' %>
+                    </div>
 
-                  <div class="gorm-group col-xs-12 col-sm-3">
-                    <%= f.label :state, 'Estado' %>
-                    <%= f.select :state, option_estados_for_select, {}, { class: 'form-control' } %>
-                  </div>
+                    <div class="gorm-group col-xs-12 col-sm-4">
+                      <%= f.label :state, 'Estado' %>
+                      <%= f.select :state, option_estados_for_select, {}, { class: 'form-control' } %>
+                    </div>
 
-                  <div class="form-group col-xs-12 text-center">
-                    <%= f.submit 'Adicionar endereço', class: 'btn btn-primary' %>
-                  </div>
-                <% end %>
+                    <div class="form-group col-xs-12 text-center">
+                      <%= f.submit 'Adicionar endereço', class: 'btn btn-primary' %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -90,6 +105,8 @@
   <%= javascript_include_tag 'masks' %>
   <%= javascript_include_tag 'users/registration' %>
 <% end %>
+
+<%= render 'shared/model_errors_notifications', record: @address %>
 
 <%= content_for :js do %>
   <script>

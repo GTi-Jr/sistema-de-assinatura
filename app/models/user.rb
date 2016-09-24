@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  @max_addresses_number = 3
+  @@max_addresses_number = 3
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -14,5 +14,13 @@ class User < ActiveRecord::Base
 
   usar_como_cpf :cpf
 
-  validates :addresses, length: { maximum: @max_addresses_number }
+  validates :addresses, length: { maximum: @@max_addresses_number }
+
+  def addresses_full?
+    addresses.count >= @@max_addresses_number
+  end
+
+  def main_address
+    addresses.find_by main: true
+  end
 end
