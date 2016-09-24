@@ -9,7 +9,7 @@
         <%= f.fields_for :addresses, @user_addresses do |address| %>
           <div class="row addresses <%= 'main-address' if address.object.main? %>" id="address_<%= "#{address.object.id}_#{address.object.zipcode}" %>">
             <% if address.object.main? %>
-              <h3 class="text-left">Endereço principal</h3>
+              <h3 class="text-left col-xs-12">Endereço principal</h3>
             <% end %>
             <div class="form-group col-xs-9 col-sm-10">
               <%= address.label :street, 'Rua' %>
