@@ -7,9 +7,11 @@
 
       <%= form_for(user, url: update_user_addresses_path, html: { method: :patch }) do |f| %>
         <%= f.fields_for :addresses, @user_addresses do |address| %>
-          <div class="row addresses <%= 'main-address' if address.object.main? %>" id="address_<%= "#{address.object.id}_#{address.object.zipcode}" %>">
+          <div class="row addresses left-border" id="address_<%= "#{address.object.id}_#{address.object.zipcode}" %>">
             <% if address.object.main? %>
-              <h3 class="text-left col-xs-12">Endereço principal</h3>
+              <h2 class="text-left col-xs-12">Endereço principal</h3>
+            <% else %>
+              <h3 class="text-left col-xs-12">Endereço secundário</h3>
             <% end %>
             <div class="form-group col-xs-9 col-sm-10">
               <%= address.label :street, 'Rua' %>
@@ -43,7 +45,6 @@
               <%= link_to 'Apagar', address_path(address.object), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Deseja realmente apagar este endereço?'} %>
             <% end %>
           </div>
-          <span class="devider"></span>
         <% end %>
 
         <div class="form-group col-xs-12 text-center">

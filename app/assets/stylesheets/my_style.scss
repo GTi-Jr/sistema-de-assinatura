@@ -24,6 +24,8 @@
   background-color: $terciary-color;
 }
 
-.main-address {
-  border-left: 3px solid;
+@media screen and (min-width: 768px) {
+  .left-border {
+    border-left: 3px solid;
+  }
 }
