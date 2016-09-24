@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20160924171139) do
     t.string   "state"
     t.string   "number"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "main",       default: false
   end
 
   create_table "admins", force: :cascade do |t|

@@ -22,7 +22,7 @@ class Users::SessionsController < Devise::SessionsController
 
   # TODO mudar a rota para o perfil da pessoa ou algo do tipo
   def after_sign_in_path_for(resource)
-    current_user.complete ? root_path : after_registration_path
+    current_user.complete ? user_profile_path : after_registration_path
   end
 
   def after_sign_out_path_for(resource)
