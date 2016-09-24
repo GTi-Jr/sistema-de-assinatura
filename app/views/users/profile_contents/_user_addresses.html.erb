@@ -54,43 +54,45 @@
       <% if user.addresses_full? %>
         <h4 class="text-center">Você pode possuir até três endereços</h4>
       <% else %>
-        <div class="col-sm-12">
-          <div class="panel-group" id="accordion-demo">
-            <div class="panel">
-              <a class="panel-heading" id="new_address" data-toggle="collapse" data-parent="#accordion-demo" href="#collapse1">Adicionar endereço
-                <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
-              </a>
-              <div id="collapse1" class="panel-collapse collapse in">
-                <div class="panel-body">
-                  <%= form_for(@address, url: create_user_address_path, html: { method: :post }) do |f| %>
-                    <div class="form-group col-xs-9">
-                      <%= f.label :street, 'Rua' %>
-                      <%= f.text_field :street, class: 'form-control' %>
-                    </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel-group" id="accordion-demo">
+              <div class="panel">
+                <a class="panel-heading" id="new_address" data-toggle="collapse" data-parent="#accordion-demo" href="#collapse1">Adicionar endereço
+                  <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
+                </a>
+                <div id="collapse1" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <%= form_for(@address, url: create_user_address_path, html: { method: :post }) do |f| %>
+                      <div class="form-group col-xs-9">
+                        <%= f.label :street, 'Rua' %>
+                        <%= f.text_field :street, class: 'form-control' %>
+                      </div>
 
-                    <div class="form-group col-xs-3">
-                      <%= f.label :number, 'Nº' %>
-                      <%= f.text_field :number, class: 'form-control' %>
-                    </div>
-                    <div class="form-group col-xs-12 col-sm-4">
-                      <%= f.label :zipcode, 'CEP' %>
-                      <%= f.telephone_field :zipcode, class: 'form-control zipcode-field' %>
-                    </div>
+                      <div class="form-group col-xs-3">
+                        <%= f.label :number, 'Nº' %>
+                        <%= f.text_field :number, class: 'form-control' %>
+                      </div>
+                      <div class="form-group col-xs-12 col-sm-4">
+                        <%= f.label :zipcode, 'CEP' %>
+                        <%= f.telephone_field :zipcode, class: 'form-control zipcode-field' %>
+                      </div>
 
-                    <div class="form-group col-xs-12 col-sm-4">
-                      <%= f.label :city, 'Cidade' %>
-                      <%= f.text_field :city, class: 'form-control' %>
-                    </div>
+                      <div class="form-group col-xs-12 col-sm-4">
+                        <%= f.label :city, 'Cidade' %>
+                        <%= f.text_field :city, class: 'form-control' %>
+                      </div>
 
-                    <div class="gorm-group col-xs-12 col-sm-4">
-                      <%= f.label :state, 'Estado' %>
-                      <%= f.select :state, option_estados_for_select, {}, { class: 'form-control' } %>
-                    </div>
+                      <div class="gorm-group col-xs-12 col-sm-4">
+                        <%= f.label :state, 'Estado' %>
+                        <%= f.select :state, option_estados_for_select, {}, { class: 'form-control' } %>
+                      </div>
 
-                    <div class="form-group col-xs-12 text-center">
-                      <%= f.submit 'Adicionar endereço', class: 'btn btn-primary' %>
-                    </div>
-                  <% end %>
+                      <div class="form-group col-xs-12 text-center">
+                        <%= f.submit 'Adicionar endereço', class: 'btn btn-primary' %>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>
