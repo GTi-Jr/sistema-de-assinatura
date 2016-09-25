@@ -9,6 +9,7 @@
           <li class="active"><a href="#home" data-toggle="tab">Meu plano</a></li>
           <li><a href="#user_data" data-toggle="tab">Meus dados</a></li>
           <li><a href="#user_addresses" data-toggle="tab">Meus endereços</a></li>
+          <li><a href="#user_babies" data-toggle="tab">Meus bebês</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
@@ -21,6 +22,9 @@
           <div class="tab-pane fade" id="user_addresses">
             <%= render 'users/profile_contents/user_addresses', user: current_user %>
           </div>
+          <div class="tab-pane fade" id="user_babies">
+            <%= render 'users/profile_contents/user_babies', user: current_user %>
+          </div>
         </div>
       </div>
     </div>
@@ -29,6 +33,5 @@
 
 <%= content_for :head do %>
   <%= javascript_include_tag 'masks' %>
-  <%= javascript_include_tag 'users/registration' %>
 <% end %>
 

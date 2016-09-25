@@ -33,9 +33,13 @@ Rails.application.routes.draw do
   # Rotas do perfil / profile routes
   get 'perfil' => 'users#profile', as: :user_profile
   patch 'update_user' => 'users#update', as: :update_user
+  
   patch 'update_addresses' => 'users#update_addresses', as: :update_user_addresses
   post 'create_user_address' => 'users#add_address', as: :create_user_address
   patch 'update_main_address/:address_id' => 'users#update_main_address', as: :update_main_address
+
+  patch 'update_babies' => 'users#update_babies', as: :update_user_babies
+  post 'create_user_baby' => 'users#add_baby', as: :create_user_baby
 
   resources :users do
     resources :babies

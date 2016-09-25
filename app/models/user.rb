@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   @@max_addresses_number = 3
+  @@max_babies_number = 10
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -15,6 +16,7 @@ class User < ActiveRecord::Base
   usar_como_cpf :cpf
 
   validates :addresses, length: { maximum: @@max_addresses_number }
+  validates :babies, length: { maximum: @@max_babies_number }
 
   def addresses_full?
     addresses.count >= @@max_addresses_number
@@ -22,5 +24,9 @@ class User < ActiveRecord::Base
 
   def main_address
     addresses.find_by main: true
+  end
+
+  def babies_full?
+    babies.count >= @@max_babies_number
   end
 end

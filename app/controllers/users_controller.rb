@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
     @user_addresses = current_user.addresses.order('main DESC')
     @user_main_address = current_user.main_address
+
+    @user_babies = current_user.babies.order(:name)
   end
 
   def update
@@ -49,6 +51,26 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_babies
+    if current_user.update(user_babies_params)
+      redirect_to :back, notice: 'Bebês atualizados'
+    else
+      profile
+      render :profile
+    end
+  end
+
+  def add_baby
+    @baby = current_user.babies.build(baby_params)
+
+    if @baby.save
+      redirect_to :back, notice: 'Bebê adicionado'
+    else
+      profile
+      render :profile
+    end
+  end
+
   private
     def user_params
       params.require(:user).permit(:email, :name, :sex, :birthdate, :cpf, :rg, :password, :password_confirmation)
@@ -63,7 +85,7 @@ class UsersController < ApplicationController
     end
 
     def user_babies_params
-      params.require(:user).permit(baby_attributes: %i(id name born birthdate weeks user_id))
+      params.require(:user).permit(babies_attributes: %i(id name born birthdate weeks))
     end
 
     def baby_params

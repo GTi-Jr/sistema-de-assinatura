@@ -59,10 +59,10 @@
           <div class="col-xs-12">
             <div class="panel-group" id="accordion-demo">
               <div class="panel">
-                <a class="panel-heading" id="new_address" data-toggle="collapse" data-parent="#accordion-demo" href="#collapse1">Adicionar endereço
+                <a class="panel-heading" id="new_address" data-toggle="collapse" data-parent="#accordion-demo" href="#collapse-address">Adicionar endereço
                   <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
                 </a>
-                <div id="collapse1" class="panel-collapse collapse in">
+                <div id="collapse-address" class="panel-collapse collapse in">
                   <div class="panel-body">
                     <%= form_for(@address, url: create_user_address_path, html: { method: :post }) do |f| %>
                       <div class="form-group col-xs-9">
@@ -103,11 +103,6 @@
     </div>
   </div>
 </div>
-
-<%= content_for :head do %>
-  <%= javascript_include_tag 'masks' %>
-  <%= javascript_include_tag 'users/registration' %>
-<% end %>
 
 <%= render 'shared/model_errors_notifications', record: @address %>
 
