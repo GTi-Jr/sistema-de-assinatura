@@ -16,11 +16,11 @@
   background-color: $primary-color;
 }
 
-.jumbotron-secondary {
+.secondary-bg-color {
   background-color: $secondary-color;
 }
 
-.jumbotron-terciary {
+.terciary-bg-color {
   background-color: $terciary-color;
 }
 
@@ -28,4 +28,9 @@
   .left-border {
     border-left: 3px solid;
   }
+}
+
+.btn-terciary {
+  background-color: $terciary-color;
+  color: white;
 }
