@@ -1,0 +1,6 @@
+
+
+<h2>Plano: <%= plan.name %></h2>
+<%= current_user.id %>
+<%= link_to("Se Inscrever", subscribe_plan_path(plan.id, :user_id => current_user.id), method: :patch ) %>
+<%= link_to("Cancelar Assinatura", unsubscribe_plan_path(current_user.id), method: :patch ) %>

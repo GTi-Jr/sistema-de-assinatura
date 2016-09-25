@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   }
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
- 
+
   #Rotas do Devise
   devise_scope :user do
     get '/completar-cadastro' => 'users/registrations#after_registration', as: :after_registration
@@ -36,6 +36,17 @@ Rails.application.routes.draw do
   patch 'update_addresses' => 'users#update_addresses', as: :update_user_addresses
   post 'create_user_address' => 'users#add_address', as: :create_user_address
   patch 'update_main_address/:address_id' => 'users#update_main_address', as: :update_main_address
+
+
+  # Rotas dos planos
+  resources :plans, only: [:show,:index] do
+    member do
+      patch :subscribe
+      patch :unsubscribe
+    end
+  end
+  #patch 'plan_subscribe' => 'plans#subscribe', as: :plan_subscribe
+
 
   resources :users do
     resources :babies
