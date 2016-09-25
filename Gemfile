@@ -21,6 +21,7 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
 
 group :development, :test do
+  gem 'better_errors'
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
