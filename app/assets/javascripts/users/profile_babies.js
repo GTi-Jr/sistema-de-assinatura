@@ -1,8 +1,6 @@
 $(document).ready(function() {
     for(i = 0; i < $('.babies').length; i++) {
-        var id = parseInt($($('.babies').get(i)).attr('data-id'));
-
-        console.log(id + ': ' + $('#baby-born-select-' + id).val());
+        var id = $($('.babies').get(i)).attr('data-id');
 
         if($('#baby-born-select-' + id).val() === '0') {
             $('#baby-weeks-' + id).show();
@@ -13,10 +11,12 @@ $(document).ready(function() {
             $('#baby-birthdate-' + id).show();
         }
     }
+
+    profileBabyBornChanged($('#baby-born-select-new'));
 });
 
 function profileBabyBornChanged(div) {
-    var id = parseInt($(div).parent().parent().attr('data-id'));
+    var id = $(div).attr('id').split('-')[3];
 
     if($(div).val() === '0') {
         $('#baby-weeks-' + id).show();
@@ -27,3 +27,4 @@ function profileBabyBornChanged(div) {
         $('#baby-birthdate-' + id).show();
     }
 }
+

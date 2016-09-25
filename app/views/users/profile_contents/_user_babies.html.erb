@@ -51,22 +51,22 @@
                 <div id="collapse-baby" class="panel-collapse collapse in">
                   <div class="panel-body">
                     <%= form_for(@baby, url: create_user_baby_path, html: { method: :post }) do |f| %>
-                      <div class="form-group col-xs-12 col-sm-6">
+                      <div class="form-group col-xs-12 col-sm-5">
                         <%= f.label :name, 'Nome do Bebê' %>
                         <%= f.text_field :name, class: 'form-control' %>
                       </div>
 
-                      <div class="form-group col-xs-5 col-sm-2">
+                      <div class="form-group col-xs-5 col-sm-3">
                         <%= f.label :born, 'Nascido?' %>
-                        <%= f.select :born, {'Não' => '0', 'Sim' => '1'}, {}, {class: 'form-control', onchange: 'babyBornChanged(this)'} %>
+                        <%= f.select :born, {'Não' => '0', 'Sim' => '1'}, {}, { id: 'baby-born-select-new',class: 'form-control', onchange: 'profileBabyBornChanged(this)'} %>
                       </div>
 
-                      <div class="form-group col-xs-7 col-sm-4" id="baby-birthdate-0">
+                      <div class="form-group col-xs-7 col-sm-4" id="baby-birthdate-new">
                         <%= f.label :birthdate, 'Nascimento' %>
                         <%= f.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
                       </div>
 
-                      <div class="form-group col-xs-7 col-sm-4" id="baby-weeks-0">
+                      <div class="form-group col-xs-7 col-sm-4" id="baby-weeks-new">
                         <%= f.label :weeks, 'Semanas de gestação' %>
                         <%= f.select :weeks, (1..45), {}, { class: 'form-control' } %>
                       </div>
