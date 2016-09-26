@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :babies
   has_many :addresses
-  has_one :subscription
+  has_one :subscription, -> { where canceled_on: nil }, class_name: 'Subscription'
+  has_many :subscriptions
   has_one :plan, through: :subscription
   #has_many :plans, through: :subscriptions
 
