@@ -34,55 +34,34 @@
       <h2>Preço dos planos</h2>
       <span>Lorem ipsum dolor amet</span>
     </div>
+  </div>
+  
+  <div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="pricing-plan">
-          <div class="header">
-            <h3>Pricing Plan 01</h3>
-            <span class="price">9.99 $</span>
-          </div>
-          <div class="body">
-            <uL>
-              <li>Lots of Components</li>
-              <li>Cool Icons</li>
-              <li>Unlimited colors</li>
-            </uL>
-            <div class="buy-btn"><a class="btn btn-primary" href="#">Assinar</a></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="pricing-plan highlited">
-          <div class="header">
-            <h3>Pricing Plan 02</h3>
-            <span class="price">19.99 $</span>
-          </div>
-          <div class="body">
-            <uL>
-              <li>Lots of Components</li>
-              <li>Cool Icons</li>
-              <li>Unlimited colors</li>
-            </uL>
-            <div class="buy-btn"><a class="btn btn-primary" href="#">Assinar</a></div>
+      <% @plans.each do |plan| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="pricing-plan">
+            <div class="header">
+              <h3><%= plan.name %></h3>
+              <span class="price"><%= currency(plan.price) %></span>
+            </div>
+            <div class="body">
+              <uL>
+                <li><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
+                <li><%= currency(plan.price_per_month) %> ao mês</li>
+                <li><%= plan.description %></li>
+              </uL>
+              <div class="buy-btn">
+                <% if current_user.plan != plan %>
+                  <%= link_to 'Assinar', subscribe_path(plan.id), method: :patch, class: 'btn btn-primary' %>
+                <% else %>
+                  <%= link_to 'Seu plano', user_profile_path, class: 'btn terciary-bg-color' %>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="pricing-plan">
-          <div class="header">
-            <h3>Pricing Plan 03</h3>
-            <span class="price">149.99 $</span>
-          </div>
-          <div class="body">
-            <uL>
-              <li>Lots of Components</li>
-              <li>Cool Icons</li>
-              <li>Unlimited colors</li>
-            </uL>
-            <div class="buy-btn"><a class="btn btn-primary" href="#">Assinar</a></div>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </section>
