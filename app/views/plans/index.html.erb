@@ -5,32 +5,30 @@
 
       <div class="col-lg-10 col-xs-12 col-centered">
         <!--Pricing Plans-->
-        <div class="row">
-          <% @plans.each do |plan| %>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-              <div class="pricing-plan">
-                <div class="header">
-                  <h3><%= plan.name %></h3>
-                  <span class="price"><%= currency(plan.price) %></span>
-                </div>
-                <div class="body">
-                  <uL>
-                    <li><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
-                    <li><%= currency(plan.price_per_month) %> ao mês</li>
-                    <li><%= plan.description %></li>
-                  </uL>
-                  <div class="buy-btn">
-                    <% if current_user.plan != plan %>
-                      <%= link_to 'Assinar', subscribe_path(plan.id), method: :patch, class: 'btn btn-primary' %>
-                    <% else %>
-                      <%= link_to 'Seu plano', user_profile_path, class: 'btn terciary-bg-color' %>
-                    <% end %>
-                  </div>
+        <% @plans.each do |plan| %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="pricing-plan">
+              <div class="header">
+                <h3><%= plan.name %></h3>
+                <span class="price"><%= currency(plan.price) %></span>
+              </div>
+              <div class="body">
+                <uL>
+                  <li><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
+                  <li><%= currency(plan.price_per_month) %> ao mês</li>
+                  <li><%= plan.description %></li>
+                </uL>
+                <div class="buy-btn">
+                  <% if current_user.plan != plan %>
+                    <%= link_to 'Assinar', subscribe_path(plan.id), method: :patch, class: 'btn btn-primary' %>
+                  <% else %>
+                    <%= link_to 'Seu plano', user_profile_path, class: 'btn terciary-bg-color' %>
+                  <% end %>
                 </div>
               </div>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

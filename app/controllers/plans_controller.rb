@@ -1,9 +1,8 @@
 class PlansController < ApplicationController
-
-  before_action :set_plan, only: [:show]
+  before_action :authenticate_user!, only: [:subscribe, :unsubscribe]
+  before_action :set_plan, only: [:show, :subscribe]
 
   def show
-
   end
 
   def index
@@ -11,10 +10,11 @@ class PlansController < ApplicationController
   end
 
   def subscribe
-    @plan = Plan.find(params[:id])
-
-    if current_user.subscribe_to_plan(@plan)
-      redirect_to :back, notice: 'Inscrito com sucesso'
+    # TODO Incrementar lógica para cartões
+    if !user.addresses.any?
+      redirect_to :back, alert: 'Adicione um endereço'
+    elsif current_user.subscribe_to_plan(@plan)
+      redirect_to user_profile_path, notice: 'Inscrito com sucesso'
     else
       redirect_to :back, notice: 'Erro na Inscrição'
     end
@@ -23,9 +23,9 @@ class PlansController < ApplicationController
 
   def unsubscribe
     if current_user.cancel_plan
-      redirect_to '/perfil', notice: 'Assinatura Cancelada'
+      redirect_to user_profile_path, notice: 'Assinatura Cancelada'
     else
-      redirect_to '/perfil', notice: 'Houve um problema no cancelamento'
+      redirect_to user_profile_path, notice: 'Houve um problema no cancelamento'
     end
   end
 
