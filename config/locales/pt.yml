@@ -10,6 +10,12 @@ pt:
       baby:
         one: 'Bebê'
         other: 'Bebês'
+      plan:
+        one: 'Plano'
+        other: 'Planos'
+      subscription:
+        one: 'Assinatura'
+        other: 'Assinaturas'
     attributes:
       user:
         email: 'Email'
@@ -33,6 +39,13 @@ pt:
         born: 'Nascido'
         weeks: 'Semanas'
         birthdate: 'Data de nascimento'
+      plan:
+        months:
+          one: 'Mês'
+          other: 'Meses'
+        name: 'Nome'
+        description: 'Descrição'
+        price: 'Preço'
         
     errors:
       messages:
