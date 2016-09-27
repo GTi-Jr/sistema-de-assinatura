@@ -15,11 +15,17 @@
                 </div>
                 <div class="body">
                   <uL>
-                    <li>Lots of Components</li>
-                    <li>Cool Icons</li>
-                    <li>Unlimited colors</li>
+                    <li><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
+                    <li><%= currency(plan.price_per_month) %> ao mês</li>
+                    <li><%= plan.description %></li>
                   </uL>
-                  <div class="buy-btn"><a class="btn btn-primary" href="#">Buy</a></div>
+                  <div class="buy-btn">
+                    <% if current_user.plan != plan %>
+                      <%= link_to 'Assinar', subscribe_path(plan.id), method: :patch, class: 'btn btn-primary' %>
+                    <% else %>
+                      <%= link_to 'Seu plano', user_profile_path, class: 'btn terciary-bg-color' %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             </div>

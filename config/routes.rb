@@ -44,9 +44,8 @@ Rails.application.routes.draw do
   # Rotas dos planos
   resources :plans, only: [:show]
   get 'planos' => 'plans#index', as: :plans
-  patch 'subscribe' => 'plans#subscribe'
-  patch 'unsubscribe' => 'plans#unsubscribe'
-  #patch 'plan_subscribe' => 'plans#subscribe', as: :plan_subscribe
+  patch 'subscribe/:id' => 'plans#subscribe', as: :subscribe
+  patch 'unsubscribe' => 'plans#unsubscribe', as: :unsubscribe
 
   resources :users do
     resources :babies
