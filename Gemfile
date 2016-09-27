@@ -20,6 +20,9 @@ gem 'brazilian-rails'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
 
+#Deploy na Amazon
+gem 'figaro'
+
 group :development, :test do
   gem 'better_errors'
   gem 'byebug'
@@ -30,6 +33,14 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'mailcatcher'
+
+  #Deploy na Amazon
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
