@@ -1,12 +1,13 @@
 <% if user.plan.nil? %>
   <div class="col-xs-12 text-center">
     <h2 class="">Você não possui nenhuma assinatura</h2>
-    <%= link_to 'Clique aqui pra assinar!', '', class: 'btn btn-terciary btn-lg' %>
+    <%= link_to 'Clique aqui pra ver nossos planos!', plans_path, class: 'btn btn-terciary btn-lg' %>
   </div>
 <% else %>
   <h2 class="text-center"><%= @user_plan.name %></h2>
-  <p class="text-center">Um pagamento de <strong><%= number_to_currency(@user_plan.price, unit: 'R$', separator: ',', delimiter: '') %></strong> será efetuado no dia <strong>25</strong> do mês de acordo com seu plano.</p>     
+  <p class="text-center">Um pagamento de <strong><%= currency(@user_plan.price) %></strong> será efetuado no dia <strong>25</strong> do mês de acordo com seu plano.</p>     
   <h3 class="text-center">Descrição do plano</h3>
   <p class="text-center"><%= @user_plan.description %></p>
+  <span class="text-left">Caso deseje cancelar seu plano clique <%= link_to 'aqui', unsubscribe_path, method: :patch, data: { confirm: 'Tem certeza de que deseja cancelar seu plano?' } %>.</span>
 <% end %>
 
