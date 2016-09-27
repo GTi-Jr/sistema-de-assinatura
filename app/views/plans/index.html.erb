@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-xs-12 ">
+      <h1 class="text-center">Nossos Planos</h1>
+
+      <div class="col-lg-10 col-xs-12 col-centered">
+        <!--Pricing Plans-->
+        <div class="row">
+          <% @plans.each do |plan| %>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <div class="pricing-plan">
+                <div class="header">
+                  <h3><%= plan.name %></h3>
+                  <span class="price"><%= currency(plan.price) %></span>
+                </div>
+                <div class="body">
+                  <uL>
+                    <li>Lots of Components</li>
+                    <li>Cool Icons</li>
+                    <li>Unlimited colors</li>
+                  </uL>
+                  <div class="buy-btn"><a class="btn btn-primary" href="#">Buy</a></div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= content_for :head do %>
+  <%= javascript_include_tag 'masks' %>
+<% end %>
+
