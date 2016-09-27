@@ -11,17 +11,13 @@ class PlansController < ApplicationController
   end
 
   def subscribe
-    @user= User.find(params[:user_id])
-    @plan= Plan.find(params[:id])
-    @user.build_subscription
-    @user.build_subscription.plan = @plan
+    @plan = Plan.find(params[:id])
 
-    if @user.save
+    if current_user.subscribe_to_plan(@plan)
       redirect_to :back, notice: 'Inscrito com sucesso'
     else
       redirect_to :back, notice: 'Erro na Inscrição'
     end
-
   end
 
 

@@ -38,4 +38,11 @@ class User < ActiveRecord::Base
   def cancel_plan
     subscription.cancel!
   end
+
+  def subscribe_to_plan(plan)
+    if self.plan.nil?
+      return update(plan: plan)
+    end
+    false
+  end
 end
