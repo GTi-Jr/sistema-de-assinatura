@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     @user_main_address = current_user.main_address
 
     @user_babies = current_user.babies.order(:name)
+
+    @user_plan = current_user.plan
   end
 
   def update
