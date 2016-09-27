@@ -20,18 +20,13 @@ class PlansController < ApplicationController
       redirect_to :back, notice: 'Inscrito com sucesso'
     else
       redirect_to :back, notice: 'Erro na Inscrição'
-
     end
 
   end
 
 
   def unsubscribe
-    @user= User.find(params[:id])
-    @subscription= @user.subscription
-    @plan= Plan.find(@subscription.plan_id)
-
-    if @plan.users.delete(@user.id)
+    if current_user.cancel_plan
       redirect_to '/perfil', notice: 'Assinatura Cancelada'
     else
       redirect_to '/perfil', notice: 'Houve um problema no cancelamento'
