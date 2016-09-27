@@ -1,25 +1,6 @@
 class BabiesController < ApplicationController
-  before_action :set_baby, only: [:show, :edit, :update, :destroy]
-
-  # GET /babies
-  # GET /babies.json
-  def index
-    @babies = Baby.all
-  end
-
-  # GET /babies/1
-  # GET /babies/1.json
-  def show
-  end
-
-  # GET /babies/new
-  def new
-    @baby = Baby.new
-  end
-
-  # GET /babies/1/edit
-  def edit
-  end
+  before_action :authenticate_user!
+  before_action :set_baby, only: [:destroy]
 
   # POST /babies
   # POST /babies.json
@@ -38,27 +19,14 @@ class BabiesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /babies/1
-  # PATCH/PUT /babies/1.json
-  def update
-    respond_to do |format|
-      if @baby.update(baby_params)
-        format.html { redirect_to @baby, notice: 'Baby was successfully updated.' }
-        format.json { render :show, status: :ok, location: @baby }
-      else
-        format.html { render :edit }
-        format.json { render json: @baby.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # DELETE /babies/1
   # DELETE /babies/1.json
   def destroy
-    @baby.destroy
-    respond_to do |format|
-      format.html { redirect_to babies_url, notice: 'Baby was successfully destroyed.' }
-      format.json { head :no_content }
+    if @baby.belongs_to? current_user
+      @baby.destroy
+      redirect_to :back, notice: "#{@baby.name} foi apagado."
+    else
+      redirect_to :back, alert: 'Erro ao apagar bebê. Tente novamente'
     end
   end
 

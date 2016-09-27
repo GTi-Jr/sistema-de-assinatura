@@ -1,0 +1,12 @@
+<% if user.plan.nil? %>
+  <div class="col-xs-12 text-center">
+    <h2 class="">Você não possui nenhuma assinatura</h2>
+    <%= link_to 'Clique aqui pra assinar!', '', class: 'btn btn-terciary btn-lg' %>
+  </div>
+<% else %>
+  <h2 class="text-center"><%= @user_plan.name %></h2>
+  <p class="text-center">Um pagamento de <strong><%= number_to_currency(@user_plan.price, unit: 'R$', separator: ',', delimiter: '') %></strong> será efetuado no dia <strong>25</strong> do mês de acordo com seu plano.</p>     
+  <h3 class="text-center">Descrição do plano</h3>
+  <p class="text-center"><%= @user_plan.description %></p>
+<% end %>
+

@@ -16,10 +16,21 @@
   background-color: $primary-color;
 }
 
-.jumbotron-secondary {
+.secondary-bg-color {
   background-color: $secondary-color;
 }
 
-.jumbotron-terciary {
+.terciary-bg-color {
   background-color: $terciary-color;
+}
+
+@media screen and (min-width: 768px) {
+  .left-border {
+    border-left: 3px solid;
+  }
+}
+
+.btn-terciary {
+  background-color: $terciary-color;
+  color: white;
 }
