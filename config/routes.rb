@@ -42,12 +42,10 @@ Rails.application.routes.draw do
   post 'create_user_baby' => 'users#add_baby', as: :create_user_baby
 
   # Rotas dos planos
-  resources :plans, only: [:show,:index] do
-    member do
-      patch :subscribe
-      patch :unsubscribe
-    end
-  end
+  resources :plans, only: [:show]
+  get 'planos' => 'plans#index', as: :plans
+  patch 'subscribe' => 'plans#subscribe'
+  patch 'unsubscribe' => 'plans#unsubscribe'
   #patch 'plan_subscribe' => 'plans#subscribe', as: :plan_subscribe
 
   resources :users do
