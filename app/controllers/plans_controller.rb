@@ -11,12 +11,12 @@ class PlansController < ApplicationController
 
   def subscribe
     # TODO Incrementar lógica para cartões
-    if !user.addresses.any?
+    if !current_user.has_any_address?
       redirect_to :back, alert: 'Adicione um endereço'
     elsif current_user.subscribe_to_plan(@plan)
       redirect_to user_profile_path, notice: 'Inscrito com sucesso'
     else
-      redirect_to :back, notice: 'Erro na Inscrição'
+      redirect_to :back, notice: 'Erro na inscrição'
     end
   end
 
