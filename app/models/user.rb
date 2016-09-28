@@ -4,22 +4,25 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable
+
+  usar_como_cpf :cpf
 
   has_many :babies
   has_many :addresses
   has_one :subscription, -> { where canceled_on: nil }, class_name: 'Subscription'
   has_many :subscriptions
   has_one :plan, through: :subscription
-  #has_many :plans, through: :subscriptions
 
   accepts_nested_attributes_for :babies
   accepts_nested_attributes_for :addresses
   accepts_nested_attributes_for :plan
   accepts_nested_attributes_for :subscription
-
-  usar_como_cpf :cpf
 
   validates :addresses, length: { maximum: @@max_addresses_number }
   validates :babies, length: { maximum: @@max_babies_number }
@@ -32,7 +35,22 @@ class User < ActiveRecord::Base
     addresses.find_by main: true
   end
 
+  def has_any_address?
+    addresses.any?
+  end
+
   def babies_full?
     babies.count >= @@max_babies_number
+  end
+
+  def cancel_plan
+    subscription.cancel!
+  end
+
+  def subscribe_to_plan(plan)
+    if plan.nil?
+      return update(plan: plan)
+    end
+    false
   end
 end

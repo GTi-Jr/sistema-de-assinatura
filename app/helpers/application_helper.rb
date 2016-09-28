@@ -3,4 +3,8 @@ module ApplicationHelper
     return 'warning' if key == 'alert'
     return 'success' if key == 'notice'
   end
+
+  def currency(price)
+    number_to_currency(price, unit: 'R$', separator: ',', delimiter: '')
+  end
 end

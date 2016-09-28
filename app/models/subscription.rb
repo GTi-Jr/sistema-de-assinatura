@@ -6,4 +6,8 @@ class Subscription < ActiveRecord::Base
   def active?
     canceled_on.nil?
   end
+
+  def cancel!
+    update(canceled_on: Date.today)
+  end
 end

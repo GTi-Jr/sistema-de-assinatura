@@ -38,7 +38,7 @@
         </div>
         <div class="text-center">
           <% if address.object.main? %>
-            <%= link_to 'Apagar', address_path(address.object), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Este é seu endereço principal. Deseja realmente apagá-lo?' } %>
+            <p>Não é possível apagar seu endereço principal</p>
           <% else %>
             <%= link_to 'Tornar endereço principal', update_main_address_path(address.object.id), method: :patch, class: 'btn btn-primary btn-sm' %>
             <%= link_to 'Apagar', address_path(address.object), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Deseja realmente apagar este endereço?'} %>

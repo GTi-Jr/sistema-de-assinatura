@@ -8,6 +8,10 @@
   margin: 0 auto;
 }
 
+a:visited {
+  color: #313447;
+}
+
 .content {
   margin-top: 5%;
 }
@@ -33,4 +37,12 @@
 .btn-terciary {
   background-color: $terciary-color;
   color: white;
+}
+
+.jumbotron {
+  .pricing-plan {
+    .body {
+      color: #313447; /* fix para pricing plans funcionar dentro do jumbotron */
+    }
+  }
 }
