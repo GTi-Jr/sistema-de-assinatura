@@ -22,6 +22,8 @@
 
     <%= csrf_meta_tags %>
 
+    <%= analytics_init if GoogleAnalytics.valid_tracker? %>
+
     <%= yield :head %>
   </head>
 
