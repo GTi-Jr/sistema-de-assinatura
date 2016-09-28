@@ -18,13 +18,16 @@ class Address < ActiveRecord::Base
     update(main: true)
   end
 
+  def last_user_address?
+    !Address.where(user: user).where.not(id: id).any?
+  end
+
   private
     def update_main_address_after_destroy
-      other_user_addresses = Address.where(user_id: user_id).where.not(id: id)
-      if other_user_addresses.count > 0
-        other_user_addresses.first.update(main: true)
-      else
+      if last_user_address?
         false
+      else
+        Address.where(user_id: user_id).where.not(id: id).first.update(main: true)
       end
     end
 end
