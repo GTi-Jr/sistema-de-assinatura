@@ -41,8 +41,8 @@ pt:
         birthdate: 'Data de nascimento'
       plan:
         months:
-          one: 'Mês'
-          other: 'Meses'
+          one: 'mês'
+          other: 'meses'
         name: 'Nome'
         description: 'Descrição'
         price: 'Preço'

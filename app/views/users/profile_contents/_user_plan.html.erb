@@ -5,9 +5,12 @@
   </div>
 <% else %>
   <h2 class="text-center"><%= @user_plan.name %></h2>
-  <p class="text-center">Um pagamento de <strong><%= currency(@user_plan.price) %></strong> será efetuado no dia <strong>25</strong> do mês de acordo com seu plano.</p>     
+  <p class="text-center">
+    Um pagamento de <strong><%= currency(@user_plan.price) %></strong> será efetuado no dia <strong>25</strong>
+    a cada <strong><%= @user_plan.duration %> <%= @user_plan.class.human_attribute_name(:months, count: @user_plan.duration.to_i) %></strong>. 
+  </p>     
   <h3 class="text-center">Descrição do plano</h3>
   <p class="text-center"><%= @user_plan.description %></p>
-  <span class="text-left">Caso deseje cancelar seu plano clique <%= link_to 'aqui', unsubscribe_path, method: :patch, data: { confirm: 'Tem certeza de que deseja cancelar seu plano?' } %>.</span>
+  <span class="text-center col-xs-12">Caso deseje cancelar seu plano clique <%= link_to 'aqui', unsubscribe_path, method: :patch, data: { confirm: 'Tem certeza de que deseja cancelar seu plano?' } %>.</span>
 <% end %>
 
