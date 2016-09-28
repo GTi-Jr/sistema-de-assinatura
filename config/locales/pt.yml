@@ -16,6 +16,7 @@ pt:
       subscription:
         one: 'Assinatura'
         other: 'Assinaturas'
+      faq: 'FAQ'
     attributes:
       user:
         email: 'Email'
@@ -28,6 +29,8 @@ pt:
         complete: 'Cadastro completo'
         password: 'Senha'
         password_confirmation: 'Confirmação da senha'
+        created_at: 'Cadastrado em'
+        updated_at: 'Alterado em'
       address:
         street: 'Rua'
         zipcode: 'CEP'
@@ -39,6 +42,8 @@ pt:
         born: 'Nascido'
         weeks: 'Semanas'
         birthdate: 'Data de nascimento'
+        created_at: 'Adicionado em'
+        updated_at: 'Atualizado em'
       plan:
         months:
           one: 'mês'
@@ -46,6 +51,13 @@ pt:
         name: 'Nome'
         description: 'Descrição'
         price: 'Preço'
+        created_at: 'Cadastrado em'
+        updated_at: 'Atualizado em'
+      faq:
+        question: 'Pergunta'
+        answer: 'Resposta'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
         
     errors:
       messages:

@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :faq do
+    question "MyText"
+    answer "MyText"
+  end
   factory :user do
     sequence(:name) { |n| "Testing John #{n}" }
     sequence(:email) { |n| "test_user_#{n}@test.com" }
