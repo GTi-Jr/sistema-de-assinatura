@@ -20,6 +20,8 @@ gem 'brazilian-rails'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
 
+gem 'google-analytics-rails', '1.1.0'
+
 group :development, :test do
   gem 'better_errors'
   gem 'byebug'
@@ -33,4 +35,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
