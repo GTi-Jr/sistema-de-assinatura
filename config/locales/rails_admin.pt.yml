@@ -38,6 +38,7 @@ pt:
       changes: "Alterações"
       created_at: "Data/Hora"
       item: "Item"
+      last_created: "Último adicionado"
       message: "Mensagem"
     actions:
       dashboard:
