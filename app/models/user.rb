@@ -4,8 +4,12 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable,
+         :registerable,
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable
 
   usar_como_cpf :cpf
 
@@ -31,6 +35,10 @@ class User < ActiveRecord::Base
     addresses.find_by main: true
   end
 
+  def has_any_address?
+    addresses.any?
+  end
+
   def babies_full?
     babies.count >= @@max_babies_number
   end
@@ -40,7 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def subscribe_to_plan(plan)
-    if self.plan.nil?
+    if plan.nil?
       return update(plan: plan)
     end
     false
