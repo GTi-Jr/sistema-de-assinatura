@@ -17,8 +17,9 @@ gem 'devise'
 # Coleção de gems para desenvolvedores brasileiros - cnpf, cpf, cep, traduções, numeros por extenso etc
 gem 'brazilian-rails'
 
-gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
+gem 'rails_admin', github: 'sferik/rails_admin'
+
 
 gem 'google-analytics-rails', '1.1.0'
 
