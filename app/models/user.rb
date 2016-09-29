@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
   validates :addresses, length: { maximum: @@max_addresses_number }
   validates :babies, length: { maximum: @@max_babies_number }
 
+  after_save :subscribe_user_to_mailing_list
+
   def addresses_full?
     addresses.count >= @@max_addresses_number
   end
@@ -53,4 +55,18 @@ class User < ActiveRecord::Base
     end
     false
   end
+
+  def first_name
+    name ? name.split(' ').first : ''
+  end
+
+  def last_name
+    name ? name.split(' ').last : ''
+  end
+
+  protected
+    
+    def subscribe_user_to_mailing_list
+      SubscribeUserToMailingListJob.perform_later(self)
+    end
 end
