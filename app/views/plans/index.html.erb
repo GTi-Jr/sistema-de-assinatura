@@ -19,10 +19,10 @@
                   <li><%= plan.description %></li>
                 </uL>
                 <div class="buy-btn">
-                  <% if current_user.plan != plan %>
-                    <%= link_to 'Assinar', subscribe_path(plan.id), method: :patch, class: 'btn btn-primary' %>
-                  <% else %>
+                  <% if current_user.plan && current_user.plan = plan %>
                     <%= link_to 'Seu plano', user_profile_path, class: 'btn terciary-bg-color' %>
+                  <% else %>
+                    <%= link_to 'Assinar', subscribe_path(plan.id), method: :patch, class: 'btn btn-primary' %>
                   <% end %>
                 </div>
               </div>
