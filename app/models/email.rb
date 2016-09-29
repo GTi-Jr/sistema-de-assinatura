@@ -7,7 +7,7 @@ class Email < ActiveRecord::Base
   validates_presence_of :body
   validates_presence_of :to
 
-  before_create :send_email
+  after_create :send_email
 
   private
     def send_email
