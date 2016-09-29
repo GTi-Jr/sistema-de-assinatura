@@ -68,11 +68,23 @@ pt:
         updated_at: 'Atualizado em'
         subscriptions: 'Inscrições'
         users: 'Usuários'
+      subscription:
+        canceled_on: 'Cancelada em'
+        subscription_code: 'Código'
+        user: 'Usuário'
+        plan: 'Plano'
+        created_at: 'Assinado em'
       faq:
         question: 'Pergunta'
         answer: 'Resposta'
         created_at: 'Criado em'
         updated_at: 'Atualizado em'
+      email:
+        title: 'Título'
+        body: 'Corpo'
+        to: 'Para'
+        tos:
+          everyone: 'Todos'
         
     errors:
       messages:
