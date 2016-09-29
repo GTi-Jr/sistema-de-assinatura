@@ -1,22 +1,23 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
 
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+
+
 
 
 
 set :application, 'caixa_cegonha'
 set :repo_url, 'git@github.com:GTi-Jr/sistema-de-assinatura.git' # Edit this to match your repository
 set :branch, :master
+set :user, 'deploy'
 set :deploy_to, '/home/deploy/caixa_cegonha'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
 set :rvm_type, :user
-set :rvm_version, '1.27.0'
-set :rvm_ruby_version, '2.3.1.p112' # Edit this if you are using MRI Ruby
+#set :rvm_version, '1.27.0'
+set :rvm_ruby, '1.0.0' # Edit this if you are using MRI Ruby
 
 set :puma_rackup, -> { File.join(current_path, 'config.ru') }
 set :puma_state, "#{shared_path}/tmp/pids/puma.state"
