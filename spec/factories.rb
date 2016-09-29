@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :email do
+    title "MyString"
+    body "MyText"
+    to 1
+    to 1
+  end
   factory :faq do
     question "MyText"
     answer "MyText"

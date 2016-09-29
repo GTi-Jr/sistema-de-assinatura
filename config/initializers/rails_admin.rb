@@ -1,4 +1,5 @@
 RailsAdmin.config do |config|
+  config.main_app_name = ["Caixa da Cegonha", "admin"]
   # == Devise ==
   config.authenticate_with do
     warden.authenticate! scope: :admin
@@ -38,4 +39,9 @@ RailsAdmin.config do |config|
       end
     end
   end
+
+  # Menu lateral
+  config.navigation_static_links = {
+    'Google' => 'http://www.google.com'
+  }
 end
