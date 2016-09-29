@@ -20,6 +20,8 @@ gem 'brazilian-rails'
 gem 'rails_admin_rollincode', '~> 1.0'
 gem 'rails_admin', github: 'sferik/rails_admin'
 
+# Mailchimp API
+gem 'gibbon'
 
 
 #Deploy na Amazon
