@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   end
 
   protected
-    
+ 
     def subscribe_user_to_mailing_list
       SubscribeUserToMailingListJob.perform_later(self)
     end

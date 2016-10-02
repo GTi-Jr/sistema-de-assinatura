@@ -10,7 +10,6 @@ class PlansController < ApplicationController
   end
 
   def subscribe
-    # TODO Incrementar lógica para cartões
     if !current_user.has_any_address?
       redirect_to :back, alert: 'Adicione um endereço'
     elsif current_user.subscribe_to_plan(@plan)

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :plans do
+  get 'payments/checkout'
+  end
+
   root 'welcome#home'
 
   devise_for :users, controllers: {
@@ -46,6 +50,9 @@ Rails.application.routes.draw do
   get 'planos' => 'plans#index', as: :plans
   patch 'subscribe/:id' => 'plans#subscribe', as: :subscribe
   patch 'unsubscribe' => 'plans#unsubscribe', as: :unsubscribe
+
+  # Checkout dos planos
+  get 'checkout' => 'plans/payments#checkout', as: :plans_payment_checkout
 
   resources :users do
     resources :babies
