@@ -53,7 +53,9 @@ Rails.application.routes.draw do
 
   # Checkout dos planos
   get 'aprovar-escolha/:id' => 'plans/payments#checkout', as: :plans_payment_checkout
-  get 'proceder-para-paypal/:id' => 'plans/payments#approve_payment', as: :plans_approve_payment
+  get 'proceder-para-paypal/:id' => 'plans/payments#paypal_checkout', as: :plans_paypal_checkout
+  get 'confirmar/:id' => 'plans/payments#confirm', as: :plans_paypal_confirm
+  post 'confirmar' => 'plans/payments#confirm_payment', as: :plans_paypal_confirm_payment
 
   resources :users do
     resources :babies
