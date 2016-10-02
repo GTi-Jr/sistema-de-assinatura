@@ -21,7 +21,7 @@
               <li><%= @plan.description %></li>
             </uL>
             <div class="buy-btn">
-              <%= link_to 'Assinar', subscribe_path(@plan.id), method: :patch, class: 'btn btn-primary' %>
+              <%= link_to 'Assinar', plans_paypal_checkout_path(@plan.id), class: 'btn btn-primary' %>
             </div>
           </div>
         </div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-xs-12 ">
+      <h1 class="text-center">Finalizar compra</h1>
+      
+      <div class="col-xs-12 text-center">
+        <p>Para finalizar sua compra clique no botão abaixo.</p> 
+        <p>Ao finalizar a compra você estará aceitando que será cobrado no valor de <%= currency(@plan.price) %> no dia 25 com um intervalo de <%= @plan.duration %> <%= @plan.class.human_attribute_name(:months, count: @plan.duration.to_i) %>.</p>
+      </div>
+      
+      <div class="col-xs-12 text-center">
+        <%= form_for @subscription, url: plans_paypal_confirm_payment_path do |f| %>
+          <%= f.hidden_field :paypal_customer_token %>
+          <%= f.hidden_field :paypal_payment_token %>
+          <%= f.hidden_field :plan_id %>
+
+          <%= f.submit 'Finalizar compra', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
