@@ -52,7 +52,8 @@ Rails.application.routes.draw do
   patch 'unsubscribe' => 'plans#unsubscribe', as: :unsubscribe
 
   # Checkout dos planos
-  get 'checkout' => 'plans/payments#checkout', as: :plans_payment_checkout
+  get 'aprovar-escolha/:id' => 'plans/payments#checkout', as: :plans_payment_checkout
+  get 'proceder-para-paypal/:id' => 'plans/payments#approve_payment', as: :plans_approve_payment
 
   resources :users do
     resources :babies
