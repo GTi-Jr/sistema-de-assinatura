@@ -23,7 +23,7 @@ class PaypalPayment
     options = options.reverse_merge(
       token: @subscription.paypal_payment_token,
       payer_id: @subscription.paypal_customer_token,
-      description: @subscription.plan.description,
+      description: "#{@subscription.plan.name}: #{@subscription.plan.description}",
       amount: @subscription.plan.price.to_s,
       currency: 'BRL'
     )
