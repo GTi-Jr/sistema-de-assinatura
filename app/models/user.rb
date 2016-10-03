@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   end
 
   def cancel_plan
-    subscription.cancel!
+    subscription.cancel_with_paypal!
   end
 
   def subscribe_to_plan(plan)
