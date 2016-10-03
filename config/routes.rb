@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :coupons
   root 'welcome#home'
 
   devise_for :users, controllers: {

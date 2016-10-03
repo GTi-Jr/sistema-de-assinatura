@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :coupon do
+    code "MyString"
+    amount 1.5
+    quantity 1
+    expiry_date "2016-10-02"
+  end
   factory :email do
     title "MyString"
     body "MyText"
