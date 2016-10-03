@@ -17,6 +17,11 @@ class PaypalPayment
     process :create_recurring_profile, period: :monthly, frequency: 1, start_at: Time.zone.now
   end
 
+  def cancel_recurring_payment
+    ppr = PayPal::Recurring.new(profile_id: @subscription.paypal_recurring_profile_token)
+    ppr.cancel
+  end
+
   private
 
   def process(action, options = {})

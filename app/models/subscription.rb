@@ -9,8 +9,9 @@ class Subscription < ActiveRecord::Base
     canceled_on.nil?
   end
 
-  def cancel!
+  def cancel_with_paypal!
     update(canceled_on: Date.today)
+    paypal.cancel_recurring_payment
   end
 
   def paypal
