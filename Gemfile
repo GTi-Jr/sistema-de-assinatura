@@ -25,6 +25,8 @@ gem 'gibbon'
 
 gem 'google-analytics-rails', '1.1.0'
 
+gem 'paypal-recurring'
+
 group :development, :test do
   gem 'better_errors'
   gem 'byebug'

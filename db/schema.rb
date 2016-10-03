@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928225304) do
+ActiveRecord::Schema.define(version: 20161002185042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,19 @@ ActiveRecord::Schema.define(version: 20160928225304) do
     t.integer  "user_id"
   end
 
+  create_table "credit_cards", force: :cascade do |t|
+    t.string   "holder_name"
+    t.text     "encrypted_card_number"
+    t.text     "encrypted_code"
+    t.string   "expiration_month"
+    t.string   "expiration_year"
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "credit_cards", ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
+
   create_table "emails", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -80,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160928225304) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.float    "price"
+    t.float    "setup_fee"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -87,8 +101,10 @@ ActiveRecord::Schema.define(version: 20160928225304) do
     t.string   "subscription_code"
     t.integer  "user_id"
     t.integer  "plan_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "paypal_customer_token"
+    t.string   "paypal_recurring_profile_token"
   end
 
   create_table "users", force: :cascade do |t|

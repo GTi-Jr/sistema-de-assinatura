@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-xs-12 ">
+      <h1 class="text-center">Revisão da compra</h1>
+      
+      <div class="col-xs-12 col-sm-8 pull-right">
+        <p>O plano escolhido é <%= @plan.name %>.</p> 
+        <p>Você será cobrado no valor de <%= currency(@plan.price) %> no dia 25 com um intervalo de <%= @plan.duration %> <%= @plan.class.human_attribute_name(:months, count: @plan.duration.to_i) %>.</p>
+      </div>
+
+      <div class="col-xs-12 col-sm-4 pull-left">
+        <div class="pricing-plan">
+          <div class="header">
+            <h3><%= @plan.name %></h3>
+            <span class="price"><%= currency(@plan.price) %></span>
+          </div>
+          <div class="body">
+            <uL>
+              <li><%= @plan.duration %> <%= @plan.class.human_attribute_name(:months, count: @plan.duration.to_i) %></li>
+              <li><%= currency(@plan.price_per_month) %> ao mês</li>
+              <li><%= @plan.description %></li>
+            </uL>
+            <div class="buy-btn">
+              <%= link_to 'Assinar', plans_paypal_checkout_path(@plan.id), class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
