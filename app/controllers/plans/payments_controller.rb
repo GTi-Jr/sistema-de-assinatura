@@ -2,6 +2,7 @@ class Plans::PaymentsController < PlansController
   before_action :set_plan, except: [:confirm_payment]
 
   def checkout
+    redirect_to :back, alert: 'Você já possui um plano' if current_user.plan.present?
   end
 
   def paypal_checkout
