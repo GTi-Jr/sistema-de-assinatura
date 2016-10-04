@@ -1,4 +1,4 @@
-profileBabyBornChanged = (div) ->
+window.profileBabyBornChanged = (div) ->
     if div.length
       id = $(div).attr('id').split('-')[3]
       if $(div).val() == '0'
