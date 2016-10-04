@@ -51,27 +51,47 @@
 <section class="page-block" id="features">
   <div class="container">
     <div class="row page-header">
-      <%= image_tag 'logos/logotipo-primaria-01.png', class: 'logo col-centered' %>
-      <span>Lorem ipsum dolor amet</span>
+      <%= image_tag 'logos/logotipo-primaria-03.png', class: 'logo col-centered' %>
     </div>
-    <div class="row features">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img"><%= image_tag 'assinatura.png', alt: 'Assinatura' %></div>
-        <h3>Assine!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-2"><%= image_tag 'inspection_filled.png', class: 'col-centered' %></div>
+      <div class="co-xs-12 col-sm-3"><h2 class="terciary-text">Você assina</h2></div>
+      <div class="col-xs-12 col-sm-7 vertical-align"><blockquote class="vertical-align"><p class="terciary-text">Você escolhe um plano para assinar e passa a fazer parte desse clube.</p></blockquote></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-centered"><%= image_tag 'caminho_cegonha_1.png', class: 'caminho-da-cegonha' %></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <blockquote class="blockquote-reverse">
+          <p class="terciary-text">
+          Nossa curadoria escolhe os melhores produtos, benefícios e informações relacionadas à maternidade, para você receber em uma caixinha especial na sua casa.
+          </p>
+        </blockquote>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img"><%= image_tag 'entrega-da-caixa2.png', alt: 'Entrega da Caixa' %></div>
-        <h3>Entrega!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img">
-          <%= image_tag 'caixa-da-cegonha.png', alt: 'Caixa da cegonha' %>
-        </div>
-        <h3>Receba!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
-      </div>
+      <div class="col-xs-12 col-sm-4"><h2 class="terciary-text">Nós selecionamos e entregamos</h2></div>
+      <div class="col-xs-12 col-sm-2"><%= image_tag 'handle_with_care_filled.png', class: 'col-centered' %></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-centered"><%= image_tag 'caminho_cegonha_2.png', class: 'caminho-da-cegonha' %></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-2"><%= image_tag 'hearts_filled.png', class: 'col-centered' %></div>
+      <div class="col-xs-12 col-sm-4"><h2 class="terciary-text">Você se surpreende</h2></div>
+      <div class="col-xs-12 col-sm-6"><blockquote><p class="terciary-text">Você recebe nossa caixa com um mundo de surpresas e desfruta dos produtos, benefícios exclusivos e muita informação!</p></blockquote></div>
     </div>
   </div>
 </section>
@@ -121,7 +141,7 @@
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-4">
-        <img class="img-center" src="img/faq-icon.png" alt="FAQ"/>
+        <%= image_tag 'faq_filled', class: 'img-center', alt: 'FAQ' %>
       </div>
       <% Faq.all.each do |faq| %>
         <div class="col-lg-8 col-md-8 col-sm-8">
@@ -218,7 +238,7 @@
 <section class="page-block contacts" id="contacts">
   <div class="container">
     <div class="row page-header">
-      <h2>Contatos</h2>
+      <h2>Sobre nós</h2>
       <span>Subtext for header</span>
     </div>
     <div class="row">
