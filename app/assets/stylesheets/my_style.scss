@@ -54,3 +54,11 @@ a:visited {
 .pricing-plan .header {
   background-color: $terciary-color;
 }
+
+.parallax {
+    height: 200px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

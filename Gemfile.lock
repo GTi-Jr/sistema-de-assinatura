@@ -326,19 +326,20 @@ DEPENDENCIES
   better_errors
   brazilian-rails
   byebug
+
   capistrano
   capistrano-bundler
   capistrano-rails
   capistrano-rvm
   capistrano3-puma
+
+  coffee-rails
   devise
   dotenv-rails
   factory_girl_rails
-<<<<<<< bfa92faf88ad5cdf107fa8e12c5a8adb0c715843
   figaro
-=======
   gibbon
->>>>>>> alterar cadastro altera dados no mailchimp
+
   google-analytics-rails (= 1.1.0)
   jbuilder (~> 2.0)
   jquery-rails
