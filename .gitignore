@@ -19,3 +19,4 @@ config/database.yml
 .byebug_history
 
 .env
+/public/assets
