@@ -296,23 +296,24 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form method="post" class="feedback-form ajax-form" role="form">
+            <%= form_tag contact_form_path, class: 'feedback-form', role: 'form' do %>
+              <%= invisible_captcha %>
               <div class="form-group">
-                <label class="sr-only" for="name1">Nome</label>
-                <input type="text" class="form-control" name="name" id="name1" placeholder="Nome">
+                <%= label_tag :name, 'Nome', class: 'sr-only' %>
+                <%= text_field_tag :name, nil, class: 'form-control', id: 'name1', placeholder: 'Nome' %>
               </div>
               <div class="form-group">
-                <label class="sr-only" for="email1">Email</label>
-                <input type="email" class="form-control" name="email" id="email1" placeholder="Email">
+                <%= label_tag :email, 'Nome', class: 'sr-only' %>
+                <%= text_field_tag :email, nil, class: 'form-control', id: 'name1', placeholder: 'Email' %>
               </div>
               <div class="form-group">
-                <label class="sr-only" for="message">Mensagem</label>
-                <textarea class="form-control" name="message" id="message" rows="5" placeholder="Mensagem"></textarea>
+                <%= label_tag :message, 'Nome', class: 'sr-only' %>
+                <%= text_area_tag :message, nil, class: 'form-control', id: 'name1', placeholder: 'Mensagem' %>
               </div>
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <%= submit_tag 'Enviar', class: 'btn btn-primary' %>
               <!-- Validation Response -->
               <div class="response-holder"></div>
-            </form>
+            <% end %>
           </div>
         </div>
       </div>
