@@ -1,38 +1,108 @@
+<section class="hero">
+  <div class="container">
+
+    <!--Hero Slider-->
+    <div class="row">
+      <div class="hero-slider">
+        <div class="slide first-slide">
+          <div class="col-lg-5 col-md-5 col-sm-5 animated">
+            <h2 style="margin-top:50px;" class="text-light text-left">Components &amp; Styles</h2>
+            <p>Check Ultima Components &amp; Styles page for more features and components.</p>
+            <p>Wish to extend your landing page? We offer you simple copy and paste solution with new Components &amp; Styles page.</p>
+            <a class="btn btn-primary" href="cs-page.html">Go to Components &amp; Styles</a>
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-7 animated">
+            <img class="pull-right" src="img/hero-slider/imac.png" width="689" height="659" alt="Components and Styles"/>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="col-lg-5 col-md-5 col-sm-5 animated fadeInUp">
+            <h2 style="margin-top:50px;" class="text-light text-left">Coming Soon Page</h2>
+            <p>Have a look at Ultima Coming soon page!</p>
+            <p>While your landing page is under construction show your visitors beautiful coming soon page with the coundown and subscription form.</p>
+            <p>And they always stay connected.</p>
+            <a class="btn btn-primary" href="coming-soon.html">Go to Coming soon page</a>
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-7 animated fadeInRight">
+            <img class="iphone" src="img/hero-slider/iphone.png" width="649" height="400" alt="Coming Soon Page"/>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="col-lg-4 col-md-4 col-sm-4 animated fadeInDown">
+            <h2 style="margin-top:70px;" class="text-light text-left">Some Heading</h2>
+            <p>You shall not pass this theme!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+            <a class="btn btn-primary" href="#">Push it!</a>
+          </div>
+          <div class="col-lg-8 col-md-8 col-sm-8 animated fadeInRight">
+            <div class="video">
+              <img src="img/hero-slider/macbook.png" width="782" height="422" alt=""/>
+              <div class="vide-holder">
+                <iframe src="//player.vimeo.com/video/79036490?byline=0&amp;portrait=0&amp;color=ffeeac" width="720" height="405"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--Close Hero Slider-->
+  </div>    	
+</section><!--Close Hero-->
 <!--Features-->
 <section class="page-block" id="features">
   <div class="container">
     <div class="row page-header">
-      <%= image_tag 'logos/logotipo-primaria-01.png', class: 'logo col-centered' %>
-      <span>Lorem ipsum dolor amet</span>
+      <%= image_tag 'logos/logotipo-primaria-03.png', class: 'logo col-centered' %>
     </div>
-    <div class="row features">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img"><%= image_tag 'assinatura.png', alt: 'Assinatura' %></div>
-        <h3>Assine!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-2"><%= image_tag 'inspection_filled.png', class: 'col-centered' %></div>
+      <div class="co-xs-12 col-sm-3"><h2 class="terciary-text">Você assina</h2></div>
+      <div class="col-xs-12 col-sm-7 vertical-align"><blockquote class="vertical-align"><p class="terciary-text">Você escolhe um plano para assinar e passa a fazer parte desse clube.</p></blockquote></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-centered"><%= image_tag 'caminho_cegonha_1.png', class: 'caminho-da-cegonha' %></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <blockquote class="blockquote-reverse">
+          <p class="terciary-text">
+          Nossa curadoria escolhe os melhores produtos, benefícios e informações relacionadas à maternidade, para você receber em uma caixinha especial na sua casa.
+          </p>
+        </blockquote>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img"><%= image_tag 'entrega-da-caixa2.png', alt: 'Entrega da Caixa' %></div>
-        <h3>Entrega!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img">
-          <%= image_tag 'caixa-da-cegonha.png', alt: 'Caixa da cegonha' %>
-        </div>
-        <h3>Receba!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
-      </div>
+      <div class="col-xs-12 col-sm-4"><h2 class="terciary-text">Nós selecionamos e entregamos</h2></div>
+      <div class="col-xs-12 col-sm-2"><%= image_tag 'handle_with_care_filled.png', class: 'col-centered' %></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-centered"><%= image_tag 'caminho_cegonha_2.png', class: 'caminho-da-cegonha' %></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-2"><%= image_tag 'hearts_filled.png', class: 'col-centered' %></div>
+      <div class="col-xs-12 col-sm-4"><h2 class="terciary-text">Você se surpreende</h2></div>
+      <div class="col-xs-12 col-sm-6"><blockquote><p class="terciary-text">Você recebe nossa caixa com um mundo de surpresas e desfruta dos produtos, benefícios exclusivos e muita informação!</p></blockquote></div>
     </div>
   </div>
 </section>
+
+<div class="parallax" image-url="<%= asset_path 'nuvens_1.svg' %>" height="200px"></div>
 
 <!--Pricing Plans--> 
 <section class="page-block" id="pricing">
   <div class="container">
     <div class="row page-header">
-      <h2>Preço dos planos</h2>
-      <span>Lorem ipsum dolor amet</span>
+      <h2 class="text-light">Nossas assinaturas</h2>
     </div>
   </div>
   
@@ -71,25 +141,25 @@
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-4">
-        <img class="img-center" src="img/faq-icon.png" alt="FAQ"/>
+        <%= image_tag 'faq_filled', class: 'img-center', alt: 'FAQ' %>
       </div>
-      <% Faq.all.each do |faq| %>
-        <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <% Faq.all.each do |faq| %>
           <div class="panel-group" id="accordion-faq">
-            <div class="panel">
-              <a class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion-faq" href="#collapse<%= faq.id %>">
-                <%= faq.question %>
-                <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
-              </a>
-              <div id="collapse<%= faq.id %>" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <%= faq.answer %>
-                </div>
+          <div class="panel">
+            <a class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion-faq" href="#collapse<%= faq.id %>">
+              <%= faq.question %>
+              <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
+            </a>
+            <div id="collapse<%= faq.id %>" class="panel-collapse collapse">
+              <div class="panel-body">
+                <%= faq.answer %>
               </div>
             </div>
           </div>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </section>
@@ -162,11 +232,13 @@
   <%#</div>%>
 <%#</section>%>
 
+<div class="parallax" image-url="http://www.pptbackgroundstemplates.com/backgrounds/clouds-illustration-backgrounds.jpg"></div>
+
 <!--Contacts-->
 <section class="page-block contacts" id="contacts">
   <div class="container">
     <div class="row page-header">
-      <h2>Contatos</h2>
+      <h2>Sobre nós</h2>
       <span>Subtext for header</span>
     </div>
     <div class="row">
@@ -216,7 +288,7 @@
       <div class="col-lg-3 col-md-4 col-lg-offset-1">
         <div class="row space-bottom">
           <div class="col-lg-8 col-md-8">
-            <h3>Contate-nos!</h3>
+            <h3>Contate a cegonha</h3>
           </div>
           <div class="col-lg-4 col-md-4">
             <img class="img-center" src="img/contacts/plan.png" alt="Adress"/>
@@ -249,26 +321,28 @@
 </section>
 
 <!--Social Networks-->
-<section class="page-block" id="social">
-  <div class="container">
-    <div class="row page-header">
-      <h2>Nossas rede sociais</h2>
-      <span>Subtexto ilustrativo opcional</span>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="social-networks">
-          <a class="icon-facebook tooltipped" href="#" title="Facebook"></a>
-          <a class="icon-instagram tooltipped" href="#" title="Instagram"></a>
-          <a class="icon-twitter tooltipped" href="#" title="Twitter"></a>
-          <a class="icon-google-plus tooltipped" href="#" title="Google+"></a>
-          <a class="icon-youtube tooltipped" href="#" title="Youtube"></a>
-          <a class="icon-tumblr tooltipped" href="#" title="Tumblr"></a>
+<div class="parallax" image-url="<%= asset_path 'nuvens_3.jpg' %>">
+  <section class="page-block" id="social">
+    <div class="container">
+      <div class="row page-header">
+        <h2>Nossas rede sociais</h2>
+        <span>Subtexto ilustrativo opcional</span>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="social-networks">
+            <a class="icon-facebook tooltipped" href="#" title="Facebook"></a>
+            <a class="icon-instagram tooltipped" href="#" title="Instagram"></a>
+            <a class="icon-twitter tooltipped" href="#" title="Twitter"></a>
+            <a class="icon-google-plus tooltipped" href="#" title="Google+"></a>
+            <a class="icon-youtube tooltipped" href="#" title="Youtube"></a>
+            <a class="icon-tumblr tooltipped" href="#" title="Tumblr"></a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!--Footer-->
 <%#<footer class="footer">%>

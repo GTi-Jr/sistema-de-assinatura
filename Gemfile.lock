@@ -290,6 +290,7 @@ DEPENDENCIES
   better_errors
   brazilian-rails
   byebug
+  coffee-rails
   devise
   dotenv-rails
   factory_girl_rails
