@@ -23,6 +23,8 @@ gem 'rails_admin_rollincode', '~> 1.0'
 #Deploy na Amazon
 gem 'figaro'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'better_errors'
   gem 'byebug'
