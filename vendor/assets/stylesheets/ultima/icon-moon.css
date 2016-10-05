@@ -9,6 +9,18 @@
 	font-style: normal;
 }
 
+/* GAMBS */
+@font-face {
+  font-family: ProximaNovaAlt;
+  src: url('../fonts/proxima_nova_alt_light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: ProximaNovaAltBold;
+  src: url('proxima_nova_bold.otf') format('opentype');
+}
+
+
 [class^="icon-"], [class*=" icon-"] {
 	font-family: 'icomoon';
 	speak: none;

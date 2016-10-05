@@ -55,3 +55,7 @@ blockquote {
 blockquote.blockquote-reverse {
   border-right: 3px solid $terciary-color;
 }
+
+body, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-link.complete>.status:before{
+  font-family: 'Montserrat';
+}
