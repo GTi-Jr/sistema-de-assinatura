@@ -7,11 +7,12 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-server '52.11.113.4', user: 'deploy', roles: %w{web app db}
+server '52.41.236.255', user: 'deploy', roles: %w{web app db}
 
 set :ssh_options, {
-  keys: [ENV['HOME']+ '/code/ruby/matheus_mac.pem'],
-  forward_agent: false
+
+  forward_agent: false,
+  #:verbose => :debug
 
 }
 # role-based syntax
