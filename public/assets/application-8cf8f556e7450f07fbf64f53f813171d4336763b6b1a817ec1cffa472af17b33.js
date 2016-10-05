@@ -14075,37 +14075,104 @@ $(document).ready(function(){
     $('.phone-field').mask('(00) 000000000');
     $('.zipcode-field').mask('00000-000');
 });
-$(document).ready(function() {
-    for(i = 0; i < $('.babies').length; i++) {
-        var id = $($('.babies').get(i)).attr('data-id');
+(function() {
+  $(document).ready(function() {
+    return $('.parallax').each(function(index, value) {
+      $(this).css('background-image', "url(" + ($(this).attr('image-url')) + ")");
+      if ($(this).attr('height')) {
+        return $(this).css('height', $(this).attr('height'));
+      }
+    });
+  });
 
-        if($('#baby-born-select-' + id).val() === '0') {
-            $('#baby-weeks-' + id).show();
-            $('#baby-birthdate-' + id).hide();
-        }
-        else {
-            $('#baby-weeks-' + id).hide();
-            $('#baby-birthdate-' + id).show();
-        }
+}).call(this);
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+;
+$(document).on('ready pjax:success', function() {
+    handleActiveBase();
+    function handleActiveBase() {
+        $('.sub-menu').each(function () {
+            if ($(this).hasClass('active')) {
+                $(this).parent().prev().addClass('active');
+                $(this).parent().prev().addClass('open');
+                $(this).parent().slideDown();
+            }
+        });
     }
-
-    profileBabyBornChanged($('#baby-born-select-new'));
 });
 
-function profileBabyBornChanged(div) {
-    var id = $(div).attr('id').split('-')[3];
+$(function () {
+    var width = $('.nav-stacked').width();
+    $('.navbar-header').width(width);
 
-    if($(div).val() === '0') {
+    var array_menu = [];
+    var lvl_1 = null;
+    var count = 0;
+    $('.sidebar-nav li').each(function (index, item) {
+        if ($(item).hasClass('dropdown-header')) {
+            lvl_1 = count++;
+            array_menu[lvl_1] = []
+        } else {
+            $(item).addClass('sub-menu sub-menu-' + lvl_1);
+        }
+    });
+    for (var i = 0; i <= array_menu.length; i++) {
+        $('.sub-menu-' + i).wrapAll("<div class='sub-menu-container'></div>");
+    }
+    $('.sub-menu-container').hide();
+    handleActiveBase();
+    function handleActiveBase() {
+        $('.sub-menu').each(function () {
+            if ($(this).hasClass('active')) {
+                $(this).parent().prev().addClass('active');
+                $(this).parent().slideDown();
+            }
+        });
+    }
+    $('.dropdown-header').bind('click', function () {
+        $('.dropdown-header').removeClass('open');
+        $(this).addClass('open');
+
+        $('.dropdown-header').removeClass('active');
+        $('.sub-menu-container').stop().slideUp();
+        $(this).toggleClass('active');
+        $(this).next('.sub-menu-container').stop().slideDown();
+    });
+});
+(function() {
+  window.profileBabyBornChanged = function(div) {
+    var id;
+    if (div.length) {
+      id = $(div).attr('id').split('-')[3];
+      if ($(div).val() === '0') {
         $('#baby-weeks-' + id).show();
         $('#baby-birthdate-' + id).hide();
-    }
-    else {
+      } else {
         $('#baby-weeks-' + id).hide();
         $('#baby-birthdate-' + id).show();
+      }
     }
-}
+  };
 
-;
+  $(document).ready(function() {
+    var i, id;
+    i = 0;
+    while (i < $('.babies').length) {
+      id = $($('.babies').get(i)).attr('data-id');
+      if ($('#baby-born-select-' + id).val() === '0') {
+        $('#baby-weeks-' + id).show();
+        $('#baby-birthdate-' + id).hide();
+      } else {
+        $('#baby-weeks-' + id).hide();
+        $('#baby-birthdate-' + id).show();
+      }
+      i++;
+    }
+    profileBabyBornChanged($('#baby-born-select-new'));
+  });
+
+}).call(this);
 $(document).ready(function () {
     $('#baby-birthdate').hide();
 });
