@@ -143,23 +143,23 @@
       <div class="col-lg-3 col-md-4 col-sm-4">
         <%= image_tag 'faq_filled', class: 'img-center', alt: 'FAQ' %>
       </div>
-      <% Faq.all.each do |faq| %>
-        <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <% Faq.all.each do |faq| %>
           <div class="panel-group" id="accordion-faq">
-            <div class="panel">
-              <a class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion-faq" href="#collapse<%= faq.id %>">
-                <%= faq.question %>
-                <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
-              </a>
-              <div id="collapse<%= faq.id %>" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <%= faq.answer %>
-                </div>
+          <div class="panel">
+            <a class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion-faq" href="#collapse<%= faq.id %>">
+              <%= faq.question %>
+              <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
+            </a>
+            <div id="collapse<%= faq.id %>" class="panel-collapse collapse">
+              <div class="panel-body">
+                <%= faq.answer %>
               </div>
             </div>
           </div>
         </div>
       <% end %>
+      </div>
     </div>
   </div>
 </section>
