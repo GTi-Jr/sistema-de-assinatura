@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   namespace :plans do
-  get 'payments/checkout'
+    get 'payments/checkout'
   end
 
   root 'welcome#home'
+
+  post 'contact_email' => 'welcome#contact_mail', as: :contact_form
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
