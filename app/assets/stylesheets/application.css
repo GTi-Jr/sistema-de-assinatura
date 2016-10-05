@@ -21,22 +21,3 @@
  *= require_tree .
  *= require_self
  */
-::-webkit-input-placeholder {
-   color: orange;
-   font: 12px verdana, arial, sans-serif;
-}
-
-:-moz-placeholder {
-   color: orange;
-   font: 12px verdana, arial, sans-serif;
-}
-
-::-moz-placeholder {
-   color: orange;  
-   font: 12px verdana, arial, sans-serif;
-}
-
-:-ms-input-placeholder {  
-   color: orange;  
-   font: 12px verdana, arial, sans-serif;
-}
