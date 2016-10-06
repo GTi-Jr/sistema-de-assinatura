@@ -100,3 +100,8 @@ a:visited {
   background: $secondary-color; /* Gecko Browsers */
   color: #fff;
 }
+
+.img-small {
+  max-height: 70px;
+  max-width: 70px;
+}
