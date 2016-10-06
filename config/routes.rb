@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   get 'planos' => 'plans#index', as: :plans
   patch 'subscribe/:id' => 'plans#subscribe', as: :subscribe
   patch 'unsubscribe' => 'plans#unsubscribe', as: :unsubscribe
+  patch 'plan_intention/:plan_id' => 'plans#intention_to_plan', as: :intention_to_plan
 
   # Checkout dos planos
   get 'aprovar-escolha/:id' => 'plans/payments#checkout', as: :plans_payment_checkout
