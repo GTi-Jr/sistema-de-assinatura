@@ -91,3 +91,12 @@ a:visited {
   background-color: $terciary-color;
   padding: 20px 0 20px 0;
 }
+
+::selection {
+  background: $secondary-color; /* WebKit/Blink Browsers */
+  color: #fff;
+}
+::-moz-selection {
+  background: $secondary-color; /* Gecko Browsers */
+  color: #fff;
+}
