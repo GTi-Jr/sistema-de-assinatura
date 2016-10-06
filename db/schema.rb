@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002185042) do
+ActiveRecord::Schema.define(version: 20161006182402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(version: 20161002185042) do
     t.string   "state"
     t.string   "number"
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "main",       default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "main",            default: false
+    t.integer  "subscription_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -52,9 +53,10 @@ ActiveRecord::Schema.define(version: 20161002185042) do
     t.boolean  "born"
     t.integer  "weeks"
     t.date     "birthdate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "subscription_id"
+    t.integer  "sex"
   end
 
   create_table "credit_cards", force: :cascade do |t|
@@ -127,6 +129,7 @@ ActiveRecord::Schema.define(version: 20161002185042) do
     t.string   "rg"
     t.string   "phone"
     t.boolean  "complete"
+    t.integer  "plan_intention"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
