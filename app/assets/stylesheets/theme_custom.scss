@@ -70,3 +70,14 @@ body, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-li
   background-color: $primary-color;
   border-color: $primary-color;
 }
+
+.stiky-header {
+  background-color: $primary-color;
+}
+
+.main-navi ul > li > a {
+  color: #fff;
+  &:hover {
+    color: #ccc;
+  }
+}
