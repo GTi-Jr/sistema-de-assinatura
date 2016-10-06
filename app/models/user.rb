@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   end
 
   def cancel_plan
-    subscription.cancel!
+    subscription.cancel_with_paypal!
   end
 
   def subscribe_to_plan(plan)
@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   end
 
   protected
-    
+ 
     def subscribe_user_to_mailing_list
       SubscribeUserToMailingListJob.perform_later(self)
     end

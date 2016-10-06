@@ -1,38 +1,112 @@
-<!--Features-->
-<section class="page-block" id="features">
+<section class="hero">
   <div class="container">
-    <div class="row page-header">
-      <%= image_tag 'logos/logotipo-primaria-01.png', class: 'logo col-centered' %>
-      <span>Lorem ipsum dolor amet</span>
-    </div>
-    <div class="row features">
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img"><%= image_tag 'assinatura.png', alt: 'Assinatura' %></div>
-        <h3>Assine!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img"><%= image_tag 'entrega-da-caixa2.png', alt: 'Entrega da Caixa' %></div>
-        <h3>Entrega!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="feature-img">
-          <%= image_tag 'caixa-da-cegonha.png', alt: 'Caixa da cegonha' %>
+
+    <!--Hero Slider-->
+    <div class="row">
+      <div class="hero-slider">
+        <div class="slide first-slide">
+          <div class="col-lg-5 col-md-5 col-sm-5 animated">
+            <h2 style="margin-top:50px;" class="text-light text-left">Components &amp; Styles</h2>
+            <p>Check Ultima Components &amp; Styles page for more features and components.</p>
+            <p>Wish to extend your landing page? We offer you simple copy and paste solution with new Components &amp; Styles page.</p>
+            <a class="btn btn-primary" href="cs-page.html">Go to Components &amp; Styles</a>
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-7 animated">
+            <img class="pull-right" src="img/hero-slider/imac.png" width="689" height="659" alt="Components and Styles"/>
+          </div>
         </div>
-        <h3>Receba!</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo.</p>
+        <div class="slide">
+          <div class="col-lg-5 col-md-5 col-sm-5 animated fadeInUp">
+            <h2 style="margin-top:50px;" class="text-light text-left">Coming Soon Page</h2>
+            <p>Have a look at Ultima Coming soon page!</p>
+            <p>While your landing page is under construction show your visitors beautiful coming soon page with the coundown and subscription form.</p>
+            <p>And they always stay connected.</p>
+            <a class="btn btn-primary" href="coming-soon.html">Go to Coming soon page</a>
+          </div>
+          <div class="col-lg-7 col-md-7 col-sm-7 animated fadeInRight">
+            <img class="iphone" src="img/hero-slider/iphone.png" width="649" height="400" alt="Coming Soon Page"/>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="col-lg-4 col-md-4 col-sm-4 animated fadeInDown">
+            <h2 style="margin-top:70px;" class="text-light text-left">Some Heading</h2>
+            <p>You shall not pass this theme!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+            <a class="btn btn-primary" href="#">Push it!</a>
+          </div>
+          <div class="col-lg-8 col-md-8 col-sm-8 animated fadeInRight">
+            <div class="video">
+              <img src="img/hero-slider/macbook.png" width="782" height="422" alt=""/>
+              <div class="vide-holder">
+                <iframe src="//player.vimeo.com/video/79036490?byline=0&amp;portrait=0&amp;color=ffeeac" width="720" height="405"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div><!--Close Hero Slider-->
+  </div>    	
+</section><!--Close Hero-->
+<!--Features-->
+<section id="features-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-center"><h2 class="text-light">Entenda como funciona!</h2></div>
     </div>
   </div>
 </section>
+
+<section class="page-block" id="features">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-2"><%= image_tag 'inspection_filled.png', class: 'col-centered' %></div>
+      <div class="co-xs-12 col-sm-3"><h2 class="terciary-text">Você assina</h2></div>
+      <div class="col-xs-12 col-sm-7 vertical-align"><blockquote class="vertical-align"><p class="terciary-text">Você escolhe um plano para assinar e passa a fazer parte desse clube.</p></blockquote></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-centered"><%= image_tag 'caminho_cegonha_1.png', class: 'caminho-da-cegonha' %></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 pull-right"><h2 class="terciary-text">Nós selecionamos e entregamos</h2></div>
+      <div class="col-xs-12 col-sm-2 pull-right"><%= image_tag 'handle_with_care_filled.png', class: 'col-centered' %></div>
+      <div class="col-xs-12 col-sm-6 pull-left">
+        <blockquote class="blockquote-reverse">
+          <p class="terciary-text">
+          Nossa curadoria escolhe os melhores produtos, benefícios e informações relacionadas à maternidade, para você receber em uma caixinha especial na sua casa.
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-centered"><%= image_tag 'caminho_cegonha_2.png', class: 'caminho-da-cegonha' %></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-2"><%= image_tag 'hearts_filled.png', class: 'col-centered' %></div>
+      <div class="col-xs-12 col-sm-3"><h2 class="terciary-text">Você se surpreende</h2></div>
+      <div class="col-xs-12 col-sm-7"><blockquote><p class="terciary-text">Você recebe nossa caixa com um mundo de surpresas e desfruta dos produtos, benefícios exclusivos e muita informação!</p></blockquote></div>
+    </div>
+  </div>
+</section>
+
+<div class="parallax" image-url="<%= asset_path 'nuvens_1.svg' %>" height="200px"></div>
 
 <!--Pricing Plans--> 
 <section class="page-block" id="pricing">
   <div class="container">
     <div class="row page-header">
-      <h2>Preço dos planos</h2>
-      <span>Lorem ipsum dolor amet</span>
+      <h2 class="text-light">Nossas assinaturas</h2>
     </div>
   </div>
   
@@ -52,11 +126,7 @@
                 <li><%= plan.description %></li>
               </uL>
               <div class="buy-btn">
-                <% if current_user.plan && current_user.plan = plan %>
-                  <%= link_to 'Seu plano', user_profile_path, class: 'btn terciary-bg-color' %>
-                <% else %>
-                  <%= link_to 'Assinar', subscribe_path(plan.id), method: :patch, class: 'btn btn-primary' %>
-                <% end %>
+                <%= link_to 'Assinar', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
               </div>
             </div>
           </div>
@@ -71,113 +141,115 @@
   <div class="container">
     <div class="row page-header">
       <h2>FAQ</h2>
-      <span>Subtext for header</span>
+      <span>Alguma dúvida? Veja abaixo</span>
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-4">
-        <img class="img-center" src="img/faq-icon.png" alt="FAQ"/>
+        <%= image_tag 'faq_filled', class: 'img-center', alt: 'FAQ' %>
       </div>
-      <% Faq.all.each do |faq| %>
-        <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <% Faq.all.each do |faq| %>
           <div class="panel-group" id="accordion-faq">
-            <div class="panel">
-              <a class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion-faq" href="#collapse<%= faq.id %>">
-                <%= faq.question %>
-                <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
-              </a>
-              <div id="collapse<%= faq.id %>" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <%= faq.answer %>
-                </div>
+          <div class="panel">
+            <a class="panel-heading collapsed" data-toggle="collapse" data-parent="#accordion-faq" href="#collapse<%= faq.id %>">
+              <%= faq.question %>
+              <div class="indicator"><div class="icon"><span class="hr-line"></span><span class="vr-line"></span></div></div>
+            </a>
+            <div id="collapse<%= faq.id %>" class="panel-collapse collapse">
+              <div class="panel-body">
+                <%= faq.answer %>
               </div>
             </div>
           </div>
         </div>
       <% end %>
-    </div>
-  </div>
-</section>
-
-<!--Testimonials-->
-<section class="page-block color" id="testimonials">
-  <div class="container">
-    <div class="row page-header">
-      <h2 class="text-light">Testimonials</h2>
-      <span class="text-light">Subtext for header</span>
-    </div>
-    <div class="row">
-      <div id="testimonials-slider" class="testimonials-slider carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#testimonials-slider" data-slide-to="0" class="active"></li>
-          <li data-target="#testimonials-slider" data-slide-to="1"></li>
-          <li data-target="#testimonials-slider" data-slide-to="2"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <img class="img-circle img-center" src="img/testimonials/dirk.png" width="192" height="192" alt="Dexter Dirk"/>
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-8">
-                  <blockquote>
-                    <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="text-light">Dexter Dirk</footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <img class="img-circle img-center" src="img/testimonials/roe.png" width="192" height="192" alt="Richard Roe"/>
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-8">
-                  <blockquote>
-                    <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="text-light">Richard Roe</footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <img class="img-circle img-center" src="img/testimonials/doe.png" width="192" height="192" alt="Jonathan Doe"/>
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-8">
-                  <blockquote>
-                    <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <footer class="text-light">Jonathan Doe</footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!--Testimonials-->
+<%#<section class="page-block color" id="testimonials">%>
+  <%#<div class="container">%>
+    <%#<div class="row page-header">%>
+      <%#<h2 class="text-light">Testimonials</h2>%>
+      <%#<span class="text-light">Subtext for header</span>%>
+    <%#</div>%>
+    <%#<div class="row">%>
+      <%#<div id="testimonials-slider" class="testimonials-slider carousel slide" data-ride="carousel">%>
+        <%#[> Indicators <]%>
+        <%#<ol class="carousel-indicators">%>
+          <%#<li data-target="#testimonials-slider" data-slide-to="0" class="active"></li>%>
+          <%#<li data-target="#testimonials-slider" data-slide-to="1"></li>%>
+          <%#<li data-target="#testimonials-slider" data-slide-to="2"></li>%>
+        <%#</ol>%>
+        <%#[> Wrapper for slides <]%>
+        <%#<div class="carousel-inner">%>
+          <%#<div class="item active">%>
+            <%#<div class="container">%>
+              <%#<div class="row">%>
+                <%#<div class="col-lg-3 col-md-3 col-sm-4">%>
+                  <%#<img class="img-circle img-center" src="img/testimonials/dirk.png" width="192" height="192" alt="Dexter Dirk"/>%>
+                <%#</div>%>
+                <%#<div class="col-lg-9 col-md-9 col-sm-8">%>
+                  <%#<blockquote>%>
+                    <%#<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>%>
+                    <%#<footer class="text-light">Dexter Dirk</footer>%>
+                  <%#</blockquote>%>
+                <%#</div>%>
+              <%#</div>%>
+            <%#</div>%>
+          <%#</div>%>
+          <%#<div class="item">%>
+            <%#<div class="container">%>
+              <%#<div class="row">%>
+                <%#<div class="col-lg-3 col-md-3 col-sm-4">%>
+                  <%#<img class="img-circle img-center" src="img/testimonials/roe.png" width="192" height="192" alt="Richard Roe"/>%>
+                <%#</div>%>
+                <%#<div class="col-lg-9 col-md-9 col-sm-8">%>
+                  <%#<blockquote>%>
+                    <%#<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>%>
+                    <%#<footer class="text-light">Richard Roe</footer>%>
+                  <%#</blockquote>%>
+                <%#</div>%>
+              <%#</div>%>
+            <%#</div>%>
+          <%#</div>%>
+          <%#<div class="item">%>
+            <%#<div class="container">%>
+              <%#<div class="row">%>
+                <%#<div class="col-lg-3 col-md-3 col-sm-4">%>
+                  <%#<img class="img-circle img-center" src="img/testimonials/doe.png" width="192" height="192" alt="Jonathan Doe"/>%>
+                <%#</div>%>
+                <%#<div class="col-lg-9 col-md-9 col-sm-8">%>
+                  <%#<blockquote>%>
+                    <%#<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>%>
+                    <%#<footer class="text-light">Jonathan Doe</footer>%>
+                  <%#</blockquote>%>
+                <%#</div>%>
+              <%#</div>%>
+            <%#</div>%>
+          <%#</div>%>
+        <%#</div>%>
+      <%#</div>%>
+    <%#</div>%>
+  <%#</div>%>
+<%#</section>%>
+
+<div class="parallax" image-url="http://www.pptbackgroundstemplates.com/backgrounds/clouds-illustration-backgrounds.jpg"></div>
+
 <!--Contacts-->
 <section class="page-block contacts" id="contacts">
   <div class="container">
     <div class="row page-header">
-      <h2>Contacts</h2>
+      <h2>Sobre nós</h2>
       <span>Subtext for header</span>
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-4">
         <div class="row space-bottom">
           <div class="col-lg-9 col-md-9">
-            <h3>What we do</h3>
+            <h3>O que fazemos</h3>
           </div>
           <div class="col-lg-3 col-md-3">
             <img class="img-center" src="img/contacts/man.png" alt="About Us"/>
@@ -192,7 +264,7 @@
       <div class="col-lg-3 col-md-4 col-lg-offset-1">
         <div class="row space-bottom">
           <div class="col-lg-8 col-md-8">
-            <h3>Adress</h3>
+            <h3>Endereço</h3>
           </div>
           <div class="col-lg-4 col-md-4">
             <img class="img-center" src="img/contacts/map.png" alt="Adress"/>
@@ -205,7 +277,7 @@
         </div>
         <div class="row space-bottom">
           <div class="col-lg-8 col-md-8">
-            <h3>Contacts</h3>
+            <h3>Contatos</h3>
           </div>
           <div class="col-lg-4 col-md-4">
             <img class="img-center" src="img/contacts/phone.png" alt="Contacts"/>
@@ -220,7 +292,7 @@
       <div class="col-lg-3 col-md-4 col-lg-offset-1">
         <div class="row space-bottom">
           <div class="col-lg-8 col-md-8">
-            <h3>Contact us</h3>
+            <h3>Contate a cegonha</h3>
           </div>
           <div class="col-lg-4 col-md-4">
             <img class="img-center" src="img/contacts/plan.png" alt="Adress"/>
@@ -228,23 +300,24 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <form method="post" class="feedback-form ajax-form" role="form">
+            <%= form_tag contact_form_path, class: 'feedback-form', role: 'form' do %>
+              <%= invisible_captcha %>
               <div class="form-group">
-                <label class="sr-only" for="name1">Name</label>
-                <input type="text" class="form-control" name="name" id="name1" placeholder="Name">
+                <%= label_tag :name, 'Nome', class: 'sr-only' %>
+                <%= text_field_tag :name, nil, class: 'form-control', id: 'name1', placeholder: 'Nome' %>
               </div>
               <div class="form-group">
-                <label class="sr-only" for="email1">Email</label>
-                <input type="email" class="form-control" name="email" id="email1" placeholder="Email">
+                <%= label_tag :email, 'Nome', class: 'sr-only' %>
+                <%= text_field_tag :email, nil, class: 'form-control', id: 'name1', placeholder: 'Email' %>
               </div>
               <div class="form-group">
-                <label class="sr-only" for="message">Message</label>
-                <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message"></textarea>
+                <%= label_tag :message, 'Nome', class: 'sr-only' %>
+                <%= text_area_tag :message, nil, class: 'form-control', id: 'name1', placeholder: 'Mensagem' %>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <%= submit_tag 'Enviar', class: 'btn btn-primary' %>
               <!-- Validation Response -->
               <div class="response-holder"></div>
-            </form>
+            <% end %>
           </div>
         </div>
       </div>
@@ -253,58 +326,57 @@
 </section>
 
 <!--Social Networks-->
-<section class="page-block" id="social">
-  <div class="container">
-    <div class="row page-header">
-      <h2>Find us on social networks</h2>
-      <span>Subtext for header</span>
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="social-networks">
-          <a class="icon-facebook tooltipped" href="#" title="Facebook"></a>
-          <a class="icon-instagram tooltipped" href="#" title="Instagram"></a>
-          <a class="icon-twitter tooltipped" href="#" title="Twitter"></a>
-          <a class="icon-google-plus tooltipped" href="#" title="Google+"></a>
-          <a class="icon-youtube tooltipped" href="#" title="Youtube"></a>
-          <a class="icon-tumblr tooltipped" href="#" title="Tumblr"></a>
+<div class="parallax" image-url="<%= asset_path 'nuvens_3.jpg' %>">
+  <section class="page-block" id="social">
+    <div class="container">
+      <div class="row page-header">
+        <h2>Nossas rede sociais</h2>
+        <span>Subtexto ilustrativo opcional</span>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="social-networks">
+            <a class="fa fa-facebook-square tooltipped" href="https://www.facebook.com/caixadacegonha/" title="Facebook"></a>
+            <a class="fa fa-instagram tooltipped" href="https://www.instagram.com/caixadacegonha/" title="Instagram"></a>
+            <a class="fa fa-twitter-square tooltipped" href="https://twitter.com/caixadacegonha" title="Twitter"></a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
 
 <!--Footer-->
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="text-center text-light">Subscribe to our newsletter</h2>
-        <p class="text-light text-center">Sign up now to our newsletter and you'll be one of the first to know when the site is ready:</p>
-      </div>
-    </div>
-    <div class="row">
+<%#<footer class="footer">%>
+  <%#<div class="container">%>
+    <%#<div class="row">%>
+      <%#<div class="col-lg-12">%>
+        <%#<h2 class="text-center text-light">Subscribe to our newsletter</h2>%>
+        <%#<p class="text-light text-center">Sign up now to our newsletter and you'll be one of the first to know when the site is ready:</p>%>
+      <%#</div>%>
+    <%#</div>%>
+    <%#<div class="row">%>
 
-      <!-- Begin MailChimp Signup Form -->
-      <form class="subscribe-form validate" action="http://8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=73d49e0d23" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-        <div class="form-group col-lg-7 col-md-8 col-sm-8 col-lg-offset-1">
-          <label class="sr-only" for="mce-EMAIL">Email address</label>
-          <input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Enter email" required>
-          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          <div style="position: absolute; left: -5000px;"><input type="text" name="b_168a366a98d3248fbc35c0b67_73d49e0d23" value=""></div>
-        </div>
-        <div class="form-group col-lg-3 col-md-4 col-sm-4"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-block"></div>
-      </form>
-      <!-- Close MailChimp Signup Form -->
+      <%#[> Begin MailChimp Signup Form <]%>
+      <%#<form class="subscribe-form validate" action="http://8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=73d49e0d23" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>%>
+        <%#<div class="form-group col-lg-7 col-md-8 col-sm-8 col-lg-offset-1">%>
+          <%#<label class="sr-only" for="mce-EMAIL">Email address</label>%>
+          <%#<input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Enter email" required>%>
+          <%#[> real people should not fill this in and expect good things - do not remove this or risk form bot signups<]%>
+          <%#<div style="position: absolute; left: -5000px;"><input type="text" name="b_168a366a98d3248fbc35c0b67_73d49e0d23" value=""></div>%>
+        <%#</div>%>
+        <%#<div class="form-group col-lg-3 col-md-4 col-sm-4"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-block"></div>%>
+      <%#</form>%>
+      <%#[> Close MailChimp Signup Form <]%>
 
-    </div>
-    <div class="row">
-      <div class="col-lg-12">
-        <p class="copyright">&copy; 2014 ULTIMA. All Rights Reserved. Designed by  <a href="http://8guild.com/" target="_blank">8Guild</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
+    <%#</div>%>
+    <%#<div class="row">%>
+      <%#<div class="col-lg-12">%>
+        <%#<p class="copyright">&copy; 2014 ULTIMA. All Rights Reserved. Designed by  <a href="http://8guild.com/" target="_blank">8Guild</a></p>%>
+      <%#</div>%>
+    <%#</div>%>
+  <%#</div>%>
+<%#</footer>%>
 
 <!--Scroll To Top Button-->
 <div id="scroll-top" class="scroll-up"><i class="icon-arrow-up"></i></div>

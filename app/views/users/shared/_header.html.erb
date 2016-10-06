@@ -17,13 +17,16 @@
     </div>
     <% if !user_signed_in? %>
       <%= link_to login_path, class: 'btn btn-primary btn-login' do %>
-        <i class="icon-user"></i>Entrar
+        <i class="fa fa-user"></i>Entrar
       <% end %>
     <% end %>
     <nav class="main-navi">
       <ul>
-        <li class=""><%= link_to 'Início', "#{root_path}#", class: 'scroll-up' %></li>
-        </li>
+        <li class=""><%= link_to 'Início', root_path, class: 'scroll-up' %></li>
+        <li class=""><%= link_to 'Entenda', root_path(anchor: 'features-header') %></li>
+        <li class=""><%= link_to 'Planos', root_path(anchor: 'pricing') %></li>
+        <li class=""><%= link_to 'FAQ', root_path(anchor: 'faq') %></li>
+        <li class=""><%= link_to 'Contato', root_path(anchor: 'contacts') %></li>
         <% if user_signed_in? %>
           <li class="">
             <%= link_to 'Perfil', user_profile_path %>

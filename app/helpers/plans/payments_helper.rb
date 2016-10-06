@@ -1,0 +1,2 @@
+module Plans::PaymentsHelper
+end

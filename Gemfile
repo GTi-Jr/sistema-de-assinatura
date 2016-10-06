@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'coffee-rails'
 
 #Utilizar o postgresql
 gem 'pg', '~> 0.15'
@@ -24,6 +25,10 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'gibbon'
 
 gem 'google-analytics-rails', '1.1.0'
+
+gem 'paypal-recurring'
+# Prevenir spam
+gem 'invisible_captcha'
 
 group :development, :test do
   gem 'better_errors'

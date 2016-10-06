@@ -4,7 +4,7 @@
 @import "variables.scss";
 
 .form-control {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #FFF9B0; // rgba(0, 0, 0, 0.1);
 }
 
 .jumbotron {
@@ -42,4 +42,31 @@
 
 .panel {
   background-color: transparent;
+}
+
+.hero {
+  margin-top: 0;
+}
+
+blockquote {
+  border-left: 3px solid $terciary-color;
+}
+
+blockquote.blockquote-reverse {
+  border-right: 3px solid $terciary-color;
+}
+
+body, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-link.complete>.status:before{
+  font-family: 'Montserrat';
+}
+
+.panel>.panel-heading.collapsed:hover {
+  background-color: $terciary-color;
+  color: #fff;
+}
+
+.panel>.panel-heading {
+  color: #fff;
+  background-color: $primary-color;
+  border-color: $primary-color;
 }
