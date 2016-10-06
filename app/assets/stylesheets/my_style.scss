@@ -82,3 +82,21 @@ a:visited {
 .caminho-da-cegonha {
   width: 100%;
 }
+
+#faq {
+  background-color: $secondary-color;
+}
+
+#features-header {
+  background-color: $terciary-color;
+  padding: 20px 0 20px 0;
+}
+
+::selection {
+  background: $secondary-color; /* WebKit/Blink Browsers */
+  color: #fff;
+}
+::-moz-selection {
+  background: $secondary-color; /* Gecko Browsers */
+  color: #fff;
+}
