@@ -107,6 +107,7 @@
   <div class="container">
     <div class="row page-header">
       <h2 class="text-light">Nossas assinaturas</h2>
+      <span>A cegonha está trabalhando...</span>
     </div>
   </div>
   
@@ -125,13 +126,15 @@
                 <li><%= currency(plan.price_per_month) %> ao mês</li>
                 <li><%= plan.description %></li>
               </uL>
-              <div class="buy-btn">
-                <%= link_to 'Assinar', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
+              <div class="buy-btn text-center">
+                <%#<%= link_to 'Assinar', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
+                <%= link_to 'Tenho interesse!', intention_to_plan_path(plan.id), method: :patch, class: 'btn btn-primary' %>
               </div>
             </div>
           </div>
         </div>
       <% end %>
+      <div class="col-xs-12"><small>* No momento é possível apenas declarar interesse de compra. Em breve você receberá um email!</small></div>
     </div>
   </div>
 </section>
