@@ -61,14 +61,14 @@ body, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-li
 }
 
 .panel>.panel-heading.collapsed:hover {
-  background-color: $terciary-color;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 .panel>.panel-heading {
-  color: #fff;
-  background-color: $primary-color;
-  border-color: $primary-color;
+  color: #000;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 .stiky-header {
