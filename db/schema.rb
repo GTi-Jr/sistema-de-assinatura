@@ -11,11 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161003005934) do
-=======
-ActiveRecord::Schema.define(version: 20161002185042) do
->>>>>>> 4adea076c608e311b7a452c72fb24ad5e7d50749
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,14 +115,9 @@ ActiveRecord::Schema.define(version: 20161002185042) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.float    "price"
-<<<<<<< HEAD
     t.float    "setup_fee"
     t.integer  "subscription_id"
 
-=======
-    t.integer  "subscription_id"
-    t.float    "setup_fee"
->>>>>>> 4adea076c608e311b7a452c72fb24ad5e7d50749
 
   end
 
