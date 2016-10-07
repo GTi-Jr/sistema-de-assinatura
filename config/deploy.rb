@@ -42,6 +42,34 @@ namespace :deploy do
   end
 end
 
+
+
+
+desc "Open the rails dbconsole on primary db server"
+  task :dbconsole do
+    on roles(:db), primary: true do
+      rails_env = fetch(:stage)
+      execute_interactively "#{bundle_cmd} rails dbconsole #{rails_env}"
+    end
+  end
+
+
+
+
+
+
+
+
+
+def bundle_cmd
+  if fetch(:rbenv_ruby)
+    # FIXME: Is there a better way to do this? How does "execute :bundle" work?
+    "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{File.join(fetch(:rbenv_path), '/bin/rbenv')} exec bundle exec"
+  else
+    "ruby "
+  end
+end
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
