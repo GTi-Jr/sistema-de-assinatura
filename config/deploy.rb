@@ -35,6 +35,7 @@ set :puma_init_active_record, true
 set :puma_preload_app, false
 
 
+
 namespace :deploy do
   desc "reload the database with seed data"
   task :seed do
@@ -42,7 +43,15 @@ namespace :deploy do
   end
 end
 
+=begin
 
+  desc "Open the rails console on primary app server"
+  task :console do
+    on roles(:app), primary: true do
+      rails_env = fetch(:stage)
+      execute_interactively "#{bundle_cmd} rails console #{rails_env}"
+    end
+  end
 
 
 desc "Open the rails dbconsole on primary db server"
@@ -52,13 +61,22 @@ desc "Open the rails dbconsole on primary db server"
       execute_interactively "#{bundle_cmd} rails dbconsole #{rails_env}"
     end
   end
+namespace :rails do
+  desc "Run the console on a remote server."
+  task :console do
+    on roles(:app) do |h|
+      execute_interactively "RAILS_ENV=#{fetch(:rails_env)} bundle exec rails console", h.user
+    end
+  end
 
+  def execute_interactively(command)
+    user = fetch(:user)
 
-
-
-
-
-
+    info "Connecting with #{user}@#{host}"
+    cmd = "ssh #{user}@#{host} -p 22 -t 'cd #{fetch(:deploy_to)}/current && #{command}'"
+    exec cmd
+  end
+end
 
 
 def bundle_cmd
@@ -69,6 +87,7 @@ def bundle_cmd
     "ruby "
   end
 end
+=end
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

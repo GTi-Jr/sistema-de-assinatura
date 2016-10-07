@@ -27,6 +27,7 @@ gem 'gibbon'
 
 #Deploy na Amazon
 gem 'figaro'
+gem 'capistrano-rails-console', require: false
 
 gem 'rails_12factor', group: :production
 
