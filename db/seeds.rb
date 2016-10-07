@@ -1,3 +1,4 @@
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -10,12 +11,18 @@ Admin.create(email: 'admin@caixadacegonha.com.br', password: ENV['CEGONHA_ADMIN_
 
 Faq.all.each do |faq|
   faq.destroy
-
 end
+plan_1 = Plan.new name: 'Plano Mensal', duration: 1, price: 74.90, description: 'Todo mês um mundo de surpresas chegando até você!'
+plan_2 = Plan.new name: 'Plano Trimestral', duration: 3, price: 209.70, description: 'Três meses de muito carinho e muitas novidades!'
+plan_3 = Plan.new name: 'Plano Semestral', duration: 6, price: 389.40, description: 'Durante seis meses você recebe uma linda caixinha preparada especialmente para você!'
+
+plan_1.save
+plan_2.save
+plan_3.save
+
 
 Faq.create(question: 'Acabei de pedir minha CAIXA DA CEGONHA. E agora?',answer: 'Todo mês você receberá uma caixa contendo de 5 a 8 itens que poderão ser produtos e/ou serviços. Esse itens pode ser em tamanho original, amostras ou miniaturas, produtos de higiene pessoal, saúde pessoal, cosméticos, acessórios, roupas, brinquedos e decoração, calçados, acessórios e/ou brindes exclusivos que serão usados em seu momento atual ou no futuro. Além dos produtos e/ou serviços, a Caixa da Cegonha também entrega cupons de descontos exclusivos em parceiros e muita informação de qualidade.
 Após receber sua caixa e testar os produtos e serviços, incentivamos que você responda a pesquisa relativa a cada um deles. Suas respostas ajudarão as marcas a entender melhor as necessidades e gostos de suas consumidoras e também, a nós da Caixa da Cegonha a entender quais produtos mais agradam a vocês e seus bebês!')
-
 Faq.create(question: 'Qual caixinha irei receber?',answer: 'Nós respeitamos o calendário civil, ou seja, todas as assinaturas feitas entre o dia 1 e 31 (ou último dia do mês) receberão a caixinha daquele mês, mesmo que a entrega não seja realizada no mês vigente.
 Após o prazo do envio, respeita-se o prazo da transportadora para cada localidade.
 Por exemplo: se você faz uma assinatura no dia 31 de março, você receberá a caixinha correspondente ao mês de março.')

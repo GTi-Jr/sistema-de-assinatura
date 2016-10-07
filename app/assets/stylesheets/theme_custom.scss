@@ -25,6 +25,11 @@
   max-height: 100px;
 }
 
+.stiky-header .logo-mobile {
+  max-width: 94px;
+  margin-top: 30px;
+}
+
 .features {
   .feature-img {
     width: 100px;
@@ -61,12 +66,38 @@ body, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-li
 }
 
 .panel>.panel-heading.collapsed:hover {
-  background-color: $terciary-color;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
 }
 
 .panel>.panel-heading {
-  color: #fff;
+  color: #000;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.stiky-header {
   background-color: $primary-color;
-  border-color: $primary-color;
+}
+
+
+@media screen and (max-width: 991px) {
+  .main-navi {
+    background-color: $terciary-color;
+  }
+}
+
+.main-navi ul > li > a {
+  color: #fff;
+  &:hover {
+    color: #ccc;
+  }
+}
+
+.navi-toggle span {
+  color: #fff;
+}
+
+small {
+  color: #fff;
 }

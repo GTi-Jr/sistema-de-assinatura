@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003005934) do
-
+ActiveRecord::Schema.define(version: 20161006182402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +57,6 @@ ActiveRecord::Schema.define(version: 20161003005934) do
     t.integer  "user_id"
   end
 
-
   create_table "coupon_redemptions", force: :cascade do |t|
     t.integer  "coupon_id",  null: false
     t.string   "user_id"
@@ -78,20 +76,6 @@ ActiveRecord::Schema.define(version: 20161003005934) do
   end
 
   add_index "coupons", ["code"], name: "index_coupons_on_code", unique: true, using: :btree
-
-  create_table "credit_cards", force: :cascade do |t|
-    t.string   "holder_name"
-    t.text     "encrypted_card_number"
-    t.text     "encrypted_code"
-    t.string   "expiration_month"
-    t.string   "expiration_year"
-    t.integer  "user_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
-  add_index "credit_cards", ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
-
 
   create_table "emails", force: :cascade do |t|
     t.string   "title"
@@ -115,10 +99,7 @@ ActiveRecord::Schema.define(version: 20161003005934) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.float    "price"
-    t.float    "setup_fee"
     t.integer  "subscription_id"
-
-
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -152,6 +133,7 @@ ActiveRecord::Schema.define(version: 20161003005934) do
     t.string   "rg"
     t.string   "phone"
     t.boolean  "complete",               default: false
+    t.integer  "plan_intention"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

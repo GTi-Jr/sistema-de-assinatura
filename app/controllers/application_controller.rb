@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
       redirect_to after_registration_path, notice: 'Conclua seu cadastro.' 
     end
   end
+
+  def block_actions
+    redirect_to :back, alert: 'Ação indisponível no momento. Cheque mais tarde'
+  end
 end

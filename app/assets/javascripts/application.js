@@ -31,7 +31,7 @@
 //= require ultima/plugins/waypoints.min
 //= require ultima/plugins/smoothscroll
 //= require ultima/landing2
-//= require toastr.min.js
+//= require toastr.min
 //
 
 //= require jquery.mask

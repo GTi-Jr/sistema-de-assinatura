@@ -1,52 +1,33 @@
-<section class="hero">
-  <div class="container">
-
-    <!--Hero Slider-->
-    <div class="row">
+<!--Hero Slider-->
+  <section class="">
+    <div class="row" style="max-width: 100%; margin: 0">
       <div class="hero-slider">
         <div class="slide first-slide">
-          <div class="col-lg-5 col-md-5 col-sm-5 animated">
-            <h2 style="margin-top:50px;" class="text-light text-left">Components &amp; Styles</h2>
-            <p>Check Ultima Components &amp; Styles page for more features and components.</p>
-            <p>Wish to extend your landing page? We offer you simple copy and paste solution with new Components &amp; Styles page.</p>
-            <a class="btn btn-primary" href="cs-page.html">Go to Components &amp; Styles</a>
+          <%= image_tag 'imagem_slide_1.jpg', class: 'slide-background-image' %>
+          <div class="pull-right col-lg-5 col-md-5 col-sm-5 col-xs-8 animated">
+            <h2 class="text-right text-light">A Caixa da Cegonha chegou!</h2>
+            <p class="text-right text-light">Seja bem-vinda e experimente uma novidade que vai surpreender você! Carinho e cuidado todos os meses!</p>
           </div>
-          <div class="col-lg-7 col-md-7 col-sm-7 animated">
-            <img class="pull-right" src="img/hero-slider/imac.png" width="689" height="659" alt="Components and Styles"/>
+        </div>
+        <div class="slide" style="min-height: 400px">
+          <%= image_tag 'imagem_slide_2.jpg', class: 'slide-background-image' %>
+          <div class="col-lg-4 col-md-8 col-xs-10 col-lg-offset-6 col-sm-offset-4 col-xs-offset-2 animated fadeInUp">
+            <h2 style="margin-top:50px;" class="terciary-text text-left">Um mundo de carinho!</h2>
+            <p class="terciary-text">Receba em casa um mix de produtos, serviços e informação do mercado materno infantil, com uma curadoria exclusiva para o seu perfil! Da gestação aos 5 anos de idade!</p>
           </div>
         </div>
         <div class="slide">
-          <div class="col-lg-5 col-md-5 col-sm-5 animated fadeInUp">
-            <h2 style="margin-top:50px;" class="text-light text-left">Coming Soon Page</h2>
-            <p>Have a look at Ultima Coming soon page!</p>
-            <p>While your landing page is under construction show your visitors beautiful coming soon page with the coundown and subscription form.</p>
-            <p>And they always stay connected.</p>
-            <a class="btn btn-primary" href="coming-soon.html">Go to Coming soon page</a>
-          </div>
-          <div class="col-lg-7 col-md-7 col-sm-7 animated fadeInRight">
-            <img class="iphone" src="img/hero-slider/iphone.png" width="649" height="400" alt="Coming Soon Page"/>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="col-lg-4 col-md-4 col-sm-4 animated fadeInDown">
-            <h2 style="margin-top:70px;" class="text-light text-left">Some Heading</h2>
-            <p>You shall not pass this theme!</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-            <a class="btn btn-primary" href="#">Push it!</a>
-          </div>
-          <div class="col-lg-8 col-md-8 col-sm-8 animated fadeInRight">
-            <div class="video">
-              <img src="img/hero-slider/macbook.png" width="782" height="422" alt=""/>
-              <div class="vide-holder">
-                <iframe src="//player.vimeo.com/video/79036490?byline=0&amp;portrait=0&amp;color=ffeeac" width="720" height="405"></iframe>
-              </div>
-            </div>
+          <div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 col-centered animated fadeInDown">
+            <%= image_tag 'imagem_slide_frete_gratis.png' %>
+            <h2 class="text-center terciary-text">FRETE GRÁTIS</h2>
+            <p class="text-center terciary-text">Fortaleza, Eusébio e Maracanaú!</p>
           </div>
         </div>
       </div>
     </div><!--Close Hero Slider-->
   </div>    	
 </section><!--Close Hero-->
+
 <!--Features-->
 <section id="features-header">
   <div class="container">
@@ -94,8 +75,8 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-2"><%= image_tag 'hearts_filled.png', class: 'col-centered' %></div>
-      <div class="col-xs-12 col-sm-3"><h2 class="terciary-text">Você se surpreende</h2></div>
-      <div class="col-xs-12 col-sm-7"><blockquote><p class="terciary-text">Você recebe nossa caixa com um mundo de surpresas e desfruta dos produtos, benefícios exclusivos e muita informação!</p></blockquote></div>
+      <div class="col-xs-12 col-sm-4 col-md-3"><h2 class="terciary-text">Você se surpreende</h2></div>
+      <div class="col-xs-12 col-sm-6 col-md-7"><blockquote><p class="terciary-text">Você recebe nossa caixa com um mundo de surpresas e desfruta dos produtos, benefícios exclusivos e muita informação!</p></blockquote></div>
     </div>
   </div>
 </section>
@@ -124,14 +105,18 @@
                 <li><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
                 <li><%= currency(plan.price_per_month) %> ao mês</li>
                 <li><%= plan.description %></li>
+                <li>Da gestação aos 5 anos.</li>
+                <li class="text-justify">Assinatura será renovada automaticamente. Em casos de cancelamento, fale com a Cegonha!</li>
               </uL>
-              <div class="buy-btn">
-                <%= link_to 'Assinar', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
+              <div class="buy-btn text-center">
+                <%#<%= link_to 'Assinar agora!', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
+                <%= link_to 'Quero assinar!', intention_to_plan_path(plan.id), method: :patch, class: 'btn btn-primary' %>
               </div>
             </div>
           </div>
         </div>
       <% end %>
+      <div class="col-xs-12"><p class="text-center text-light">A Cegonha está a todo vapor, preparando as caixinhas mais especiais para voce! Assim que elas estiverem prontas, entraremos em contato parar confirmar sua assinatura! Obrigada!</p></div>
     </div>
   </div>
 </section>
@@ -140,8 +125,8 @@
 <section class="page-block faq" id="faq">
   <div class="container">
     <div class="row page-header">
-      <h2>FAQ</h2>
-      <span>Alguma dúvida? Veja abaixo</span>
+      <h2>Dúvida?</h2>
+      <span>Alguma dúvida? A cegonha responde!</span>
     </div>
     <div class="row">
       <div class="col-lg-3 col-md-4 col-sm-4">
@@ -168,74 +153,6 @@
   </div>
 </section>
 
-<!--Testimonials-->
-<%#<section class="page-block color" id="testimonials">%>
-  <%#<div class="container">%>
-    <%#<div class="row page-header">%>
-      <%#<h2 class="text-light">Testimonials</h2>%>
-      <%#<span class="text-light">Subtext for header</span>%>
-    <%#</div>%>
-    <%#<div class="row">%>
-      <%#<div id="testimonials-slider" class="testimonials-slider carousel slide" data-ride="carousel">%>
-        <%#[> Indicators <]%>
-        <%#<ol class="carousel-indicators">%>
-          <%#<li data-target="#testimonials-slider" data-slide-to="0" class="active"></li>%>
-          <%#<li data-target="#testimonials-slider" data-slide-to="1"></li>%>
-          <%#<li data-target="#testimonials-slider" data-slide-to="2"></li>%>
-        <%#</ol>%>
-        <%#[> Wrapper for slides <]%>
-        <%#<div class="carousel-inner">%>
-          <%#<div class="item active">%>
-            <%#<div class="container">%>
-              <%#<div class="row">%>
-                <%#<div class="col-lg-3 col-md-3 col-sm-4">%>
-                  <%#<img class="img-circle img-center" src="img/testimonials/dirk.png" width="192" height="192" alt="Dexter Dirk"/>%>
-                <%#</div>%>
-                <%#<div class="col-lg-9 col-md-9 col-sm-8">%>
-                  <%#<blockquote>%>
-                    <%#<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>%>
-                    <%#<footer class="text-light">Dexter Dirk</footer>%>
-                  <%#</blockquote>%>
-                <%#</div>%>
-              <%#</div>%>
-            <%#</div>%>
-          <%#</div>%>
-          <%#<div class="item">%>
-            <%#<div class="container">%>
-              <%#<div class="row">%>
-                <%#<div class="col-lg-3 col-md-3 col-sm-4">%>
-                  <%#<img class="img-circle img-center" src="img/testimonials/roe.png" width="192" height="192" alt="Richard Roe"/>%>
-                <%#</div>%>
-                <%#<div class="col-lg-9 col-md-9 col-sm-8">%>
-                  <%#<blockquote>%>
-                    <%#<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>%>
-                    <%#<footer class="text-light">Richard Roe</footer>%>
-                  <%#</blockquote>%>
-                <%#</div>%>
-              <%#</div>%>
-            <%#</div>%>
-          <%#</div>%>
-          <%#<div class="item">%>
-            <%#<div class="container">%>
-              <%#<div class="row">%>
-                <%#<div class="col-lg-3 col-md-3 col-sm-4">%>
-                  <%#<img class="img-circle img-center" src="img/testimonials/doe.png" width="192" height="192" alt="Jonathan Doe"/>%>
-                <%#</div>%>
-                <%#<div class="col-lg-9 col-md-9 col-sm-8">%>
-                  <%#<blockquote>%>
-                    <%#<p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>%>
-                    <%#<footer class="text-light">Jonathan Doe</footer>%>
-                  <%#</blockquote>%>
-                <%#</div>%>
-              <%#</div>%>
-            <%#</div>%>
-          <%#</div>%>
-        <%#</div>%>
-      <%#</div>%>
-    <%#</div>%>
-  <%#</div>%>
-<%#</section>%>
-
 <div class="parallax" image-url="http://www.pptbackgroundstemplates.com/backgrounds/clouds-illustration-backgrounds.jpg"></div>
 
 <!--Contacts-->
@@ -243,13 +160,12 @@
   <div class="container">
     <div class="row page-header">
       <h2>Sobre nós</h2>
-      <span>Subtext for header</span>
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-4">
         <div class="row space-bottom">
           <div class="col-lg-9 col-md-9">
-            <h3>O que fazemos</h3>
+            <h3>Quem somos nós</h3>
           </div>
           <div class="col-lg-3 col-md-3">
             <img class="img-center" src="img/contacts/man.png" alt="About Us"/>
@@ -257,35 +173,37 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            <p class="text-justify">
+              Somos um clube de assinatura focado na maternidade, levando produtos, serviços e informação todos os meses para as mamães e bebês. Queremos entregar carinho e cuidado em cada caixa, levar um mundo de surpresas e experiências e ajudar no desenvolvimento dos pequenos. Estamos presentes da gestação aos 5 anos de idade, com uma curadoria exclusiva para cada fase da maternidade! Assine e faça parte desse mundo de surpresas!
+            </p>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-lg-offset-1">
-        <div class="row space-bottom">
-          <div class="col-lg-8 col-md-8">
-            <h3>Endereço</h3>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <img class="img-center" src="img/contacts/map.png" alt="Adress"/>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>4120 Lenox Avenue, New York, NY, 10035 76 Saint Nicholas Avenue</p>
-          </div>
-        </div>
+        <%#<div class="row space-bottom">%>
+          <%#<div class="col-lg-8 col-md-8">%>
+            <%#<h3>Endereço</h3>%>
+          <%#</div>%>
+          <%#<div class="col-lg-4 col-md-4">%>
+            <%#<%= image_tag 'map_marker_filled_100.png', class: 'img-center', alt: 'Endereço' %>
+          <%#</div>%>
+        <%#</div>%>
+        <%#<div class="row">%>
+          <%#<div class="col-lg-12">%>
+            <%#<p>4120 Lenox Avenue, New York, NY, 10035 76 Saint Nicholas Avenue</p>%>
+          <%#</div>%>
+        <%#</div>%>
         <div class="row space-bottom">
           <div class="col-lg-8 col-md-8">
             <h3>Contatos</h3>
           </div>
           <div class="col-lg-4 col-md-4">
-            <img class="img-center" src="img/contacts/phone.png" alt="Contacts"/>
+            <%= image_tag 'iphone_filled_100.png', class: 'img-center', alt: 'Contato' %>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <p>+48 555 234 54 34<br/>+48 555 234 54 33<br/>info@email.com<br/>support@email.com</p>
+            <p>+55 85 9696-8916<br/>contato@caixadacegonha.com.br</p>
           </div>
         </div>
       </div>
@@ -295,7 +213,7 @@
             <h3>Contate a cegonha</h3>
           </div>
           <div class="col-lg-4 col-md-4">
-            <img class="img-center" src="img/contacts/plan.png" alt="Adress"/>
+            <%= image_tag 'logos/logo-primaria-01.png', class: 'img-center img-small', alt: 'Contatos' %>
           </div>
         </div>
         <div class="row">
@@ -331,52 +249,19 @@
     <div class="container">
       <div class="row page-header">
         <h2>Nossas rede sociais</h2>
-        <span>Subtexto ilustrativo opcional</span>
       </div>
-      <div class="row">
+      <div class="row space-bottom">
         <div class="col-lg-12">
           <div class="social-networks">
             <a class="fa fa-facebook-square tooltipped" href="https://www.facebook.com/caixadacegonha/" title="Facebook"></a>
             <a class="fa fa-instagram tooltipped" href="https://www.instagram.com/caixadacegonha/" title="Instagram"></a>
-            <a class="fa fa-twitter-square tooltipped" href="https://twitter.com/caixadacegonha" title="Twitter"></a>
           </div>
         </div>
       </div>
+      <div class="col-xs-12 text-center">2016 Caixa da Cegonha. Todos os direitos reservados.</div>
+      <div class="col-xs-12 text-center"><small><%= link_to 'Política de privacidade', privacy_terms_path(format: :pdf), class: 'text-light' %></small></div>
     </div>
   </section>
 </div>
-
-<!--Footer-->
-<%#<footer class="footer">%>
-  <%#<div class="container">%>
-    <%#<div class="row">%>
-      <%#<div class="col-lg-12">%>
-        <%#<h2 class="text-center text-light">Subscribe to our newsletter</h2>%>
-        <%#<p class="text-light text-center">Sign up now to our newsletter and you'll be one of the first to know when the site is ready:</p>%>
-      <%#</div>%>
-    <%#</div>%>
-    <%#<div class="row">%>
-
-      <%#[> Begin MailChimp Signup Form <]%>
-      <%#<form class="subscribe-form validate" action="http://8guild.us3.list-manage.com/subscribe/post?u=168a366a98d3248fbc35c0b67&amp;id=73d49e0d23" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>%>
-        <%#<div class="form-group col-lg-7 col-md-8 col-sm-8 col-lg-offset-1">%>
-          <%#<label class="sr-only" for="mce-EMAIL">Email address</label>%>
-          <%#<input type="email" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Enter email" required>%>
-          <%#[> real people should not fill this in and expect good things - do not remove this or risk form bot signups<]%>
-          <%#<div style="position: absolute; left: -5000px;"><input type="text" name="b_168a366a98d3248fbc35c0b67_73d49e0d23" value=""></div>%>
-        <%#</div>%>
-        <%#<div class="form-group col-lg-3 col-md-4 col-sm-4"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-block"></div>%>
-      <%#</form>%>
-      <%#[> Close MailChimp Signup Form <]%>
-
-    <%#</div>%>
-    <%#<div class="row">%>
-      <%#<div class="col-lg-12">%>
-        <%#<p class="copyright">&copy; 2014 ULTIMA. All Rights Reserved. Designed by  <a href="http://8guild.com/" target="_blank">8Guild</a></p>%>
-      <%#</div>%>
-    <%#</div>%>
-  <%#</div>%>
-<%#</footer>%>
-
 <!--Scroll To Top Button-->
 <div id="scroll-top" class="scroll-up"><i class="icon-arrow-up"></i></div>

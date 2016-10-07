@@ -13,19 +13,16 @@ class User < ActiveRecord::Base
 
   usar_como_cpf :cpf
 
-  has_many :babies
   has_many :addresses
   has_one :subscription, -> { where canceled_on: nil }, class_name: 'Subscription'
   has_many :subscriptions
   has_one :plan, through: :subscription
 
-  accepts_nested_attributes_for :babies
   accepts_nested_attributes_for :addresses
   accepts_nested_attributes_for :plan
   accepts_nested_attributes_for :subscription
 
   validates :addresses, length: { maximum: @@max_addresses_number }
-  validates :babies, length: { maximum: @@max_babies_number }
 
   after_save :subscribe_user_to_mailing_list
 
