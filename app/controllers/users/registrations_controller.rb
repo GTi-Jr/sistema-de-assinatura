@@ -8,7 +8,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_registration
     @user = current_user
-    @user.babies.build unless @user.babies.count >= 1
   end
 
   def complete_registration
@@ -51,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def after_registration_params
-      params.require(:user).permit(:name, :sex, :birthdate, :phone, :cpf, :rg, babies_attributes: [:id,:user_id,:name,:born,:birthdate,:weeks])
+      params.require(:user).permit(:name, :sex, :birthdate, :phone, :cpf, :rg)
     end
 
     def check_after_registration_params

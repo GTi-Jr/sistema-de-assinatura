@@ -29,11 +29,14 @@ class PlansController < ApplicationController
 
   def intention_to_plan
     plan = Plan.find(params[:plan_id])
-    if current_user.update plan_intention: plan.id
-      redirect_to :back, notice: 'Intenção de plano para #{plan.name}'
-    else
-      redirect_to :back, alert: 'Não foi possível registrar a intenção de plano'
+    if current_user.present?
+      if current_user.update plan_intention: plan.id
+        redirect_to :back, notice: "Intenção de plano para #{plan.name} registrada"
+      else
+        redirect_to :back, alert: 'Não foi possível registrar a intenção de plano'
+      end
     end
+    @user = User.new(plan_intention: plan.id)
   end
 
 

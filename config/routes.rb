@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  root 'welcome#home'
+
   namespace :plans do
     get 'payments/checkout'
   end
-
-  root 'welcome#home'
+  
+  resources :users, only: [:new, :create]
 
   post 'contact_email' => 'welcome#contact_mail', as: :contact_form
 
@@ -37,15 +39,15 @@ Rails.application.routes.draw do
   resources :addresses, only: [:destroy]
 
   # Rotas do perfil / profile routes
-  get 'perfil' => 'users#profile', as: :user_profile
-  patch 'update_user' => 'users#update', as: :update_user
+  get 'perfil' => 'profile#profile', as: :user_profile
+  patch 'update_user' => 'profile#update', as: :update_user
   
-  patch 'update_addresses' => 'users#update_addresses', as: :update_user_addresses
-  post 'create_user_address' => 'users#add_address', as: :create_user_address
-  patch 'update_main_address/:address_id' => 'users#update_main_address', as: :update_main_address
+  patch 'update_addresses' => 'profile#update_addresses', as: :update_user_addresses
+  post 'create_user_address' => 'profile#add_address', as: :create_user_address
+  patch 'update_main_address/:address_id' => 'profile#update_main_address', as: :update_main_address
 
-  patch 'update_babies' => 'users#update_babies', as: :update_user_babies
-  post 'create_user_baby' => 'users#add_baby', as: :create_user_baby
+  patch 'update_babies' => 'profile#update_babies', as: :update_user_babies
+  post 'create_user_baby' => 'profile#add_baby', as: :create_user_baby
 
   # Rotas dos planos
   resources :plans, only: [:show]

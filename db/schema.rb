@@ -23,10 +23,9 @@ ActiveRecord::Schema.define(version: 20161006182402) do
     t.string   "state"
     t.string   "number"
     t.integer  "user_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "main",            default: false
-    t.integer  "subscription_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "main",       default: false
   end
 
   create_table "admins", force: :cascade do |t|
@@ -53,24 +52,10 @@ ActiveRecord::Schema.define(version: 20161006182402) do
     t.boolean  "born"
     t.integer  "weeks"
     t.date     "birthdate"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "subscription_id"
-    t.integer  "sex"
-  end
-
-  create_table "credit_cards", force: :cascade do |t|
-    t.string   "holder_name"
-    t.text     "encrypted_card_number"
-    t.text     "encrypted_code"
-    t.string   "expiration_month"
-    t.string   "expiration_year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
   end
-
-  add_index "credit_cards", ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
 
   create_table "emails", force: :cascade do |t|
     t.string   "title"
@@ -95,7 +80,6 @@ ActiveRecord::Schema.define(version: 20161006182402) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.float    "price"
-    t.float    "setup_fee"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -110,25 +94,25 @@ ActiveRecord::Schema.define(version: 20161006182402) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "name"
     t.string   "sex"
     t.date     "birthdate"
     t.string   "cpf"
     t.string   "rg"
     t.string   "phone"
-    t.boolean  "complete"
+    t.boolean  "complete",               default: false
     t.integer  "plan_intention"
   end
 

@@ -3,10 +3,15 @@
     <div class="col-xs-12 ">
       <h1 class="">Fazer cadastro</h1>
 
-      <%= form_for(@user, url: complete_registration_path) do |f| %>
+      <%= form_for @user do |f| %>
         <div class="form-group col-xs-12">
           <%= f.label :name, 'Nome' %>
           <%= f.text_field :name, class: 'form-control', autofocus: true  %>
+        </div>
+
+        <div class="form-group col-xs-12">
+          <%= f.label :email %>
+          <%= f.email_field :email, id: 'email', class: 'form-control', required: true %>
         </div>
 
         <div class="form-group col-xs-12 col-sm-4">
@@ -19,7 +24,7 @@
           <%= f.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
         </div>
 
-        <div class="form-group col xs-12 col-sm-4">
+        <div class="form-group col-xs-12 col-sm-4">
           <%= f.label :phone, 'Telefone de contato' %>
           <%= f.telephone_field :phone, class: 'form-control phone-field' %>
         </div>
@@ -33,6 +38,21 @@
           <%= f.label :rg, 'RG' %>
           <%= f.telephone_field :rg, class: 'form-control rg-field' %>
         </div>
+
+        <div class="form-group col-sm-6 col-xs-12">
+          <%= f.label :password, 'Senha' %>
+          <% if @minimum_password_length %>
+              (Pelo menos <%= @minimum_password_length %> caracteres)
+          <% end %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+
+        <div class="form-group col-sm-6 col-xs-12">
+          <%= f.label :password_confirmation, 'Confirmação da Senha' %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+
+        <%= f.hidden_field :plan_intention %>
 
         <div class="form-group col-xs-12 text-center">
           <%= f.submit 'Salvar', class: 'btn btn-primary' %>
@@ -53,7 +73,7 @@ $(document).ready(function() {
     toastr.options.closeButton = true;
     toastr.options.newestOnTop = false;
 
-    <% resource.errors.full_messages.each_with_index do |msg, index| %>
+    <% @user.errors.full_messages.each_with_index do |msg, index| %>
       setTimeout(function() {
         toastr.warning('<%= msg %>')
         }, <%= index * 800 %>);
