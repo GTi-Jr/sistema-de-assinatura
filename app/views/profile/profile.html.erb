@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row jumbotron">
+    <div class="col-xs-12 ">
+      <h1 class="text-center">Meu perfil</h1>
+
+      <div class="col-lg-10 col-xs-12 col-centered">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#home" data-toggle="tab">Minhas assinaturas</a></li>
+          <li><a href="#user_data" data-toggle="tab">Meus dados</a></li>
+          <li><a href="#user_addresses" data-toggle="tab">Meus endereços</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="home">
+            <%#<%= render 'users/profile_contents/user_plan', user: current_user %>
+            <p class="text-center">A Cegonha está a todo vapor, preparando as caixinhas mais especiais para voce! Assim que elas estiverem prontas, entraremos em contato parar confirmar sua assinatura! Obrigada!</p>
+          </div>
+          <div class="tab-pane fade" id="user_data">
+            <%= render 'profile/profile_contents/user_data', user: current_user %>
+          </div>
+          <div class="tab-pane fade" id="user_addresses">
+            <%= render 'profile/profile_contents/user_addresses', user: current_user %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= content_for :head do %>
+  <%= javascript_include_tag 'masks' %>
+<% end %>
+

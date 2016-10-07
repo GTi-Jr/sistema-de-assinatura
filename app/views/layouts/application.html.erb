@@ -10,8 +10,7 @@
     <meta name="author" content="8Guild" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!--Favicon-->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <%= favicon_link_tag %>
     <!--Google Fonts-->
     <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' %>
 
@@ -31,7 +30,7 @@
     <!--Page Preloading-->
     <%#<div id="preloader"><div id="spinner"></div></div>%>
 
-    <%= render 'users/shared/header' %>
+    <%= render 'shared/header' %>
 
     <%= yield %>
 
