@@ -5,6 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Admin.create(email: 'admin@caixadacegonha.com.br', password: ENV['CEGONHA_ADMIN_PASSWORD'],password_confirmation: ENV['CEGONHA_ADMIN_PASSWORD'])
+
+Faq.all.each do |faq|
+  faq.destroy
+
+end
+
 Faq.create(question: 'Acabei de pedir minha CAIXA DA CEGONHA. E agora?',answer: 'Todo mês você receberá uma caixa contendo de 5 a 8 itens que poderão ser produtos e/ou serviços. Esse itens pode ser em tamanho original, amostras ou miniaturas, produtos de higiene pessoal, saúde pessoal, cosméticos, acessórios, roupas, brinquedos e decoração, calçados, acessórios e/ou brindes exclusivos que serão usados em seu momento atual ou no futuro. Além dos produtos e/ou serviços, a Caixa da Cegonha também entrega cupons de descontos exclusivos em parceiros e muita informação de qualidade.
 Após receber sua caixa e testar os produtos e serviços, incentivamos que você responda a pesquisa relativa a cada um deles. Suas respostas ajudarão as marcas a entender melhor as necessidades e gostos de suas consumidoras e também, a nós da Caixa da Cegonha a entender quais produtos mais agradam a vocês e seus bebês!')
 
@@ -44,3 +52,5 @@ Faq.create(question: 'Como a CAIXA DA CEGONHA é adaptada para atender às minha
 Faq.create(question: 'Não sou mãe nem gestante, mas gostaria de assinar a CAIXA DA CEGONHA para uma outra pessoa. É possível?',answer: 'Sim, a Caixa da Cegonha é uma excelente opção de presente! Você pode presentear uma amiga com uma caixa no chá de bebê, por exemplo! Até o momento estamos trabalhando somente com assinaturas recorrentes, mas em breve você poderá escolher entre algumas novas opções de plano além dos planos mensais, trimestrais e semestrais.')
 Faq.create(question: 'Como posso pagar pela CAIXA DA CEGONHA?',answer: 'A Caixa da Cegonha  pode ser paga através de cartão de crédito. O pagamento através de cartão de crédito pode ser parcelado no número de caixinhas correspondentes ao plano solicitado.')
 Faq.create(question: 'Como faço para cancelar minha assinatura?',answer: 'Será uma pena, mas você tem todo direito de não querer continuar a receber suas caixinhas recheadas de carinho. Para isto você deve enviar um e-mail para contato@caixadacegonha.com.br para solicitar o cancelamento e atentar para os Termos e Condições do contrato de adesão.')
+
+
