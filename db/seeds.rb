@@ -7,12 +7,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Admin.create(email: 'admin@caixadacegonha.com.br', password: ENV['CEGONHA_ADMIN_PASSWORD'],password_confirmation: ENV['CEGONHA_ADMIN_PASSWORD'])
-
 Faq.all.each do |faq|
   faq.destroy
 end
-Plan.all.destroy_all
+Plan.all.each do |p|
+  p.destroy
+end
+
+Admin.all.each do |a|
+  a.destroy
+end
+Admin.create(email: 'admin@caixadacegonha.com.br', password: ENV['CEGONHA_ADMIN_PASSWORD'],password_confirmation: ENV['CEGONHA_ADMIN_PASSWORD'])
+
 
 Plan.create name: 'Plano Mensal', duration: 1, price: 74.90, description: 'Todo mês um mundo de surpresas chegando até você!'
 Plan.create name: 'Plano Trimestral', duration: 3, price: 209.70, description: 'Três meses de muito carinho e muitas novidades!'
