@@ -12,6 +12,11 @@
 !/log/.keep
 /tmp
 
+#yml files
+config/application.yml
+config/database.yml
+
 .byebug_history
+
 .env
 /public/assets

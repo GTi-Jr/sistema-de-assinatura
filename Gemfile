@@ -24,11 +24,25 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 # Mailchimp API
 gem 'gibbon'
 
+
+#Deploy na Amazon
+gem 'figaro'
+
+gem 'rails_12factor', group: :production
+
+gem 'google-analytics-rails', '1.1.0'
+
+
+gem 'paypal-recurring'
+# Prevenir spam
+gem 'invisible_captcha'
+
 gem 'google-analytics-rails', '1.1.0'
 
 gem 'paypal-recurring'
 # Prevenir spam
 gem 'invisible_captcha'
+
 
 group :development, :test do
   gem 'better_errors'
@@ -40,7 +54,20 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'mailcatcher'
+
+
+
+  #Deploy na Amazon
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rvm'
+
+
   gem 'dotenv-rails'
+
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
