@@ -5,6 +5,7 @@
     <div class="row">
       <div class="hero-slider">
         <div class="slide first-slide">
+          <%= image_tag 'gestante.png', class: 'slide-background-image' %>
           <div class="col-lg-5 col-md-5 col-sm-5 animated">
             <h2 style="margin-top:50px;" class="text-light text-left">Components &amp; Styles</h2>
             <p>Check Ultima Components &amp; Styles page for more features and components.</p>
@@ -12,7 +13,6 @@
             <a class="btn btn-primary" href="cs-page.html">Go to Components &amp; Styles</a>
           </div>
           <div class="col-lg-7 col-md-7 col-sm-7 animated">
-            <img class="pull-right" src="img/hero-slider/imac.png" width="689" height="659" alt="Components and Styles"/>
           </div>
         </div>
         <div class="slide">
@@ -123,9 +123,11 @@
                 <li><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
                 <li><%= currency(plan.price_per_month) %> ao mês</li>
                 <li><%= plan.description %></li>
+                <li>Da gestação aos 5 anos.</li>
+                <li class="text-justify">Assinatura será renovada automaticamente. Em casos de cancelamento, fale com a Cegonha!</li>
               </uL>
               <div class="buy-btn text-center">
-                <%#<%= link_to 'Assinar', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
+                <%#<%= link_to 'Assinar agora!', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
                 <%= link_to 'Tenho interesse!', intention_to_plan_path(plan.id), method: :patch, class: 'btn btn-primary' %>
               </div>
             </div>
@@ -176,13 +178,12 @@
   <div class="container">
     <div class="row page-header">
       <h2>Sobre nós</h2>
-      <span>Subtext for header</span>
     </div>
     <div class="row">
       <div class="col-lg-4 col-md-4">
         <div class="row space-bottom">
           <div class="col-lg-9 col-md-9">
-            <h3>O que fazemos</h3>
+            <h3>Quem somos nós</h3>
           </div>
           <div class="col-lg-3 col-md-3">
             <img class="img-center" src="img/contacts/man.png" alt="About Us"/>
@@ -190,24 +191,26 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            <p class="text-justify">
+              Somos um clube de assinatura focado na maternidade, levando produtos, serviços e informação todos os meses para as mamães e bebês. Queremos entregar carinho e cuidado em cada caixa, levar um mundo de surpresas e experiências e ajudar no desenvolvimento dos pequenos. Estamos presentes da gestação aos 5 anos de idade, com uma curadoria exclusiva para cada fase da maternidade! Assine e faça parte desse mundo de surpresas!
+            </p>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 col-lg-offset-1">
-        <div class="row space-bottom">
-          <div class="col-lg-8 col-md-8">
-            <h3>Endereço</h3>
-          </div>
-          <div class="col-lg-4 col-md-4">
-            <%= image_tag 'map_marker_filled_100.png', class: 'img-center', alt: 'Endereço' %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
-            <p>4120 Lenox Avenue, New York, NY, 10035 76 Saint Nicholas Avenue</p>
-          </div>
-        </div>
+        <%#<div class="row space-bottom">%>
+          <%#<div class="col-lg-8 col-md-8">%>
+            <%#<h3>Endereço</h3>%>
+          <%#</div>%>
+          <%#<div class="col-lg-4 col-md-4">%>
+            <%#<%= image_tag 'map_marker_filled_100.png', class: 'img-center', alt: 'Endereço' %>
+          <%#</div>%>
+        <%#</div>%>
+        <%#<div class="row">%>
+          <%#<div class="col-lg-12">%>
+            <%#<p>4120 Lenox Avenue, New York, NY, 10035 76 Saint Nicholas Avenue</p>%>
+          <%#</div>%>
+        <%#</div>%>
         <div class="row space-bottom">
           <div class="col-lg-8 col-md-8">
             <h3>Contatos</h3>
@@ -218,7 +221,7 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <p>+48 555 234 54 34<br/>+48 555 234 54 33<br/>info@email.com<br/>support@email.com</p>
+            <p>+55 85 9696-8916<br/>contato@caixadacegonha.com.br</p>
           </div>
         </div>
       </div>
