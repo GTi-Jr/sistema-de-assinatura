@@ -33,7 +33,6 @@ gem 'rails_12factor', group: :production
 
 gem 'google-analytics-rails', '1.1.0'
 
-
 gem 'paypal-recurring'
 # Prevenir spam
 gem 'invisible_captcha'
@@ -43,7 +42,7 @@ gem 'google-analytics-rails', '1.1.0'
 gem 'paypal-recurring'
 # Prevenir spam
 gem 'invisible_captcha'
-
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'better_errors'
