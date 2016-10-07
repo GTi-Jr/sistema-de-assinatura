@@ -75,8 +75,11 @@ body, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-li
   background-color: $primary-color;
 }
 
-.main-navi {
-  background-color: $terciary-color;
+
+@media screen and (max-width: 991px) {
+  .main-navi {
+    background-color: $terciary-color;
+  }
 }
 
 .main-navi ul > li > a {
