@@ -83,5 +83,4 @@ Rails.application.configure do
   # Google Analytics
   GA.tracker = ENV['GA-TRACKER']
 
-  config.action_controller.relative_url_root  = '/caixa_cegonha/current'
 end
