@@ -62,4 +62,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :babies
   end
+
+  get 'politica-de-privacidade' => 'files#privacy_terms', as: :privacy_terms
 end
