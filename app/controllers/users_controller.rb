@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to user_profile_path, notice: 'Em breve entraremos em contato!'
+      redirect_to user_profile_path, notice: 'A Cegonha está a todo vapor, preparando as caixinhas mais especiais para você! Assim que elas estiverem prontas, entraremos em contato para confirmar sua assinatura! Obrigada!'
     else
       render :new
     end
