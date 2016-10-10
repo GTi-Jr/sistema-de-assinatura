@@ -3,7 +3,7 @@
     <div class="col-xs-12 ">
       <h1 class="">Completar cadastro</h1>
 
-      <%= form_for(@user, url: complete_registration_path) do |f| %>
+      <%= form_for(@user, url: complete_registration_path, method: :patch) do |f| %>
         <div class="form-group col-xs-12">
           <%= f.label :name, 'Nome' %>
           <%= f.text_field :name, class: 'form-control', autofocus: true  %>
@@ -49,15 +49,15 @@
 
 <%= content_for :js do %>
   <script>
-$(document).ready(function() {
-    toastr.options.closeButton = true;
-    toastr.options.newestOnTop = false;
+    $(document).ready(function() {
+      toastr.options.closeButton = true;
+      toastr.options.newestOnTop = false;
 
-    <% resource.errors.full_messages.each_with_index do |msg, index| %>
-      setTimeout(function() {
-        toastr.warning('<%= msg %>')
-        }, <%= index * 800 %>);
-    <% end %>
+      <% @user.errors.full_messages.each_with_index do |msg, index| %>
+        setTimeout(function() {
+          toastr.warning('<%= msg %>')
+          }, <%= index * 800 %>);
+      <% end %>
     });
   </script>
 <% end %>
