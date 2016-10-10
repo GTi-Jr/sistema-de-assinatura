@@ -128,3 +128,31 @@ a:visited {
 .bx-viewport {
   min-height: 400px;
 }
+
+// BX-SLIDER FULLSCREEN
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body, html{
+  height: 100%;
+}
+.bx-viewport, .bx-wrapper{
+  position:relative;
+  width:100%;
+  height:100% !important;
+  top:0;
+  left:0;
+}
+.bxslider, .bxslider li{
+  height: 100% !important;;
+}
+.bxslider li{
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+.bx-wrapper .bx-viewport{
+  border: none !important;
+}
+// END OF BX-SLIDER FULL SCRENN
