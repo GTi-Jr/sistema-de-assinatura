@@ -11,13 +11,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def complete_registration
+    @user = User.new(after_registration_params) # Apenas para não perder os dados do formulário
     current_user.update_attribute(:complete, check_after_registration_params)
 
     if !current_user.complete
-      redirect_to :back, notice: 'Complete o cadastro'
+      @user.errors[:base] << 'Complete o cadastro'
+      render :after_registration
     elsif current_user.update(after_registration_params)
       redirect_to root_path, notice: 'Informações salvas'
     else
+      current_user.errors.full_messages.each do |msg|
+        @user.errors[:base] << msg
+      end
       render :after_registration
     end
   end
@@ -55,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     def check_after_registration_params
       # Rejeita o sexo pois ele ja vem setado
-      after_registration_params.except(:sex, :babies_attributes).each do |k, v|
+      after_registration_params.except(:sex).each do |k, v|
         return false if v.empty?
       end
       true
