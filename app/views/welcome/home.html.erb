@@ -1,26 +1,14 @@
 <!--Hero Slider-->
   <section class="">
     <div class="row" style="max-width: 100%; margin: 0">
-      <div class="hero-slider">
-        <div class="slide first-slide">
-          <%= image_tag 'imagem_slide_1.jpg', class: 'slide-background-image' %>
-          <div class="pull-right col-lg-5 col-md-5 col-sm-5 col-xs-8 animated">
-            <h2 class="text-right text-light">A Caixa da Cegonha chegou!</h2>
-            <p class="text-right text-light">Seja bem-vinda e experimente uma novidade que vai surpreender você! Carinho e cuidado todos os meses!</p>
-          </div>
-        </div>
-        <div class="slide" style="min-height: 400px">
-          <%= image_tag 'imagem_slide_2.jpg', class: 'slide-background-image' %>
-          <div class="col-lg-4 col-md-8 col-xs-10 col-lg-offset-6 col-sm-offset-4 col-xs-offset-2 animated fadeInUp">
-            <h2 style="margin-top:50px;" class="terciary-text text-left">Um mundo de carinho!</h2>
-            <p class="terciary-text">Receba em casa um mix de produtos, serviços e informação do mercado materno infantil, com uma curadoria exclusiva para o seu perfil! Da gestação aos 5 anos de idade!</p>
-          </div>
-        </div>
-        <div class="slide">
+      <div class="bx-slider">
+        <div class="slide first-slide vertical-align">
           <div class="col-lg-6 col-md-6 col-sm-10 col-xs-12 col-centered animated fadeInDown">
-            <%= image_tag 'imagem_slide_frete_gratis.png' %>
-            <h2 class="text-center terciary-text">FRETE GRÁTIS</h2>
-            <p class="text-center terciary-text">Fortaleza, Eusébio e Maracanaú!</p>
+            <div class="row">
+              <%= image_tag 'imagem_slide_frete_gratis.png' %>
+              <h2 class="text-center terciary-text">FRETE GRÁTIS</h2>
+              <p class="text-center terciary-text">Fortaleza, Eusébio e Maracanaú!</p>
+            </div>
           </div>
         </div>
       </div>
@@ -98,16 +86,16 @@
           <div class="pricing-plan">
             <div class="header">
               <h3><%= plan.name %></h3>
-              <span class="price"><%= currency(plan.price) %></span>
+              <span class="price"><%= currency(plan.price_per_month) %> ao mês</span>
             </div>
             <div class="body">
-              <uL>
-                <li><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
-                <li><%= currency(plan.price_per_month) %> ao mês</li>
-                <li><%= plan.description %></li>
-                <li>Da gestação aos 5 anos.</li>
+              <ul>
+                <li class="text-center"><%= currency(plan.price) %></li>
+                <li class="text-center"><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
+                <li class="text-justify"><%= plan.description %></li>
+                <li class="text-center">Da gestação aos 5 anos.</li>
                 <li class="text-justify">Assinatura será renovada automaticamente. Em casos de cancelamento, fale com a Cegonha!</li>
-              </uL>
+              </ul>
               <div class="buy-btn text-center">
                 <%#<%= link_to 'Assinar agora!', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
                 <%= link_to 'Quero assinar!', intention_to_plan_path(plan.id), method: :patch, class: 'btn btn-primary' %>

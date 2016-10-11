@@ -10,16 +10,19 @@
             <div class="pricing-plan">
               <div class="header">
                 <h3><%= plan.name %></h3>
-                <span class="price"><%= currency(plan.price) %></span>
+                <span class="price"><%= currency(plan.price_per_month) %> ao mês</span>
               </div>
               <div class="body">
-                <uL>
-                  <li><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
-                  <li><%= currency(plan.price_per_month) %> ao mês</li>
-                  <li><%= plan.description %></li>
-                </uL>
-                <div class="buy-btn">
-                  <%= link_to 'Assinar', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
+                <ul>
+                  <li class="text-center"><%= currency(plan.price) %></li>
+                  <li class="text-center"><%= plan.duration %> <%= plan.class.human_attribute_name(:months, count: plan.duration.to_i) %></li>
+                  <li class="text-justify"><%= plan.description %></li>
+                  <li class="text-center">Da gestação aos 5 anos.</li>
+                  <li class="text-center">Assinatura será renovada automaticamente. Em casos de cancelamento, fale com a Cegonha!</li>
+                </ul>
+                <div class="buy-btn text-center">
+                  <%#<%= link_to 'Assinar agora!', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
+                  <%= link_to 'Quero assinar!', intention_to_plan_path(plan.id), method: :patch, class: 'btn btn-primary' %>
                 </div>
               </div>
             </div>
