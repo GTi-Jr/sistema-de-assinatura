@@ -24,7 +24,7 @@ gem 'rails_admin', github: 'sferik/rails_admin'
 # Mailchimp API
 gem 'gibbon'
 
-
+gem 'rollbar'
 #Deploy na Amazon
 gem 'figaro'
 gem 'capistrano-rails-console', require: false
