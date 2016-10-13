@@ -31,6 +31,8 @@
 //= require ultima/plugins/waypoints.min
 //= require ultima/plugins/smoothscroll
 //= require ultima/landing2
+//= require jquery.imagescroll.min
+//= require jquery.stellar.min
 //= require toastr.min
 //
 
