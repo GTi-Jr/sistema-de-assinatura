@@ -1,0 +1,248 @@
+
+/* ================================================================== */
+
+/* CSS for small screens
+
+/* ================================================================== */
+
+
+/* small screens
+--------------------------------------------------------------------- */
+@media only screen and (max-width: 480px) {
+
+   /* adjust sections padding top */
+   #art,
+   #ourmenu, #projects, #calendar { padding-top: 120px; }
+
+   /* adjust font size */
+   .intro, .client-cite { font-size: 15px; }
+
+
+   /* intro section
+   -------------------------------------------------------------------- */
+   #intro .intro-head .col { width: 100%; }
+   #intro .intro-wrapper { margin-top: 12px; }
+   #intro .intro-wrapper .col { width: 50%; }
+   #intro .intro-wrapper .col { margin-bottom: 0; }
+   
+   /* about section
+   -------------------------------------------------------------------- */
+   #about .about-head .col { width: 100%; }
+   #about .about-wrapper { margin-top: 12px; }
+   #about .about-wrapper .col { width: 50%; }
+   #about .about-wrapper .col { margin-bottom: 0; }
+
+   /* artademic section
+   -------------------------------------------------------------------- */
+   #art #art-wrapper { margin-top: 12px; }
+   #art #art-wrapper .col { width: 33.33333%; }
+
+   /* contact section
+   ----------------------------------------------------------------------- */
+   #contact label { width: 25%; }
+   #contact button.submit { margin-left: 25%; }
+   #contact input,
+	#contact textarea,
+	#contact select { width: 70%; }
+   #message-warning, #message-success { width: 95%; }
+
+}
+
+
+
+/* mobile wide
+---------------------------------------------------------------------- */
+
+@media only screen and (max-width: 480px) {
+
+   /* center align some text */
+   .section-head, .intro, #about h3,
+   .entry-header {
+      text-align: justify;
+   }
+
+.intrologo{ 
+	position: relative; 
+	top: 80px; 
+	left: -5px; 
+	width:100%;
+	display: block;
+	max-width: 100%;
+	border: 0;
+}
+
+
+.divider{ 
+
+	background: #1b1e21  url(../images/divider.png);
+	position: relative; 
+	background-repeat: repeat-x;
+	height: 60px;
+	width:100%;
+
+}
+
+/* SOCIAL ICONS - GENERAL */
+.social-1 { position: relative;top: 65px; left:10%; width:100%;}
+.social-1 li { display:inline; float:left; background-repeat:no-repeat;padding: 5px; }
+.social-1 li a { display:block; width:48px; height:48px; padding-right:10px; position:relative; text-decoration:none;}
+.social-1 li a strong { font-weight:normal; position:absolute; left:20px; top:-1px; color:#fff; padding:3px; z-index:9999;
+ text-shadow:1px 1px 0 rgba(0, 0, 0, 0.75); background-color:rgba(0, 0, 0, 0.7);
+ -moz-border-radius:3px; -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); -webkit-border-radius:3px; -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); border-radius:3px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* SOCIAL ICONS - CSS3 */
+#css3:hover li { opacity:0.2; }
+
+#css3 li { -webkit-transition-property: opacity; -webkit-transition-duration: 500ms;
+ -moz-transition-property: opacity; -moz-transition-duration: 500ms; }
+#css3 li a strong { opacity:0;
+ -webkit-transition-property: opacity, top; -webkit-transition-duration: 300ms;
+ -moz-transition-property: opacity, top; -moz-transition-duration: 300ms; }
+
+#css3 li:hover { opacity:1; }
+#css3 li:hover a strong { opacity:1; top:-10px; }
+
+
+
+
+   /* mobile navigation
+   -------------------------------------------------------------------- */
+
+   header.mobile { height: 66px; }
+   header.mobile .logo a { top: 10px; position:relative;  margin-left: 2% }
+
+   .mobile #nav-wrap {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      width: auto;
+      margin: 0;
+   }
+   .mobile #nav-wrap > a {
+	   width: 48px;
+		height: 48px;
+		text-align: left;
+		background-color: #de6015;
+		position: relative;
+      border: none;
+      float: right;
+
+      font: 0/0 a;
+      text-shadow: none;
+      color: transparent;
+      }
+
+	.mobile #nav-wrap > a:before,
+   .mobile #nav-wrap > a:after {
+	   position: absolute;
+		border: 2px solid #fff;
+		top: 35%;
+		left: 25%;
+		right: 25%;
+		content: '';
+	}
+   .mobile #nav-wrap > a:after { top: 60%; }
+
+   /* toggle buttons */
+	.mobile #nav-wrap:not( :target ) > a:first-of-type,
+	.mobile #nav-wrap:target > a:last-of-type  {
+	   display: block;
+	}
+
+   /* hide menu panel */
+   .mobile #nav-wrap ul#nav {
+      height: auto;
+		display: none;
+      clear: both;
+   }
+   .mobile #nav-wrap ul#nav li {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: left;
+   }
+   .mobile #nav-wrap ul#nav > li.active a {
+      color: #de6015 !important;
+      background: none;
+   }
+
+   /* display menu panels */
+	.mobile #nav-wrap:target > ul#nav	{
+	   display: block;
+      padding: 12px 25px 24px 25px;
+      background: #4c4e5a;
+      margin: 0;
+      clear: both;
+   }
+   .mobile #nav-wrap ul#nav li { border-bottom: 1px dotted #595B6A; }
+   .mobile #nav-wrap ul#nav li a {
+      margin: 0;
+      padding: 0;
+      font-size: 13px;
+      margin: 10px 0;
+      line-height: 14px;
+      border: none;
+   }
+
+    /* calendar section
+   -------------------------------------------------------------------- */
+.cale {
+   background: #fff url(../images/patterns/grey.png);
+   padding-top: 100px;
+   padding-bottom: 80px;
+   color: #A3A3A3;
+   width: 100%;
+}
+
+    /* map section
+   -------------------------------------------------------------------- */
+   
+.contact {
+   display: block;
+	height: 486px;
+   width: 100%;
+   background-color: #F6F4EF;
+}
+#map img { max-width:inherit !important; }
+#map .map-error {
+  text-align: center;
+  padding-top: 48px;
+  color: #C0B491;
+  font-size: 14px;
+}
+  
+   /* contact section
+   ----------------------------------------------------------------------- */
+   #contact label {
+      display: block;
+      float: none;
+      width: auto;
+   }
+   #contact input,
+	#contact textarea,
+	#contact select {
+      width: 100%;
+      margin-bottom: 30px;
+	}
+   #contact button.submit {
+      margin-left: 0;
+   }
+   #message-warning,
+   #message-success {
+      width: 100%;
+   }
+
+
+
+   /* footer
+   ------------------------------------------------------------------------ */
+   footer .copyright li:before { content: none; }
+   footer .copyright li { margin-right: 10px; }
+   footer .copyright, footer .social-links {
+      text-align: center;
+      float: none;
+   }
+   footer .social-links { margin-top: 12px; }
+
+}

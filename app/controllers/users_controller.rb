@@ -5,8 +5,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.complete = true
 
     if @user.save
+      sign_in @user
       redirect_to user_profile_path, notice: 'A Cegonha está a todo vapor, preparando as caixinhas mais especiais para você! Assim que elas estiverem prontas, entraremos em contato para confirmar sua assinatura! Obrigada!'
     else
       render :new
