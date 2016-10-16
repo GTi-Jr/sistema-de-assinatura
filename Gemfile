@@ -42,7 +42,10 @@ gem 'google-analytics-rails', '1.1.0'
 gem 'paypal-recurring'
 # Prevenir spam
 gem 'invisible_captcha'
+# Ícones especiais
 gem 'font-awesome-sass'
+# Gem para modo de manutenção
+gem 'turnout'
 
 group :development, :test do
   gem 'better_errors'
@@ -54,8 +57,6 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'mailcatcher'
-
-
 
   #Deploy na Amazon
   gem 'capistrano'
@@ -71,3 +72,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+group :production do
+end
+
