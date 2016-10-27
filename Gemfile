@@ -46,6 +46,8 @@ gem 'invisible_captcha'
 gem 'font-awesome-sass'
 # Gem para modo de manutenção
 gem 'turnout'
+# Site map
+gem 'dynamic_sitemaps'
 
 group :development, :test do
   gem 'better_errors'
