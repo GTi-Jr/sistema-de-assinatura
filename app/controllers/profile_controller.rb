@@ -51,32 +51,19 @@ class ProfileController < ApplicationController
     end
   end
 
-  def update_babies
-    if current_user.update(user_babies_params)
-      redirect_to :back, notice: 'Bebês atualizados'
-    else
-      profile
-      render :profile
-    end
-  end
-
-  def add_baby
-    @baby = current_user.babies.build(baby_params)
-
-    if @baby.save
-      redirect_to :back, notice: 'Bebê adicionado'
-    else
-      profile
-      render :profile
-    end
-  end
-
   def update_subscription_babies
-    if current_user.update(subscriptions_babies_params)
-      redirect_to :back, notice: 'Bebês atualizados'
+    d
+    @subscription = Subscription.find(params[:subscription_id])
+    
+    if current_user.owns_subscription?(@subscription)
+      if @subscription.update(subscriptions_babies_params)
+        redirect_to :back, notice: 'Bebês atualizados'
+      else
+        profile
+        render :profile
+      end
     else
-      profile
-      render :profile
+      redirect_to :back, alert: 'Não foi possível fazer a alteração. Tente novamente'
     end
   end
 
@@ -106,6 +93,6 @@ class ProfileController < ApplicationController
     end
 
     def subscriptions_babies_params
-      params.require(:subscription).permit(babies_attributes: %i(name born birthdate weeks))
+      params.require(:subscription).permit(baby_attributes: %i(name born birthdate weeks))
     end
 end

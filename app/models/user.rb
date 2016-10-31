@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
 
   after_save :subscribe_user_to_mailing_list
 
+  def owns_subscription?(subscription)
+    subscriptions.include?(subscription)
+  end
+
   def has_any_subscription?
     !subscriptions.empty?
   end

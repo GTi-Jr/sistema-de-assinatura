@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :plans do
     get 'payments/checkout'
   end
-  
+
   resources :users, only: [:new, :create]
 
   post 'contact_email' => 'welcome#contact_mail', as: :contact_form
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  #Rotas do Devise
+  # Rotas do Devise
   devise_scope :user do
     get '/completar-cadastro' => 'users/registrations#after_registration', as: :after_registration
     patch '/completar-cadastro' => 'users/registrations#complete_registration', as: :complete_registration
@@ -41,17 +41,14 @@ Rails.application.routes.draw do
   # Rotas do perfil / profile routes
   get 'perfil' => 'profile#profile', as: :user_profile
   patch 'update_user' => 'profile#update', as: :update_user
-  
+
   patch 'update_addresses' => 'profile#update_addresses', as: :update_user_addresses
   post 'create_user_address' => 'profile#add_address', as: :create_user_address
   patch 'update_main_address/:address_id' => 'profile#update_main_address', as: :update_main_address
 
-  patch 'update_babies' => 'profile#update_babies', as: :update_user_babies
-  post 'create_user_baby' => 'profile#add_baby', as: :create_user_baby
-
   patch 'update_subscription_babies/:subscription_id' => 'profile#update_subscription_babies', as: :update_subscription_babies
 
-  # Rotas dos planos
+  # Rotas dos planos / plan routes
   resources :plans, only: [:show]
   get 'planos' => 'plans#index', as: :plans
   patch 'subscribe/:id' => 'plans#subscribe', as: :subscribe

@@ -14,7 +14,7 @@
           <%= f.hidden_field :paypal_payment_token %>
           <%= f.hidden_field :plan_id %>
 
-          <%= fields_for :baby do |baby_form| %>
+          <%= f.fields_for :baby do |baby_form| %>
             <div class="form-group col-xs-12 col-sm-5">
               <%= baby_form.label :name, 'Nome do Bebê' %>
               <%= baby_form.text_field :name, class: 'form-control' %>

@@ -3,7 +3,6 @@ class Plans::PaymentsController < PlansController
   before_action :set_plan, except: [:confirm_payment]
 
   def checkout
-    redirect_to :back, alert: 'Você já possui um plano' if current_user.has_any_subscription?
   end
 
   def paypal_checkout
@@ -40,6 +39,6 @@ class Plans::PaymentsController < PlansController
   end
 
   def subscription_params
-    params.require(:subscription).permit(:plan_id, :paypal_payment_token, :paypal_customer_token, baby_attributes: [ :name, :born, :weeks, :birthdate ])
+    params.require(:subscription).permit(:plan_id, :paypal_payment_token, :paypal_customer_token, baby_attributes: %i(name born birthdate weeks))
   end
 end
