@@ -1,9 +1,12 @@
 class ProfileController < ApplicationController
   before_action :authenticate_user!
   before_action :check_user_completed
+  before_action :load_subscription, only: [:update_subscription_babies]
 
   def profile
     @address ||= Address.new
+
+    @subscriptions = current_user.subscriptions
 
     @user_addresses = current_user.addresses.order('main DESC')
     @user_main_address = current_user.main_address
@@ -68,7 +71,20 @@ class ProfileController < ApplicationController
     end
   end
 
+  def update_subscription_babies
+    if current_user.update(subscriptions_babies_params)
+      redirect_to :back, notice: 'Bebês atualizados'
+    else
+      profile
+      render :profile
+    end
+  end
+
   private
+    def load_subscription
+      @subscription = Subscription.find(params[:subscription_id])
+    end
+
     def user_params
       params.require(:user).permit(:email, :name, :sex, :birthdate, :cpf, :rg, :password, :password_confirmation)
     end
@@ -87,5 +103,9 @@ class ProfileController < ApplicationController
 
     def baby_params
       params.require(:baby).permit(:name, :born, :birthdate, :weeks)
+    end
+
+    def subscriptions_babies_params
+      params.require(:subscription).permit(babies_attributes: %i(name born birthdate weeks))
     end
 end

@@ -49,6 +49,8 @@ Rails.application.routes.draw do
   patch 'update_babies' => 'profile#update_babies', as: :update_user_babies
   post 'create_user_baby' => 'profile#add_baby', as: :create_user_baby
 
+  patch 'update_subscription_babies/:subscription_id' => 'profile#update_subscription_babies', as: :update_subscription_babies
+
   # Rotas dos planos
   resources :plans, only: [:show]
   get 'planos' => 'plans#index', as: :plans
@@ -61,10 +63,6 @@ Rails.application.routes.draw do
   get 'proceder-para-paypal/:id' => 'plans/payments#paypal_checkout', as: :plans_paypal_checkout
   get 'confirmar/:id' => 'plans/payments#confirm', as: :plans_paypal_confirm
   post 'confirmar' => 'plans/payments#confirm_payment', as: :plans_paypal_confirm_payment
-
-  resources :users do
-    resources :babies
-  end
 
   get 'politica-de-privacidade' => 'files#privacy_terms', as: :privacy_terms
 end

@@ -1,7 +1,9 @@
 class Subscription < ActiveRecord::Base
   belongs_to :user
   belongs_to :plan
-  has_one :plan_user, class_name: 'Plan', foreign_key: 'subscription_id'
+  has_one    :baby
+
+  accepts_nested_attributes_for :baby
 
   attr_accessor :paypal_payment_token
 

@@ -14,6 +14,28 @@
           <%= f.hidden_field :paypal_payment_token %>
           <%= f.hidden_field :plan_id %>
 
+          <%= fields_for :baby do |baby_form| %>
+            <div class="form-group col-xs-12 col-sm-5">
+              <%= baby_form.label :name, 'Nome do Bebê' %>
+              <%= baby_form.text_field :name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group col-xs-5 col-sm-3">
+              <%= baby_form.label :born, 'Nascido?' %>
+              <%= baby_form.select :born, {'Não' => '0', 'Sim' => '1'}, {}, { id: 'baby-born-select-new',class: 'form-control', onchange: 'profileBabyBornChanged(this)'} %>
+            </div>
+
+            <div class="form-group col-xs-7 col-sm-4" id="baby-birthdate-new">
+              <%= baby_form.label :birthdate, 'Nascimento' %>
+              <%= baby_form.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
+            </div>
+
+            <div class="form-group col-xs-7 col-sm-4" id="baby-weeks-new">
+              <%= baby_form.label :weeks, 'Semanas de gestação' %>
+              <%= baby_form.select :weeks, (1..45), {}, { class: 'form-control' } %>
+            </div>
+          <% end %>
+
           <%= f.submit 'Finalizar compra', class: 'btn btn-primary' %>
         <% end %>
       </div>
