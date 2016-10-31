@@ -1,5 +1,4 @@
 class Plans::PaymentsController < PlansController
-  #before_action :block_actions
   before_action :set_plan, except: [:confirm_payment]
 
   def checkout
