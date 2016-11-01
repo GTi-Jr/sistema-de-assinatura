@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006182402) do
+ActiveRecord::Schema.define(version: 20161017204318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,30 +52,10 @@ ActiveRecord::Schema.define(version: 20161006182402) do
     t.boolean  "born"
     t.integer  "weeks"
     t.date     "birthdate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "subscription_id"
   end
-
-  create_table "coupon_redemptions", force: :cascade do |t|
-    t.integer  "coupon_id",  null: false
-    t.string   "user_id"
-    t.string   "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "coupons", force: :cascade do |t|
-    t.string   "code"
-    t.float    "amount"
-    t.integer  "quantity"
-    t.date     "expiry_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "coupon_type"
-  end
-
-  add_index "coupons", ["code"], name: "index_coupons_on_code", unique: true, using: :btree
 
   create_table "emails", force: :cascade do |t|
     t.string   "title"
@@ -96,10 +76,10 @@ ActiveRecord::Schema.define(version: 20161006182402) do
     t.string   "name"
     t.string   "duration"
     t.string   "description"
+    t.integer  "subscription_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.float    "price"
-    t.integer  "subscription_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|

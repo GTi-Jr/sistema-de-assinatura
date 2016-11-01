@@ -5,10 +5,12 @@ FactoryGirl.define do
     to 1
     to 1
   end
+
   factory :faq do
     question "MyText"
     answer "MyText"
   end
+
   factory :user do
     sequence(:name) { |n| "Testing John #{n}" }
     sequence(:email) { |n| "test_user_#{n}@test.com" }
@@ -28,5 +30,10 @@ FactoryGirl.define do
     number 999
     zipcode "99999-999"
     main false
+  end
+
+  factory :plan do
+    sequence(:name) { |n| "Plan_#{n}" }
+    price 50
   end
 end

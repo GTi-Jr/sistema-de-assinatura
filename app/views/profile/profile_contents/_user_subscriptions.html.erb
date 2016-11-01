@@ -1,0 +1,51 @@
+<% if user.subscriptions.empty? %>
+  <div class="col-xs-12 text-center">
+    <h2 class="">Você não possui nenhuma assinatura</h2>
+    <%= link_to 'Clique aqui pra ver nossos planos!', plans_path, class: 'btn btn-terciary btn-lg' %>
+  </div>
+<% else %>
+
+
+  <% @subscriptions.each do |subscription| %>
+    <div class="row left-border">
+      <h2 class="col-xs-12"><%= subscription.plan.name %></h2>
+      <p class="col-xs-12"><%= subscription.plan.description %></p>
+      <p class="col-xs-12">
+        Um pagamento de <strong><%= currency(subscription.plan.price) %></strong> será efetuado no dia <strong>25</strong>
+        a cada <strong><%= subscription.plan.duration %> <%= subscription.plan.class.human_attribute_name(:months, count: subscription.plan.duration.to_i) %></strong>. 
+      </p>     
+      <%= form_for subscription, url: update_subscription_babies_path(subscription.id) do |f| %>
+        <%= f.fields_for :baby do |baby_form| %>
+          <div class="babies" data-id="<%= baby_form.object.id %>">
+            <div class="form-group col-xs-12 col-sm-5">
+              <%= baby_form.label :name, 'Nome do Bebê' %>
+              <%= baby_form.text_field :name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group col-xs-5 col-sm-3 baby-born-<%= baby_form.object.id %>">
+              <%= baby_form.label :born, 'Nascido?' %>
+              <%= baby_form.select(:born, options_for_select([['Sim', '1'], ['Não', '0']], baby_born_to_value(baby_form.object)), {}, { id: "baby-born-select-#{baby_form.object.id}", class: 'form-control', onchange: 'profileBabyBornChanged(this)'}) %>
+            </div>
+
+            <div class="form-group col-xs-7 col-sm-4 baby_birthdate" id="baby-birthdate-<%= baby_form.object.id %>">
+              <%= baby_form.label :birthdate, 'Nascimento' %>
+              <%= baby_form.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa' %>
+            </div>
+
+            <div class="form-group col-xs-7 col-sm-4 baby_weeks" id="baby-weeks-<%= baby_form.object.id %>">
+              <%= baby_form.label :weeks, 'Semanas de gestação' %>
+              <%= baby_form.select :weeks, (1..45), {}, { class: 'form-control' } %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="text-center">
+          <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+        </div>
+
+      <% end %>
+      <span class="text-center col-xs-12">Caso deseje cancelar esta assinatura clique <%= link_to 'aqui', unsubscribe_path, method: :patch, data: { confirm: 'Tem certeza de que deseja cancelar seu plano?' } %>.</span>
+    </div>
+  <% end %>
+<% end %>
+

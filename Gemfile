@@ -46,8 +46,11 @@ gem 'invisible_captcha'
 gem 'font-awesome-sass'
 # Gem para modo de manutenção
 gem 'turnout'
+# Site map
+gem 'dynamic_sitemaps'
 
 group :development, :test do
+  gem 'quiet_assets'
   gem 'better_errors'
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'

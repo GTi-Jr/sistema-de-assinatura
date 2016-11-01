@@ -13,8 +13,7 @@
         <!-- Tab panes -->
         <div class="tab-content">
           <div class="tab-pane fade in active" id="home">
-            <%#<%= render 'users/profile_contents/user_plan', user: current_user %>
-            <p class="text-center">A Cegonha está a todo vapor, preparando as caixinhas mais especiais para você! Assim que elas estiverem prontas, entraremos em contato para confirmar sua assinatura! Obrigada!</p>
+            <%= render 'profile/profile_contents/user_subscriptions', user: current_user %>
           </div>
           <div class="tab-pane fade" id="user_data">
             <%= render 'profile/profile_contents/user_data', user: current_user %>

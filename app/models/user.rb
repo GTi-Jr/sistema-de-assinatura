@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   @@max_addresses_number = 3
-  @@max_babies_number = 10
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -14,17 +13,22 @@ class User < ActiveRecord::Base
   usar_como_cpf :cpf
 
   has_many :addresses
-  has_one :subscription, -> { where canceled_on: nil }, class_name: 'Subscription'
   has_many :subscriptions
-  has_one :plan, through: :subscription
+  has_many :plans, through: :subscriptions
 
   accepts_nested_attributes_for :addresses
-  accepts_nested_attributes_for :plan
-  accepts_nested_attributes_for :subscription
 
   validates :addresses, length: { maximum: @@max_addresses_number }
 
   after_save :subscribe_user_to_mailing_list
+
+  def owns_subscription?(subscription)
+    subscriptions.include?(subscription)
+  end
+
+  def has_any_subscription?
+    !subscriptions.empty?
+  end
 
   def addresses_full?
     addresses.count >= @@max_addresses_number
@@ -59,6 +63,10 @@ class User < ActiveRecord::Base
 
   def last_name
     name ? name.split(' ').last : ''
+  end
+
+  def any_subscriptions?
+    !subscriptions.empty?
   end
 
   protected
