@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.complete = true
+    @user.complete = false
 
     if @user.save
       sign_in @user

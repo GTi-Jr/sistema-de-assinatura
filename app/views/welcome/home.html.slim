@@ -1,0 +1,21 @@
+/ Início
+section#welcome[style="background-image: url('#{asset_path 'baby.jpg'}')"]
+  div.container
+    div.col-xs-12.col-sm-4.pull-right.welcome-login
+      = image_tag 'logos/logo-primaria-01.png', class: 'login-logo'
+      - if current_user.present?
+        h3.text-center.primary-text Seja bem-vindo #{current_user.name}
+      - else
+        = form_for @user, as: :user, url: session_path(:user) do |f|
+          div.form-group.col-xs-12
+            = f.text_field :email, class: 'form-control', placeholder: 'E-mail'
+          div.form-group.col-xs-12
+            = f.password_field :password, class: 'form-control', placeholder: 'Senha'
+          div.form-group.text-center
+            = f.submit 'Entrar', class: 'btn btn-primary terciary-text'
+= content_for :js
+  coffee:
+    $('section#welcome').height($(window).height() - $('.stiky-header').height()) # para deixar o início pegando a tela inteira
+
+
+

@@ -1,0 +1,27 @@
+header.stiky-header
+  .container.group
+    = link_to root_path, class: 'logo' do
+      = image_tag 'logos/logointeirabranca.png', alt: 'logo cegonha preta'
+    = link_to root_path, class: 'logo-mobile' do
+      = image_tag 'logos/logointeirabranca.png', class: 'vertical-align', alt: 'logo cegonha preta'
+    .navi-toggle.group
+      span.dot
+      span.line
+      span.dot
+      span.line
+      span.dot
+      span.line
+      span.dot
+      span.line
+    nav.main-navi
+      ul
+        li= link_to 'SOBRE', root_path(anchor: 'about'), class: 'scroll-up'
+        li= link_to 'COMO FUNCIONA', root_path(anchor: 'how-it-works')
+        li= link_to 'PLANOS', root_path(anchor: 'plans')
+        li= link_to 'CONTATO', root_path(anchor: 'contact')
+        - if user_signed_in?
+          li= link_to 'PERFIL', user_profile_path
+          li= link_to 'SAIR', logout_path, method: :delete, class: 'secondary-text'
+        - else
+          li= link_to 'ENTRAR', login_path, class: 'secondary-text'
+

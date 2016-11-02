@@ -2,6 +2,10 @@
 
 @import "variables.scss";
 
+html, body {
+  height: 100%;
+}
+
 /*Usado em adição ao bootstrap para centralizar*/
 .col-centered {
   float: none !important;
@@ -34,11 +38,11 @@ a:visited {
 }
 
 .primary-text {
-  color: $primary-color;
+  color: $primary-color !important;
 }
 
 .secondary-text {
-  color: $secondary-color;
+  color: $secondary-color !important;
 }
 
 .terciary-text {
@@ -70,13 +74,6 @@ a:visited {
 
 .pricing-plan .header {
   background-color: $terciary-color;
-}
-
-.parallax {
-    //background-attachment: fixed;
-    //background-position: center;
-    //background-repeat: no-repeat;
-    //background-size: cover;
 }
 
 .caminho-da-cegonha {
@@ -111,48 +108,32 @@ a:visited {
   color: #fff;
 }
 
-.slide-background-image {
-  position: absolute;
-  min-width: 100%;
-  height: 100% !important;
+.login-logo {
+  max-height: 100px;
+  max-width:  100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.hero-slider, .slide {
-  height: 100%;
+.form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  font-family: 'ProximaNovaAltLight';
+  color: $primary-color;
+  font-size: 1.2em;
 }
-
-.bx-wrapper {
-  background-color: $primary-color;
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  font-family: 'ProximaNovaAltLight';
+  color: $primary-color;
+  opacity:  1;
+  font-size: 1.2em;
 }
-
-.bx-viewport {
-  min-height: 400px;
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+  font-family: 'ProximaNovaAltLight';
+  color: $primary-color;
+  opacity: 1;
+  font-size: 1.2em;
 }
-
-// BX-SLIDER FULLSCREEN
-*{
-  margin: 0px;
-  padding: 0px;
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: 'ProximaNovaAltLight';
+  color: $primary-color;
+  font-size: 1.2em;
 }
-body, html{
-  height: 100%;
-}
-.bx-viewport, .bx-wrapper{
-  position:relative;
-  width:100%;
-  height:100% !important;
-  top:0;
-  left:0;
-}
-.bxslider, .bxslider li{
-  height: 100% !important;;
-}
-.bxslider li{
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
-.bx-wrapper .bx-viewport{
-  border: none !important;
-}
-// END OF BX-SLIDER FULL SCRENN

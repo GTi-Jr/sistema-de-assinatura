@@ -1,3 +1,23 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+section#home {
+  width: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100%;
+}
+
+.welcome-login {
+  margin: 2% 0 2% 0;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.welcome-login img {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .welcome-login {
+    background-color: white;
+  }
+}
