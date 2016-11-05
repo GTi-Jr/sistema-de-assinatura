@@ -45,15 +45,10 @@ section#contact {
 .welcome-login {
   margin: 2% 0 2% 0;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: white;
 }
 
 .welcome-login img {
   max-width: 100%;
 }
 
-@media screen and (min-width: 768px) {
-  .welcome-login {
-    background-color: white;
-  }
-}

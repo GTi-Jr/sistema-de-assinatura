@@ -2,18 +2,12 @@
 section#welcome
   = image_tag 'baby.jpg', class: 'background-image'
   .container
-    .col-xs-12.col-sm-4.pull-right.welcome-login
-      = image_tag 'logos/logo-primaria-01.png', class: 'login-logo'
-      - if current_user.present?
-        h3.text-center.primary-text Seja bem-vindo #{current_user.name}
-      - else
-        = form_for @user, as: :user, url: session_path(:user) do |f|
-          .form-group.col-xs-12
-            = f.text_field :email, class: 'form-control', placeholder: 'E-mail'
-          .form-group.col-xs-12
-            = f.password_field :password, class: 'form-control', placeholder: 'Senha'
-          .form-group.text-center
-            = f.submit 'Entrar', class: 'btn btn-primary terciary-text'
+    .col-xs-12.col-sm-4.pull-right.hidden-xs.welcome-login
+      = render 'welcome/sign_up_form', user: @user
+/ Seção de login visivel apenas em telas menores
+section#login-form.visible-xs
+  .container
+    = render 'welcome/sign_up_form', user: @user
 / Como Funciona
 section#how-it-works
   .container
@@ -116,7 +110,8 @@ section#contact
     adjustCloudToPlan = ->
       $('.pricing-plan').css('margin-top', ($('.cloud-image').height()/2.5 * (-1) + 'px')) # para deixar a nuvem certa com a caixa de preço
     $(document).ready ->
-      $('section#welcome').height($(window).height() - $('.stiky-header').height()) # para deixar o início pegando a tela inteira
+      welcomeImageHeight = $(window).height() - $('.stiky-header').height()
+      $('section#welcome').css('min-height', welcomeImageHeight + 'px') # para deixar o início pegando a tela inteira
       adjustCloudToPlan()
       $(window).resize ->
         adjustCloudToPlan()
