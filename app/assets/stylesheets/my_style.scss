@@ -137,3 +137,72 @@ a:visited {
   color: $primary-color;
   font-size: 1.2em;
 }
+
+// Listagem de planos com nuvens
+#plans-list {
+  margin-top: 100px;
+}
+
+.cloud-image {
+  //position: absolute;
+  width: 100%;
+  top: 50%;
+  fill: white;
+}
+
+.pricing-plan .body {
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  top: -20px;
+}
+
+.pricing-plan .body ul {
+  margin: 0;
+}
+
+.pricing-plan .body ul li {
+  padding: 0;
+}
+
+.cloud {
+  position: relative;
+}
+
+.cloud:after, .cloud:before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  z-index: 0;
+}
+
+.cloud:after {
+	width: 100px;
+  height: 100px;
+	top: -50px;
+  right: -10px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
+
+.cloud:before {
+  width: 172px;
+  height: 172px;
+  top: -90px;
+  left: -10px;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+}
+// fim da listagem de planos com nuvens
+
+.background-image {
+  position: absolute;
+  z-index: -999;
+  height: 100%;
+  max-width: 2000px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
