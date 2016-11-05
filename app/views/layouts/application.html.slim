@@ -19,6 +19,7 @@ html
   body
     = render 'shared/header'
     = yield
+    = render 'shared/footer'
   = yield :js
   javascript:
     toastr.options.closeButton = true;

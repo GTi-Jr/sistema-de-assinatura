@@ -19,7 +19,7 @@ section#how-it-works
   .container
     .row
       .col-xs-12.text-center
-        h2.terciary-text Como funciona?
+        h1.terciary-text Como funciona?
   .container
     .row
       .col-xs-12.col-sm-2= image_tag 'inspection_filled.png', class: 'col-centered'
@@ -56,8 +56,7 @@ section#how-it-works
         blockquote
           p.terciary-text Você recebe nossa caixa com um mundo de surpresas e desfruta dos produtos, benefícios exclusivos e muita informação!
 section#plans.primary-bg-color
-  p
-    h2.text-light.text-center Nossos Planos
+  h1.header.text-light.text-center Nossos Planos
   #plans-list.container
     .row
       - @plans.each do |plan|
@@ -80,6 +79,38 @@ section#plans.primary-bg-color
                   = plan.description
               .buy-btn.text-center
                 = link_to 'Quero assinar!', plans_payment_checkout_path(plan.id), class: 'btn btn-primary'
+section#contact
+  h1.header.text-light.text-center Fale com a cegonha
+  .container
+    .row
+      .col-xs-12.col-sm-6.pull-left
+        .col-xs-12
+          h4.text-light Contatos
+        .col-xs-12
+          .text-light.hidden-xs contato@caixadacegonha.com.br
+          .text-light.text-center.visible-xs contato@caixadacegonha.com.br
+        .col-xs-12
+          .text-light.hidden-xs +55 85 9696-8916
+          .text-light.text-center.visible-xs +55 85 9696-8916
+        .col-xs-12
+          h4.text-light Redes Sociais
+          h5.social
+            a.fa.fa-facebook.tooltipped.text-light title="Facebook" href="https://www.facebook.com/caixadacegonha/" target="_blank"
+            a.fa.fa-instagram.tooltipped.text-light title="Instagram" href="https://www.instagram.com/caixadacegonha/" target="_blank"
+      .col-xs-12.col-sm-6.pull-right
+        h4.text-light.pull-left Dúvida ou sugestão?
+        = form_tag contact_form_path, class: 'feedback-form'
+          = invisible_captcha
+          .form-group
+            = text_field_tag :name, nil, class: 'form-control', id: 'name1', placeholder: 'Nome'
+          .form-group
+            = text_field_tag :email, nil, class: 'form-control', id: 'name1', placeholder: 'Email'
+          .form-group
+            = text_area_tag :message, nil, class: 'form-control', id: 'name1', placeholder: 'Mensagem'
+          h4
+            = submit_tag 'Enviar', class: 'btn btn-primary terciary-text'
+          /! Validation Response
+          .response-holder
 = content_for :js
   coffee:
     adjustCloudToPlan = ->

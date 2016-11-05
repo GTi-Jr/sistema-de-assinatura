@@ -1,5 +1,45 @@
+@import "variables.scss";
+
+section .header {
+  margin: 0;
+  padding: 20px 0 20px 0;
+}
+
 section#welcome {
+  position: relative;
   background-repeat: round;
+  overflow: hidden;
+}
+
+section#contact {
+  background-color: $terciary-color;
+  font-size: 18px;
+  padding-bottom: 100px; // Adicionar um espaço abaixo para a imagem de transição
+
+  input, textarea {
+    border-color: white;
+  }
+  .form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+  }
+  .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+  }
+  .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+  }
+  .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+
+  .social a {
+    margin-right: 5px;
+    font-size: 2.3em;
+
+    &:hover, &:focus {
+      color: white;
+    }
+  }
 }
 
 .welcome-login {
