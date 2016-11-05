@@ -23,26 +23,30 @@ section#how-it-works
   .container
     .row
       .col-xs-12.col-sm-2= image_tag 'inspection_filled.png', class: 'col-centered'
-      .co-xs-12.col-sm-3
+      .col-xs-12.col-sm-3
         h2.terciary-text Você assina
-      .col-xs-12.col-sm-7.vertical-align
-        blockquote.vertical-align
+      .col-xs-12.col-sm-7
+        blockquote
           p.terciary-text Você escolhe um plano para assinar e passa a fazer parte desse clube.
   .container
     .row
-      .col-xs-12.col-sm-8.col-centered= image_tag 'caminho_cegonha_1.png', class: 'caminho-da-cegonha'
+      .col-xs-12.col-sm-8.col-centered.hidden-xs
+        = image_tag 'caminho_cegonha_1.png', class: 'caminho-da-cegonha'
   .container
     .row
-      .col-xs-12.col-sm-4.pull-right
+      .col-xs-12.col-sm-4.pull-right.hidden-xs
         h2.terciary-text Nós selecionamos e entregamos
       .col-xs-12.col-sm-2.pull-right= image_tag 'handle_with_care_filled.png', class: 'col-centered'
+      .col-xs-12.col-sm-4.pull-right.visible-xs
+        h2.terciary-text Nós selecionamos e entregamos
       .col-xs-12.col-sm-6.pull-left
         blockquote.blockquote-reverse
           p.terciary-text
             | Nossa curadoria escolhe os melhores produtos, benefícios e informações relacionadas à maternidade, para você receber em uma caixinha especial na sua casa.
   .container
     .row
-      .col-xs-12.col-sm-8.col-centered= image_tag 'caminho_cegonha_2.png', class: 'caminho-da-cegonha'
+      .col-xs-12.col-sm-8.col-centered.hidden-xs
+        = image_tag 'caminho_cegonha_2.png', class: 'caminho-da-cegonha'
   .container
     .row
       .col-xs-12.col-sm-2= image_tag 'hearts_filled.png', class: 'col-centered'

@@ -84,7 +84,6 @@ body, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-li
 }
 
 h1, h2, h3, h4, h5 {
-  //font-family: 'MontserratBold';
   font-family: 'ProximaNovaBold';
 }
 
@@ -125,6 +124,14 @@ small {
   color: #fff;
 }
 
+@media screen and (max-width: 767px) {
+  #how-it-works blockquote,
+  #how-it-works .blockquote-reverse {
+    border: none;
+  }
+}
+
+
 // Planos
 .pricing-plan .body {
   background-color: white;
@@ -133,3 +140,6 @@ small {
 .pricing-plan .body ul li {
   border: none;
 }
+// Fim do estilo dos planos
+
+
