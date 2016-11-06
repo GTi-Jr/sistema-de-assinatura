@@ -39,13 +39,15 @@ input[type="submit"] {
   background-color: #FFF9B0;
 }
 
-.stiky-header .logo img {
-  max-height: 100px;
-}
+.stiky-header {
+  .logo img {
+    max-height: 100px;
+  }
 
-.stiky-header .logo-mobile {
-  max-width: 94px;
-  margin-top: 30px;
+  .logo-mobile {
+    max-width: 156px;
+    margin: 15px 0 15px 0;
+  }
 }
 
 .features {
@@ -98,6 +100,7 @@ h1, h2, h3, h4, h5 {
   border-color: #fff;
 }
 
+// Menu-header
 .stiky-header {
   position: relative;
   background-color: $primary-color;
@@ -109,16 +112,44 @@ h1, h2, h3, h4, h5 {
   }
 }
 
-.main-navi ul > li > a {
-  color: #fff;
-  &:hover {
-    color: #ccc;
+.main-navi {
+  overflow: visible;
+  
+  ul > li > a {
+    color: #fff;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
+
+  .social {
+    position: absolute;
+    bottom: 0;
+
+    a {
+      margin: 10px;
+      font-size: 2.3em;
+    }
   }
 }
 
-.navi-toggle span {
-  color: #fff;
+.navi-toggle {
+  span {
+    background-color: #fff;
+
+    &.line {
+      width: 30px;
+      height: 2px;
+      margin-bottom: 5px;
+    }
+  }
+
+  &:hover span {
+    background-color: #fff;
+  }
 }
+// Fim do menu-header
 
 small {
   color: #fff;

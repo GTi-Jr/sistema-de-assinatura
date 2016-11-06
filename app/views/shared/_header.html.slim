@@ -10,13 +10,21 @@ header.stiky-header
       span.line
     nav.main-navi
       ul
-        li= link_to 'SOBRE', root_path(anchor: 'about'), class: 'scroll-up'
-        li= link_to 'COMO FUNCIONA', root_path(anchor: 'how-it-works')
-        li= link_to 'PLANOS', root_path(anchor: 'plans')
-        li= link_to 'CONTATO', root_path(anchor: 'contact')
+        li.text-center= link_to 'SOBRE', root_path(anchor: 'about'), class: 'scroll-up'
+        li.text-center= link_to 'COMO FUNCIONA', root_path(anchor: 'how-it-works')
+        li.text-center= link_to 'PLANOS', root_path(anchor: 'plans')
+        li.text-center= link_to 'CONTATO', root_path(anchor: 'contact')
         - if user_signed_in?
-          li= link_to 'PERFIL', user_profile_path
-          li= link_to 'SAIR', logout_path, method: :delete, class: 'secondary-text'
+          li.text-center= link_to 'PERFIL', user_profile_path
+          li.text-center= link_to 'SAIR', logout_path, method: :delete, class: 'secondary-text'
         - else
-          li= link_to 'ENTRAR', login_path, class: 'secondary-text'
-
+          li.text-center= link_to 'ENTRAR', login_path, class: 'secondary-text'
+      h5.social.col-xs-12.text-center.visible-xs
+        a.fa.fa-facebook.tooltipped.text-light title="Facebook" href="https://www.facebook.com/caixadacegonha/" target="_blank"
+        a.fa.fa-instagram.tooltipped.text-light title="Instagram" href="https://www.instagram.com/caixadacegonha/" target="_blank"
+= content_for :js do
+  coffee:
+    $(document).ready ->
+      if $(window).width() < 768
+        $('.main-navi').height($(window).height() - $('.stiky-header').height()) # Para deixar o menu do tamanho da tela.
+        $('.main-navi').css('top', $('.stiky-header').height() + 'px') # Fix de um bug que fica um espaço em branco entre o menu e os itens.
