@@ -3,11 +3,20 @@ section#welcome
   = image_tag 'baby.jpg', class: 'background-image'
   .container
     .col-xs-12.col-sm-4.pull-right.hidden-xs.welcome-login
-      = render 'welcome/sign_up_form', user: @user
+      = render 'welcome/sign_up_form', user: @new_user
 / Seção de login visivel apenas em telas menores
 section#login-form.visible-xs
   .container
-    = render 'welcome/sign_up_form', user: @user
+    = render 'welcome/sign_up_form', user: @new_user
+/ Nuvens com mensagem
+section#clouds
+  .container-fluid
+    .col-md-2.hidden-xs.hidden-sm
+    .col-md-8.col-xs-12
+      .image-with-text
+        = image_tag 'nuvem-grande.png'
+        .text.text-center.text-light Nascemos para transformar a experiência da maternidade, entregando um mundo de surpresas a cada mês.
+    .col-md-2.hidden-xs.hidden-sm
 / Como Funciona
 section#how-it-works
   .container

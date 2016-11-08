@@ -11,6 +11,35 @@ section#welcome {
   overflow: hidden;
 }
 
+section#clouds {
+  margin-top: 10px;
+
+  .image-with-text {
+    margin-top: 350px;
+
+    img {
+      position: absolute;
+      max-width: 2000px;
+      transform: translate(-50%,-50%);
+      left: 50%;
+      top: 50%;
+      min-width: 100%;
+      max-height: 100%;
+    }
+
+    .text {
+      font-size: 1.5em;
+      line-height: 1.2em;
+      position: absolute;
+      width: 60%;
+      top: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+}
+
 section#contact {
   background-color: $terciary-color;
   font-size: 18px;
