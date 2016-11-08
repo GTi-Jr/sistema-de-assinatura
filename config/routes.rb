@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     get 'payments/checkout'
   end
 
+  get '/checkout' => 'checkouts#checkout', as: :checkout
+  post 'subscribe' => 'checkouts#subscribe_to_plan', as: :subscribe_to_plan
+
   resources :users, only: [:new, :create]
 
   post 'contact_email' => 'welcome#contact_mail', as: :contact_form

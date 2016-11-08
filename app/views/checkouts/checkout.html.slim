@@ -1,0 +1,39 @@
+.page-header
+  h1
+    | Assinar #{@plan.name if @plan}
+form action=subscribe_to_plan_path method="POST"
+  - if @error
+    .form_error.alert.alert-danger
+      strong
+        | Erro!!!
+      p= @error
+  input name="authenticity_token" type="hidden" value=form_authenticity_token /
+  input#plan_identifier name="plan_identifier" type="hidden" value="#{@plan.identifier}" /
+  input#plan_identifier name="payment_method" type="hidden" value="#{@payment_method}" /
+  input#credit_card_token name="credit_card_token" type="hidden" value=("#{@credit_card_token || ""}") /
+  .form-horizontal
+
+    #credit_card_details
+      .well
+        .cc_error.alert.alert-danger
+          strong
+            | Erro!!!
+          | Cartão de crédito inválido.
+        div style=("text-align: center") = image_tag "aceitamos.jpg", style: "padding-bottom: 20px"
+        .data-group
+          .credit_card_type
+          input.form-control.credit_card_number autocomplete="off" data-iugu="number" placeholder=("N\u00FAmero do Cart\u00E3o") type="text" value="" /
+          input.form-control.credit_card_name autocomplete="off" placeholder=("Nome no Cart\u00E3o") type="text" value="" /
+          input.form-control.credit_card_expiration autocomplete="off" data-iugu="expiration" placeholder="MM/AA" type="text" value="" /
+        .well.cvv style=("position: relative;")
+          .credit_card_cvv_type
+          input.form-control.credit_card_cvv autocomplete="off" data-iugu="verification_value" placeholder="CVV" type="text" value="" /
+          span Código de Segurança
+        input.form-control.credit_card_first_name autocomplete="off" data-iugu="first_name" placeholder="Nome" type="hidden" value="" /
+        input.form-control.credit_card_last_name autocomplete="off" data-iugu="last_name" placeholder="Sobrenome" type="hidden" value="" /
+        div style=("text-align: right;")
+          = image_tag "pagamentos-por-iugu-linhas-escuro.png", style: "padding-top: 10px"
+    .subscribe-button
+      button.btn.btn-danger.btn-lg type="submit"
+        | Assinar
+

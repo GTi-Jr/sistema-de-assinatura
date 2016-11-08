@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
 
   def home
     @plans = Plan.order(:price)
+    @plans2 = Iugu::Plan.search.results
   end
 
   def contact_mail

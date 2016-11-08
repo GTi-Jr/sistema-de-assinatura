@@ -33,6 +33,8 @@ gem 'rails_12factor', group: :production
 
 gem 'google-analytics-rails', '1.1.0'
 
+gem 'slim-rails'
+
 gem 'paypal-recurring'
 # Prevenir spam
 gem 'invisible_captcha'
@@ -48,6 +50,8 @@ gem 'font-awesome-sass'
 gem 'turnout'
 # Site map
 gem 'dynamic_sitemaps'
+
+gem 'iugu'
 
 group :development, :test do
   gem 'quiet_assets'
@@ -68,6 +72,7 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
 
+  gem 'pry'
 
   gem 'dotenv-rails'
 
