@@ -10,6 +10,10 @@ section#profile {
     color: #fff;
   }
 
+  select option {
+    color: $terciary-color;
+  }
+
   #subscriptions {
     margin-top: 5%;
   }
