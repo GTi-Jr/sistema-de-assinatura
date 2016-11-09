@@ -61,16 +61,37 @@ input[type="submit"] {
   background-color: $primary-color;
 }
 
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-  background-color: transparent;
+a:hover {
+  color: #fff;
 }
+
+// Aba / nav tabs
+.nav-tabs {
+  border: none;
+  width: 70%;
+  margin: auto;
+
+  & > li {
+    & > a {
+      padding: 2px 7px;
+      border-radius: 7px;
+    }
+
+    &.active > a, &.active > a:hover, &.active > a:focus {
+      border: none;
+      background-color: $terciary-color;
+    }
+
+    & > a, & > a:hover, & > a:focus {
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
+// Fim de aba / nav tabs
 
 .panel {
   background-color: transparent;
-}
-
-.hero {
-  margin-top: 0;
 }
 
 blockquote {
