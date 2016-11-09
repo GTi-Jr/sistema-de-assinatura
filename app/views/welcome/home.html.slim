@@ -125,17 +125,6 @@ section#contact
             = submit_tag 'Enviar', class: 'btn btn-primary terciary-text'
           /! Validation Response
           .response-holder
-= content_for :js
-  coffee:
-    adjustCloudToPlan = ->
-      $('.pricing-plan').css('margin-top', ($('.cloud-image').height()/2.5 * (-1) + 'px')) # para deixar a nuvem certa com a caixa de preço
-    $(document).ready ->
-      welcomeImageHeight = $(window).height() - $('.stiky-header').height()
-      $('section#welcome').css('min-height', welcomeImageHeight + 'px') # para deixar o início pegando a tela inteira
-      adjustCloudToPlan()
-      $(window).resize ->
-        adjustCloudToPlan()
-      return
 
 
 
