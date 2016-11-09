@@ -1,0 +1,12 @@
+@import "variables.scss";
+
+section#profile {
+  background-color: $primary-color;
+  color: #fff;
+  padding-bottom: 150px;
+
+  .form-control {
+    border-color: #fff;
+    color: #fff;
+  }
+}
