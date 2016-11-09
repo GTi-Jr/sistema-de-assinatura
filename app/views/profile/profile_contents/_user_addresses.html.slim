@@ -1,0 +1,75 @@
+.container.cs-page
+  .col-xs-12
+    - if user.addresses.empty?
+      h2 Nenhum endereço cadastrado
+    = form_for(user, url: update_user_addresses_path, html: { method: :patch }) do |f|
+      = f.fields_for :addresses, @user_addresses do |address|
+        .row.addresses.left-border id="address_#{"#{address.object.id}_#{address.object.zipcode}"}" 
+          - if address.object.main?
+            h2.text-left.col-xs-12
+              | Endereço principal
+          - else
+            h3.text-left.col-xs-12 Endereço secundário
+          .form-group.col-xs-9.col-sm-10
+            = address.label :street, 'Rua'
+            = address.text_field :street, class: 'form-control'
+          .form-group.col-xs-3.col-sm-2
+            = address.label :number, 'Nº'
+            = address.text_field :number, class: 'form-control'
+          .form-group.col-xs-12.col-sm-4
+            = address.label :zipcode, 'CEP'
+            = address.telephone_field :zipcode, class: 'form-control zipcode-field'
+          .form-group.col-xs-12.col-sm-4
+            = address.label :city, 'Cidade'
+            = address.text_field :city, class: 'form-control'
+          .gorm-group.col-xs-12.col-sm-4
+            = address.label :state, 'Estado'
+            = address.select :state, option_estados_for_select, {}, { class: 'form-control' }
+        .text-center
+          - if address.object.main?
+            p Não é possível apagar seu endereço principal
+          - else
+            = link_to 'Tornar endereço principal', update_main_address_path(address.object.id), method: :patch, class: 'btn btn-primary btn-sm'
+            = link_to 'Apagar', address_path(address.object), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Deseja realmente apagar este endereço?'}
+      .form-group.col-xs-12.text-center
+        = f.submit 'Salvar endereços', class: 'btn btn-primary'
+    - if user.addresses_full?
+      h4.text-center Você pode possuir até três endereços
+    - else
+      .row
+        .col-xs-12
+          #accordion-demo.panel-group
+            .panel
+              a#new_address.panel-heading data-parent="#accordion-demo" data-toggle="collapse" href="#collapse-address" 
+                | Adicionar endereço
+                .indicator
+                  .icon
+                    span.hr-line
+                    span.vr-line
+              #collapse-address.panel-collapse.collapse.in
+                .panel-body
+                  = form_for(@address, url: create_user_address_path, html: { method: :post }) do |f|
+                    .form-group.col-xs-9
+                      = f.label :street, 'Rua'
+                      = f.text_field :street, class: 'form-control'
+                    .form-group.col-xs-3
+                      = f.label :number, 'Nº'
+                      = f.text_field :number, class: 'form-control'
+                    .form-group.col-xs-12.col-sm-4
+                      = f.label :zipcode, 'CEP'
+                      = f.telephone_field :zipcode, class: 'form-control zipcode-field'
+                    .form-group.col-xs-12.col-sm-4
+                      = f.label :city, 'Cidade'
+                      = f.text_field :city, class: 'form-control'
+                    .gorm-group.col-xs-12.col-sm-4
+                      = f.label :state, 'Estado'
+                      = f.select :state, option_estados_for_select, {}, { class: 'form-control' }
+                    .form-group.col-xs-12.text-center
+                      = f.submit 'Adicionar endereço', class: 'btn btn-primary'
+= render 'shared/model_errors_notifications', record: @address
+= content_for :js do
+  javascript:
+    /!/ Para o campo de adicionar endereço nao começar aberto
+      | $('#new_address').addClass('collapsed');
+      | $('#new_address').click();
+
