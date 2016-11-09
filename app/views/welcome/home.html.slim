@@ -11,12 +11,23 @@ section#login-form.visible-xs
 / Nuvens com mensagem
 section#clouds
   .container-fluid
-    .col-md-2.hidden-xs.hidden-sm
-    .col-md-8.col-xs-12
-      .image-with-text
-        = image_tag 'nuvem-grande.png'
-        .text.text-center.text-light Nascemos para transformar a experiência da maternidade, entregando um mundo de surpresas a cada mês.
-    .col-md-2.hidden-xs.hidden-sm
+    .row
+      /.col-md-4.hidden-xs.hidden-sm.col-md-offset-2.smaller-clouds
+        /= image_tag 'nuvem-pequena.png', class: 'pull-left'
+      /.col-md-4.hidden-xs.hidden-sm
+        /= image_tag 'nuvem-media.png', class: 'pull-left'
+    .row
+      .col-md-6.col-xs-12.col-md-offset-3
+        .image-with-text
+          = image_tag 'nuvem-grande.png'
+          .text.text-center.text-light Nascemos para transformar a experiência da maternidade, entregando um mundo de surpresas a cada mês.
+    .row
+      .col-md-4.hidden-xs.hidden-sm
+        = image_tag 'nuvem-media.png', class: 'pull-right'
+      .col-xs-12.col-md-4
+        h1= image_tag 'logos/logo-08.png', class: 'logo', style: 'margin: 0 auto'
+      .col-md-4.hidden-xs.hidden-sm
+        = image_tag 'nuvem-pequena.png', class: 'pull-left'
 / Como Funciona
 section#how-it-works
   .container
