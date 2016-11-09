@@ -18,13 +18,13 @@ header.stiky-header
           li.text-center= link_to 'PERFIL', user_profile_path
           li.text-center= link_to 'SAIR', logout_path, method: :delete, class: 'secondary-text'
         - else
-          li.text-center= link_to 'ENTRAR', login_path, class: 'secondary-text'
-      h5.social.col-xs-12.text-center.visible-xs
+            li.text-center= link_to 'ENTRAR', login_path, class: 'secondary-text'
+      h5.social.col-xs-12.text-center.visible-xs.visible-sm
         a.fa.fa-facebook.tooltipped.text-light title="Facebook" href="https://www.facebook.com/caixadacegonha/" target="_blank"
         a.fa.fa-instagram.tooltipped.text-light title="Instagram" href="https://www.instagram.com/caixadacegonha/" target="_blank"
 = content_for :js do
   coffee:
     $(document).ready ->
-      if $(window).width() < 768
+      if $(window).width() < 992
         $('.main-navi').height($(window).height() - $('.stiky-header').height()) # Para deixar o menu do tamanho da tela.
         $('.main-navi').css('top', $('.stiky-header').height() + 'px') # Fix de um bug que fica um espaço em branco entre o menu e os itens
