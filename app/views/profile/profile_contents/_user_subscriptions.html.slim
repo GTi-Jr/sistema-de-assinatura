@@ -44,5 +44,5 @@
               .text-center
                 = f.submit 'Salvar', class: 'btn btn-primary'
             span.text-center.col-xs-12
-              | Caso deseje cancelar esta assinatura clique #{link_to 'aqui', unsubscribe_path, method: :patch, data: { confirm: 'Tem certeza de que deseja cancelar seu plano?' }}.
+              | Caso deseje cancelar esta assinatura clique #{link_to 'aqui', unsubscribe_path(subscription.id), method: :patch, data: { confirm: 'Tem certeza de que deseja cancelar seu plano?' }}.
 

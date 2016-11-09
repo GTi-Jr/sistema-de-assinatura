@@ -46,8 +46,12 @@ class User < ActiveRecord::Base
     babies.count >= @@max_babies_number
   end
 
-  def cancel_plan
-    subscription.cancel_with_paypal!
+  def cancel_subscription(subscription)
+    if subscriptions.include?(subscription)
+      subscription.cancel_with_paypal!
+    else
+      false
+    end
   end
 
   def subscribe_to_plan(plan)
