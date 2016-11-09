@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
   usar_como_cpf :cpf
 
   has_many :addresses
-  has_many :subscriptions
+  has_many :subscriptions, -> { where(canceled_on: nil) }
+  has_many :canceled_subscriptions, -> { where.not(canceled_on: nil) }, class_name: 'Subscription'
   has_many :plans, through: :subscriptions
 
   accepts_nested_attributes_for :addresses
