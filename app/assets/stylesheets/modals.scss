@@ -1,0 +1,15 @@
+@import "variables.scss";
+
+#modals {
+  background-color: $primary-color;
+  color: #fff;
+
+  .form-control {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  select option {
+    color: $terciary-color;
+  }
+}

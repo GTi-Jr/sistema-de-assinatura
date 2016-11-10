@@ -1,86 +1,86 @@
-.container.cs-page
-  .col-xs-12
-    - if user.addresses.empty?
-      h2.text-center Nenhum endereço cadastrado
-    - else
-      - @user_addresses.each_with_index do |address, index|
-        .address.col-xs-12.col-sm-4
-          .col-xs-10.col-centered
-            h4.text-light Endereço #{index + 1}
-            ul
-              li #{address.street}, #{address.number}
-              li #{address.city}
-              li #{address.zipcode}
-              / Aciona um modal de edição
-              li= link_to 'Editar', '#', class: 'btn btn-primary terciary-text', 'data-target' => "#user_address_#{index}", 'data-toggle' => 'modal'
-    - if user.addresses_full?
-      h4.text-center Você atingiu o limite de endereços
-    - else
-      .row
-        .col-xs-12.text-center
-          / Aciona um modal
-          = link_to 'Adicionar novo endereço', '#', class: 'btn btn-primary terciary-text', 'data-toggle' => 'modal', 'data-target' => '#new-address'
+.col-xs-12
+  - if user.addresses.empty?
+    h2.text-center Nenhum endereço cadastrado
+  - else
+    - @user_addresses.each_with_index do |address, index|
+      .address.col-xs-12.col-sm-4
+        .col-xs-10.col-centered
+          h4.text-light Endereço #{index + 1}
+          ul
+            li #{address.street}, #{address.number}
+            li #{address.city}
+            li #{address.zipcode}
+            / Aciona um modal de edição
+            li= link_to 'Editar', '#', class: 'btn btn-primary terciary-text', 'data-target' => "#user_address_#{address.id}", 'data-toggle' => 'modal'
+  - if user.addresses_full?
+    h4.text-center Você atingiu o limite de endereços
+  - else
+    .col-xs-12.text-center
+      / Aciona um modal
+      = link_to 'Adicionar novo endereço', '#', class: 'btn btn-primary terciary-text', 'data-toggle' => 'modal', 'data-target' => '#new-address'
 = render 'shared/model_errors_notifications', record: @address
 
 /Modais
-/ new address modal
-#new-address.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
-  .modal-dialog role="document"
-    .modal-content.primary-bg-color
-      = form_for(@address, url: create_user_address_path, html: { method: :post }) do |f|
-        .modal-header
-          button.close aria-label="Close" data-dismiss="modal" type="button"
-            span.text-terciary aria-hidden="true"  ×
-          h4.modal-title.text-light Novo endereço
-        .modal-body
-          .container-fluid
-            .form-group.col-xs-9
-              = f.label :street, 'Rua'
-              = f.text_field :street, class: 'form-control'
-            .form-group.col-xs-3
-              = f.label :number, 'Nº'
-              = f.text_field :number, class: 'form-control'
-            .form-group.col-xs-12.col-sm-4
-              = f.label :zipcode, 'CEP'
-              = f.telephone_field :zipcode, class: 'form-control zipcode-field'
-            .form-group.col-xs-12.col-sm-4
-              = f.label :city, 'Cidade'
-              = f.text_field :city, class: 'form-control'
-            .gorm-group.col-xs-12.col-sm-4
-              = f.label :state, 'Estado'
-              = f.select :state, option_estados_for_select, {}, { class: 'form-control' }
-            .form-group.col-xs-12.text-center
-        .modal-footer
-          = f.submit 'Adicionar endereço', class: 'btn btn-primary terciary-text'
+= content_for :modals
+  #modals
+    / new address modal
+    #new-address.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+      .modal-dialog role="document"
+        .modal-content.primary-bg-color
+          = form_for(@address, url: create_user_address_path, html: { method: :post }) do |f|
+            .modal-header
+              button.close aria-label="Close" data-dismiss="modal" type="button"
+                span.text-terciary aria-hidden="true"  ×
+              h4.modal-title.text-light Novo endereço
+            .modal-body
+              .container-fluid
+                .form-group.col.xs.12.col-sm-9
+                  = f.label :street, 'Rua'
+                  = f.text_field :street, class: 'form-control'
+                .form-group.col-xs-12.col-sm-3
+                  = f.label :number, 'Nº'
+                  = f.text_field :number, class: 'form-control'
+                .form-group.col-xs-12.col-sm-4
+                  = f.label :zipcode, 'CEP'
+                  = f.telephone_field :zipcode, class: 'form-control zipcode-field'
+                .form-group.col-xs-12.col-sm-4
+                  = f.label :city, 'Cidade'
+                  = f.text_field :city, class: 'form-control'
+                .gorm-group.col-xs-12.col-sm-4
+                  = f.label :state, 'Estado'
+                  = f.select :state, option_estados_for_select, {}, { class: 'form-control' }
+                .form-group.col-xs-12.text-center
+            .modal-footer
+              = f.submit 'Adicionar endereço', class: 'btn btn-primary terciary-text'
 
-/ modais para editar os endereços
-- @user_addresses.each_with_index do |address, index|
-  .modal.fade aria-labelledby="myModalLabel" id="user_address_#{index}" role="dialog" tabindex="-1"
-    .modal-dialog role="document"
-      .modal-content.primary-bg-color
-        = form_for address do |f|
-          .modal-header
-            button.close aria-label="Close" data-dismiss="modal" type="button"
-              span.text-terciary aria-hidden="true"  ×
-            h4.modal-title.text-light Editar endereço #{index + 1}
-          .modal-body
-            .container-fluid
-              .form-group.col-xs-9
-                = f.label :street, 'Rua'
-                = f.text_field :street, class: 'form-control'
-              .form-group.col-xs-3
-                = f.label :number, 'Nº'
-                = f.text_field :number, class: 'form-control'
-              .form-group.col-xs-12.col-sm-4
-                = f.label :zipcode, 'CEP'
-                = f.telephone_field :zipcode, class: 'form-control zipcode-field'
-              .form-group.col-xs-12.col-sm-4
-                = f.label :city, 'Cidade'
-                = f.text_field :city, class: 'form-control'
-              .gorm-group.col-xs-12.col-sm-4
-                = f.label :state, 'Estado'
-                = f.select :state, option_estados_for_select, {}, { class: 'form-control' }
-              .form-group.col-xs-12.text-center
-          .modal-footer
-            = f.submit 'Salvar', class: 'btn btn-primary terciary-text'
+    / modais para editar os endereços
+    - @user_addresses.each_with_index do |address, index|
+      .modal.fade aria-labelledby="myModalLabel" id="user_address_#{address.id}" role="dialog" tabindex="-1"
+        .modal-dialog role="document"
+          .modal-content.primary-bg-color
+            = form_for address do |f|
+              .modal-header
+                button.close aria-label="Close" data-dismiss="modal" type="button"
+                  span.text-terciary aria-hidden="true"  ×
+                h4.modal-title.text-light Editar endereço #{index + 1}
+              .modal-body
+                .container-fluid
+                  .form-group.col-xs-12.col-sm-3
+                    = f.label :street, 'Rua'
+                    = f.text_field :street, class: 'form-control'
+                  .form-group.col-xs-12.col-sm-3
+                    = f.label :number, 'Nº'
+                    = f.text_field :number, class: 'form-control'
+                  .form-group.col-xs-12.col-sm-4
+                    = f.label :zipcode, 'CEP'
+                    = f.telephone_field :zipcode, class: 'form-control zipcode-field'
+                  .form-group.col-xs-12.col-sm-4
+                    = f.label :city, 'Cidade'
+                    = f.text_field :city, class: 'form-control'
+                  .gorm-group.col-xs-12.col-sm-4
+                    = f.label :state, 'Estado'
+                    = f.select :state, option_estados_for_select, {}, { class: 'form-control' }
+                  .form-group.col-xs-12.text-center
+              .modal-footer
+                = f.submit 'Salvar', class: 'btn btn-primary terciary-text'
 
