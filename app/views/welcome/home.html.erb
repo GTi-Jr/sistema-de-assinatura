@@ -81,23 +81,23 @@
 
   <div class="container">
     <div class="row">
-      <% @plans2.each do |plan| %>
+      <% @plans.each do |plan| %>
         <div class="col-xs-12 col-sm-4">
           <div class="pricing-plan">
             <div class="header">
               <h3><%= plan.name %></h3>
-              <span class="price"><%= plan.prices[0]['value_cents'] /100 %> ao mês</span>
+              <span class="price"><%= plan.price  %> ao mês</span>
             </div>
             <div class="body">
               <ul>
-                <li class="text-center"><%= plan.prices[0]['value_cents'] /100 %></li>
+                <li class="text-center"><%= plan.price  %></li>
 
                 <li class="text-center">Da gestação aos 5 anos.</li>
                 <li class="text-justify">Assinatura será renovada automaticamente. Em casos de cancelamento, fale com a Cegonha!</li>
               </ul>
               <div class="buy-btn text-center">
                 <%#<%= link_to 'Assinar agora!', plans_payment_checkout_path(plan.id), class: 'btn btn-primary' %>
-                <%= link_to 'Quero assinar!', checkout_path(identifier: plan.identifier,payment_method: 'credit_card'), class: 'btn btn-primary' %>
+                <%= link_to 'Quero assinar!', subscribe_iugu_path(id: plan.id), method: :post, class: 'btn btn-primary' %>
               </div>
             </div>
           </div>

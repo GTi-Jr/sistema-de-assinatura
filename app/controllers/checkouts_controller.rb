@@ -1,4 +1,6 @@
 class CheckoutsController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
+
 
   def checkout
     if params[:identifier]
@@ -41,5 +43,38 @@ class CheckoutsController < ApplicationController
     redirect_to root_path
   end
 
+
+  def pay
+    param = (params[:token].empty? ? "method" : "token").to_sym
+    binding.pry
+    charge = Iugu::Charge.create({
+      param => params[param],
+      email: "matheuss3@email.com",
+      items: [
+        {
+          description: "Item 1",
+          quantity: "1",
+          price_cents: "5990"
+        },
+        {
+          description: "Item 2",
+          quantity: "1",
+          price_cents: "4000"
+        }
+      ]
+    })
+
+        binding.pry
+
+    if charge and charge.success
+      redirect_to root_path, notice: 'Sucesso'
+    else
+      redirect_to root_path, notice: 'Falha'
+    end
+  end
+
+  def pay_subscription
+
+  end
 
 end

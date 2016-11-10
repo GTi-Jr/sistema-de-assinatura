@@ -1,5 +1,8 @@
+$(document).ready(function() {
+
 Iugu.setAccountID("EA277AB22D7341AD928880D36E44C11B");
-Iugu.setTestMode(true);
+Iugu.setTestMode(true); // Retirar esta linha para produção
+Iugu.setup();
 
 jQuery(function($) {
   $('#payment-form').submit(function(evt) {
@@ -21,4 +24,6 @@ jQuery(function($) {
       Iugu.createPaymentToken(this, tokenResponseHandler);
       return false;
   });
+});
+
 });

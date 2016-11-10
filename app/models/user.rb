@@ -75,7 +75,7 @@ class User < ActiveRecord::Base
 
   def customer
     unless customer_id
-      customer = Iugu::Customer.create({ email: email }) rescue false
+      customer = Iugu::Customer.create({ email: email, name: name }) rescue false
       update_attribute :customer_id, customer.id
       return customer
     end
