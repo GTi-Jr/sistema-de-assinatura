@@ -1,0 +1,15 @@
+h2
+  = image_tag 'logos/logo-primaria-01.png', class: 'login-logo'
+= form_for user, as: :user, url: session_path(:user) do |f|
+  .form-group.col-xs-12
+    = f.text_field :name, class: 'form-control', placeholder: 'Nome'
+  .form-group.col-xs-12
+    = f.text_field :email, class: 'form-control', placeholder: 'E-mail'
+  .form-group.col-xs-12
+    = f.telephone_field :phone, class: 'form-control phone-field', placeholder: 'Telefone'
+  .form-group.col-xs-12
+    = f.password_field :password, class: 'form-control', placeholder: 'Senha'
+  .form-group.col-xs-12
+    = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Repita a senha'
+  .form-group.text-center
+    = f.submit 'Quero assinar', class: 'btn btn-primary terciary-text'

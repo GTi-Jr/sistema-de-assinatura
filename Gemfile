@@ -48,6 +48,8 @@ gem 'font-awesome-sass'
 gem 'turnout'
 # Site map
 gem 'dynamic_sitemaps'
+# Slim para utilizar .slim em vez de .erb nas views
+gem "slim-rails"
 
 group :development, :test do
   gem 'quiet_assets'

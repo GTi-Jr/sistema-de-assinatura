@@ -2,6 +2,12 @@
 
 @import "variables.scss";
 
+html, body {
+  height: 100%;
+  font-size: 16px;
+  color: #fff;
+}
+
 /*Usado em adição ao bootstrap para centralizar*/
 .col-centered {
   float: none !important;
@@ -14,7 +20,7 @@
 }
 
 a:visited {
-  color: #313447;
+  color: #fff;
 }
 
 .content {
@@ -34,11 +40,11 @@ a:visited {
 }
 
 .primary-text {
-  color: $primary-color;
+  color: $primary-color !important;
 }
 
 .secondary-text {
-  color: $secondary-color;
+  color: $secondary-color !important;
 }
 
 .terciary-text {
@@ -70,13 +76,6 @@ a:visited {
 
 .pricing-plan .header {
   background-color: $terciary-color;
-}
-
-.parallax {
-    //background-attachment: fixed;
-    //background-position: center;
-    //background-repeat: no-repeat;
-    //background-size: cover;
 }
 
 .caminho-da-cegonha {
@@ -111,48 +110,70 @@ a:visited {
   color: #fff;
 }
 
-.slide-background-image {
+.login-logo {
+  max-height: 100px;
+  max-width:  100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  font-family: 'ProximaNovaAltLight';
+  color: $primary-color;
+  font-size: 1.2em;
+}
+.form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  font-family: 'ProximaNovaAltLight';
+  color: $primary-color;
+  opacity:  1;
+  font-size: 1.2em;
+}
+.form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+  font-family: 'ProximaNovaAltLight';
+  color: $primary-color;
+  opacity: 1;
+  font-size: 1.2em;
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  font-family: 'ProximaNovaAltLight';
+  color: $primary-color;
+  font-size: 1.2em;
+}
+
+// Listagem de planos com nuvens
+.cloud-image {
+  //position: absolute;
+  width: 100%;
+  top: 50%;
+  fill: white;
+}
+
+.pricing-plan .body {
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  top: -20px;
+}
+
+.pricing-plan .body ul {
+  margin: 0;
+}
+
+.pricing-plan .body ul li {
+  padding: 0;
+}
+
+// fim da listagem de planos com nuvens
+
+.background-image {
   position: absolute;
-  min-width: 100%;
-  height: 100% !important;
-}
-
-.hero-slider, .slide {
+  z-index: -999;
   height: 100%;
+  max-width: 2000px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  // Colocar overflow: hidden no elemento  pai
+  // Colocar position: relative no elemento  pai
 }
 
-.bx-wrapper {
-  background-color: $primary-color;
-}
-
-.bx-viewport {
-  min-height: 400px;
-}
-
-// BX-SLIDER FULLSCREEN
-*{
-  margin: 0px;
-  padding: 0px;
-}
-body, html{
-  height: 100%;
-}
-.bx-viewport, .bx-wrapper{
-  position:relative;
-  width:100%;
-  height:100% !important;
-  top:0;
-  left:0;
-}
-.bxslider, .bxslider li{
-  height: 100% !important;;
-}
-.bxslider li{
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: cover;
-}
-.bx-wrapper .bx-viewport{
-  border: none !important;
-}
-// END OF BX-SLIDER FULL SCRENN

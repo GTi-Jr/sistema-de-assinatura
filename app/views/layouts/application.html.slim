@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    title
+      | Caixa da Cegonha
+    meta[name="description" content="Ultimate Responsive HTML5 Landing Page"]
+    meta[name="keywords" content="responsive html5 template, landing page, bootstrap 3.0, css, jquery"]
+    meta[name="author" content="8Guild"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"]
+    = favicon_link_tag
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'landing2' 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = analytics_init if GoogleAnalytics.valid_tracker?
+    = yield :head
+  body
+    = render 'shared/header'
+    = yield
+    = render 'shared/footer'
+    = yield :modals
+  = yield :js
+  javascript:
+    toastr.options.closeButton = true;
+    toastr.options.newestOnTop = false;
+  - flash.each do |key, value|
+    - if key == 'notice'
+      javascript:
+        toastr.info("#{value}");
+    - elsif key == 'alert'
+      javascript:
+        toastr.warning("#{value}");

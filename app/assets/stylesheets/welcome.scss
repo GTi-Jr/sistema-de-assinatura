@@ -1,3 +1,98 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables.scss";
+
+section .header {
+  margin: 0;
+  padding: 20px 0 20px 0;
+}
+
+section#welcome {
+  position: relative;
+  background-repeat: round;
+  overflow: hidden;
+
+  .form-control {
+    border: 2px solid $primary-color;
+  }
+
+  .form-control:focus {
+    border: 3px solid $primary-color;
+  }
+}
+
+section#clouds {
+  margin-top: 10px;
+
+  .image-with-text {
+    margin-top: 350px;
+
+    img {
+      position: absolute;
+      max-width: 2000px;
+      transform: translate(-50%,-50%);
+      left: 50%;
+      top: 50%;
+      min-width: 100%;
+      max-height: 100%;
+    }
+
+    .text {
+      font-size: 1.5em;
+      line-height: 1.2em;
+      position: absolute;
+      width: 60%;
+      top: 0;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    .smaller-clouds {
+      img {
+        max-height: 100px;
+      }
+    }
+  }
+}
+
+section#contact {
+  background-color: $terciary-color;
+  font-size: 18px;
+  padding-bottom: 100px; // Adicionar um espaço abaixo para a imagem de transição
+
+  input, textarea {
+    border-color: white;
+    color: #fff;
+  }
+  .form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #fff;
+  }
+  .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #fff;
+  }
+  .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #fff;
+  }
+  .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff;
+  }
+
+  .social a {
+    margin-right: 5px;
+    font-size: 2.3em;
+
+    &:hover, &:focus {
+      color: white;
+    }
+  }
+}
+
+.welcome-login {
+  margin: 2% 0 2% 0;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.welcome-login img {
+  max-width: 100%;
+}
+

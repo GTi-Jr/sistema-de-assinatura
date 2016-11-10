@@ -1,0 +1,34 @@
+@import "variables.scss";
+
+section#profile {
+  background-color: $primary-color;
+  color: #fff;
+  padding-bottom: 150px;
+
+  .form-control {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  select option {
+    color: $terciary-color;
+  }
+
+  #subscriptions {
+    margin-top: 5%;
+  }
+
+  .address {
+    border: 2px solid #fff;
+    border-radius: 30px;
+    margin: 10px 10px;
+    
+    ul {
+      padding: 0;
+
+      li:before {
+        content: none;
+      }
+    }
+  }
+}

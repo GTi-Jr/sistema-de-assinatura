@@ -1,6 +1,7 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!, only: [:subscribe, :unsubscribe]
   before_action :set_plan, only: [:show, :subscribe]
+  before_action :set_subscription, only: [:unsubscribe]
 
   def show
   end
@@ -20,7 +21,7 @@ class PlansController < ApplicationController
   end
 
   def unsubscribe
-    if current_user.cancel_plan
+    if current_user.cancel_subscription(@subscription)
       redirect_to user_profile_path, notice: 'Assinatura Cancelada'
     else
       redirect_to user_profile_path, notice: 'Houve um problema no cancelamento'
@@ -44,6 +45,10 @@ class PlansController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_plan
       @plan = Plan.find(params[:id])
+    end
+
+    def set_subscription
+      @subscription = Subscription.find(params[:subscription_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

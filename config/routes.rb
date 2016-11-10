@@ -33,10 +33,11 @@ Rails.application.routes.draw do
     patch '/completar-cadastro' => 'users/registrations#complete_registration', as: :complete_registration
     get '/entrar' => 'users/sessions#new', as: :login
     delete '/logout' => 'users/sessions#destroy', as: :logout
-    get '/cadastro' => 'users/registrations#new'
+    get '/cadastro' => 'users/registrations#new', as: :register
   end
 
-  resources :addresses, only: [:destroy]
+  # Rotas para endereços
+  resources :addresses, only: [:create, :update,:destroy]
 
   # Rotas do perfil / profile routes
   get 'perfil' => 'profile#profile', as: :user_profile
@@ -52,7 +53,7 @@ Rails.application.routes.draw do
   resources :plans, only: [:show]
   get 'planos' => 'plans#index', as: :plans
   patch 'subscribe/:id' => 'plans#subscribe', as: :subscribe
-  patch 'unsubscribe' => 'plans#unsubscribe', as: :unsubscribe
+  patch 'unsubscribe/:subscription_id' => 'plans#unsubscribe', as: :unsubscribe
   patch 'plan_intention/:plan_id' => 'plans#intention_to_plan', as: :intention_to_plan
 
   # Checkout dos planos
