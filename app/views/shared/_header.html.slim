@@ -47,11 +47,10 @@ header.stiky-header
               .modal-footer
                 .text-center
                   h5
-                    | Ainda não é assinante? #{link_to 'Junte-se a nós', new_user_registration_path, class: 'btn btn-primary terciary-text'}
-
+                    | Ainda não é assinante? #{link_to 'Junte-se a nós', register_path, class: 'btn btn-primary terciary-text'}
 = content_for :js do
   coffee:
     $(document).ready ->
       if $(window).width() < 992
-        $('.main-navi').height($(window).height() - $('.stiky-header').height()) # Para deixar o menu do tamanho da tela.
         $('.main-navi').css('top', $('.stiky-header').height() + 'px') # Fix de um bug que fica um espaço em branco entre o menu e os itens
+        $('.main-navi').height($(window).height() - $('.stiky-header').height()) # Para deixar o menu do tamanho da tela.
