@@ -1,6 +1,6 @@
 h2
   = image_tag 'logos/logo-primaria-01.png', class: 'login-logo'
-= form_for user, as: :user, url: session_path(:user) do |f|
+= form_for resource, as: resource_name, url: user_registration_path(:user) do |f|
   .form-group.col-xs-12
     = f.text_field :name, class: 'form-control', placeholder: 'Nome'
   .form-group.col-xs-12
