@@ -1,0 +1,32 @@
+#login-modal{
+  .modal-dialog {
+    width: 100%;
+  }
+
+  .btn {
+    margin: 0 3px;
+  }
+
+  .form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    font-family: 'ProximaNovaAltLight';
+    color: #fff;
+    font-size: 1.2em;
+  }
+  .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-family: 'ProximaNovaAltLight';
+    color: #fff;
+    opacity:  1;
+    font-size: 1.2em;
+  }
+  .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-family: 'ProximaNovaAltLight';
+    color: #fff;
+    opacity: 1;
+    font-size: 1.2em;
+  }
+  .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-family: 'ProximaNovaAltLight';
+    color: #fff;
+    font-size: 1.2em;
+  }
+}

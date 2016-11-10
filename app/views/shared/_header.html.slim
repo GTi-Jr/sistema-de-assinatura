@@ -18,10 +18,37 @@ header.stiky-header
           li.text-center= link_to 'PERFIL', user_profile_path
           li.text-center= link_to 'SAIR', logout_path, method: :delete, class: 'secondary-text'
         - else
-            li.text-center= link_to 'ENTRAR', login_path, class: 'secondary-text'
+            li.text-center= link_to 'ENTRAR', '#', class: 'secondary-text', 'data-toggle' => 'modal', 'data-target' => '#login-modal'
       h5.social.col-xs-12.text-center.visible-xs.visible-sm
         a.fa.fa-facebook.tooltipped.text-light title="Facebook" href="https://www.facebook.com/caixadacegonha/" target="_blank"
         a.fa.fa-instagram.tooltipped.text-light title="Instagram" href="https://www.instagram.com/caixadacegonha/" target="_blank"
+- unless user_signed_in?
+  /Modais
+  = content_for :modals
+    #modals
+      / new address modal
+      #login-modal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+        .modal-dialog role="document"
+          .modal-content.primary-bg-color
+            = form_for(@user, as: :user, url: session_path(:user)) do |f|
+              .modal-header
+                button.close aria-label="Close" data-dismiss="modal" type="button"
+                  span.text-terciary.text-light aria-hidden="true"  ×
+                h4.modal-title.text-center.text-light Entrar
+              .modal-body
+                .container-fluid
+                  .form-group.col-sm-5.col-sx-12
+                    = f.text_field :email, id: 'email', class: 'form-control', placeholder: 'E-mail'
+                  .form-group.col-sm-4.col-sx-12
+                    = f.password_field :password, class: 'form-control', placeholder: 'Senha'
+                    = link_to 'Esqueci minha senha', new_password_path(:user)
+                  .form-group.col-sm-3.col-xs-12.text-center
+                    = f.submit 'Entrar', class: 'btn btn-primary terciary-text'
+              .modal-footer
+                .text-center
+                  h5
+                    | Ainda não é assinante? #{link_to 'Junte-se a nós', new_user_registration_path, class: 'btn btn-primary terciary-text'}
+
 = content_for :js do
   coffee:
     $(document).ready ->

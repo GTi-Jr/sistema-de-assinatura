@@ -2,8 +2,9 @@ class WelcomeController < ApplicationController
   invisible_captcha only: [:contact_mail]
 
   def home
-    @new_user = User.new # Para formulário de login
-    @plans = Plan.order(:price) # Para mostrar os planos
+    @user     = User.new unless user_signed_in? # Para form de login
+    @new_user = User.new # Para formulário de cadastro
+    @plans    = Plan.order(:price) # Para mostrar os planos
   end
 
   def contact_mail
