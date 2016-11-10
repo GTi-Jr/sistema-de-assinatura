@@ -17,4 +17,18 @@ section#profile {
   #subscriptions {
     margin-top: 5%;
   }
+
+  .address {
+    border: 2px solid #fff;
+    border-radius: 30px;
+    margin: 10px 10px;
+    
+    ul {
+      padding: 0;
+
+      li:before {
+        content: none;
+      }
+    }
+  }
 }

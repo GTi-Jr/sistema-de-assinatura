@@ -36,7 +36,8 @@ Rails.application.routes.draw do
     get '/cadastro' => 'users/registrations#new'
   end
 
-  resources :addresses, only: [:destroy]
+  # Rotas para endereços
+  resources :addresses, only: [:create, :update,:destroy]
 
   # Rotas do perfil / profile routes
   get 'perfil' => 'profile#profile', as: :user_profile

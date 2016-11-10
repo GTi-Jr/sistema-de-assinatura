@@ -1,0 +1,18 @@
+= form_for(address, url: url, html: { method: method }) do |f|
+  .form-group.col-xs-9
+    = f.label :street, 'Rua'
+    = f.text_field :street, class: 'form-control'
+  .form-group.col-xs-3
+    = f.label :number, 'Nº'
+    = f.text_field :number, class: 'form-control'
+  .form-group.col-xs-12.col-sm-4
+    = f.label :zipcode, 'CEP'
+    = f.telephone_field :zipcode, class: 'form-control zipcode-field'
+  .form-group.col-xs-12.col-sm-4
+    = f.label :city, 'Cidade'
+    = f.text_field :city, class: 'form-control'
+  .gorm-group.col-xs-12.col-sm-4
+    = f.label :state, 'Estado'
+    = f.select :state, option_estados_for_select, {}, { class: 'form-control' }
+  .form-group.col-xs-12.text-center
+    = f.submit 'Adicionar endereço', class: 'btn btn-primary'
