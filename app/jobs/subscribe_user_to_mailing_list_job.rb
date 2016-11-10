@@ -1,7 +1,8 @@
 class SubscribeUserToMailingListJob < ActiveJob::Base
   queue_as :default
 
-  def perform(user)
+  def perform(user_id)
+    user = User.find(user_id)
     gibbon = Gibbon::Request.new
     lower_md5_hashed_email = Digest::MD5.hexdigest(user.email.downcase)
     begin

@@ -9,7 +9,7 @@ section#after-registration
             = f.text_field :name, class: 'form-control', autofocus: true
           .form-group.col-xs-12.col-sm-4
             = f.label :sex, 'Sexo'
-            = f.select :sex, { 'Prefiro não declarar': 'U', 'Masculino': 'M', 'Feminino': 'F' }, {},{ class: 'form-control' }
+            = f.select :sex, { 'Prefiro não declarar': 'U', 'Feminino': 'F', 'Masculino': 'M' }, {},{ class: 'form-control' }
           .form-group.col-xs-12.col-sm-4
             = f.label :birthdate, 'Data de nascimento'
             = f.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa'
@@ -23,7 +23,7 @@ section#after-registration
             = f.label :rg, 'RG'
             = f.telephone_field :rg, class: 'form-control rg-field'
           .form-group.col-xs-12.text-center
-            = f.submit 'Salvar', class: 'btn btn-primary'
+            = f.submit 'Salvar', class: 'btn btn-primary terciary-text'
   = content_for :head do
     = javascript_include_tag 'masks'
     = javascript_include_tag 'users/registration'
