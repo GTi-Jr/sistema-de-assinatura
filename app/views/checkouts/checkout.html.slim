@@ -1,0 +1,26 @@
+.page-header
+  h1
+    | Assinar #{@plan.name if @plan}
+form#payment-form action=payment_path method="POST"
+  .usable-creditcard-form
+    .wrapper
+      .input-group.nmb_a
+        .icon.ccic-brand
+        input.credit_card_number autocomplete="off" data-iugu="number" placeholder=("Número do Cartão") type="text" value="" /
+      .input-group.nmb_b
+        .icon.ccic-cvv
+        input.credit_card_cvv autocomplete="off" data-iugu="verification_value" placeholder="CVV" type="text" value="" /
+      .input-group.nmb_c
+        .icon.ccic-name
+        input.credit_card_name data-iugu="full_name" placeholder=("Titular do Cartão") type="text" value="" /
+      .input-group.nmb_d
+        .icon.ccic-exp
+        input.credit_card_expiration autocomplete="off" data-iugu="expiration" placeholder="MM/AA" type="text" value="" /
+
+
+  .token-area
+    label for="token"  Token do Cartão de Crédito - Enviar para seu Servidor
+    input#token name="token" readonly="true" size="64" style="text-align:center" type="text" value="" /
+  div
+
+    button type="submit"  Salvar

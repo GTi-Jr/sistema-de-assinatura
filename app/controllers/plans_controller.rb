@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!, only: [:subscribe, :unsubscribe]
-  before_action :set_plan, only: [:show, :subscribe]
   before_action :set_subscription, only: [:unsubscribe]
+  before_action :set_plan, only: [:show, :subscribe,:iugu_subscribe]
 
   def show
   end
@@ -26,6 +26,22 @@ class PlansController < ApplicationController
     else
       redirect_to user_profile_path, notice: 'Houve um problema no cancelamento'
     end
+  end
+
+  def iugu_subscribe
+
+    iugu_plan = Iugu::Plan.fetch(@plan.iugu_plan_id)
+
+    subscription = Iugu::Subscription.create({
+      plan_identifier: iugu_plan.identifier,
+      customer_id: current_user.customer_id
+    })
+
+    user= current_user
+    user.subscription_id = subscription.id
+    user.save
+    binding.pry
+    redirect_to root_path, notice: "#{subscription}"
   end
 
   def intention_to_plan
