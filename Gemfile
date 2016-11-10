@@ -36,12 +36,6 @@ gem 'google-analytics-rails', '1.1.0'
 gem 'paypal-recurring'
 # Prevenir spam
 gem 'invisible_captcha'
-
-gem 'google-analytics-rails', '1.1.0'
-
-gem 'paypal-recurring'
-# Prevenir spam
-gem 'invisible_captcha'
 # Ícones especiais
 gem 'font-awesome-sass'
 # Gem para modo de manutenção
@@ -50,6 +44,8 @@ gem 'turnout'
 gem 'dynamic_sitemaps'
 # Slim para utilizar .slim em vez de .erb nas views
 gem "slim-rails"
+
+gem 'iugu'
 
 group :development, :test do
   gem 'quiet_assets'
@@ -70,6 +66,7 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rvm'
 
+  gem 'pry'
 
   gem 'dotenv-rails'
 

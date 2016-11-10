@@ -17,6 +17,19 @@ section#welcome {
   .form-control:focus {
     border: 3px solid $primary-color;
   }
+
+  .form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: $primary-color;
+  }
+  .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $primary-color;
+  }
+  .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $primary-color;
+  }
+  .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $primary-color;
+  }
 }
 
 section#clouds {

@@ -1,0 +1,44 @@
+section#after-registration
+  .container
+    .row
+      .col-xs-12
+        h1 Completar cadastro
+        = form_for(@user, url: complete_registration_path, method: :patch) do |f|
+          .form-group.col-xs-12
+            = f.label :name, 'Nome'
+            = f.text_field :name, class: 'form-control', autofocus: true
+          .form-group.col-xs-12.col-sm-4
+            = f.label :sex, 'Sexo'
+            = f.select :sex, { 'Prefiro não declarar': 'U', 'Feminino': 'F', 'Masculino': 'M' }, {},{ class: 'form-control' }
+          .form-group.col-xs-12.col-sm-4
+            = f.label :birthdate, 'Data de nascimento'
+            = f.telephone_field :birthdate, class: 'form-control date-field', placeholder: 'dd/mm/aaaa'
+          .form-group.col.xs-12.col-sm-4
+            = f.label :phone, 'Telefone de contato'
+            = f.telephone_field :phone, class: 'form-control phone-field'
+          .form-group.col-xs-12.col-sm-6
+            = f.label :cpf, 'CPF'
+            = f.telephone_field :cpf, class: 'form-control cpf-field'
+          .form-group.col-xs-12.col-sm-6
+            = f.label :rg, 'RG'
+            = f.telephone_field :rg, class: 'form-control rg-field'
+          .form-group.col-xs-12.text-center
+            = f.submit 'Salvar', class: 'btn btn-primary terciary-text'
+  = content_for :head do
+    = javascript_include_tag 'masks'
+    = javascript_include_tag 'users/registration'
+  = content_for :js do
+    javascript:
+      $(document).ready(function() {
+        toastr.options.closeButton = true;
+        toastr.options.newestOnTop = false;
+      });
+    - @user.errors.full_messages.each_with_index do |msg, index|
+      javascript:
+        $(document).ready(function() {
+          setTimeout(function() {
+            toastr.warning('#{msg}')
+          }, #{index} * 800);
+        });
+      
+

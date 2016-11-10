@@ -1,0 +1,22 @@
+section#login-page
+  .container
+    .row
+      .col-xs-12
+        h1 Entrar
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .form-group.col-sm-6.col-xs-12
+            = f.text_field :email, id: 'email', class: 'form-control', placeholder: 'E-mail'
+          .form-group.col-sm-4.col-xs-12
+            = f.password_field :password, class: 'form-control', placeholder: 'Senha'
+            h5.text-left
+              = link_to "Esqueceu sua senha?", new_password_path(resource_name), class: 'terciary-text'
+          .form-group.col-sm-2.col-xs-12.text-center
+            = f.submit 'Entrar', class: 'btn btn-primary terciary-text'
+        .text-center
+          br/
+      h3
+        .col-xs-12.col-md-4
+          | Você ainda não é assinante?
+        .col-xs-12.col-md-4
+            = link_to 'Junte-se a nós!', new_user_registration_path, class: 'btn btn-primary terciary-text'
+

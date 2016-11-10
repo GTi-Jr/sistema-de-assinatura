@@ -4,10 +4,11 @@
 @import "variables.scss";
 
 .form-control {
-background-color: transparent; // rgba(0, 0, 0, 0.1);
-border: 2px solid #fff;
-border-radius: 9px;
-font-size: 1.1em;
+  background-color: transparent; // rgba(0, 0, 0, 0.1);
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 9px;
+  font-size: 1.1em;
 }
 
 .form-control:focus {
@@ -105,7 +106,7 @@ blockquote.blockquote-reverse {
   border-right: 3px solid $terciary-color;
 }
 
-body, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-link.complete>.status:before{
+ody, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-link.complete>.status:before{
   font-family: 'ProximaNovaAltLight';
 }
 

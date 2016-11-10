@@ -12,11 +12,6 @@ section#login-form.visible-xs
 section#clouds
   .container-fluid
     .row
-      /.col-md-4.hidden-xs.hidden-sm.col-md-offset-2.smaller-clouds
-        /= image_tag 'nuvem-pequena.png', class: 'pull-left'
-      /.col-md-4.hidden-xs.hidden-sm
-        /= image_tag 'nuvem-media.png', class: 'pull-left'
-    .row
       .col-md-6.col-xs-12.col-md-offset-3
         .image-with-text
           = image_tag 'nuvem-grande.png'
@@ -92,7 +87,7 @@ section#plans.primary-bg-color
                 li.text-center
                   = plan.description
               .buy-btn.text-center
-                = link_to 'Quero assinar!', plans_payment_checkout_path(plan.id), class: 'btn btn-primary terciary-text'
+                = link_to 'Quero assinar!', subscribe_iugu_path(id: plan.id), method: :post, class: 'btn btn-primary terciary-text'
 section#contact
   h1.header.text-light.text-center Fale com a cegonha
   .container
