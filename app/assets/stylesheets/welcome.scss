@@ -53,18 +53,19 @@ section#contact {
 
   input, textarea {
     border-color: white;
+    color: #fff;
   }
   .form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: white;
+    color: #fff;
   }
   .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: white;
+    color: #fff;
   }
   .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: white;
+    color: #fff;
   }
   .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: white;
+    color: #fff;
   }
 
   .social a {
