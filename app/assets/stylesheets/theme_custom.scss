@@ -4,14 +4,14 @@
 @import "variables.scss";
 
 .form-control {
-  background-color: transparent; // rgba(0, 0, 0, 0.1);
-  border: 2px solid $primary-color;
-  border-radius: 9px;
-  font-size: 1.1em;
+background-color: transparent; // rgba(0, 0, 0, 0.1);
+border: 2px solid #fff;
+border-radius: 9px;
+font-size: 1.1em;
 }
 
 .form-control:focus {
-  border: 4px solid $primary-color;
+  border: 3px solid #fff;
   box-shadow: none;
   -webkit-box-shadow: none;
 }
@@ -139,11 +139,19 @@ h1, h2, h3, h4, h5 {
 .main-navi {
   overflow: visible;
   
-  ul > li > a {
-    color: #fff;
+  ul {
+    @media screen and (max-width: $break-medium) {
+      li {
+        margin: 0 auto;
+      }
+    }
 
-    &:hover {
-      color: #ccc;
+    & > li > a {
+      color: #fff;
+
+      &:hover {
+        color: #ccc;
+      }
     }
   }
 

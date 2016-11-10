@@ -5,6 +5,7 @@
 html, body {
   height: 100%;
   font-size: 16px;
+  color: #fff;
 }
 
 /*Usado em adição ao bootstrap para centralizar*/
@@ -176,20 +177,3 @@ a:visited {
   // Colocar position: relative no elemento  pai
 }
 
-// Footer
-.transition-footer {
-  position: relative;
-  width: 100%;
-  margin-top: -137px;
-  overflow: hidden;
-  
-  img {
-    min-width: 100%;
-    max-width: 2000px;
-  }
-}
-
-footer {
-  margin-top: -100px;
-}
-// Fim do Footer

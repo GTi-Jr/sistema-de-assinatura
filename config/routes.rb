@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     patch '/completar-cadastro' => 'users/registrations#complete_registration', as: :complete_registration
     get '/entrar' => 'users/sessions#new', as: :login
     delete '/logout' => 'users/sessions#destroy', as: :logout
-    get '/cadastro' => 'users/registrations#new'
+    get '/cadastro' => 'users/registrations#new', as: :register
   end
 
   # Rotas para endereços

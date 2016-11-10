@@ -9,6 +9,14 @@ section#welcome {
   position: relative;
   background-repeat: round;
   overflow: hidden;
+
+  .form-control {
+    border: 2px solid $primary-color;
+  }
+
+  .form-control:focus {
+    border: 3px solid $primary-color;
+  }
 }
 
 section#clouds {
