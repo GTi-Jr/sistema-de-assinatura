@@ -38,7 +38,9 @@ class PlansController < ApplicationController
     })
 
     user= current_user
-    user.subscription_id = subscription.id
+    plan= Plan.where(iugu_plan_id: iugu_plan.id).first
+    user.subscriptions.build(plan: plan)
+    user.subscriptions.last
     user.save
     binding.pry
     redirect_to root_path, notice: "#{subscription}"
