@@ -1,14 +1,12 @@
 class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @subscriptions = Subscription.all
   end
 
   def show
   end
-
 
   def new
     @user= User.find(params[:id])
@@ -17,8 +15,6 @@ class SubscriptionsController < ApplicationController
 
   def edit
   end
-
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

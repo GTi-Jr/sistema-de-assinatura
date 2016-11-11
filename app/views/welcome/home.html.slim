@@ -87,7 +87,7 @@ section#plans.primary-bg-color
                 li.text-center
                   = plan.description
               .buy-btn.text-center
-                = link_to 'Quero assinar!', subscribe_iugu_path(id: plan.id), method: :post, class: 'btn btn-primary terciary-text'
+                  = link_to 'Quero assinar!', checkout_path(identifier: 'Gold_plan'), method: :post, class: 'btn btn-primary terciary-text'
 section#contact
   h1.header.text-light.text-center Fale com a cegonha
   .container
