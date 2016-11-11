@@ -74,9 +74,7 @@ class User < ActiveRecord::Base
     !subscriptions.empty?
   end
 
-   def subscribed?
-    !!subscription_id
-  end
+
 
   def customer
     unless customer_id
@@ -88,9 +86,7 @@ class User < ActiveRecord::Base
     Iugu::Customer.fetch(customer_id) rescue nil
   end
 
-  def subscription
-    Iugu::Subscription.fetch(subscription_id) if subscribed?
-  end
+
 
   def payment_methods
     Iugu::PaymentMethod.search({customer_id: customer_id}).results rescue []

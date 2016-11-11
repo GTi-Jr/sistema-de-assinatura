@@ -29,7 +29,7 @@ class PlansController < ApplicationController
   end
 
   def iugu_subscribe
-
+    customer = current_user.customer
     iugu_plan = Iugu::Plan.fetch(@plan.iugu_plan_id)
 
     subscription = Iugu::Subscription.create({
@@ -38,13 +38,53 @@ class PlansController < ApplicationController
     })
 
     user= current_user
-    plan= Plan.where(iugu_plan_id: iugu_plan.id).first
-    user.subscriptions.build(plan: plan)
-    user.subscriptions.last
-    user.save
-    binding.pry
-    redirect_to root_path, notice: "#{subscription}"
+    user.subscriptions.build(plan: @plan)
+    user.subscriptions.last.iugu_id = subscription.id
+
+    if user.save
+      redirect_to subscription.recent_invoices[0]['secure_url'], notice: "Plano #{subscription.plan_name} Assinado"
+    else
+      redirect_to root_path, notice: 'Erro na Assinatura'
+    end
   end
+
+  #Funcionou no terminal, só precisando ajeitar os parametros agora, e tentar substituir items por plan
+  def create_invoice
+        Iugu::Invoice.create({
+        customer_id: user.customer_id,
+        due_date: "08/12/2016",
+        subscription_id: subscription.id,
+        items: [{
+            description: 'Item 1',
+            quantity: "1",
+            price_cents: subscription.price_cents
+        }]
+
+    })
+  end
+
+  def iugu_unsubscribe
+
+
+
+      subscription = Iugu::Subscription.fetch(@subscription.iugu_id)
+
+      subscription.delete
+      user = current_user
+      user.subscriptions.where(id: @subscription.id).first.destroy
+  end
+
+
+  def automatic_pay
+    Iugu::Charge.create({
+    token: "725EE22A6E9E45849A8BC1E87174287E",
+    invoice_id: '030B32B2508F4598BA0524D946C2A7CC',
+
+
+    })
+
+  end
+
 
   def intention_to_plan
     plan = Plan.find(params[:plan_id])
