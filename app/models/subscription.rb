@@ -5,37 +5,24 @@ class Subscription < ActiveRecord::Base
 
   accepts_nested_attributes_for :baby
 
-  attr_accessor :paypal_payment_token
-
+  # Checa se a assinatura está ativa.
+  #
+  # Retorna true caso esteja ativa e falso C.C.
   def active?
     canceled_on.nil?
   end
 
-  def cancel_with_paypal!
-    update(canceled_on: Date.today)
-    paypal.cancel_recurring_payment
-  end
-
-  def paypal
-    PaypalPayment.new(self)
-  end
-
-  def save_with_paypal
-    response = paypal.finish_payment
-    self.paypal_recurring_profile_token = response.profile_id
-    save!
-  end
-
-
-
-  def subscribed?
+  # Checa se o objeto já está associado ao seu respectivo na base de dados do
+  # Iugu.
+  #
+  # Retorna true caso esteja associado e falso C.C.
+  def in_iugu?
     !!subscription_id
   end
 
-
-  def subscription
-    Iugu::Subscription.fetch(subscription_id) if subscribed?
+  # Retorna o objeto presente no banco de dados do Iugu. Caso não tenha,
+  # retorna nil
+  def iugu_object
+    Iugu::Subscription.fetch(subscription_id) if in_iugu?
   end
-
-
 end
