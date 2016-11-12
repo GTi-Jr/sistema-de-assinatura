@@ -71,13 +71,6 @@ class PlansController < ApplicationController
   end
 
 
-  def automatic_pay
-    Iugu::Charge.create({
-    token: "725EE22A6E9E45849A8BC1E87174287E",
-    invoice_id: '030B32B2508F4598BA0524D946C2A7CC',
-
-
-    })
 
   end
 
