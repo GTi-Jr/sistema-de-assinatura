@@ -43,7 +43,9 @@ class Plan < ActiveRecord::Base
       currency: 'BRL'
     })
 
-    plan.errors.nil?
+    return false unless plan.errors.nil?
+
+    self.iugu_plan_id = plan[:id]
   end
 
   # Sempre que tentarmos atualizar os dados de um plano, faremos uma request
