@@ -24,6 +24,6 @@ class SubscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subscription_params
-      params.require(:subscription).permit(:canceled_on,:subscription_code,:user_id,:plan_id)
+      params.require(:subscription).permit(:suspended_on,:subscription_code,:user_id,:plan_id)
     end
 end

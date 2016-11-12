@@ -10,17 +10,23 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
+  # Permite validações em cima do atributo cpf. Só será possível salvar o objeto
+  # caso o cpf seja um número válido.
   usar_como_cpf :cpf
 
+  # Relacionamentos
   has_many :addresses
-  has_many :subscriptions, -> { where(canceled_on: nil) }
-  has_many :canceled_subscriptions, -> { where.not(canceled_on: nil) }, class_name: 'Subscription'
+  has_many :subscriptions, -> { active }
+  has_many :suspended_subscriptions, -> { suspended }, class_name: 'Subscription'
   has_many :plans, through: :subscriptions
 
+  # Atributos conjuntos
   accepts_nested_attributes_for :addresses
 
+  # Validações
   validates :addresses, length: { maximum: @@max_addresses_number }
 
+  # Callbacks
   after_save :subscribe_user_to_mailing_list
 
   def owns_subscription?(subscription)
@@ -74,8 +80,6 @@ class User < ActiveRecord::Base
     !subscriptions.empty?
   end
 
-
-
   def customer
     unless customer_id
       customer = Iugu::Customer.create({ email: email, name: name }) rescue false
@@ -85,8 +89,6 @@ class User < ActiveRecord::Base
 
     Iugu::Customer.fetch(customer_id) rescue nil
   end
-
-
 
   def payment_methods
     Iugu::PaymentMethod.search({customer_id: customer_id}).results rescue []

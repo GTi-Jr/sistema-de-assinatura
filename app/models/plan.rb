@@ -29,7 +29,7 @@ class Plan < ActiveRecord::Base
     if iugu_plan_id.blank?
       plan_iugu=Iugu::Plan.create({
         name: plan.name,
-        identifier:  ,
+        identifier: identifier,
         interval: 1,
         interval_type: 'months',
         value_cents: (plan.price*100),
