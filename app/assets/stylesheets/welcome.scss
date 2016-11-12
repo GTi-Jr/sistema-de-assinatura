@@ -9,9 +9,12 @@ section#welcome {
   position: relative;
   background-repeat: round;
   overflow: hidden;
+}
 
+section#welcome, section#login-form {
   .form-control {
     border: 2px solid $primary-color;
+    color: $primary-color;
   }
 
   .form-control:focus {
@@ -35,18 +38,25 @@ section#welcome {
 section#clouds {
   margin-top: 10px;
 
+  @media screen and (max-width: $break-medium) {
+    .main-image-wrapper {
+      overflow: hidden;
+      padding: 0;
+    }
+  }
+  img.main-image {
+    position: absolute;
+    max-width: 2000px;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    min-width: 100%;
+    max-height: 100%;
+  }
+
   .image-with-text {
     margin-top: 350px;
 
-    img {
-      position: absolute;
-      max-width: 2000px;
-      transform: translate(-50%,-50%);
-      left: 50%;
-      top: 50%;
-      min-width: 100%;
-      max-height: 100%;
-    }
 
     .text {
       font-size: 1.5em;
