@@ -22,7 +22,7 @@ section#checkout
           .col-xs-12.col-md-8.col-lg-6.col-centered
             .col-xs-12.col-sm-4
               .form-group
-                = text_field_tag :expiration, '', 'data-iugu' => 'expiration', autocomplete: 'off', placeholder: 'MM/AA', class: 'form-control'
+                = text_field_tag :expiration, '', 'data-iugu' => 'expiration', autocomplete: 'off', placeholder: 'MM/AA', class: 'form-control expiration'
             .col-xs-12.col-sm-8
               .credit-cards.pull-right
                 i.fa.fa-cc-amex
@@ -33,4 +33,6 @@ section#checkout
           = hidden_field_tag :token, '', readonly: 'true', size: '64', type: 'text'
           = submit_tag 'Confirmar', class: 'btn btn-primary terciary-text'
           = image_tag 'http://storage.pupui.com.br/9CA0F40E971643D1B7C8DE46BBC18396/assets/payments-by-iugu.1df7caaf6958f1b5774579fa807b5e7f.png', class: 'col-centered'
+coffee:
+  $('.expiration').mask('')  
 

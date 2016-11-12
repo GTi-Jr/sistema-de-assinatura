@@ -5,6 +5,10 @@ $(document).ready(function(){
         M: {pattern: /[0-1]/},
         m: {pattern: /[0-9]/}
     }});
+    $('.expiration').mask('Mm/00', {'translation': {
+        M: {pattern: /[0-1]/},
+        m: {pattern: /[0-9]/}
+    }});
     $('.rg-field').mask('0000000000000000000')
     $('.cpf-field').mask('000.000.000-00');
     $('.phone-field').mask('(00) 000000000');

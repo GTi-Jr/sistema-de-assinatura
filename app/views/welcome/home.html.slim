@@ -12,9 +12,9 @@ section#login-form.visible-xs
 section#clouds
   .container-fluid
     .row
-      .col-md-6.col-xs-12.col-md-offset-3
+      .col-md-6.col-xs-12.col-md-offset-3.main-image-wrapper
+        = image_tag 'nuvem-grande.png', class: 'main-image'
         .image-with-text
-          = image_tag 'nuvem-grande.png'
           .text.text-center.text-light Nascemos para transformar a experiência da maternidade, entregando um mundo de surpresas a cada mês.
     .row
       .col-md-4.hidden-xs.hidden-sm
@@ -44,7 +44,7 @@ section#how-it-works
   .container
     .row
       .col-xs-12.col-sm-4.pull-right.hidden-xs
-        h2.terciary-text Nós selecionamos e entregamos
+        h3.terciary-text Nós selecionamos e entregamos
       .col-xs-12.col-sm-2.pull-right= image_tag 'handle_with_care_filled.png', class: 'col-centered'
       .col-xs-12.col-sm-4.pull-right.visible-xs
         h2.terciary-text Nós selecionamos e entregamos
