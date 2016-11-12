@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109215247) do
+ActiveRecord::Schema.define(version: 20161111004453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,26 @@ ActiveRecord::Schema.define(version: 20161109215247) do
     t.integer  "subscription_id"
   end
 
+  create_table "coupon_redemptions", force: :cascade do |t|
+    t.integer  "coupon_id",  null: false
+    t.string   "user_id"
+    t.string   "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.string   "code"
+    t.float    "amount"
+    t.integer  "quantity"
+    t.date     "expiry_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "coupon_type"
+  end
+
+  add_index "coupons", ["code"], name: "index_coupons_on_code", unique: true, using: :btree
+
   create_table "emails", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
@@ -76,10 +96,10 @@ ActiveRecord::Schema.define(version: 20161109215247) do
     t.string   "name"
     t.string   "duration"
     t.string   "description"
-    t.integer  "subscription_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.float    "price"
+    t.integer  "subscription_id"
     t.string   "iugu_plan_id"
   end
 
@@ -92,6 +112,7 @@ ActiveRecord::Schema.define(version: 20161109215247) do
     t.datetime "updated_at",                     null: false
     t.string   "paypal_customer_token"
     t.string   "paypal_recurring_profile_token"
+    t.string   "iugu_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,7 +137,6 @@ ActiveRecord::Schema.define(version: 20161109215247) do
     t.boolean  "complete",               default: false
     t.integer  "plan_intention"
     t.string   "customer_id"
-    t.string   "subscription_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

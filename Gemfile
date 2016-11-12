@@ -47,6 +47,8 @@ gem "slim-rails"
 
 gem 'iugu'
 
+gem 'whenever', require: false
+
 group :development, :test do
   gem 'quiet_assets'
   gem 'better_errors'

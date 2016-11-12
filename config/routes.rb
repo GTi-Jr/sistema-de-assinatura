@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'subscribe' => 'checkouts#subscribe_to_plan', as: :subscribe_to_plan
   post '/pay' => 'checkouts#pay', as: :payment
   post '/iugu_subscription' => 'plans#iugu_subscribe', as: :subscribe_iugu
+  delete 'iugu_unsubscribe/:id' => 'plans#unsubscribe', as: :iugu_unsubscribe
 
   resources :users, only: [:new, :create]
 

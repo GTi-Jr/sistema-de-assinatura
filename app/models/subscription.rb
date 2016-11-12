@@ -25,4 +25,17 @@ class Subscription < ActiveRecord::Base
     self.paypal_recurring_profile_token = response.profile_id
     save!
   end
+
+
+
+  def subscribed?
+    !!subscription_id
+  end
+
+
+  def subscription
+    Iugu::Subscription.fetch(subscription_id) if subscribed?
+  end
+
+
 end

@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!, only: [:subscribe, :unsubscribe]
-  before_action :set_subscription, only: [:unsubscribe]
+  before_action :set_subscription, only: [:unsubscribe,:iugu_unsubscribe]
   before_action :set_plan, only: [:show, :subscribe,:iugu_subscribe]
 
   def show
@@ -29,20 +29,51 @@ class PlansController < ApplicationController
   end
 
   def iugu_subscribe
-
+    customer = current_user.customer
     iugu_plan = Iugu::Plan.fetch(@plan.iugu_plan_id)
 
     subscription = Iugu::Subscription.create({
       plan_identifier: iugu_plan.identifier,
-      customer_id: current_user.customer_id
+      customer_id: current_user.customer_id,
     })
 
     user= current_user
-    user.subscription_id = subscription.id
-    user.save
-    binding.pry
-    redirect_to root_path, notice: "#{subscription}"
+    user.subscriptions.build(plan: @plan)
+    user.subscriptions.last.iugu_id = subscription.id
+    if user.save
+      redirect_to subscription.recent_invoices[0]['secure_url'], notice: "Plano #{subscription.plan_name} Assinado"
+    else
+      redirect_to root_path, notice: 'Erro na Assinatura'
+    end
   end
+
+  #Funcionou no terminal, só precisando ajeitar os parametros agora, e tentar substituir items por plan
+  def create_invoice
+        Iugu::Invoice.create({
+        customer_id: user.customer_id,
+        due_date: "08/12/2016",
+        subscription_id: subscription.id,
+        items: [{
+            description: 'Item 1',
+            quantity: "1",
+            price_cents: subscription.price_cents
+        }]
+
+    })
+  end
+
+  def iugu_unsubscribe
+      subscription = Iugu::Subscription.fetch(@subscription.iugu_id)
+      subscription.delete
+      user = current_user
+      user.subscriptions.where(id: @subscription.id).first.destroy
+      redirect_to root_path, 'Assinatura Cancelada'
+  end
+
+
+
+  end
+
 
   def intention_to_plan
     plan = Plan.find(params[:plan_id])
@@ -64,7 +95,7 @@ class PlansController < ApplicationController
     end
 
     def set_subscription
-      @subscription = Subscription.find(params[:subscription_id])
+      @subscription = Subscription.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
