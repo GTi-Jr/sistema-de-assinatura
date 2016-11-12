@@ -63,14 +63,11 @@ class PlansController < ApplicationController
   end
 
   def iugu_unsubscribe
-
-
-
       subscription = Iugu::Subscription.fetch(@subscription.iugu_id)
-
       subscription.delete
       user = current_user
       user.subscriptions.where(id: @subscription.id).first.destroy
+      redirect_to root_path, 'Assinatura Cancelada'
   end
 
 
@@ -105,7 +102,7 @@ class PlansController < ApplicationController
     end
 
     def set_subscription
-      @subscription = Subscription.find(params[:subscription_id])
+      @subscription = Subscription.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
