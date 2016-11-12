@@ -84,10 +84,10 @@ section#plans.primary-bg-color
                 li.text-center
                   h3.primary-text
                     | #{currency(plan.price_per_month)} ao mês
-                li.text-center
+                li.text-center.primary-text
                   = plan.description
               .buy-btn.text-center
-                  = link_to 'Quero assinar!', checkout_path(identifier: 'Gold_plan'), method: :post, class: 'btn btn-primary terciary-text'
+                  = link_to 'Quero assinar!', iugu_checkout_path(plan.identifier), class: 'btn btn-primary terciary-text'
 section#contact
   h1.header.text-light.text-center Fale com a cegonha
   .container

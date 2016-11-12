@@ -5,24 +5,20 @@ class Plan < ActiveRecord::Base
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
+  validates_uniqueness_of :identifier
+
   # no-doc
   def price_per_month
     price/duration.to_f
   end
 
-  # Identificador do plano no Iugu. Substitui os espaços por "_" e deixa tudo
-  # minúsculo.
-  # ==== Exemplos
-  #
-  #   plan = Plan.new(name: 'Um plano')
-  #   plan.identifier #=> "um_plano"
-  def identifier
-    name.gsub(/\s+/, "_").downcase
-  end
-
   # no-doc
   def price_in_cents
     price * 100
+  end
+
+  def iugu_object
+    @iugu_api_object ||= Iugu::Plan.fetch_by_identifier(identifier)
   end
 
   private
@@ -45,7 +41,7 @@ class Plan < ActiveRecord::Base
 
     return false unless plan.errors.nil?
 
-    self.iugu_plan_id = plan[:id]
+    self.iugu_id = plan.id
   end
 
   # Sempre que tentarmos atualizar os dados de um plano, faremos uma request
@@ -56,14 +52,12 @@ class Plan < ActiveRecord::Base
   #
   # before_save :save_in_iugu
   def save_in_iugu
-    Iugu::Plan.save({
-      name: name,
-      identifier: identifier ,
-      interval: duration,
-      interval_type: 'months',
-      value_cents: price_in_cents,
-      payable_with: 'credit_card',
-      currency: 'BRL'
-    })
+    unless new_record?
+      iugu_object.name= name
+      iugu_object.interval = duration
+      iugu_object.identifier = identifier
+      iugu_object.value_cents = price_in_cents
+      iugu_object.save
+    end
   end
 end

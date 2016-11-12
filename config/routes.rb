@@ -5,11 +5,14 @@ Rails.application.routes.draw do
     get 'payments/checkout'
   end
 
+  # iugu checkout payment pagamento
+  get '/iugu_checkout/:plan_identifier' => 'iugu/checkouts#checkout', as: :iugu_checkout
   get '/checkout' => 'checkouts#checkout', as: :checkout
   post 'subscribe' => 'checkouts#subscribe_to_plan', as: :subscribe_to_plan
   post '/pay' => 'checkouts#pay', as: :payment
   post '/iugu_subscription' => 'plans#iugu_subscribe', as: :subscribe_iugu
   delete 'iugu_unsubscribe/:id' => 'plans#unsubscribe', as: :iugu_unsubscribe
+  post 'iugu/webhooks' => 'iugu/webhooks#webhooks', as: :iugu_wekhooks
 
   resources :users, only: [:new, :create]
 

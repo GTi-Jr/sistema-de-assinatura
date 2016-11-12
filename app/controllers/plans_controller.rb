@@ -30,7 +30,7 @@ class PlansController < ApplicationController
 
   def iugu_subscribe
     customer = current_user.customer
-    iugu_plan = Iugu::Plan.fetch(@plan.iugu_plan_id)
+    iugu_plan = Iugu::Plan.fetch(@plan.iugu_id)
 
     subscription = Iugu::Subscription.create({
       plan_identifier: iugu_plan.identifier,
@@ -41,7 +41,7 @@ class PlansController < ApplicationController
     user.subscriptions.build(plan: @plan)
     user.subscriptions.last.iugu_id = subscription.id
     if user.save
-      redirect_to subscription.recent_invoices[0]['secure_url'], notice: "Plano #{subscription.plan_name} Assinado"
+      redirect_to iugu_subscription.recent_invoices[0]['secure_url'], notice: "Plano #{subscription.plan_name} Assinado"
     else
       redirect_to root_path, notice: 'Erro na Assinatura'
     end
@@ -69,11 +69,6 @@ class PlansController < ApplicationController
       user.subscriptions.where(id: @subscription.id).first.destroy
       redirect_to root_path, 'Assinatura Cancelada'
   end
-
-
-
-  end
-
 
   def intention_to_plan
     plan = Plan.find(params[:plan_id])

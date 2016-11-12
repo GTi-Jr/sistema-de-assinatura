@@ -125,7 +125,7 @@ class User < ActiveRecord::Base
       name: name
     })
 
-    self.customer_id = customer['id']
+    self.customer_id = customer.id
   end
 
   # Sempre que formos atualizar os dados do usuário localmente, devemos mantê-los
@@ -133,8 +133,11 @@ class User < ActiveRecord::Base
   #
   # before_save :save_in_iugu
   def save_in_iugu
-    iugu_customer.name  = name
-    iugu_customer.email = email
-    iugu_customer.save
+    unless new_record?
+      iugu_customer.name     = name if name
+      iugu_customer.email    = email if email
+      iugu_customer.cpf_cnpj = cpf.to_s if cpf
+      iugu_customer.save
+    end
   end
 end
