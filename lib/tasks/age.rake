@@ -19,4 +19,26 @@ namespace :age do
 
   end
 
+
+
+  desc 'Update weeks of babies'
+  task update_weeks: :environment do
+
+    babies= Baby.all
+
+    babies.each do |baby|
+      unless baby.born?
+        if baby.weeks? && baby.birthdate?
+          if Date.today > baby.birthdate + baby.weeks.week
+            baby.weeks = (baby.weeks + 1)
+            baby.save
+          end
+        end
+      end
+
+    end
+
+
+  end
+
 end
