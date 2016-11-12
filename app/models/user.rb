@@ -27,7 +27,9 @@ class User < ActiveRecord::Base
   validates :addresses, length: { maximum: @@max_addresses_number }
 
   # Callbacks
-  after_save :subscribe_user_to_mailing_list
+  before_create :create_in_iugu
+  before_save   :save_in_iugu
+  after_save    :subscribe_user_to_mailing_list
 
   def owns_subscription?(subscription)
     subscriptions.include?(subscription)
@@ -90,6 +92,11 @@ class User < ActiveRecord::Base
     Iugu::Customer.fetch(customer_id) rescue nil
   end
 
+  # Retora o objeto do usuário que está presente na base de dados do Iugu.
+  def iugu_customer
+    @customer ||= Iugu::Customer.fetch(customer_id)
+  end
+
   def payment_methods
     Iugu::PaymentMethod.search({customer_id: customer_id}).results rescue []
   end
@@ -100,7 +107,34 @@ class User < ActiveRecord::Base
 
   protected
 
-    def subscribe_user_to_mailing_list
-      SubscribeUserToMailingListJob.perform_later(id)
-    end
+  # Logo antes do cadastro, enviar email do usuário para o MailChimp.
+  #
+  # before_save : subscribe_user_to_mailing_list
+  def subscribe_user_to_mailing_list
+    SubscribeUserToMailingListJob.perform_later(id)
+  end
+
+  # Logo após o usuário se cadastrar adiciona o adiciona na base de dados do
+  # Iugu e associamos o customer_id de lá ao nosso banco de dados para podermos
+  # acessá-lo depois.
+  #
+  # before_create :create_in_iugu
+  def create_in_iugu
+    customer = Iugu::Customer.create({
+      email: email,
+      name: name
+    })
+
+    self.customer_id = customer['id']
+  end
+
+  # Sempre que formos atualizar os dados do usuário localmente, devemos mantê-los
+  # atualizados com os dados no Iugu.
+  #
+  # before_save :save_in_iugu
+  def save_in_iugu
+    iugu_customer.name  = name
+    iugu_customer.email = email
+    iugu_customer.save
+  end
 end

@@ -25,31 +25,6 @@ class Plan < ActiveRecord::Base
     price * 100
   end
 
-  def create_iugu_plan
-    if iugu_plan_id.blank?
-      plan_iugu=Iugu::Plan.create({
-        name: plan.name,
-        identifier: identifier,
-        interval: 1,
-        interval_type: 'months',
-        value_cents: (plan.price*100),
-        payable_with: 'credit_card'
-      })
-
-      plan.iugu_plan_id = plan_iugu.id
-      binding.pry
-
-      if plan.save
-        'Plano Criado com Sucesso'
-      else
-        'Erro na Criação'
-      end
-
-    else
-      "Plano ja foi criado"
-    end
-  end
-
   private
 
   # Logo após criar um plano, fazemos uma request para o Iugu criar um plano na
