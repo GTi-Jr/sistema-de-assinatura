@@ -10,6 +10,20 @@ class Subscription < ActiveRecord::Base
   scope :active, -> { where(suspended_on: nil) }
   scope :suspended, -> { where.not(suspended_on: nil) }
 
+  # Enum para os status da última fátura referente à assinatura. As faturas são
+  # atualizadas através da API do Iugu. Sempre que uma é gerada, o Iugu nos avisa
+  # e atualizamos o status da assinatura em nossa base de dados.
+  # Status possíveis:
+  #
+  # Draft
+  # Pending
+  # Partially_paid
+  # Paid
+  # Canceled
+  # Refunded
+  # Expired
+  enum iugu_payment_status: { draft: 0, pending: 1, partially_paid: 2, paid: 3, canceled: 4, refunded: 5, expired: 6 }
+
   # Checa se a assinatura está ativa.
   #
   # Retorna true caso esteja ativa e falso C.C.
