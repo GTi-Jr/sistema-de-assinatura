@@ -89,10 +89,10 @@ ActiveRecord::Schema.define(version: 20161113055748) do
     t.string   "subscription_code"
     t.integer  "user_id"
     t.integer  "plan_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "iugu_id"
-    t.string   "iugu_status"
+    t.string   "iugu_payment_status"
   end
 
   create_table "users", force: :cascade do |t|
