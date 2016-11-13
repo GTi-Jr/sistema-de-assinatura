@@ -50,6 +50,11 @@ class Iugu::WebhooksController < ApplicationController
   # Após uma assinatura ser suspensa, ela será tratada por este método.
   # Suspensa é diferente de expirada/cancelada.
   def subscription_suspended
+    subscription = Subscription.find_by(iugu_id: params[:data][:id])
+
+    subscription.update(suspended_on: Time.zone.now.to_date)
+
+
   end
 
   # Caso o cliente atrase o pagamento, a assinatura será suspensa e o Iugu
