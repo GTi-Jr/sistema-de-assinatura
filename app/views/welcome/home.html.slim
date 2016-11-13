@@ -86,7 +86,7 @@ section#plans.primary-bg-color
                     | #{currency(plan.price_per_month)} ao mês
                 li.text-center.primary-text
                   = plan.description
-              .buy-btn.text-center
+              .buy-btn.text-centerd(data-no-turbolink='')
                   = link_to 'Quero assinar!', iugu_checkout_path(plan.identifier), class: 'btn btn-primary terciary-text'
 section#contact
   h1.header.text-light.text-center Fale com a cegonha
