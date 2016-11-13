@@ -22,13 +22,14 @@ class Subscription < ActiveRecord::Base
   # Canceled
   # Refunded
   # Expired
-  enum iugu_payment_status: { draft: 0, pending: 1, partially_paid: 2, paid: 3, canceled: 4, refunded: 5, expired: 6 }
+  # Authorized
+  enum iugu_payment_status: { draft: 0, pending: 1, partially_paid: 2, paid: 3, canceled: 4, refunded: 5, expired: 6, authorized: 7}
 
-  # Checa se a assinatura está ativa.
+  # Checa se a assinatura está suspensa.
   #
-  # Retorna true caso esteja ativa e falso C.C.
-  def active?
-    !suspended_on.nil?
+  # Retorna false caso esteja ativa e true caso suspensa.
+  def suspended?
+    suspended_on.nil?
   end
 
   # Suspende a assinatura e atualiza
@@ -40,6 +41,15 @@ class Subscription < ActiveRecord::Base
         fetch_api_errors(iugu_object.errors)
       end
     end
+  end
+
+  # Checa se a assinatura está ativa.
+  #
+  # Obs: uma assinatura pode estar suspensa e ativa ao mesmo tempo. Isso 
+  # significa que ela foi suspensa, mas como já foi paga, ainda tem tempo de
+  # serviço restante, logo, está ativa.
+  def active?
+    active
   end
 
   # Checa se o objeto já está associado ao seu respectivo na base de dados do
@@ -61,7 +71,7 @@ class Subscription < ActiveRecord::Base
   # Pega um array de erros das API e coloca no objeto.
   # ==== Exemplos
   #   subscription = Subscription.find(id)
-  #   
+  #
   #   if subscription.suspend
   #     # código para caso a requisição dê certo.
   #   else

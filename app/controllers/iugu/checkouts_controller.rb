@@ -5,8 +5,6 @@ class Iugu::CheckoutsController < ApplicationController
   before_action :set_plan
 
   def checkout
-    iugu_plan = Iugu::Plan.fetch(@plan.iugu_id)
-
     iugu_subscription = Iugu::Subscription.create({
       plan_identifier: @plan.identifier,
       customer_id:     current_user.customer_id
