@@ -41,7 +41,7 @@ class PlansController < ApplicationController
     user.subscriptions.build(plan: @plan)
     user.subscriptions.last.iugu_id = subscription.id
     if user.save
-      redirect_to iugu_subscription.recent_invoices[0]['secure_url'], notice: "Plano #{subscription.plan_name} Assinado"
+      redirect_to subscription.recent_invoices[0]['secure_url'], notice: "Plano #{subscription.plan_name} Assinado"
     else
       redirect_to root_path, notice: 'Erro na Assinatura'
     end

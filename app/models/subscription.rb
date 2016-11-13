@@ -5,8 +5,10 @@ class Subscription < ActiveRecord::Base
 
   accepts_nested_attributes_for :baby
 
-  scope :active, -> { where.not(suspended_on: nil) }
-  scope :suspended, -> { where(suspended_on: nil) }
+  validates_uniqueness_of :iugu_id
+
+  scope :active, -> { where(suspended_on: nil) }
+  scope :suspended, -> { where.not(suspended_on: nil) }
 
   # Checa se a assinatura está ativa.
   #
