@@ -18,17 +18,16 @@ class Iugu::CheckoutsController < ApplicationController
     end
   end
 
-
   def suspend
     iugu_subscription = Iugu::Subscription.fetch(@subscription.iugu_id)
     iugu_subscription.suspended = true
 
-
     if iugu_subscription.save
       redirect_to user_profile_path, notice: 'Plano Suspenso'
+    else
+      redirect_to user_profile_path, notice: 'Tente novamente'
     end
   end
-
 
   private
 

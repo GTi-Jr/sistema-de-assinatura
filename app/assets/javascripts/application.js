@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 
 //
 //= require ultima/libs/jquery-1.11.2.min

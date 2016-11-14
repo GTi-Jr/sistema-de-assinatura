@@ -4,14 +4,6 @@ Rails.application.routes.draw do
   namespace :plans do
     get 'payments/checkout'
   end
-
-  # iugu checkout payment pagamento
-  get '/iugu_checkout/:plan_identifier' => 'iugu/checkouts#checkout', as: :iugu_checkout
-  put '/iugu_suspend/:id' => 'iugu/checkouts#suspend', as: :iugu_suspend
-  post 'iugu/webhooks' => 'iugu/webhooks#webhook', as: :iugu_wekhooks
-  post '/iugu_subscription' => 'plans#iugu_subscribe', as: :subscribe_iugu
-  delete 'iugu_unsubscribe/:id' => 'plans#unsubscribe', as: :iugu_unsubscribe
-
   resources :users, only: [:new, :create]
 
   post 'contact_email' => 'welcome#contact_mail', as: :contact_form
@@ -43,17 +35,26 @@ Rails.application.routes.draw do
     get '/cadastro' => 'users/registrations#new', as: :register
   end
 
+  # iugu checkout payment pagamento
+  post '/iugu_checkout/:plan_identifier' => 'iugu/checkouts#checkout', as: :iugu_checkout
+  put '/iugu_suspend/:id' => 'iugu/checkouts#suspend', as: :iugu_suspend
+  post 'iugu/webhooks' => 'iugu/webhooks#webhook', as: :iugu_wekhooks
+  post '/iugu_subscription' => 'plans#iugu_subscribe', as: :subscribe_iugu
+  delete 'iugu_unsubscribe/:id' => 'plans#unsubscribe', as: :iugu_unsubscribe
+  get 'aprovar-escolha/:plan_identifier' => 'plans/payments#confirm_checkout', as: :confirm_checkout
+
+  # Subscriptions / Assinaturas
+  get 'confirmar-cancelamento/:id' => 'subscriptions#confirm_cancellation', as: :confirm_cancellation
+
   # Rotas para endereços
   resources :addresses, only: [:create, :update,:destroy]
 
   # Rotas do perfil / profile routes
   get 'perfil' => 'profile#profile', as: :user_profile
   patch 'update_user' => 'profile#update', as: :update_user
-
   patch 'update_addresses' => 'profile#update_addresses', as: :update_user_addresses
   post 'create_user_address' => 'profile#add_address', as: :create_user_address
   patch 'update_main_address/:address_id' => 'profile#update_main_address', as: :update_main_address
-
   patch 'update_subscription_babies/:subscription_id' => 'profile#update_subscription_babies', as: :update_subscription_babies
 
   # Rotas dos planos / plan routes
@@ -62,12 +63,6 @@ Rails.application.routes.draw do
   patch 'subscribe/:id' => 'plans#subscribe', as: :subscribe
   patch 'unsubscribe/:subscription_id' => 'plans#unsubscribe', as: :unsubscribe
   patch 'plan_intention/:plan_id' => 'plans#intention_to_plan', as: :intention_to_plan
-
-  # Checkout dos planos
-  get 'aprovar-escolha/:id' => 'plans/payments#checkout', as: :plans_payment_checkout
-  get 'proceder-para-paypal/:id' => 'plans/payments#paypal_checkout', as: :plans_paypal_checkout
-  get 'confirmar/:id' => 'plans/payments#confirm', as: :plans_paypal_confirm
-  post 'confirmar' => 'plans/payments#confirm_payment', as: :plans_paypal_confirm_payment
 
   get 'politica-de-privacidade' => 'files#privacy_terms', as: :privacy_terms
 end

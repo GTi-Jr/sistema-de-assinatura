@@ -87,7 +87,7 @@ section#plans.primary-bg-color
                 li.text-center.primary-text
                   = plan.description
               .buy-btn.text-centerd(data-no-turbolink='')
-                  = link_to 'Quero assinar!', iugu_checkout_path(plan.identifier), class: 'btn btn-primary terciary-text'
+                  = link_to 'Quero assinar!', confirm_checkout_path(plan.identifier), class: 'btn btn-primary terciary-text'
 section#contact
   h1.header.text-light.text-center Fale com a cegonha
   .container
