@@ -6,11 +6,27 @@ class Iugu::CheckoutsController < ApplicationController
   before_action :set_subscription , only: [:suspend]
 
   def checkout
+
+    year = Date.today.year
+    month = Date.today.month
+    day = Date.today.day
+    if day > 25 && month && month == 12
+      month=1
+      year= year+1
+
+    elsif day > 25
+      month= month+1
+    end
+
+
+    expires = Date.new(year,month,25)
     iugu_subscription = Iugu::Subscription.create({
       plan_identifier: @plan.identifier,
-      customer_id:     current_user.customer_id
+      customer_id:     current_user.customer_id,
+      expires_at: expires
     })
 
+    binding.pry
     if iugu_subscription.errors.nil?
       redirect_to iugu_subscription.recent_invoices.first['secure_url']
     else
