@@ -5,14 +5,24 @@ section#profile
         h1.text-center Meu perfil
         .col-lg-10.col-xs-12.col-centered
           /! Nav tabs
-          ul.nav.nav-tabs
-            li.active.text-center
+          ul.nav.nav-tabs.visible-xs
+            li.active.col-centered
               a data-toggle="tab" href="#home"
                 h5.text-light Minhas assinaturas
-            li.text-center
+            li.col-centered
               a data-toggle="tab" href="#user_data"
                 h5.text-light Meus dados
-            li.text-center
+            li.col-centered
+              a data-toggle="tab" href="#user_addresses"
+                h5.text-light Meus endereços
+          ul.nav.nav-tabs.hidden-xs
+            li.active
+              a data-toggle="tab" href="#home"
+                h5.text-light Minhas assinaturas
+            li
+              a data-toggle="tab" href="#user_data"
+                h5.text-light Meus dados
+            li
               a data-toggle="tab" href="#user_addresses"
                 h5.text-light Meus endereços
           /! Tab panes
