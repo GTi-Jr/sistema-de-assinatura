@@ -41,6 +41,8 @@ class Iugu::WebhooksController < ApplicationController
       subscription.active              = iugu_subscription.active
       subscription.suspended_on        = Time.zone.now.to_date if iugu_subscription.suspended
     end
+
+    subscription.build_baby(name: 'Nome do bebê', born: false).save
   end
 
   # Uma assinatura pode ser suspensa. Após se reativada, esse evento será acionado.
@@ -73,9 +75,7 @@ class Iugu::WebhooksController < ApplicationController
   def invoice_status_changed
     @subscription = ::Subscription.find_by(iugu_id: params[:data][:subscription_id])
 
-    unless @subscription.nil?
-      @subscription.update(status: params[:data][:status])
-    end
+    @subscription.update(status: params[:data][:status])
   end
 end
 
