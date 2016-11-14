@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 
   # iugu checkout payment pagamento
   post '/iugu_checkout/:plan_identifier' => 'iugu/checkouts#checkout', as: :iugu_checkout
+  get '/finalizar-compra/:plan_identifier' => 'checkouts#checkout', as: :checkout
+  post 'iugu/pay' => 'checkouts#pay', as: :payment
   put '/iugu_suspend/:id' => 'iugu/checkouts#suspend', as: :iugu_suspend
   post 'iugu/webhooks' => 'iugu/webhooks#webhook', as: :iugu_wekhooks
   post '/iugu_subscription' => 'plans#iugu_subscribe', as: :subscribe_iugu
