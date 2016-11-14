@@ -2,7 +2,8 @@ class Iugu::CheckoutsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   before_action :authenticate_user!
-  before_action :set_plan
+  before_action :set_plan, only: [:checkout]
+  before_action :set_subscription , only: [:suspend]
 
   def checkout
     iugu_subscription = Iugu::Subscription.create({
@@ -17,9 +18,26 @@ class Iugu::CheckoutsController < ApplicationController
     end
   end
 
+
+  def suspend
+    iugu_subscription = Iugu::Subscription.fetch(@subscription.iugu_id)
+    iugu_subscription.suspended = true
+
+
+    if iugu_subscription.save
+      redirect_to user_profile_path, notice: 'Plano Suspenso'
+    end
+  end
+
+
   private
 
   def set_plan
     @plan = ::Plan.find_by(identifier: params[:plan_identifier])
   end
+
+  def set_subscription
+    @subscription = Subscription.find(params[:id])
+  end
+
 end
