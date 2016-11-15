@@ -26,11 +26,27 @@ class Iugu::CheckoutsController < ApplicationController
       expires_at: expires
     })
 
-    binding.pry
     if iugu_subscription.errors.nil?
       redirect_to iugu_subscription.recent_invoices.first['secure_url']
     else
       redirect_to user_profile_path, alert: 'Não foi possível proceder para assinatura'
+    end
+  end
+
+  def save_credit_card
+    if params[:token]
+
+      customer = Iugu::Customer.fetch(current_user.customer_id)
+
+      payment=customer.payment_methods.create({
+        description: "Primeiro Cartão",
+        item_type: "credit_card",
+        token: params[:token]
+
+        })
+      binding.pry
+      redirect_to user_profile_path
+
     end
   end
 
