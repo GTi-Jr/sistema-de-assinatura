@@ -11,11 +11,15 @@ class Iugu::CheckoutsController < ApplicationController
     month = Date.today.month
     day = Date.today.day
     if day > 25 && month && month == 12
-      month=1
+      month=0 + @plan.duration
+      year= year+1
+
+    elsif day > 25 && (month+@plan.duration) > 12
+      month= (month+ @plan.duration) - 12
       year= year+1
 
     elsif day > 25
-      month= month+1
+        month = month+@plan.duration
     end
 
 
