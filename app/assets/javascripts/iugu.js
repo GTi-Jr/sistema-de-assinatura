@@ -13,6 +13,7 @@ $(document).ready(function() {
                     alert("Erro salvando cartão: " + JSON.stringify(data.errors));
                 } else {
                     $("#token").val( data.id );
+                     $('#payment-form').removeAttr('name')
                     form.get(0).submit();
                 }
 

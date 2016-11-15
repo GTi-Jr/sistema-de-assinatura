@@ -24,10 +24,12 @@ section#plans-listing
                 = @plan.description
             .buy-btn.text-center
               = link_to 'Quero assinar!', iugu_checkout_path(@plan.identifier), method: :post, class: 'btn btn-primary terciary-text'
+
+      = render 'checkouts/checkout'
       .col-xs-12.text-center
         p
-          | Ao confirmar você será redirecionado para a página de pagamentos do 
-          | Iugu, o nosso serviço de pagamentos. Caso você já possua cadastro nele, 
+          | Ao confirmar você será redirecionado para a página de pagamentos do
+          | Iugu, o nosso serviço de pagamentos. Caso você já possua cadastro nele,
           | seu pagamento será efetuado automaticamente.
         p
           | Você será cobrado no valor de #{currency(@plan.price)} no dia 25 com
