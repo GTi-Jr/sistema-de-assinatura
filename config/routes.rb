@@ -47,6 +47,9 @@ Rails.application.routes.draw do
 
   # Subscriptions / Assinaturas
   get 'confirmar-cancelamento/:id' => 'subscriptions#confirm_cancellation', as: :confirm_cancellation
+  get 'assinaturas/:id/trocar-de-plano' => 'subscriptions#choose_plan', as: :choose_plan
+  get 'assinaturas/:id/trocar-de-plano/:plan_identifier' => 'subscriptions#confirm_change_plan', as: :confirm_change_plan
+  patch 'assinaturas/:id/trocar-de-plano/:plan_identifier' => 'subscriptions#change_plan', as: :change_plan
 
   # Rotas para endereços
   resources :addresses, only: [:create, :update,:destroy]

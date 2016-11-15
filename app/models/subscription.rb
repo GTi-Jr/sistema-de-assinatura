@@ -66,6 +66,16 @@ class Subscription < ActiveRecord::Base
     @iugu_obj ||= Iugu::Subscription.fetch(subscription_id) if in_iugu?
   end
 
+  # Altera o plano no qual a assinatura está atrelada. Tenta atualizar no Iugu
+  # e, caso a requisição retorne status OK, alteramos e nossa base de dados.
+  def change_plan(plan)
+    iugu_object.plan_identifier = plan.identifier
+
+    if iugu_object.save
+      update(plan: plan)
+    end
+  end
+
   private
 
   # Pega um array de erros das API e coloca no objeto.
