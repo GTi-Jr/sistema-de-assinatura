@@ -26,7 +26,6 @@ class Iugu::CheckoutsController < ApplicationController
       expires_at: expires
     })
 
-    binding.pry
     if iugu_subscription.errors.nil?
       redirect_to iugu_subscription.recent_invoices.first['secure_url']
     else
@@ -54,5 +53,4 @@ class Iugu::CheckoutsController < ApplicationController
   def set_subscription
     @subscription = Subscription.find(params[:id])
   end
-
 end
