@@ -37,7 +37,7 @@ class Iugu::WebhooksController < ApplicationController
     subscription = user.subscriptions.create do |subscription|
       subscription.plan                = plan
       subscription.iugu_id             = iugu_subscription.id
-      subscription.iugu_payment_status = last_invoice['status']
+      subscription.iugu_payment_status = last_invoice ? last_invoice['status'] : 'pending'
       subscription.active              = iugu_subscription.active
       subscription.suspended_on        = Time.zone.now.to_date if iugu_subscription.suspended
     end

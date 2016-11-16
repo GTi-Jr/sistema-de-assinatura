@@ -7,6 +7,18 @@ class Iugu::CheckoutsController < ApplicationController
 
   def checkout
 
+    if params[:token]
+
+      customer = Iugu::Customer.fetch(current_user.customer_id)
+
+      payment=customer.payment_methods.create({
+        description: "Primeiro Cartão",
+        token: params[:token]
+
+        })
+
+    end
+
     year = Date.today.year
     month = Date.today.month
     day = Date.today.day
@@ -31,7 +43,7 @@ class Iugu::CheckoutsController < ApplicationController
     })
 
     if iugu_subscription.errors.nil?
-      redirect_to iugu_subscription.recent_invoices.first['secure_url']
+      redirect_to user_profile_path
     else
       redirect_to user_profile_path, alert: 'Não foi possível proceder para assinatura'
     end
@@ -44,12 +56,9 @@ class Iugu::CheckoutsController < ApplicationController
 
       payment=customer.payment_methods.create({
         description: "Primeiro Cartão",
-        item_type: "credit_card",
         token: params[:token]
 
         })
-      binding.pry
-      redirect_to user_profile_path
 
     end
   end
