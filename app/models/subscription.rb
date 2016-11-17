@@ -1,4 +1,4 @@
-class Subscription < ActiveRecord::Base
+class Subscription < BaseModel
   belongs_to :user
   belongs_to :plan
   has_one    :baby
@@ -45,7 +45,7 @@ class Subscription < ActiveRecord::Base
 
   # Checa se a assinatura está ativa.
   #
-  # Obs: uma assinatura pode estar suspensa e ativa ao mesmo tempo. Isso 
+  # Obs: uma assinatura pode estar suspensa e ativa ao mesmo tempo. Isso
   # significa que ela foi suspensa, mas como já foi paga, ainda tem tempo de
   # serviço restante, logo, está ativa.
   def active?

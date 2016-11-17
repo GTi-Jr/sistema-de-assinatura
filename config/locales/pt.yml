@@ -69,11 +69,21 @@ pt:
         subscriptions: 'Inscrições'
         users: 'Usuários'
       subscription:
-        canceled_on: 'Cancelada em'
+        suspended_on: 'Suspensa em'
         subscription_code: 'Código'
         user: 'Usuário'
         plan: 'Plano'
         created_at: 'Assinado em'
+        iugu_payment_statuses:
+          draft: 'Rascunho'
+          pending: 'Pendente'
+          partially_paid: 'Parcialmente pago'
+          paid: 'Pago'
+          canceled: 'Cancelada'
+          refunded: 'Retornada'
+          expired: 'Expirada'
+          authorized: 'Autorizada'
+
       faq:
         question: 'Pergunta'
         answer: 'Resposta'
