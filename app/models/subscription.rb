@@ -43,6 +43,35 @@ class Subscription < BaseModel
     end
   end
 
+  def set_new_expiry_date!
+    set_new_expiry_date
+    iugu_object.save
+  end
+
+  def set_new_expiry_date
+    today_date = Time.zone.now.to_date
+
+    day = today_date.day
+    month = today_date.month
+    year = today_date.year
+
+    due_day = 25
+
+    if day > due_day && month && month == 12
+      month = 0 + subscription.plan.duration
+      year = year + 1
+    elsif day > due_day && (month + subscription.plan.duration) > 12
+      month = (month + subscription.plan.duration) - 12
+      year = year + 1
+    elsif day > due_day
+      month = month + subscription.plan.duration
+    end
+
+    new_expire_date = Date.new(year,month,25)
+   
+    iugu_object.expires_at = new_expire_date
+  end
+
   # Checa se a assinatura está ativa.
   #
   # Obs: uma assinatura pode estar suspensa e ativa ao mesmo tempo. Isso

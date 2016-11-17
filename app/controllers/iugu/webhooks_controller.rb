@@ -10,6 +10,7 @@ class Iugu::WebhooksController < ApplicationController
     if params[:key] == 'cegonha_caixa_gti'
       case params[:event]
       when 'subscription.created'   then subscription_created
+      when 'subscription.renewed'   then subscription_renewed
       when 'subscription.activated' then subscription_activated
       when 'subscription.suspended' then subscription_suspended
       when 'subscription.expired'   then subscription_expired
@@ -45,8 +46,16 @@ class Iugu::WebhooksController < ApplicationController
     subscription.build_baby(name: 'Nome do bebê', born: false).save
   end
 
+  # Evento quando a assinatura é renovada. Devemos setar a nova data de
+  # expiração.
+  def subscription_renewed
+    subscription = ::Subscription.find_by(iugu_id: params[:data][:id])
+    subscription.set_new_expiry_date!
+  end
+
   # Uma assinatura pode ser suspensa. Após se reativada, esse evento será acionado.
   def subscription_activated
+    # TODO
   end
 
   # Após uma assinatura ser suspensa, ela será tratada por este método.
