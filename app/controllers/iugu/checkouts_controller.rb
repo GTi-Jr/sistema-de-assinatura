@@ -9,22 +9,29 @@ class Iugu::CheckoutsController < ApplicationController
   end
 
   def checkout
+    customer = Iugu::Customer.fetch(current_user.customer_id)
+
+    payment = customer.payment_methods.create({
+      description: "Primeiro Cartão",
+      token: params[:token]
+    })
+
     year = Date.today.year
     month = Date.today.month
     day = Date.today.day
+
     if day > 25 && month && month == 12
       month=0 + @plan.duration
       year= year+1
-
     elsif day > 25 && (month+@plan.duration) > 12
       month= (month+ @plan.duration) - 12
       year= year+1
-
     elsif day > 25
         month = month+@plan.duration
     end
 
     expires = Date.new(year,month,25)
+
     iugu_subscription = Iugu::Subscription.create({
       plan_identifier: @plan.identifier,
       customer_id:     current_user.customer_id,
@@ -32,7 +39,7 @@ class Iugu::CheckoutsController < ApplicationController
     })
 
     if iugu_subscription.errors.nil?
-      redirect_to iugu_subscription.recent_invoices.first['secure_url']
+      redirect_to user_profile_path
     else
       redirect_to user_profile_path, alert: 'Não foi possível proceder para assinatura'
     end
@@ -41,13 +48,11 @@ class Iugu::CheckoutsController < ApplicationController
   def save_credit_card
     customer = Iugu::Customer.fetch(current_user.customer_id)
 
-    payment=customer.payment_methods.create({
-      description: 'Cartão de crédito',
-      item_type: 'credit_card',
+    payment = customer.payment_methods.create({
+      description: "Primeiro Cartão",
       token: params[:token]
-    })
 
-    binding.pry
+    })
 
     redirect_to user_profile_path
   end
