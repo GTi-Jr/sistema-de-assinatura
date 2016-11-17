@@ -21,8 +21,9 @@
                 li.text-center
                   h3.primary-text
                     | #{currency(subscription.plan.price_per_month)} ao mês
-                li.text-center
-                  = subscription.plan.description
+                li.text-center.terciary-text
+                  | Status do pagamento
+                  h5= Subscription.human_enum_name(:iugu_payment_status, subscription.iugu_payment_status)
               .text-center
                 = link_to 'Cancelar', confirm_cancellation_path(subscription.id), class: 'btn btn-primary terciary-text', data: { confirm: 'Tem certeza de que deseja cancelar seu plano?' }
         h2.text-center Assinatura ##{subscription.id}
