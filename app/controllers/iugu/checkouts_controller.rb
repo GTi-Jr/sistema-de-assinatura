@@ -12,7 +12,7 @@ class Iugu::CheckoutsController < ApplicationController
     customer = Iugu::Customer.fetch(current_user.customer_id)
 
     payment = customer.payment_methods.create({
-      description: "Primeiro Cartão",
+      description: 'Cartão',
       token: params[:token]
     })
 

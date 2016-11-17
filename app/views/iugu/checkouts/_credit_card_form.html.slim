@@ -3,7 +3,7 @@ section#checkout
     .col-xs-12
       h3.text-center.text-light Assinar #{@plan.name if @plan}
   .row
-    = form_tag save_credit_card_path, method: :post, id: 'payment-form' do
+    = form_tag iugu_checkout_path, method: :post, id: 'payment-form' do
       .row
         .col-xs-12.col-md-10.col-lg-8.col-centered
           .col-xs-12
