@@ -5,7 +5,7 @@ $(document).ready(function(){
         M: {pattern: /[0-1]/},
         m: {pattern: /[0-9]/}
     }});
-    $('.expiration').mask('Mm/00', {'translation': {
+    $('.expiration').mask('Mm/0000', {'translation': {
         M: {pattern: /[0-1]/},
         m: {pattern: /[0-9]/}
     }});

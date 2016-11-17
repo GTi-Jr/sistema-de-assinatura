@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#home'
 
-  namespace :plans do
-    get 'payments/checkout'
-  end
   resources :users, only: [:new, :create]
 
   post 'contact_email' => 'welcome#contact_mail', as: :contact_form
@@ -37,13 +34,12 @@ Rails.application.routes.draw do
 
   # iugu checkout payment pagamento
   post '/iugu_checkout/:plan_identifier' => 'iugu/checkouts#checkout', as: :iugu_checkout
-  get '/finalizar-compra/:plan_identifier' => 'checkouts#checkout', as: :checkout
+  get '/finalizar-compra/:plan_identifier' => 'iugu/checkouts#confirm_checkout', as: :confirm_checkout
   post 'iugu/pay' => 'checkouts#pay', as: :payment
-  put '/iugu_suspend/:id' => 'iugu/checkouts#suspend', as: :iugu_suspend
+  put '/iugu_suspend/:subscription_id' => 'iugu/checkouts#suspend', as: :iugu_suspend
   post 'iugu/webhooks' => 'iugu/webhooks#webhook', as: :iugu_wekhooks
   post '/iugu_subscription' => 'plans#iugu_subscribe', as: :subscribe_iugu
   delete 'iugu_unsubscribe/:id' => 'plans#unsubscribe', as: :iugu_unsubscribe
-  get 'aprovar-escolha/:plan_identifier' => 'plans/payments#confirm_checkout', as: :confirm_checkout
   post '/save_credit_card'    => 'iugu/checkouts#save_credit_card', as: :save_credit_card
 
   # Subscriptions / Assinaturas

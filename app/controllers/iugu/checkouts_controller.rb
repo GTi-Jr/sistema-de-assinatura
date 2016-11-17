@@ -2,11 +2,13 @@ class Iugu::CheckoutsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   before_action :authenticate_user!
-  before_action :set_plan, only: [:checkout]
+  before_action :set_plan, only: [:confirm_checkout, :checkout]
   before_action :set_subscription , only: [:suspend]
 
-  def checkout
+  def confirm_checkout
+  end
 
+  def checkout
     year = Date.today.year
     month = Date.today.month
     day = Date.today.day
@@ -21,7 +23,6 @@ class Iugu::CheckoutsController < ApplicationController
     elsif day > 25
         month = month+@plan.duration
     end
-
 
     expires = Date.new(year,month,25)
     iugu_subscription = Iugu::Subscription.create({
@@ -38,20 +39,17 @@ class Iugu::CheckoutsController < ApplicationController
   end
 
   def save_credit_card
-    if params[:token]
+    customer = Iugu::Customer.fetch(current_user.customer_id)
 
-      customer = Iugu::Customer.fetch(current_user.customer_id)
+    payment=customer.payment_methods.create({
+      description: 'Cartão de crédito',
+      item_type: 'credit_card',
+      token: params[:token]
+    })
 
-      payment=customer.payment_methods.create({
-        description: "Primeiro Cartão",
-        item_type: "credit_card",
-        token: params[:token]
+    binding.pry
 
-        })
-      binding.pry
-      redirect_to user_profile_path
-
-    end
+    redirect_to user_profile_path
   end
 
   def suspend
@@ -72,6 +70,6 @@ class Iugu::CheckoutsController < ApplicationController
   end
 
   def set_subscription
-    @subscription = Subscription.find(params[:id])
+    @subscription = Subscription.find(params[:subscription_id])
   end
 end
