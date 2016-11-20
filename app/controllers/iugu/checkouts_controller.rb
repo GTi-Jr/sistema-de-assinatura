@@ -2,6 +2,7 @@ class Iugu::CheckoutsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   before_action :authenticate_user!
+  #before_action :block_actions
   before_action :set_plan, only: [:confirm_checkout, :checkout]
   before_action :set_subscription , only: [:suspend]
 
@@ -35,7 +36,7 @@ class Iugu::CheckoutsController < ApplicationController
     iugu_subscription = Iugu::Subscription.create({
       plan_identifier: @plan.identifier,
       customer_id:     current_user.customer_id,
-      expires_at: expires
+      expires_at:      expires
     })
 
     if iugu_subscription.errors.nil?
@@ -59,9 +60,8 @@ class Iugu::CheckoutsController < ApplicationController
 
   def suspend
     iugu_subscription = Iugu::Subscription.fetch(@subscription.iugu_id)
-    iugu_subscription.suspended = true
 
-    if iugu_subscription.save
+    if iugu_subscription.suspend
       redirect_to user_profile_path, notice: 'Plano Suspenso'
     else
       redirect_to user_profile_path, notice: 'Tente novamente'

@@ -7,7 +7,7 @@ class Iugu::WebhooksController < ApplicationController
   # https://iugu.com/referencias/gatilhos
   def webhook
     # TODO Utilizar Iugu::WebhooksHandler após concluído
-    if params[:key] == 'cegonha_caixa_gti'
+    if params[:key] == ENV['IUGU_WEB_HOOK_KEY']
       case params[:event]
       when 'subscription.created'   then subscription_created
       when 'subscription.renewed'   then subscription_renewed

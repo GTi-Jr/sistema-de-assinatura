@@ -48,6 +48,7 @@ class Subscription < BaseModel
     iugu_object.save
   end
 
+  # Define uma nova data de expiração para a assinatura
   def set_new_expiry_date
     today_date = Time.zone.now.to_date
 
@@ -68,7 +69,7 @@ class Subscription < BaseModel
     end
 
     new_expire_date = Date.new(year,month,25)
-   
+
     iugu_object.expires_at = new_expire_date
   end
 

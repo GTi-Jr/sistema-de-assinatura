@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user.errors[:base] << 'Complete o cadastro'
       render :after_registration
     elsif current_user.update(after_registration_params)
-      redirect_to root_path, notice: 'Informações salvas'
+      redirect_to plans_path, notice: 'Informações salvas'
     else
       current_user.errors.full_messages.each do |msg|
         @user.errors[:base] << msg

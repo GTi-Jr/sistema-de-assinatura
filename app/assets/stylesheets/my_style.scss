@@ -170,3 +170,12 @@ select.form-control option {
   // Colocar position: relative no elemento  pai
 }
 
+.discount-circle {
+  position: absolute;
+  top: -50px;
+  padding: 14%;
+  right: 0;
+  border-radius: 100%;
+  background-color: $terciary-color;
+  z-index: 2;
+}

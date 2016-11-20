@@ -78,6 +78,10 @@ class User < ActiveRecord::Base
     name ? name.split(' ').last : ''
   end
 
+  def female?
+    sex == 'F'
+  end
+
   def any_subscriptions?
     !subscriptions.empty?
   end
