@@ -36,7 +36,15 @@ class Iugu::CheckoutsController < ApplicationController
     iugu_subscription = Iugu::Subscription.create({
       plan_identifier: @plan.identifier,
       customer_id:     current_user.customer_id,
-      expires_at:      expires
+      expires_at:      expires,
+      subitems: [
+        {
+          description: 'Desconto',
+          price_cents: -(@plan.price * 0.2),
+          quantity: 1,
+          recurrent: false
+        }
+      ]
     })
 
     if iugu_subscription.errors.nil?
