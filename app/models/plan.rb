@@ -1,11 +1,12 @@
 class Plan < ActiveRecord::Base
+  validates_uniqueness_of :identifier
+
   before_create :create_in_iugu
   before_save   :save_in_iugu
 
   has_many :subscriptions
   has_many :users, through: :subscriptions
 
-  validates_uniqueness_of :identifier
 
   # no-doc
   def price_per_month
