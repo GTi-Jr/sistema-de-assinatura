@@ -2,7 +2,7 @@ class Iugu::CheckoutsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   before_action :authenticate_user!
-  #before_action :block_actions
+  before_action :block_actions
   before_action :set_plan, only: [:confirm_checkout, :checkout]
   before_action :set_subscription , only: [:suspend]
 
@@ -33,24 +33,39 @@ class Iugu::CheckoutsController < ApplicationController
 
     expires = Date.new(year,month,25)
 
-    iugu_subscription = Iugu::Subscription.create({
+    subitems = { 
+      subitems: [
+        {
+          description: 'Desconto',
+          price_cents: -(@plan.price_in_cents * 0.2).to_i,
+          quantity: 1,
+          recurrent: false
+        }
+      ]
+    }
+
+    options = {
       plan_identifier: @plan.identifier,
       customer_id:     current_user.customer_id,
       expires_at:      expires,
       subitems: [
         {
           description: 'Desconto',
-          price_cents: -(@plan.price * 0.2),
+          price_cents: -(@plan.price_in_cents * 0.2).to_i,
           quantity: 1,
           recurrent: false
         }
       ]
-    })
+    }
+
+    options.merge(subitems) if current_user.discount
+
+    iugu_subscription = Iugu::Subscription.create(options)
 
     if iugu_subscription.errors.nil?
       redirect_to user_profile_path
     else
-      redirect_to user_profile_path, alert: 'Não foi possível proceder para assinatura'
+      redirect_to user_profile_path, alert: 'Não foi possível assinar'
     end
   end
 
@@ -58,9 +73,8 @@ class Iugu::CheckoutsController < ApplicationController
     customer = Iugu::Customer.fetch(current_user.customer_id)
 
     payment = customer.payment_methods.create({
-      description: "Primeiro Cartão",
+      description: 'Cartão',
       token: params[:token]
-
     })
 
     redirect_to user_profile_path

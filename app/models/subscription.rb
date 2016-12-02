@@ -87,7 +87,7 @@ class Subscription < BaseModel
   #
   # Retorna true caso esteja associado e falso C.C.
   def in_iugu?
-    !!subscription_id
+    !!subscription_code
   end
 
   # Retorna o objeto presente no banco de dados do Iugu. Caso não tenha,

@@ -7,18 +7,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_registration
+    redirect_to :back unless current_user.complete?
     @user = current_user
   end
 
   def complete_registration
     @user = User.new(after_registration_params) # Apenas para não perder os dados do formulário
     current_user.update_attribute(:complete, check_after_registration_params)
+    current_user.update_attribute(:discount, true)
 
     if !current_user.complete
       @user.errors[:base] << 'Complete o cadastro'
       render :after_registration
     elsif current_user.update(after_registration_params)
-      redirect_to plans_path, notice: 'Informações salvas'
+      #redirect_to plans_path, notice: 'Informações salvas'
+      redirect_to :back, alert: 'Obrigada! Seu cadastro está completo e você garantiu ' +
+                                'seu desconto! Estamos muito felizes e em breve ' +
+                                'entraremos em contato para você escolher seu plano.'
     else
       current_user.errors.full_messages.each do |msg|
         @user.errors[:base] << msg
