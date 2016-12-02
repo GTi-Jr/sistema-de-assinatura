@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
   validates :addresses, length: { maximum: @@max_addresses_number }
 
   # Callbacks
-  before_create :create_in_iugu
-  before_save   :save_in_iugu
+  #before_create :create_in_iugu
+  #before_save   :save_in_iugu
   after_save    :subscribe_user_to_mailing_list
 
   def owns_subscription?(subscription)
