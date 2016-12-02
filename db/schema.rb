@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109215247) do
+ActiveRecord::Schema.define(version: 20161202025010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,18 +80,20 @@ ActiveRecord::Schema.define(version: 20161109215247) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.float    "price"
-    t.string   "iugu_plan_id"
+    t.string   "iugu_id"
+    t.string   "identifier"
   end
 
   create_table "subscriptions", force: :cascade do |t|
-    t.date     "canceled_on"
+    t.date     "suspended_on"
     t.string   "subscription_code"
     t.integer  "user_id"
     t.integer  "plan_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "paypal_customer_token"
-    t.string   "paypal_recurring_profile_token"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "iugu_id"
+    t.integer  "iugu_payment_status"
+    t.boolean  "active"
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,7 +118,7 @@ ActiveRecord::Schema.define(version: 20161109215247) do
     t.boolean  "complete",               default: false
     t.integer  "plan_intention"
     t.string   "customer_id"
-    t.string   "subscription_id"
+    t.boolean  "discount"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

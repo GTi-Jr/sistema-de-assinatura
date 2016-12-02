@@ -62,20 +62,8 @@ a:visited {
   color: white;
 }
 
-.jumbotron {
-  .pricing-plan {
-    .body {
-      color: #313447; /* fix para pricing plans funcionar dentro do jumbotron */
-    }
-  }
-}
-
 #pricing {
   background-color: $primary-color;
-}
-
-.pricing-plan .header {
-  background-color: $terciary-color;
 }
 
 .caminho-da-cegonha {

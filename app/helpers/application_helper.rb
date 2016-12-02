@@ -12,6 +12,10 @@ module ApplicationHelper
     number_to_currency(price, unit: 'R$', separator: ',', delimiter: '')
   end
 
+  def discount(price, percentage)
+    price - (price * percentage / 100)
+  end
+
   def resource_name
     :user
   end

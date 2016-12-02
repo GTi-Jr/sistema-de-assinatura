@@ -52,9 +52,8 @@ class ProfileController < ApplicationController
   end
 
   def update_subscription_babies
-    d
     @subscription = Subscription.find(params[:subscription_id])
-    
+
     if current_user.owns_subscription?(@subscription)
       if @subscription.update(subscriptions_babies_params)
         redirect_to :back, notice: 'Bebês atualizados'

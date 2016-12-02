@@ -10,18 +10,26 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
+  # Permite validações em cima do atributo cpf. Só será possível salvar o objeto
+  # caso o cpf seja um número válido.
   usar_como_cpf :cpf
 
+  # Relacionamentos
   has_many :addresses
-  has_many :subscriptions, -> { where(canceled_on: nil) }
-  has_many :canceled_subscriptions, -> { where.not(canceled_on: nil) }, class_name: 'Subscription'
+  has_many :subscriptions, -> { active }
+  has_many :suspended_subscriptions, -> { suspended }, class_name: 'Subscription'
   has_many :plans, through: :subscriptions
 
+  # Atributos conjuntos
   accepts_nested_attributes_for :addresses
 
+  # Validações
   validates :addresses, length: { maximum: @@max_addresses_number }
 
-  after_save :subscribe_user_to_mailing_list
+  # Callbacks
+  before_create :create_in_iugu
+  before_save   :save_in_iugu
+  after_save    :subscribe_user_to_mailing_list
 
   def owns_subscription?(subscription)
     subscriptions.include?(subscription)
@@ -70,12 +78,12 @@ class User < ActiveRecord::Base
     name ? name.split(' ').last : ''
   end
 
-  def any_subscriptions?
-    !subscriptions.empty?
+  def female?
+    sex == 'F'
   end
 
-   def subscribed?
-    !!subscription_id
+  def any_subscriptions?
+    !subscriptions.empty?
   end
 
   def customer
@@ -88,8 +96,9 @@ class User < ActiveRecord::Base
     Iugu::Customer.fetch(customer_id) rescue nil
   end
 
-  def subscription
-    Iugu::Subscription.fetch(subscription_id) if subscribed?
+  # Retora o objeto do usuário que está presente na base de dados do Iugu.
+  def iugu_customer
+    @customer ||= Iugu::Customer.fetch(customer_id)
   end
 
   def payment_methods
@@ -102,7 +111,37 @@ class User < ActiveRecord::Base
 
   protected
 
-    def subscribe_user_to_mailing_list
-      SubscribeUserToMailingListJob.perform_later(id)
+  # Logo antes do cadastro, enviar email do usuário para o MailChimp.
+  #
+  # before_save : subscribe_user_to_mailing_list
+  def subscribe_user_to_mailing_list
+    SubscribeUserToMailingListJob.perform_later(id)
+  end
+
+  # Logo após o usuário se cadastrar adiciona o adiciona na base de dados do
+  # Iugu e associamos o customer_id de lá ao nosso banco de dados para podermos
+  # acessá-lo depois.
+  #
+  # before_create :create_in_iugu
+  def create_in_iugu
+    customer = Iugu::Customer.create({
+      email: email,
+      name: name
+    })
+
+    self.customer_id = customer.id
+  end
+
+  # Sempre que formos atualizar os dados do usuário localmente, devemos mantê-los
+  # atualizados com os dados no Iugu.
+  #
+  # before_save :save_in_iugu
+  def save_in_iugu
+    unless new_record?
+      iugu_customer.name     = name if name
+      iugu_customer.email    = email if email
+      iugu_customer.cpf_cnpj = cpf.to_s if cpf
+      iugu_customer.save
     end
+  end
 end

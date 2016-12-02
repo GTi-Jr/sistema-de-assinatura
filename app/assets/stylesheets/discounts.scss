@@ -1,0 +1,15 @@
+@import "variables.scss";
+
+.discount-circle {
+  position: absolute;
+  top: 0px;
+  padding: 14%;
+  left: 0;
+  border-radius: 100%;
+  background-color: $terciary-color;
+  z-index: 2;
+}
+
+#plans-list {
+  padding-top: 100px;
+}

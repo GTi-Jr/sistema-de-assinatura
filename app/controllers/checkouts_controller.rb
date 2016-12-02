@@ -1,15 +1,12 @@
 class CheckoutsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
-
   def checkout
     if params[:identifier]
       @plan = Iugu::Plan.fetch_by_identifier(params[:identifier]) rescue nil
     end
     @payment_method = "credit_card"
   end
-
-
 
   def subscribe_to_plan
     customer = current_user.customer

@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   def block_actions
-    redirect_to :back, alert: 'Ação indisponível no momento. Cheque mais tarde'
+    #redirect_to :back, alert: 'Ação indisponível no momento. Cheque mais tarde'
+    redirect_to :back, alert: 'Obrigada! Seu cadastro está completo e você garantiu ' +
+                              'seu desconto! Estamos muito felizes e em breve ' +
+                              'entraremos em contato para você escolher seu plano.'
   end
 end

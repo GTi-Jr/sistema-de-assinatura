@@ -106,7 +106,7 @@ blockquote.blockquote-reverse {
   border-right: 3px solid $terciary-color;
 }
 
-ody, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-link.complete>.status:before{
+body, ul li:before, .gall-details a:before, .icon-set span, .countdown, .step-link.complete>.status:before{
   font-family: 'ProximaNovaAltLight';
 }
 
@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5 {
 
 .main-navi {
   overflow: visible;
-  
+
   ul {
     @media screen and (max-width: $break-medium) {
       li {

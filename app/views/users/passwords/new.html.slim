@@ -1,0 +1,25 @@
+section#retrieve-password
+  .container
+    .row
+      .col-xs-12
+        h1 Esqueceu sua senha?
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          .form-group.col-xs-12
+            = f.label :email
+            = f.text_field :email, id: 'email', class: 'form-control'
+          .form-group.col-xs-12.text-center
+            = f.submit 'Enviar instruções', class: 'btn btn-primary terciary-text'
+= content_for :js do
+  javascript:
+    $(document).ready(function() {
+      toastr.options.closeButton = true;
+      toastr.options.newestOnTop = false;
+    });
+  - resource.errors.full_messages.each_with_index do |msg, index|
+    javascript:
+      $(document).ready(function() {
+        setTimeout(function() {
+          toastr.warning('#{msg}');
+        }, #{index * 800});
+      });
+
