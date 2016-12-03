@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  include SendGrid
-  default from: 'naoresponda@caixadacegonha.com.br'
+  include ::SendGrid if Rails.env.production?
+  default from: 'contato@caixadacegonha.com.br'
   layout 'mailer'
 end
