@@ -87,7 +87,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options[:host] = 'www.caixadacegonha.com.br'
 
   ActionMailer::Base.smtp_settings = {
-    :addres           => 'smtp.sendgrid.net',
+    :address          => 'smtp.sendgrid.net',
     :port             => 587,
     :authentication   => :plain,
     :user_name        => ENV['SENDGRID_USERNAME'],
