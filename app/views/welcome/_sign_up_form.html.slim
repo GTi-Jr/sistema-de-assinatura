@@ -6,7 +6,7 @@ h2
   h3.text-center.primary-text
     = link_to 'Veja nossos planos!', plans_path, class: 'btn btn-primary terciary-text'
 - else
-  = form_for resource, as: resource_name, url: user_registration_path(:user) do |f|
+  = form_for resource, as: resource_name, url: user_registration_path do |f|
     .form-group.col-xs-12
       = f.text_field :name, class: 'form-control', placeholder: 'Nome'
     .form-group.col-xs-12

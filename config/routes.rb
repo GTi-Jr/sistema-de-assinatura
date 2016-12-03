@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  default_url_options host: 'caixadacegonha.com.br'
+
   root 'welcome#home'
 
   resources :users, only: [:new, :create]
