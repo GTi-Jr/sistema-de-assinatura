@@ -83,8 +83,7 @@ Rails.application.configure do
   # Google Analytics
   GA.tracker = ENV['GA-TRACKER']
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options[:host] = 'www.caixadacegonha.com.br'
+  config.action_mailer.default_url_options[:host] = 'caixadacegonha.com.br'
 
   ActionMailer::Base.smtp_settings = {
     :address          => 'smtp.sendgrid.net',
@@ -92,6 +91,6 @@ Rails.application.configure do
     :authentication   => :plain,
     :user_name        => ENV['SENDGRID_USERNAME'],
     :password         => ENV['SENDGRID_PASSWORD'],
-    :domain           => 'www.caixadegonha.com.br'
+    :domain           => 'caixadegonha.com.br'
   }
 end
