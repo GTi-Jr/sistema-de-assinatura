@@ -37,7 +37,7 @@ class Iugu::CheckoutsController < ApplicationController
       subitems: [
         {
           description: 'Desconto',
-          price_cents: -(@plan.price_in_cents * 0.2).to_i,
+          price_cents: -(@plan.price_in_cents * 0.3).to_i,
           quantity: 1,
           recurrent: false
         }
@@ -48,14 +48,6 @@ class Iugu::CheckoutsController < ApplicationController
       plan_identifier: @plan.identifier,
       customer_id:     current_user.customer_id,
       expires_at:      expires,
-      subitems: [
-        {
-          description: 'Desconto',
-          price_cents: -(@plan.price_in_cents * 0.2).to_i,
-          quantity: 1,
-          recurrent: false
-        }
-      ]
     }
 
     options.merge(subitems) if current_user.discount

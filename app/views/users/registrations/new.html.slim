@@ -3,7 +3,7 @@ section#register-account
     .row
       .col-xs-12
         h1 Criando sua conta
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = form_for(resource, as: resource_name, url: user_registration_path) do |f|
           .form-group.col-xs-12
             = f.label :email
             = f.email_field :email, id: 'email', class: 'form-control', required: true
