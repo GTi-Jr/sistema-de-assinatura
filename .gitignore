@@ -14,7 +14,6 @@
 
 #yml files
 config/application.yml
-config/secrets.yml
 
 .byebug_history
 
