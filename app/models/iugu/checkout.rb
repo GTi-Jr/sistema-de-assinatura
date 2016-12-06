@@ -14,6 +14,14 @@ class Iugu::Checkout
     Iugu::Subscription.create(subscription_options)
   end
 
+  def due_day
+    @due_day || 25
+  end
+
+  def due_day=(day)
+    @due_day = day
+  end
+
   private
 
   def create_payment_method
@@ -51,16 +59,16 @@ class Iugu::Checkout
     month = Date.today.month
     day   = Date.today.day
 
-    if day > 25 && month && month == 12
+    if day > due_day && month && month == 12
       month = 0 + @plan.duration
       year = year + 1
-    elsif day > 25 && (month + @plan.duration) > 12
+    elsif day > due_day && (month + @plan.duration) > 12
       month = (month + @plan.duration) - 12
       year = year + 1
-    elsif day > 25
+    elsif day > due_day
       month = month + @plan.duration
     end
 
-    Date.new(year, month, 25)
+    Date.new(year, month, due_day)
   end
 end

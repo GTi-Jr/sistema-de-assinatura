@@ -41,7 +41,6 @@ Rails.application.routes.draw do
   post 'iugu/webhooks' => 'iugu/webhooks#webhook', as: :iugu_wekhooks
   post '/iugu_subscription' => 'plans#iugu_subscribe', as: :subscribe_iugu
   delete 'iugu_unsubscribe/:id' => 'plans#unsubscribe', as: :iugu_unsubscribe
-  post '/save_credit_card'    => 'iugu/checkouts#save_credit_card', as: :save_credit_card
 
   # Subscriptions / Assinaturas
   get 'confirmar-cancelamento/:id' => 'subscriptions#confirm_cancellation', as: :confirm_cancellation

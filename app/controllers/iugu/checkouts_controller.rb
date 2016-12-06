@@ -2,7 +2,7 @@ class Iugu::CheckoutsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   before_action :authenticate_user!
-  before_action :block_actions
+  #before_action :block_actions
   before_action :set_plan, only: [:confirm_checkout, :checkout]
   before_action :set_subscription , only: [:suspend]
 
@@ -13,21 +13,10 @@ class Iugu::CheckoutsController < ApplicationController
     iugu_checkout = Iugu::Checkout.new(@plan, current_user, params[:token])
 
     if iugu_checkout.create_subscription.errors.nil?
-      redirect_to user_profile_path
+      redirect_to user_profile_path, notice: "Seu plano foi assinado! Seu pagamento será processado até o próximo dia #{iugu_checkout.due_day}"
     else
       redirect_to user_profile_path, alert: 'Não foi possível assinar'
     end
-  end
-
-  def save_credit_card
-    customer = Iugu::Customer.fetch(current_user.customer_id)
-
-    payment = customer.payment_methods.create({
-      description: 'Cartão',
-      token: params[:token]
-    })
-
-    redirect_to user_profile_path
   end
 
   def suspend
