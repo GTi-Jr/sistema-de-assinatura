@@ -7,8 +7,7 @@ section#plans-listing
     .row
       - @plans.each do |plan|
         .col-xs-12.col-sm-4#plans-list
-          h3.discount-circle
-            | -20%*<br>off
+          = render 'discounts/circle'
           svg[viewBox="0 0 286 120" class="cloud-image"]
             path[d="M3411.63269,1673.85369c0,24.58719-18.76315,44.728-42.55443,46.46859q-1.65788.124-3.35069,0.12285H3169.966c-0.0022-.029-0.00441-0.058-0.00441-0.08712q-1.34733.08714-2.71664,0.08712c-22.98115,0-41.61225-18.9096-41.61225-42.23438,0-23.327,18.63109-42.23441,41.61225-42.23441a40.95793,40.95793,0,0,1,20.80612,5.65078,35.37334,35.37334,0,0,1,33.0265-23.08124,34.825,34.825,0,0,1,10.1774,1.51045,66.09458,66.09458,0,0,1,101.84017,9.61011,38.99695,38.99695,0,0,1,20.35266-.71947,45.28339,45.28339,0,0,1,12.27977-1.687C3391.08192,1627.26,3411.63269,1648.12023,3411.63269,1673.85369Z" transform="translate(-3125.63269 -1600.44513)"]
           .pricing-plan
@@ -19,7 +18,7 @@ section#plans-listing
                 li.text-center.primary-text
                   strike
                     = currency(plan.price)
-                  |  #{currency(discount(plan.price, 20))}
+                  |  #{currency(discount(plan.price, user_discount(current_user)))}
                 li.text-center
                   h3.primary-text
                     | #{plan.duration} #{plan.class.human_attribute_name(:months, count: plan.duration.to_i)}
@@ -28,7 +27,7 @@ section#plans-listing
                     strike
                       | #{currency(plan.price_per_month)} ao mês
                   h3.primary-text
-                    | #{currency(discount(plan.price_per_month, 20))} ao mês
+                    | #{currency(discount(plan.price_per_month, user_discount(current_user)))} ao mês
                 li.text-center.primary-text
                   = plan.description
                 li.text-center.primary-text

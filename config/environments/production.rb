@@ -83,7 +83,7 @@ Rails.application.configure do
   # Google Analytics
   GA.tracker = ENV['GA-TRACKER']
 
-  config.action_mailer.default_url_options[:host] = 'caixadacegonha.com.br'
+  config.action_mailer.default_url_options = { host: "www.caixadacegonha.com.br" }
 
   ActionMailer::Base.smtp_settings = {
     :address          => 'smtp.sendgrid.net',
