@@ -10,66 +10,13 @@ class Iugu::CheckoutsController < ApplicationController
   end
 
   def checkout
-    customer = Iugu::Customer.fetch(current_user.customer_id)
+    iugu_checkout = Iugu::Checkout.new(@plan, current_user, params[:token])
 
-    payment = customer.payment_methods.create({
-      description: 'Cartão',
-      token: params[:token]
-    })
-
-    year = Date.today.year
-    month = Date.today.month
-    day = Date.today.day
-
-    if day > 25 && month && month == 12
-      month=0 + @plan.duration
-      year= year+1
-    elsif day > 25 && (month+@plan.duration) > 12
-      month= (month+ @plan.duration) - 12
-      year= year+1
-    elsif day > 25
-        month = month+@plan.duration
-    end
-
-    expires = Date.new(year,month,25)
-
-    subitems = { 
-      subitems: [
-        {
-          description: 'Desconto',
-          price_cents: -(@plan.price_in_cents * 0.3).to_i,
-          quantity: 1,
-          recurrent: false
-        }
-      ]
-    }
-
-    options = {
-      plan_identifier: @plan.identifier,
-      customer_id:     current_user.customer_id,
-      expires_at:      expires,
-    }
-
-    options.merge(subitems) if current_user.discount
-
-    iugu_subscription = Iugu::Subscription.create(options)
-
-    if iugu_subscription.errors.nil?
-      redirect_to user_profile_path
+    if iugu_checkout.create_subscription.errors.nil?
+      redirect_to user_profile_path, notice: "Seu plano foi assinado! Seu pagamento será processado até o próximo dia #{iugu_checkout.due_day}"
     else
       redirect_to user_profile_path, alert: 'Não foi possível assinar'
     end
-  end
-
-  def save_credit_card
-    customer = Iugu::Customer.fetch(current_user.customer_id)
-
-    payment = customer.payment_methods.create({
-      description: 'Cartão',
-      token: params[:token]
-    })
-
-    redirect_to user_profile_path
   end
 
   def suspend

@@ -1,12 +1,9 @@
 class Baby < ActiveRecord::Base
   belongs_to :subscription
 
-  validates_presence_of :name
-
   def belongs_to?(user)
     subscription.user_id == user.id
   end
-
 
   def age
     unless birthdate.blank?
@@ -14,6 +11,4 @@ class Baby < ActiveRecord::Base
       now.year - birthdate.year - (birthdate.to_date.change(:year => now.year) > now ? 1 : 0)
     end
   end
-
-
 end
