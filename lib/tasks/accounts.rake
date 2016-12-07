@@ -17,6 +17,10 @@ namespace :accounts do
   end
 
   task add_users_to_mailchimp: :environment do
-    User.all.each { |user| user.subscribe_to_mailing_list }
+    User.all.each do |user| 
+      p "Adicionando #{user.email} à lista."
+      user.subscribe_to_mailing_list
+      sleep(0.5)
+    end
   end
 end
