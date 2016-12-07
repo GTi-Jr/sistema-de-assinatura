@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :authenticate_user!, only: [:after_registration, :complete_registration]
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
@@ -7,8 +8,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_registration
-    redirect_to :back unless current_user.complete?
-    @user = current_user
+    if user_signed_in?
+      redirect_to user_profile_path if current_user.complete?
+      @user = current_user
+    elsif
+      redirect_to root_path
+    end
   end
 
   def complete_registration
