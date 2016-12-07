@@ -19,7 +19,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def complete_registration
     @user = User.new(after_registration_params) # Apenas para não perder os dados do formulário
     current_user.update_attribute(:complete, check_after_registration_params)
-    current_user.update_attribute(:discount, true)
+    current_user.update_attribute(:discount, 20) if current_user.discount.nil?
 
     if !current_user.complete
       @user.errors[:base] << 'Complete o cadastro'

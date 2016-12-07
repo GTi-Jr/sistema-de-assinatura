@@ -8,7 +8,7 @@ namespace :accounts do
                    email: row[1],
                    phone: row[2],
                    password: password,
-                   discount: true) # Ativa o desconto para esses usuários
+                   discount: 30) # Ativa o desconto para esses usuários
 
       if user.errors.empty?
         UserMailer.notice_discount(user, password).deliver_now

@@ -40,13 +40,11 @@ class Iugu::Checkout
   end
 
   def discount
-    user_discount = @user.discount? ? 0.3 : 0.2
-
     {
       subitems: [
         {
           description: 'Desconto',
-          price_cents: -(@plan.price_in_cents * user_discount).to_i,
+          price_cents: -(@plan.price_in_cents * @user.discount).to_i,
           quantity: 1,
           recurrent: false
         }
