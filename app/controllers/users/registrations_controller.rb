@@ -25,6 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user.errors[:base] << 'Complete o cadastro'
       render :after_registration
     elsif current_user.update(after_registration_params)
+      current_user.subscribe_to_mailing_list
       redirect_to plans_path, alert: 'Obrigada! Seu cadastro está completo e você garantiu ' +
                                 'seu desconto! Estamos muito felizes e em breve ' +
                                 'entraremos em contato para você escolher seu plano.'

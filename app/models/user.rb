@@ -109,7 +109,7 @@ class User < ActiveRecord::Base
   end
 
   # Enviar email do usuário para o MailChimp.
-  def subscribe_user_to_mailing_list
+  def subscribe_to_mailing_list
     SubscribeUserToMailingListJob.perform_later(id)
   end
 
