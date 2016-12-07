@@ -10,9 +10,7 @@ namespace :accounts do
                    password: password,
                    discount: 30) # Ativa o desconto para esses usuários
 
-      if user.errors.empty?
-        UserMailer.notice_discount(user, password).deliver_now
-      else
+      unless user.errors.empty?
         p user.errors.full_messages
       end
     end

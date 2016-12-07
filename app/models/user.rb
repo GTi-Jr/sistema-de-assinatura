@@ -29,7 +29,6 @@ class User < ActiveRecord::Base
   # Callbacks
   #before_create :create_in_iugu
   #before_save   :save_in_iugu
-  after_save    :subscribe_user_to_mailing_list
 
   def owns_subscription?(subscription)
     subscriptions.include?(subscription)
@@ -109,14 +108,12 @@ class User < ActiveRecord::Base
     Iugu::Invoice.search( customer_id: customer_id ).results rescue []
   end
 
-  protected
-
-  # Logo antes do cadastro, enviar email do usuário para o MailChimp.
-  #
-  # before_save : subscribe_user_to_mailing_list
+  # Enviar email do usuário para o MailChimp.
   def subscribe_user_to_mailing_list
     SubscribeUserToMailingListJob.perform_later(id)
   end
+
+  protected
 
   # Logo após o usuário se cadastrar adiciona o adiciona na base de dados do
   # Iugu e associamos o customer_id de lá ao nosso banco de dados para podermos
