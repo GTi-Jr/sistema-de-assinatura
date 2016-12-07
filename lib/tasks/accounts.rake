@@ -1,12 +1,18 @@
 namespace :accounts do
-  desc 'Task para pega usuários de uma planilha CSV e cadastrá-los'
+  desc 'Task para pegar usuários de uma planilha CSV e cadastrá-los'
   task generate: :environment do
-    CSV.foreach(Rails.root.join("db/csv/emails.csv"), headers: false) do |row|
+    CSV.foreach(Rails.root.join("db/csv/accounts.csv"), headers: false) do |row|
       password = ENV['PASSWORD']
-      User.create!(name: row[0], 
-                   email: row[1], 
+      p "Seeding #{row[1]}"
+      user = User.create(name: row[0],
+                   email: row[1],
+                   phone: row[2],
                    password: password,
                    discount: true) # Ativa o desconto para esses usuários
+
+      unless user.errors.nil?
+        p user.errors.full_messages
+      end
     end
   end
 
