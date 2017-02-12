@@ -31,6 +31,11 @@ a:visited {
   background-color: $primary-color;
 }
 
+.primary-bg-color-light {
+  background-color: $primary-color-light;
+}
+
+
 .secondary-bg-color {
   background-color: $secondary-color;
 }
@@ -169,4 +174,3 @@ select.form-control option {
   // Colocar overflow: hidden no elemento  pai
   // Colocar position: relative no elemento  pai
 }
-

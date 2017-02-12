@@ -1,6 +1,6 @@
-Admin.create(email: 'admin@caixadacegonha.com.br', password: ENV['CEGONHA_ADMIN_PASSWORD'],password_confirmation: ENV['CEGONHA_ADMIN_PASSWORD'])
+Admin.create!(email: 'admin@caixadacegonha.com.br', password: ENV['CEGONHA_ADMIN_PASSWORD'],password_confirmation: ENV['CEGONHA_ADMIN_PASSWORD'])
 
-Plan.create identifier: 'plan_1_1', name: 'Plano Mensal', duration: 1, price: 74.90, description: 'Todo mês um mundo de surpresas chegando até você!'
+Plan.create! identifier: 'plan_1_1', name: 'Plano Mensal', duration: 1, price: 74.90, description: 'Todo mês um mundo de surpresas chegando até você!'
 Plan.create identifier: 'plan_2_1', name: 'Plano Trimestral', duration: 3, price: 209.70, description: 'Três meses de muito carinho e muitas novidades!'
 Plan.create identifier: 'plan_3_1', name: 'Plano Semestral', duration: 6, price: 389.40, description: 'Durante seis meses você recebe uma linda caixinha preparada especialmente para você!'
 
@@ -42,5 +42,3 @@ Faq.create(question: 'Como a CAIXA DA CEGONHA é adaptada para atender às minha
 Faq.create(question: 'Não sou mãe nem gestante, mas gostaria de assinar a CAIXA DA CEGONHA para uma outra pessoa. É possível?',answer: 'Sim, a Caixa da Cegonha é uma excelente opção de presente! Você pode presentear uma amiga com uma caixa no chá de bebê, por exemplo! Até o momento estamos trabalhando somente com assinaturas recorrentes, mas em breve você poderá escolher entre algumas novas opções de plano além dos planos mensais, trimestrais e semestrais.')
 Faq.create(question: 'Como posso pagar pela CAIXA DA CEGONHA?',answer: 'A Caixa da Cegonha  pode ser paga através de cartão de crédito. O pagamento através de cartão de crédito pode ser parcelado no número de caixinhas correspondentes ao plano solicitado.')
 Faq.create(question: 'Como faço para cancelar minha assinatura?',answer: 'Será uma pena, mas você tem todo direito de não querer continuar a receber suas caixinhas recheadas de carinho. Para isto você deve enviar um e-mail para contato@caixadacegonha.com.br para solicitar o cancelamento e atentar para os Termos e Condições do contrato de adesão.')
-
-
