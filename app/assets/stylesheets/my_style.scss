@@ -35,7 +35,6 @@ a:visited {
   background-color: $primary-color-light;
 }
 
-
 .secondary-bg-color {
   background-color: $secondary-color;
 }
@@ -49,7 +48,7 @@ a:visited {
 }
 
 .secondary-text {
-  color: $secondary-color !important;
+  color: $button-color !important;
 }
 
 .terciary-text {
@@ -174,3 +173,22 @@ select.form-control option {
   // Colocar overflow: hidden no elemento  pai
   // Colocar position: relative no elemento  pai
 }
+
+.h-centralize{
+  margin-left: 10%;
+  margin-right: 10%;
+  max-width: 80%;
+}
+
+.v-centralize{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  max-width: 90%;
+}
+
+.rightize{
+  margin-right: 20%;
+}
+ .toppable{
+   padding-bottom: 10%;
+ }

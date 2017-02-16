@@ -25,6 +25,7 @@ section#clouds
         = image_tag 'nuvem-pequena.png', class: 'pull-left'
 / Como Funciona
 section#how-it-works
+.secondary-bg-color
   .container
     .row
       .col-xs-12.text-center
@@ -102,7 +103,7 @@ section#plans.primary-bg-color-light
         p * Desconto referente apenas à primeira parcela.
 section#contact
   h1.header.text-light.text-center Fale com a Cegonha
-  .container
+  .container.h-centralize
     .row
       .col-xs-12.col-sm-6.pull-left
         .col-xs-12
@@ -113,14 +114,14 @@ section#contact
         .col-xs-12
           .text-light.hidden-xs +55 85 9696-8916
           .text-light.text-center.visible-xs +55 85 9696-8916
-        .col-xs-12
+        .col-xs-12.v-centralize
           h4.text-light Redes Sociais
-          h5.social
+          h5.social.v-centralize
             a.fa.fa-facebook.tooltipped.text-light title="Facebook" href="https://www.facebook.com/caixadacegonha/" target="_blank"
             a.fa.fa-instagram.tooltipped.text-light title="Instagram" href="https://www.instagram.com/caixadacegonha/" target="_blank"
       .col-xs-12.col-sm-6.pull-right
         h4.text-light.pull-left Dúvida ou sugestão?
-        = form_tag contact_form_path, class: 'feedback-form'
+        = form_tag contact_form_path, class: 'feedback-form rightize'
           = invisible_captcha
           .form-group
             = text_field_tag :name, nil, class: 'form-control', id: 'name1', placeholder: 'Nome'

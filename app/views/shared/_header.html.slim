@@ -29,13 +29,12 @@ header.stiky-header
       / new address modal
       #login-modal.modal.fade aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
         .modal-dialog role="document"
-          .modal-content.primary-bg-color
             = form_for(resource, as: resource_name, url: session_path(:user)) do |f|
-              .modal-header
+              .modal-header.primary-bg-color
                 button.close aria-label="Close" data-dismiss="modal" type="button"
                   span.text-terciary.text-light aria-hidden="true"  ×
                 h4.modal-title.text-center.text-light Entrar
-              .modal-body
+              .modal-body.primary-bg-color-light
                 .container-fluid
                   .form-group.col-sm-5.col-sx-12
                     = f.text_field :email, id: 'email', class: 'form-control', placeholder: 'E-mail'
@@ -44,7 +43,7 @@ header.stiky-header
                     = link_to 'Esqueci minha senha', new_password_path(:user)
                   .form-group.col-sm-3.col-xs-12.text-center
                     = f.submit 'Entrar', class: 'btn btn-primary terciary-text'
-              .modal-footer
+              .modal-footer.primary-bg-color-light
                 .text-center
                   h5
                     | Ainda não é assinante? #{link_to 'Junte-se a nós', register_path, class: 'btn btn-primary terciary-text'}

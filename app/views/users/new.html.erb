@@ -1,6 +1,7 @@
-<div class="container">
-  <div class="row jumbotron">
-    <div class="col-xs-12 ">
+<div class="primary-bg-color-light toppable">
+<div class="container h-centralize">
+  <div class="row">
+    <div class="col-xs-12">
       <h1 class="">Fazer cadastro</h1>
 
       <%= form_for @user do |f| %>
@@ -55,13 +56,13 @@
         <%= f.hidden_field :plan_intention %>
 
         <div class="form-group col-xs-12 text-center">
-          <%= f.submit 'Salvar', class: 'btn btn-primary' %>
+          <%= f.submit 'Salvar', class: 'btn btn-primary terciary-text' %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
-
+</div>
 <%= content_for :head do %>
   <%= javascript_include_tag 'masks' %>
   <%= javascript_include_tag 'users/registration' %>
@@ -81,4 +82,3 @@
     });
   </script>
 <% end %>
-

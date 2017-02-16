@@ -33,16 +33,19 @@ input[type="submit"] {
 
 .btn-primary {
   color: #313447;
-  background-color: $secondary-color;
+  background-color: $button-color;
 }
 
 .btn-primary:hover {
   color: #313447;
-  background-color: #FFF9B0;
+  background-color: $secondary-color;
 }
 
 .stiky-header {
+
   .logo img {
+    margin-left: 20%;
+    margin-top: 5%;
     max-height: 100px;
   }
 
@@ -129,7 +132,12 @@ h1, h2, h3, h4, h5 {
 .stiky-header {
   position: relative;
   background-color: $primary-color;
+  // font-family: sans-serif;
+  // // min-height: 15%;
+  // max-height: 15%;
 }
+
+
 
 @media screen and (max-width: 991px) {
   .main-navi {
@@ -203,4 +211,5 @@ small {
 .pricing-plan .body ul li {
   border: none;
 }
+
 // Fim do estilo dos planos
