@@ -40,7 +40,7 @@ header.stiky-header
                     = f.text_field :email, id: 'email', class: 'form-control', placeholder: 'E-mail'
                   .form-group.col-sm-4.col-sx-12
                     = f.password_field :password, class: 'form-control', placeholder: 'Senha'
-                    = link_to 'Esqueci minha senha', new_password_path(:user)
+                    = link_to 'Esqueci minha senha', new_password_path(:user), class: 'terciary-text'
                   .form-group.col-sm-3.col-xs-12.text-center
                     = f.submit 'Entrar', class: 'btn btn-primary terciary-text'
               .modal-footer.primary-bg-color-light
