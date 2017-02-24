@@ -7,8 +7,11 @@ section .header {
 
 section#welcome {
   position: relative;
+  // position: inherit;
   background-repeat: round;
-  overflow: hidden;
+  // overflow: hidden;
+      // left: -25%;
+      // min-height: 100%;
 }
 
 section#welcome, section#login-form {

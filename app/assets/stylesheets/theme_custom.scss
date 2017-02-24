@@ -42,17 +42,27 @@ input[type="submit"] {
 }
 
 .stiky-header {
+  max-height: 50px;
 
   .logo img {
     margin-left: 20%;
-    margin-top: 5%;
-    max-height: 70px;
+    // margin-top: 1%;
+    max-height: 40px;
   }
 
   .logo-mobile {
     max-width: 156px;
     margin: 15px 0 15px 0;
   }
+
+  .main-navi
+  {
+        margin-right:  5%;
+    // margin-left: 20%;
+    margin-top: -2%;
+    // max-height: 40px;
+  }
+
 }
 
 .features {
