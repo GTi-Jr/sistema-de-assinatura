@@ -9,8 +9,26 @@ section#login-form.visible-xs
   .container
     = render 'welcome/sign_up_form', user: @new_user
 / Nuvens com mensagem
-section#clouds
-  .container-fluid
+section#clouds.page-block.primary-text-light
+  .container
+    .row.page-header
+      h2 Nossos Produtos
+      span Nossa curadoria
+    .row.features
+      .col-lg-4.col-md-4.col-sm-4
+        .feature-img
+          = image_tag 'gestante.png', class: 'pull-left'
+        h3 Gestantes
+      .col-lg-4.col-md-4.col-sm-4
+        .feature-img
+          = image_tag 'baby.png', class: 'pull-left'
+        h3 Recém-nascido
+      .col-lg-4.col-md-4.col-sm-4
+        .feature-img
+          = image_tag 'child.png', class: 'pull-left'
+      h3 Crianças até 5 anos
+
+  <!--.container-fluid
     .row
       .col-md-6.col-xs-12.col-md-offset-3.main-image-wrapper
         = image_tag 'nuvem-grande.png', class: 'main-image'
@@ -21,8 +39,8 @@ section#clouds
         = image_tag 'nuvem-media.png', class: 'pull-right'
       .col-xs-12.col-md-4
         h1= image_tag 'logos/logo-08.png', class: 'logo', style: 'margin: 0 auto'
-      .col-md-4.hidden-xs.hidden-sm
-        = image_tag 'nuvem-pequena.png', class: 'pull-left'
+      .col-md-4.hidden-xs.hidden-sm-->
+    <!--    = image_tag 'nuvem-pequena.png', class: 'pull-left'-->
 / Como Funciona
 section#how-it-works
 .secondary-bg-color

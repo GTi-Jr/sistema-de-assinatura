@@ -19,9 +19,9 @@ header.stiky-header
           li.text-center= link_to 'SAIR', logout_path, method: :delete, class: 'secondary-text'
         - else
             li.text-center= link_to 'ENTRAR', '#', class: 'secondary-text', 'data-toggle' => 'modal', 'data-target' => '#login-modal'
-      h5.social.col-xs-12.text-center.visible-xs.visible-sm
+      <!--h5.social.col-xs-12.text-center.visible-xs.visible-sm
         a.fa.fa-facebook.tooltipped.text-light title="Facebook" href="https://www.facebook.com/caixadacegonha/" target="_blank"
-        a.fa.fa-instagram.tooltipped.text-light title="Instagram" href="https://www.instagram.com/caixadacegonha/" target="_blank"
+        a.fa.fa-instagram.tooltipped.text-light title="Instagram" href="https://www.instagram.com/caixadacegonha/" target="_blank"-->
 - unless user_signed_in?
   /Modais
   = content_for :modals

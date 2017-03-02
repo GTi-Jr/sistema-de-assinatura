@@ -42,43 +42,43 @@ section#clouds {
   padding: 65px 0;
   margin-top: 10px;
 
-  @media screen and (max-width: $break-medium) {
-    .main-image-wrapper {
-      overflow: hidden;
-      padding: 0;
-    }
-  }
-  img.main-image {
-    position: absolute;
-    max-width: 2000px;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-    min-width: 100%;
-    max-height: 100%;
-  }
-
-  .image-with-text {
-    margin-top: 350px;
-
-
-    .text {
-      font-size: 1.5em;
-      line-height: 1.2em;
-      position: absolute;
-      width: 60%;
-      top: 0;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%,-50%);
-    }
-
-    .smaller-clouds {
-      img {
-        max-height: 100px;
-      }
-    }
-  }
+  // @media screen and (max-width: $break-medium) {
+  //   .main-image-wrapper {
+  //     overflow: hidden;
+  //     padding: 0;
+  //   }
+  // }
+  // img.main-image {
+  //   position: absolute;
+  //   max-width: 2000px;
+  //   transform: translate(-50%,-50%);
+  //   left: 50%;
+  //   top: 50%;
+  //   min-width: 100%;
+  //   max-height: 100%;
+  // }
+  //
+  // .image-with-text {
+  //   margin-top: 350px;
+  //
+  //
+  //   .text {
+  //     font-size: 1.5em;
+  //     line-height: 1.2em;
+  //     position: absolute;
+  //     width: 60%;
+  //     top: 0;
+  //     left: 50%;
+  //     top: 50%;
+  //     transform: translate(-50%,-50%);
+  //   }
+  //
+  //   .smaller-clouds {
+  //     img {
+  //       max-height: 100px;
+  //     }
+  //   }
+  // }
 }
 
 section#how-it-works {
