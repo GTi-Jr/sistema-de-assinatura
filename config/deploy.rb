@@ -8,7 +8,7 @@ lock '3.6.1'
 
 set :application, 'caixa_cegonha'
 set :repo_url, 'git@github.com:GTi-Jr/sistema-de-assinatura.git' # Edit this to match your repository
-set :branch, :master
+set :branch, :deploy2
 set :user, 'deploy'
 set :deploy_to, '/home/deploy/caixa_cegonha'
 set :pty, true
