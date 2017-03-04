@@ -111,15 +111,18 @@ section#plans.primary-bg-color-light
                         | #{currency(plan.price_per_month)} ao mês
                     h3.primary-text
                       | #{currency(discount(plan.price_per_month, user_discount(current_user)))} ao mês
-                  li.text-center.primary-text
-                    = plan.description
+                  li.text-center.primary-text Da gestação aos 5 anos
+                  /= plan.description
+
                   li.text-center.primary-text
                     h5 Frete grátis para Fortaleza
                   .buy-btn.text-centerd(data-no-turbolink='')
-                    = link_to 'Quero assinar!', confirm_checkout_path(plan.identifier), class: 'btn btn-primary terciary-text'
+                    = link_to confirm_checkout_path(plan.identifier), class: 'btn btn-primary terciary-text' do
+                         . Desconto de  #{user_discount(current_user)}%*
+                    end
       .row
         .col-xs-12
-          p * Desconto referente apenas à primeira parcela.
+          p As assinaturas serão renovadas automaticamente em caso de cancelamento, fale com a Cegonha.
 section#contact
   .container.welcome-margin-top
     h1.header.text-light.text-center Fale com a Cegonha
