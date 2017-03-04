@@ -54,7 +54,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'mailcatcher'
   #Deploy na Amazon
-  gem 'capistrano'
+  gem 'capistrano', '~> 3.6.1'
   gem 'capistrano3-puma'
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', require: false
@@ -68,4 +68,3 @@ end
 group :production do
   gem 'sendgrid'
 end
-
