@@ -44,8 +44,12 @@ input[type="submit"] {
 .stiky-header {
   max-height: 60px;
 
+
+
   .logo img {
-    margin-left: 20%;
+    display: inline;
+    // padding-left: 0;
+    margin-left: 15%;
     // margin-top: 1%;
     max-height: 40px;
   }
@@ -62,16 +66,35 @@ input[type="submit"] {
 
   .main-navi
   {
-    margin-right:  5%;
+    position: relative;
+    // margin-right:  5%;
     // margin-left: 20%;
+        // margin-left: 15%;
     margin-top: -2%;
     // max-height: 80px;;
+    // max-width: 55%;
+    ul li{
+      margin-top: 5%;
+    }
+    ul li a{
+      padding: 0 5px;
+      //  margin-top: 30%;
+    }
   }
 
   .navi-toggle{
     // margin-top: 6%;
     margin: 25px 0 0 18px;
     // margin-left: 2%;
+  }
+
+  .container{
+    // margin-right: 8%;
+    // margin-left: 8%;
+    margin-right: 4%;
+    margin-left: 5%;
+    max-width: 90%;
+    min-width: 90%;
   }
 
 }
