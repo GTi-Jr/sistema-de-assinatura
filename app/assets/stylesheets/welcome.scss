@@ -299,7 +299,9 @@ section#contact {
   }
   .cloud-link{
         margin-top: 5%;
-    background-image: image-url('../pricing-cloud.png');
+    // background-image: image-url('../pricing-cloud.png');
+    // background-image: url(<%=asset_path "pricing-cloud.png"%>);
+    background-image: asset-data-url("pricing-cloud.png");
     min-height: 430px;
     min-width: 320px;
     max-width: 320px;
