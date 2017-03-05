@@ -13,7 +13,7 @@ header.stiky-header
         li.text-center= link_to 'SOBRE', root_path(anchor: 'clouds'), class: 'scroll-up'
         li.text-center= link_to 'COMO FUNCIONA', root_path(anchor: 'how-it-works')
         li.text-center= link_to 'PLANOS', root_path(anchor: 'plans')
-        li.text-center= link_to 'CONTATO', root_path(anchor: 'contact')
+        li.text-center= link_to 'CONTATO', root_path(anchor: 'contacts')
         - if user_signed_in?
           li.text-center= link_to 'PERFIL', user_profile_path
           li.text-center= link_to 'SAIR', logout_path, method: :delete, class: 'secondary-text'

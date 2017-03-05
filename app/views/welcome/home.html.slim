@@ -46,10 +46,10 @@ section#clouds
       .col-md-4.hidden-xs.hidden-sm-->
     <!--    = image_tag 'nuvem-pequena.png', class: 'pull-left'-->
 / Como Funciona
-section#how-it-works
+section
   .secondary-bg-color.welcome-margin
     .container
-      .row
+      .row#how-it-works
         .col-xs-12.text-center
           h1.terciary-text Como funciona?
     .container.h-centralize-hiw
@@ -87,9 +87,9 @@ section#how-it-works
         .col-xs-12.col-sm-6.col-md-7.t-centralize
           blockquote
             p.terciary-text Você recebe nossa caixa com um mundo de surpresas e desfruta dos produtos, benefícios exclusivos e muita informação!
-section#plans.primary-bg-color-light
+section.primary-bg-color-light
   .container.welcome-margin
-    h1.header.text-light.text-center Nossos Planos
+    h1#plans.header.text-light.text-center Nossos Planos
     .container
       .row
         - @plans.each do |plan|
@@ -137,7 +137,7 @@ section#plans.primary-bg-color-light
           p As assinaturas serão renovadas automaticamente em caso de cancelamento, fale com a Cegonha.
 section#contact
   .container.welcome-margin-top
-    h1.header.text-light.text-center Fale com a Cegonha
+    h1#contacts.header.text-light.text-center Fale com a Cegonha
     .container.h-centralize
       .row
         .col-xs-12.col-sm-6.pull-left
