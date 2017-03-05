@@ -1,18 +1,18 @@
 @import "variables.scss";
 
 section#checkout {
-  background-color: $primary-color;
+  background-color: $primary-color-light;
   padding-bottom: 100px;
 
   .credit-cards {
     display: inline-flex;
     font-size: 3em;
     padding: 0;
-    
+
     i {
       margin: 0 5px;
     }
-    
+
   }
 }
 /* Non Credit Card Form - Token Area */
