@@ -299,7 +299,7 @@ section#contact {
   }
   .cloud-link{
         margin-top: 5%;
-    background-image: url('pricing-cloud.png');
+    background-image: image-url('../pricing-cloud.png');
     min-height: 430px;
     min-width: 320px;
     max-width: 320px;
@@ -334,7 +334,7 @@ section#contact {
     text-decoration:none;
       color:#008b45;
       margin-top: 5%;
-      background-image: url('pricing-cloud.png');
+      // background-image: url('public/pricing-cloud.png');
       min-height: 430px;
       min-width: 320px;
       max-width: 40%;
@@ -354,7 +354,7 @@ section#contact {
       text-decoration:none;
         color:#008b45;
         margin-top: 5%;
-        background-image: url('pricing-cloud.png');
+        // background-image: url('pricing-cloud.png');
         min-height: 430px;
         min-width: 320px;
         max-width: 50%;
