@@ -2,10 +2,18 @@
 
 @import "variables.scss";
 
+
+
 html, body {
   height: 100%;
   font-size: 16px;
   color: #fff;
+
+  ::selection {
+      background-color: $terciary-color;
+      color: #FFFFFF;
+  }
+
 }
 
 /*Usado em adição ao bootstrap para centralizar*/
@@ -205,15 +213,15 @@ select.form-control option {
 .rightize{
   margin-right: 20%;
 }
-.welcome-margin{
-  padding-top: 10% !important;
-  padding-bottom: 10% !important;
- }
-
-.welcome-margin-top{
-    padding-top: 10% !important;
-}
 
 .remove-padding{
       padding: 0 0 0 !important;
+}
+
+.margin-bottom-cloud{
+  padding-bottom: 6%;
+}
+.to-front{
+  position:relative;
+  z-index: 1;
 }
