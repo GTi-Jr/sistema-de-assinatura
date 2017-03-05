@@ -13,20 +13,24 @@ section#clouds
   .container.primary-text-light.welcome-margin
     .row.page-header-welcome
       h2 Nossos Produtos
-      span Nossa curadoria
+      .h-centralize
+        span.text-curadory Assine e receba produtos e serviços do mercado materno infantil selecionados com muito amor. Nossa curadoria escolhe o melhor para você, de acordo com seu momento da maternidade
     .row.features-welcome
       .col-lg-4.col-md-4.col-sm-4
         .feature-img
           = image_tag 'gestante.png', class: 'pull-left'
         h3 Gestantes
+        p Produtos e serviços especiais para as gravidinhas
       .col-lg-4.col-md-4.col-sm-4
         .feature-img
           = image_tag 'baby.png', class: 'pull-left'
-        h3 Recém-nascido
+        h3 Bebês
+        p Todo mês uma caixinha com o melhor para o seu bebê
       .col-lg-4.col-md-4.col-sm-4
         .feature-img
           = image_tag 'child.png', class: 'pull-left'
-      h3 Crianças até 5 anos
+        h3 Crianças até 5 anos
+        p E para pequenos, mensalmente uma surpresa cheia de amor
 
   <!--.container-fluid
     .row
@@ -116,9 +120,7 @@ section#plans.primary-bg-color-light
 
                   li.text-center.primary-text
                     h5 Frete grátis para Fortaleza
-                  .buy-btn.text-centerd(data-no-turbolink='')
-                    = link_to confirm_checkout_path(plan.identifier), class: 'btn btn-primary terciary-text' do
-                         . Desconto de  #{user_discount(current_user)}%*
+
                     end
       .row
         .col-xs-12

@@ -163,3 +163,52 @@ section#contact {
 
   // padding:
 }
+
+.page-header-welcome {
+    h2{
+      font-size: 3.4em;
+      margin-bottom: 5px;
+    }
+
+    span{
+      line-height: 1.0;
+      font-size: 24px;
+      font-weight: 300;
+      text-align: center;
+    }
+
+    padding-bottom: 1;
+    margin: 0 0 40px !important;
+    // border-bottom: none;
+    text-align: center;
+}
+
+.features-welcome{
+  margin: 0 0 0px;
+  // margin-right: 60px;
+  text-align: center;
+  .feature-img{
+    width: 100px;
+    height: 100px;
+        margin: 0 auto 20px;
+  }
+  h3{
+        margin-bottom: 25px;
+        color: $paragraph-color;
+        font-size: 26px;
+        margin: 0 auto 12px;
+  }
+
+
+
+  p{
+    color: $paragraph-color-light;
+    line-height: 1.0;
+    text-align: center;
+    max-width:  69%;
+    margin-left: 15%;
+    margin-right: 15%;
+    // max-width: 100px;
+  }
+
+}
