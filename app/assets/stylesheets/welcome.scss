@@ -313,7 +313,46 @@ section#contact {
 
   }
 
-  @media screen and (max-width: 550px){
+
+  @media screen and (max-width: 420px){
+
+    h2 {
+      font-size: 2.65em!important;
+  }
+
+
+  h2 {
+      font-size: 2.65em;
+      font-weight: 100;
+      margin-bottom: 20px;
+  }
+  h2, .h2 {
+      font-size: 30px;
+  }
+
+  .responsible-cloud{
+    margin-top: 3% !important;
+  }
+
+  .cloud-link{
+    text-decoration:none;
+      color:#008b45;
+      margin-top: 5%;
+      // background-image: url('public/pricing-cloud.png');
+      min-height: 430px;
+      // min-width: 320px;
+      min-width: 30%;
+      max-width: 94%;
+      margin-left: 3% !important;
+      margin-right: 3% !important;
+      // background-color: #000000;
+      background-repeat:no-repeat;
+  }
+
+  }
+
+
+  @media screen and (max-width: 550px) and (min-width: 420px){
 
     h2 {
       font-size: 2.65em!important;
