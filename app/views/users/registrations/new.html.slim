@@ -8,9 +8,9 @@ section#register-account
             = f.label :email
             = f.email_field :email, id: 'email', class: 'form-control', required: true
           .form-group.col-sm-6.col-xs-12
-            = f.label :password, 'Senha'
+            = f.label :password, 'Senha '
             - if @minimum_password_length
-              | (Pelo menos #{@minimum_password_length} caracteres)
+              | (Até #{@minimum_password_length} caracteres)
             = f.password_field :password, class: 'form-control'
           .form-group.col-sm-6.col-xs-12
             = f.label :password_confirmation, 'Confirmação da Senha'
@@ -33,4 +33,3 @@ section#register-account
       setTimeout(function() {
         toastr.warning('#{msg}')
       }, index * 800);
-

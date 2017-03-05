@@ -1,5 +1,5 @@
  section#login-page
-  .container
+  .container.margin-bottom-cloud
     .row
       .col-xs-12
         h1 Entrar
@@ -9,7 +9,7 @@
           .form-group.col-sm-4.col-xs-12
             = f.password_field :password, class: 'form-control', placeholder: 'Senha'
             h5.text-left
-              = link_to "Esqueceu sua senha?", new_password_path(resource_name), class: 'terciary-text'
+              = link_to "Esqueceu sua senha?", new_password_path(resource_name), class: 'secondary-text'
           .form-group.col-sm-2.col-xs-12.text-center
             = f.submit 'Entrar', class: 'btn btn-primary terciary-text'
         .text-center
@@ -19,4 +19,3 @@
           | Você ainda não é assinante?
         .col-xs-12.col-md-4
             = link_to 'Junte-se a nós!', new_user_registration_path, class: 'btn btn-primary terciary-text'
-
