@@ -104,6 +104,9 @@ section#how-it-works {
 
 section#plans {
   // padding: 65px 0;
+
+
+
 }
 
 section#contact {
@@ -154,34 +157,11 @@ section#contact {
   max-width: 100%;
 }
 
-.pricing-plan{
-  .body ul{
-    font-size: 1.0em;
-    // padding: 10px;
 
-  }
-  .cloud-band{
-        background-color: #EEE983;
-        max-height: 8%;
-        font-size: .60em;
-  }
-  .margin-bottom{
-    display: inline-block;
 
-    margin: 0 10px 20px 0;
-  }
-  // padding:
 
-}
 
-.cloud-link :hover{
 
-    // svg :hover{
-    //   background-color: yellow;
-    // }
-
-    // background-color: yellow;
-}
 
 .page-header-welcome {
     h2{
@@ -239,4 +219,68 @@ section#contact {
 
 .welcome-margin-top{
     padding-top: 6% !important;
+}
+
+.plans{
+
+  a:link
+  {
+  text-decoration:none;
+  color:#008b45;
+  }
+
+  a:hover
+  {
+  // margin-bottom: 3px solid #ff7400;
+  //     background:white;
+        margin-top: 0%;
+
+  }
+
+  a:visited
+  {
+  color:#ee9a00;
+  }
+  .cloud-link{
+        margin-top: 5%;
+    background-image: url('pricing-cloud.png');
+    min-height: 430px;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-repeat:no-repeat;
+
+
+  }
+
+
+
+  .pricing-plan{
+          padding-top: 10%;
+    ul{
+      font-size: 1.0em;
+      padding-left: 0 !important;
+
+    }
+    ul :before{
+      content: none;
+    }
+    .cloud-band{
+      margin-top: 12%;
+          // background-color: #EEE983;
+          max-height: 8%;
+          font-size: .60em;
+    }
+    .margin-bottom{
+      display: inline-block;
+
+      margin: 0 10px 20px 0;
+    }
+    // padding:
+    h2{
+      margin-left: 15%;
+      margin-right: 15%;
+      max-width: 70%;
+    }
+  }
+
 }
