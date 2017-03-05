@@ -1,7 +1,7 @@
 @import "variables.scss";
 
 section#profile {
-  background-color: $primary-color;
+  background-color: $primary-color-light;
   color: #fff;
   padding-bottom: 150px;
 
@@ -22,7 +22,7 @@ section#profile {
     border: 2px solid #fff;
     border-radius: 30px;
     margin: 10px 10px;
-    
+
     ul {
       padding: 0;
 
