@@ -277,7 +277,7 @@ section#contact {
   text-decoration:none;
     color:#008b45;
     margin-top: 5%;
-    background-image: url('pricing-cloud.png');
+    // background-image: url('pricing-cloud.png');
     min-height: 430px;
 
     margin-left: 2%;
@@ -301,7 +301,8 @@ section#contact {
         margin-top: 5%;
     // background-image: image-url('../pricing-cloud.png');
     // background-image: url(<%=asset_path "pricing-cloud.png"%>);
-    background-image: asset-data-url("pricing-cloud.png");
+    background-image: url(image-path('pricing-cloud.png'));
+    // background-image: asset-data-url("pricing-cloud.png");
     min-height: 430px;
     min-width: 320px;
     max-width: 320px;
