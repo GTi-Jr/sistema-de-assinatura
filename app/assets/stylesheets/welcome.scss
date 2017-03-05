@@ -104,7 +104,19 @@ section#how-it-works {
 
 section#plans {
   // padding: 65px 0;
+   @media screen and (max-width: 768px)
+    {
+      // .background-image-mobile{
+        // display: none !important;
+       .h-centralize{
+         margin-left: 8%;
+         margin-right: 8%;
+         max-width: 84%;
+         margin-top: 0;
 
+       }
+      //  }
+    }
 
 
 }
@@ -140,6 +152,43 @@ section#contact {
       color: white;
     }
   }
+
+  @media screen and (max-width: 768px)
+   {
+     // .background-image-mobile{
+       // display: none !important;
+      form {
+        margin-left: 8%;
+        margin-right: 8%;
+        max-width: 84%;
+        margin-top: 0;
+
+      }
+
+      .pull-left{
+        margin-left: 8%;
+        margin-right: 8%;
+        max-width: 84%;
+        margin-top: 0;
+        float: none !important;
+      }
+     //  }
+     .v-centralize{
+       margin-left: 8%;
+       margin-right: 8%;
+       max-width: 84%;
+      //  margin-top: 0;
+      //  float: none !important;
+      a{
+        margin-left: 4%;
+        margin-right: 4%;
+        max-width: 84%;
+      }
+      }
+      margin-bottom: 10%;
+   }
+
+
 }
 
 .welcome-login {
@@ -226,7 +275,14 @@ section#contact {
   a:link
   {
   text-decoration:none;
-  color:#008b45;
+    color:#008b45;
+    margin-top: 5%;
+    background-image: url('pricing-cloud.png');
+    min-height: 430px;
+
+    margin-left: 2%;
+    margin-right: 2%;
+    background-repeat:no-repeat;
   }
 
   a:hover
@@ -245,6 +301,8 @@ section#contact {
         margin-top: 5%;
     background-image: url('pricing-cloud.png');
     min-height: 430px;
+    min-width: 320px;
+    max-width: 320px;
     margin-left: 2%;
     margin-right: 2%;
     background-repeat:no-repeat;
@@ -252,8 +310,66 @@ section#contact {
 
   }
 
+  @media screen and (max-width: 550px){
+
+    h2 {
+      font-size: 2.65em!important;
+  }
 
 
+  h2 {
+      font-size: 2.65em;
+      font-weight: 100;
+      margin-bottom: 20px;
+  }
+  h2, .h2 {
+      font-size: 30px;
+  }
+
+  .responsible-cloud{
+    margin-top: 3% !important;
+  }
+
+  .cloud-link{
+    text-decoration:none;
+      color:#008b45;
+      margin-top: 5%;
+      background-image: url('pricing-cloud.png');
+      min-height: 430px;
+      min-width: 320px;
+      max-width: 40%;
+      margin-left: 15% !important;
+      margin-right: 40% !important;
+      // background-color: #000000;
+      background-repeat:no-repeat;
+  }
+
+  }
+
+
+
+  @media screen and (max-width: 767px) and (min-width: 550px) {
+
+      .cloud-link{
+      text-decoration:none;
+        color:#008b45;
+        margin-top: 5%;
+        background-image: url('pricing-cloud.png');
+        min-height: 430px;
+        min-width: 320px;
+        max-width: 50%;
+        margin-left: 25% !important;
+        margin-right: 25%;
+        // background-color: #000000;
+        background-repeat:no-repeat;
+      }
+  }
+
+  // @media screen and (max-width: 767px) {
+  //   .cloud-link{
+  //     background-color: #000000;
+  //   }
+  // }
   .pricing-plan{
           padding-top: 10%;
     ul{

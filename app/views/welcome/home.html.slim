@@ -46,10 +46,10 @@ section#clouds
       .col-md-4.hidden-xs.hidden-sm-->
     <!--    = image_tag 'nuvem-pequena.png', class: 'pull-left'-->
 / Como Funciona
-section
+section#how-it-works
   .secondary-bg-color.welcome-margin
     .container
-      .row#how-it-works
+      .row
         .col-xs-12.text-center
           h1.terciary-text Como funciona?
     .container.h-centralize-hiw
@@ -87,15 +87,15 @@ section
         .col-xs-12.col-sm-6.col-md-7.t-centralize
           blockquote
             p.terciary-text Você recebe nossa caixa com um mundo de surpresas e desfruta dos produtos, benefícios exclusivos e muita informação!
-section.primary-bg-color-light
+section#plans.header.primary-bg-color-light
   .container.welcome-margin
-    h1#plans.header.text-light.text-center Nossos Planos
+    h1#plans.headers.text-light.text-center Nossos Planos
     .container.plans
       .row
         - @plans.each do |plan|
 
           =link_to confirm_checkout_path(plan.identifier),class: "col-xs-12 col-sm-4 cloud-link",id: 'plans-list' do
-              .body.pricing-plan
+              .body.pricing-plan.responsible-cloud
                   ul
                     li.text-center
                       h2.primary-text= plan.name
