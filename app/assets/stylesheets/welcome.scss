@@ -83,6 +83,23 @@ section#clouds {
 
 section#how-it-works {
   // padding: 65px 0;
+
+  // padding: 65px 0;
+
+  @media screen and (max-width: 768px)
+  {
+    // .background-image-mobile{
+      // display: none !important;
+      .t-centralize{
+        margin-left: 8%;
+        margin-right: 8%;
+        max-width: 84%;
+        margin-top: 0;
+
+      }
+    //  }
+  }
+
 }
 
 section#plans {
