@@ -160,8 +160,27 @@ section#contact {
     // padding: 10px;
 
   }
+  .cloud-band{
+        background-color: #EEE983;
+        max-height: 8%;
+        font-size: .60em;
+  }
+  .margin-bottom{
+    display: inline-block;
 
+    margin: 0 10px 20px 0;
+  }
   // padding:
+
+}
+
+.cloud-link :hover{
+
+    // svg :hover{
+    //   background-color: yellow;
+    // }
+
+    // background-color: yellow;
 }
 
 .page-header-welcome {
