@@ -4,6 +4,8 @@ lock '3.6.1'
 
 
 
+#tutorial para consertar
+set :bundle_binstubs, nil
 
 
 set :application, 'caixa_cegonha'
@@ -13,7 +15,7 @@ set :user, 'deploy'
 set :deploy_to, '/home/deploy/caixa_cegonha'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, %w{ log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 set :keep_releases, 5
 set :rvm_type, :user
 #set :rvm_version, '1.27.0'
