@@ -2,7 +2,8 @@ class Iugu::CheckoutsController < ApplicationController
   skip_before_filter  :verify_authenticity_token
 
   before_action :authenticate_user!
-  before_action :block_actions
+  #apague essa linha para liberar
+  # before_action :block_actions
   before_action :set_plan, only: [:confirm_checkout, :checkout]
   before_action :set_subscription , only: [:suspend]
 
