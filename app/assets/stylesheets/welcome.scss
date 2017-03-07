@@ -424,7 +424,7 @@ section#contact {
   //   }
   // }
   .pricing-plan{
-          padding-top: 10%;
+          padding-top: 26%;
     ul{
       font-size: 1.0em;
       padding-left: 0 !important;
@@ -451,5 +451,42 @@ section#contact {
       max-width: 70%;
     }
   }
+
+}
+
+.cloud-imagem{
+      // margin-top: 5%;
+  // background-image: image-url('../pricing-cloud.png');
+  // background-image: url(<%=asset_path "pricing-cloud.png"%>);
+  background-image: url(image-path('pricing-cloud2.png'));
+  // background-image: asset-data-url("pricing-cloud.png");
+  min-height: 291px;
+  min-width: 317px;
+  max-width: 317px;
+  margin-left: 2%;
+  margin-right: 2%;
+  background-repeat:no-repeat;
+
+
+}
+.margin-cloud-confirmation{
+  padding-top: 22%;
+  padding-right: 10%;
+  ul :before{
+    content: none;
+  }
+
+  .pricing-text{
+    padding-top: 10%;
+  }
+
+  t-centralize{
+
+  }
+
+  // t-centralize{
+  //   margin-left: 20%;
+  //   max-width: 90%;
+  // }
 
 }
