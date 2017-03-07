@@ -44,7 +44,7 @@ class Iugu::Checkout
       subitems: [
         {
           description: 'Desconto',
-          price_cents: -(@plan.price_in_cents * @user.discount).to_i,
+          price_cents: -(@plan.price_in_cents * @user.discount/100).to_i,
           quantity: 1,
           recurrent: false
         }
