@@ -3,7 +3,7 @@ class Iugu::CheckoutsController < ApplicationController
 
   before_action :authenticate_user!
   #apague essa linha para liberar
-  before_action :block_actions
+  # before_action :block_actions
   before_action :set_plan, only: [:confirm_checkout, :checkout]
   before_action :set_subscription , only: [:suspend]
 
