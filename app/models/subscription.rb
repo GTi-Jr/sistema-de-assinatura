@@ -93,7 +93,7 @@ class Subscription < BaseModel
   # Retorna o objeto presente no banco de dados do Iugu. Caso não tenha,
   # retorna nil
   def iugu_object
-    @iugu_obj ||= Iugu::Subscription.fetch(subscription_id) if in_iugu?
+    @iugu_obj ||= Iugu::Subscription.fetch(iugu_id) if in_iugu?
   end
 
   # Altera o plano no qual a assinatura está atrelada. Tenta atualizar no Iugu
