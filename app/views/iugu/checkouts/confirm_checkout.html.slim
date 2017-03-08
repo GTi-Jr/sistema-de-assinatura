@@ -18,8 +18,11 @@ section#plans-listing
                 h3.primary-text
                   | #{@plan.duration} #{@plan.class.human_attribute_name(:months, count: @plan.duration.to_i)}
               li.text-center
+                p.primary-text
+                  strike
+                    | #{currency(@plan.price_per_month)} ao mês
                 h3.primary-text
-                  | #{currency(@plan.price_per_month)} ao mês
+                  | #{currency(discount(@plan.price_per_month, user_discount(current_user)))} ao mês
       .col-xs-12.col-sm-8
         .float-left
           = render 'iugu/checkouts/credit_card_form'

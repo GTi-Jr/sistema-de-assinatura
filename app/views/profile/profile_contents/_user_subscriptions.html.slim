@@ -21,8 +21,11 @@
                   h3.primary-text
                     | #{subscription.plan.duration} #{subscription.plan.class.human_attribute_name(:months, count: subscription.plan.duration.to_i)}
                 li.text-center
+                  p.primary-text
+                    strike
+                      | #{currency(subscription.plan.price_per_month)} ao mês
                   h3.primary-text
-                    | #{currency(subscription.plan.price_per_month)} ao mês
+                    | #{currency(discount(subscription.plan.price_per_month, user_discount(current_user)))} ao mês
                 li.text-center.terciary-text
                   | Status do pagamento
                   h5= Subscription.human_enum_name(:iugu_payment_status, subscription.iugu_payment_status)
