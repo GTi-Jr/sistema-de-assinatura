@@ -56,7 +56,8 @@ class User < ActiveRecord::Base
 
   def cancel_subscription(subscription)
     if subscriptions.include?(subscription)
-      subscription.cancel_with_paypal!
+      # subscription.cancel_with_paypal!
+      subscription.suspend!
     else
       false
     end
