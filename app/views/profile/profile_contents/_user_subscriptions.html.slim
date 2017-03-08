@@ -28,7 +28,7 @@
                   h5= Subscription.human_enum_name(:iugu_payment_status, subscription.iugu_payment_status)
               .text-center
                 = link_to 'Cancelar', confirm_cancellation_path(subscription.id), class: 'btn btn-primary terciary-text', data: { confirm: 'Tem certeza de que deseja cancelar seu plano?' }
-        h2.text-center Assinatura ##{subscription.id}
+        h2.text-center Dados do Bebê
         .col-xs-12.col-sm-8
           = form_for subscription, url: update_subscription_babies_path(subscription.id) do |f|
             = f.fields_for :baby do |baby_form|

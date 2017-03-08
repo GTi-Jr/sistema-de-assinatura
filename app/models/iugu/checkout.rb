@@ -15,7 +15,7 @@ class Iugu::Checkout
   end
 
   def due_day
-    @due_day || 10
+    @due_day || (Date.today + 5.days).day
   end
 
   def due_day=(day)

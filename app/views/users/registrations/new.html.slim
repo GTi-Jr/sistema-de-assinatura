@@ -10,7 +10,7 @@ section#register-account
           .form-group.col-sm-6.col-xs-12
             = f.label :password, 'Senha '
             - if @minimum_password_length
-              | (Até #{@minimum_password_length} caracteres)
+              |  (até #{@minimum_password_length} caracteres)
             = f.password_field :password, class: 'form-control'
           .form-group.col-sm-6.col-xs-12
             = f.label :password_confirmation, 'Confirmação da Senha'
