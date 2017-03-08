@@ -26,9 +26,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :after_registration
     elsif current_user.update(after_registration_params)
       current_user.subscribe_to_mailing_list
-      redirect_to plans_path, alert: 'Obrigada! Seu cadastro está completo e você garantiu ' +
-                                'seu desconto! Estamos muito felizes e em breve ' +
-                                'entraremos em contato para você escolher seu plano.'
+      # redirect_to plans_path, alert: 'Obrigada! Seu cadastro está completo e você garantiu ' +
+      #                           'seu desconto! Estamos muito felizes e em breve ' +
+      #                           'entraremos em contato para você escolher seu plano.'
+       redirect_to plans_path
     else
       current_user.errors.full_messages.each do |msg|
         @user.errors[:base] << msg
