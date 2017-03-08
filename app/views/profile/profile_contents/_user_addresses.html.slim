@@ -15,6 +15,7 @@
   - if user.addresses_full?
     h4.text-center Você atingiu o limite de endereços
   - else
+  - if user.addresses.count <= 0
     .col-xs-12.text-center
       / Aciona um modal
       = link_to 'Adicionar novo endereço', '#', class: 'btn btn-primary terciary-text', 'data-toggle' => 'modal', 'data-target' => '#new-address'
@@ -83,4 +84,3 @@
                   .form-group.col-xs-12.text-center
               .modal-footer
                 = f.submit 'Salvar', class: 'btn btn-primary terciary-text'
-
