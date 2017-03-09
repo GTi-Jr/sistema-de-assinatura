@@ -3,8 +3,8 @@ class UserMailer < ApplicationMailer
   def send_mail_to_admin(user)
     @user = user
     # mail to: 'contato@caixadacegonha.com.br',
-    mail to: 'lucas64_64@hotmail.com',
-    subject: "Usuário #{user.name} acaba de se cadastrar"
+    mail to: 'contato@caixadacegonha.com.br',
+    subject: "Usuário #{user.name} acaba de confirmar pagamento"
     # from: user.email
   end
 
