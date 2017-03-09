@@ -10,7 +10,8 @@ class ProfileController < ApplicationController
 
     @user_addresses = current_user.addresses.order('main DESC')
     @user_main_address = current_user.main_address
-    UserMailer.send_mail_to_user(current_user)
+    UserMailer.send_mail_to_user(current_user).deliver_now
+
   end
 
   def update
