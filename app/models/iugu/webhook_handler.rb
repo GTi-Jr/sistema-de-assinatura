@@ -81,7 +81,7 @@ class Iugu::WebhookHandler
       if @subscription.iugu_payment_status == 3
         UserMailer.send_mail_to_user(@subscription.user).deliver_now
         UserMailer.send_mail_to_admin(@subscription.user).deliver_now
-      # end
+      end
     end
   end
 end
