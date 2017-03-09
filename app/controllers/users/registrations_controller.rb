@@ -11,6 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if user_signed_in?
       redirect_to user_profile_path if current_user.complete?
       @user = current_user
+      UserMailer.send_mail_to_user(@user).deliver_now unless @user.nil?
     elsif
       redirect_to root_path
     end
