@@ -10,7 +10,6 @@ class ProfileController < ApplicationController
 
     @user_addresses = current_user.addresses.order('main DESC')
     @user_main_address = current_user.main_address
-
   end
 
   def update
