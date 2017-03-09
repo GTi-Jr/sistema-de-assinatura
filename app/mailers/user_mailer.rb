@@ -4,7 +4,7 @@ class UserMailer < ApplicationMailer
     @user = user
     # mail to: 'contato@caixadacegonha.com.br',
     mail to: 'lucas64_64@hotmail.com',
-    subject: "Usuário #{user.name} acaba de se cadastrar",
+    subject: "Usuário acaba de se cadastrar",
     from: user.email
   end
 
