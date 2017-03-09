@@ -14,7 +14,7 @@ class Iugu::CheckoutsController < ApplicationController
     iugu_checkout = Iugu::Checkout.new(@plan, current_user, params[:token])
 
     if iugu_checkout.create_subscription.errors.nil?
-      redirect_to user_profile_path, notice: "Seu plano foi assinado! Seu pagamento será processado até o próximo dia #{iugu_checkout.due_day}"
+      redirect_to user_profile_path, notice: "Seu plano foi assinado! Seu pagamento será processado até o próximo dia #{iugu_checkout.due_day}. Caso seu plano não aparecer em seu perfil, atualize a página"
     else
       redirect_to user_profile_path, alert: 'Não foi possível assinar'
     end
