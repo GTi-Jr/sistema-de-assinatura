@@ -28,11 +28,11 @@ section#profile
 
           /! Tab panes
           .tab-content
-            #home.tab-pane.fade.in.active
+            #home.tab-pane.fade
               = render 'profile/profile_contents/user_subscriptions', user: current_user
             #user_data.tab-pane.fade
               = render 'profile/profile_contents/user_data', user: current_user
-            #user_addresses.tab-pane.fade
+            #user_addresses.tab-pane.fade.in.active
               = render 'profile/profile_contents/user_addresses', user: current_user
 = content_for :head do
   = javascript_include_tag 'masks'
