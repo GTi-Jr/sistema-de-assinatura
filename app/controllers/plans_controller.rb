@@ -24,7 +24,7 @@ class PlansController < ApplicationController
     if current_user.cancel_subscription(@subscription)
       redirect_to user_profile_path, notice: 'Assinatura Cancelada'
     else
-      redirect_to user_profile_path, notice: "Houve um problema no cancelamento USER #{current_user.name} + SUB #{@subscription.iugu_id}"
+      redirect_to user_profile_path, notice: "Houve um problema no cancelamento"
     end
   end
 
