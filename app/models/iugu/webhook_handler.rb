@@ -75,8 +75,13 @@ class Iugu::WebhookHandler
     # Evento para quando o status de uma fatura referente a uma assinatura for
     # alterado.
     def invoice_status_changed(data)
+
       @subscription = ::Subscription.find_by(iugu_id: data[:subscription_id])
       @subscription.update(iugu_payment_status: data[:status])
+      # if data[:status] == 3
+        UserMailer.send_mail_to_user(@subscription.user).deliver_now
+        UserMailer.send_mail_to_admin(@subscription.user).deliver_now
+      # end
     end
   end
 end
