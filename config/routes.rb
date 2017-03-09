@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   default_url_options host: 'caixadacegonha.com.br'
 
   root 'welcome#home'
+  get '/termo_de_uso' => 'welcome#term_of_use', as: :term_of_use
+
 
   resources :users, only: [:new, :create]
 

@@ -13,4 +13,10 @@ class WelcomeController < ApplicationController
     ContactMailer.contact_email(params[:name], params[:email], params[:message]).deliver_now
     redirect_to :back, notice: 'Mensagem enviada!'
   end
+
+  def term_of_use
+    @new_user = User.new # Para formulário de cadastro
+    @plans    = Plan.order(:price) # Para mostrar os planos
+  end
+
 end

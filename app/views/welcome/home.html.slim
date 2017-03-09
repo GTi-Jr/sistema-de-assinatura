@@ -142,6 +142,8 @@ section#contact.welcome-margin-bottom
             h5.social.v-centralize
               a.fa.fa-facebook.tooltipped.text-light title="Facebook" href="https://www.facebook.com/caixadacegonha/" target="_blank"
               a.fa.fa-instagram.tooltipped.text-light title="Instagram" href="https://www.instagram.com/caixadacegonha/" target="_blank"
+          .col-xs-12
+              =link_to 'Termos e Condições', term_of_use_path ,class: "btn btn-primary terciary-text button-terms", target: :_blank
         .col-xs-12.col-sm-6.pull-right
           h4.text-light.pull-left Dúvida ou sugestão?
           = form_tag contact_form_path, class: 'feedback-form rightize'
