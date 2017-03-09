@@ -6,19 +6,19 @@ section#profile
         .col-lg-10.col-xs-12.col-centered
           /! Nav tabs
           ul.nav.nav-tabs.visible-xs
-            li
+            li.col-centered
               a data-toggle="tab" href="#user_addresses"
-                h5.text-light Meu endereço
+                h5.text-light Meus endereços
             li.active.col-centered
               a data-toggle="tab" href="#home"
                 h5.text-light Minhas assinaturas
             li.col-centered
               a data-toggle="tab" href="#user_data"
                 h5.text-light Meus dados
-            li.col-centered
-              a data-toggle="tab" href="#user_addresses"
-                h5.text-light Meus endereços
           ul.nav.nav-tabs.hidden-xs
+            li
+              a data-toggle="tab" href="#user_addresses"
+                h5.text-light Meu endereço
             li.active
               a data-toggle="tab" href="#home"
                 h5.text-light Minhas assinaturas
@@ -28,12 +28,11 @@ section#profile
 
           /! Tab panes
           .tab-content
-            #user_addresses.tab-pane.fade
-              = render 'profile/profile_contents/user_addresses', user: current_user
             #home.tab-pane.fade.in.active
               = render 'profile/profile_contents/user_subscriptions', user: current_user
             #user_data.tab-pane.fade
               = render 'profile/profile_contents/user_data', user: current_user
-
+            #user_addresses.tab-pane.fade
+              = render 'profile/profile_contents/user_addresses', user: current_user
 = content_for :head do
   = javascript_include_tag 'masks'
