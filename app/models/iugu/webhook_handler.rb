@@ -77,6 +77,10 @@ class Iugu::WebhookHandler
     def invoice_status_changed(data)
       @subscription = ::Subscription.find_by(iugu_id: data[:subscription_id])
       @subscription.update(iugu_payment_status: data[:status])
+      # if data[:status] == 3
+          UserMailer.send_mail_to_user(current_user).deliver_now
+          UserMailer.send_mail_to_admin(current_user).deliver_now
+      # end
     end
   end
 end
