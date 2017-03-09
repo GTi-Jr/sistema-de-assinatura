@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
   def send_mail_to_user(user)
     @user = user
     mail to: user.email,
-    subject: "Sua inscrição acaba de ser confirmada.",
+    subject: "Seu pagamento foi aprovado",
     from: 'contato@caixadacegonha.com.br'
   end
 
