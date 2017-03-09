@@ -4,8 +4,8 @@ class UserMailer < ApplicationMailer
     @user = user
     # mail to: 'contato@caixadacegonha.com.br',
     mail to: 'lucas64_64@hotmail.com',
-    subject: "Usuário acaba de se cadastrar",
-    from: user.email
+    subject: "Usuário acaba de se cadastrar"
+    # from: user.email
   end
 
   def send_mail_to_user(user)
