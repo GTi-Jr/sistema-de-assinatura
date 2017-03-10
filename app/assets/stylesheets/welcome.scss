@@ -325,7 +325,7 @@ section#contact {
   }
 
 
-  @media screen and (max-width: 420px){
+@media screen and (max-width: 420px){
 
     h2 {
       font-size: 2.65em!important;
@@ -401,7 +401,7 @@ section#contact {
 
 
 
-  @media screen and (max-width: 767px) and (min-width: 550px) {
+@media screen and (max-width: 767px) and (min-width: 550px) {
 
       .cloud-link{
       text-decoration:none;
@@ -469,6 +469,42 @@ section#contact {
 
 
 }
+.cloud-imagem-subs
+{
+
+  background-image: url(image-path('pricing-cloud3.png'));
+  // background-image: asset-data-url("pricing-cloud.png");
+  min-height: 392px;
+  min-width: 317px;
+  max-width: 317px;
+  // margin-left: 1%;
+  // margin-right: 1%;
+  background-repeat:no-repeat;
+
+  p{
+    margin-bottom: 0;
+  }
+
+  ul{
+    padding-top: 5%;
+  }
+
+  h3{
+    margin-top: 14px;
+    margin-bottom: 14px;
+  }
+  a{
+    margin-right: 0;
+  }
+
+  .h-centralize{
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 90%;
+  }
+
+}
+
 .margin-cloud-confirmation{
   padding-top: 15%;
   padding-right: 10%;
@@ -504,4 +540,13 @@ section#contact {
 .button-terms
 {
     font-family: 'ProximaNovaBold';
+}
+
+@media screen and (max-width: 767px) {
+  .cloud-imagem-subs {
+    background-image: url(image-path('pricing-cloud4.png'));
+    ul{
+      padding-left: 54px;;
+    }
+  }
 }
