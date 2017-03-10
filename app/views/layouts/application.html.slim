@@ -29,7 +29,7 @@ html
   - flash.each do |key, value|
     - if key == 'notice'
       javascript:
-        toastr.info("#{value}");
+        toastr.info("#{value}",{timeOut: 10000});
     - elsif key == 'alert'
       javascript:
-        toastr.warning("#{value}");
+        toastr.warning("#{value}",{timeOut: 10000});

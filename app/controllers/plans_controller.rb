@@ -21,7 +21,7 @@ class PlansController < ApplicationController
   end
 
   def unsubscribe
-    redirect_to user_profile_path, notice: "Para cancelar seu plano, entre em contato conosco por email ou por telefone."
+    redirect_to user_profile_path, alert: "Para cancelar seu plano, entre em contato conosco por email ou por telefone."
     # if current_user.cancel_subscription(@subscription)
     #   redirect_to user_profile_path, notice: 'Assinatura Cancelada'
     # else

@@ -1,7 +1,7 @@
 - if user.subscriptions.empty?
   .col-xs-12.text-center
-    h3 Já escolheu seu plano?
-    h4 Caso já tenha assinado seu plano, aguarde alguns segundos para a atualização dos dados
+    h3 Já escolheu o seu plano?
+    h4 Agora, aguarde alguns segundos para atualização dos dados.
     = link_to 'Veja nossos planos!', plans_path, class: 'btn btn-terciary btn-lg text-terciary'
 - else
   h2.text-center
@@ -21,7 +21,7 @@
                 li.text-center
                   h3.primary-text
                     | #{subscription.plan.duration} #{subscription.plan.class.human_attribute_name(:months, count: subscription.plan.duration.to_i)}
-                li.text-center
+                    li.text-center
                   p.primary-text
                     strike
                       | #{currency(subscription.plan.price_per_month)} ao mês
@@ -29,8 +29,8 @@
                     | #{currency(discount(subscription.plan.price_per_month, user_discount(current_user)))} ao mês
                 li.text-center.terciary-text.margin
                   /| Status do pagamento
-                  /h3= Subscription.human_enum_name(:iugu_payment_status, subscription.iugu_payment_status)
-                  h3. Pago
+                  h3= Subscription.human_enum_name(:iugu_payment_status, subscription.iugu_payment_status)
+                  /h3. Pago
                 .text-center
                   = link_to 'Cancelar', confirm_cancellation_path(subscription.id), class: 'btn btn-primary terciary-text button-terms', data: { confirm: 'Tem certeza de que deseja cancelar seu plano?' }
         h2.text-center Assinatura #{subscription.plan.name}
