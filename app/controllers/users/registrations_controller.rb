@@ -29,7 +29,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       # redirect_to plans_path, alert: 'Obrigada! Seu cadastro está completo e você garantiu ' +
       #                           'seu desconto! Estamos muito felizes e em breve ' +
       #                           'entraremos em contato para você escolher seu plano.'
-       redirect_to plans_path
+      #  redirect_to plans_path
+        redirect_to user_profile_path
     else
       current_user.errors.full_messages.each do |msg|
         @user.errors[:base] << msg
