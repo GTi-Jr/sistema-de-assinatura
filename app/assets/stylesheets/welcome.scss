@@ -325,7 +325,7 @@ section#contact {
   }
 
 
-@media screen and (max-width: 420px){
+@media screen and (max-width: 420px) and (min-width: 360px){
 
     h2 {
       font-size: 2.65em!important;
@@ -349,7 +349,7 @@ section#contact {
     text-decoration:none;
       color:#008b45;
       margin-top: 5%;
-      // background-image: url('public/pricing-cloud.png');
+      background-image: url('pricing-cloud4.png');
       min-height: 430px;
       // min-width: 320px;
       min-width: 30%;
@@ -362,6 +362,39 @@ section#contact {
 
   }
 
+@media screen and (max-width: 360px) and (min-width: 300px){
+  .cloud-link{
+    text-decoration:none;
+      color:#008b45;
+      margin-top: 5%;
+      background-image: url('pricing-cloud5.png');
+      min-height: 430px;
+      // min-width: 320px;
+      min-width: 30%;
+      max-width: 94%;
+      margin-left: 3% !important;
+      margin-right: 3% !important;
+      // background-color: #000000;
+      background-repeat:no-repeat;
+  }
+}
+
+@media screen and (max-width: 316px){
+  .cloud-link{
+    text-decoration:none;
+      color:#008b45;
+      margin-top: 5%;
+      background-image: url('pricing-cloud6.png');
+      min-height: 430px;
+      // min-width: 320px;
+      min-width: 30%;
+      max-width: 94%;
+      margin-left: 3% !important;
+      margin-right: 3% !important;
+      // background-color: #000000;
+      background-repeat:no-repeat;
+  }
+}
 
   @media screen and (max-width: 550px) and (min-width: 420px){
 
@@ -542,7 +575,15 @@ section#contact {
     font-family: 'ProximaNovaBold';
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) and (min-width: 360) {
+  .cloud-imagem-subs {
+    background-image: url(image-path('pricing-cloud4.png'));
+    ul{
+      padding-left: 54px;;
+    }
+  }
+}
+@media screen and (max-width: 360px) {
   .cloud-imagem-subs {
     background-image: url(image-path('pricing-cloud4.png'));
     ul{
